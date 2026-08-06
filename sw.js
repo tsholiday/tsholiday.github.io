@@ -6,11 +6,12 @@ const ASSETS_TO_CACHE = [
   '/script.js',
   '/logo.png',
   '/manifest.json',
-  '/assets/images/ciwidey.jpg',
-  '/assets/images/lembang.jpg',
-  '/assets/images/bandung.jpg',
-  '/assets/images/gallery1.jpg'
+  '/assets/image/ciwidey.jpg',
+  '/assets/image/lembang.jpg',
+  '/assets/image/bandung.jpg',
+  '/assets/image/gallery1.jpg'
 ];
+
 
 // Install Service Worker & Cache Assets
 self.addEventListener('install', (event) => {
