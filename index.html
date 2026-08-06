@@ -1,30 +1,8 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TSHoliday - PT Keepgoing TSH Indonesia</title>
-    
-    <!-- 1. FAVICON (Menggunakan logo.png) -->
-    <link rel="icon" type="image/png" href="logo.png">
-
-    <!-- Google Fonts & FontAwesome -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Swiper.js CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <!-- NAVBAR DENGAN LOGO GAMBAR -->
+    <!-- 1. NAVBAR (Kembali ke Teks Awal) -->
     <header id="navbar">
-        <a href="#home" class="logo-container">
-            <img src="logo.png" alt="TSHoliday Logo" class="brand-logo">
+        <a href="#home" class="logo">
+            TSHOLIDAY
+            <span>KEEPGOING TSH INDONESIA</span>
         </a>
         <nav class="nav-links">
             <a href="#home" class="nav-item active" data-id="Home" data-en="Home">Home</a>
@@ -44,19 +22,19 @@
         </div>
     </header>
 
-    <!-- 2. HERO SECTION DENGAN VIDEO BACKGROUND -->
+
+    <!-- 2. HERO SECTION (Logo Gambar di Tengah) -->
     <section class="hero" id="home">
-        <!-- Elemen Video dengan Atribut Wajib Auto-Play -->
         <video id="heroVideo" autoplay muted loop playsinline preload="auto" class="hero-video">
             <source src="hero.mp4" type="video/mp4">
-            Browser Anda tidak mendukung pemutaran video.
         </video>
         
-        <!-- Overlay Gelap -->
         <div class="hero-overlay"></div>
 
-        <!-- Konten Teks -->
         <div class="hero-content">
+            <!-- Gambar Logo di Tengah Atas Slogan -->
+            <img src="logo.png" alt="TSHoliday Logo" class="hero-center-logo">
+            
             <h1>"Don't Just Travel,<br>Keepgoing to the Extraordinary"</h1>
             <div class="hero-buttons">
                 <a href="#booking" class="btn-gold" data-id="Pesan Sekarang" data-en="Book Now">Pesan Sekarang</a>
