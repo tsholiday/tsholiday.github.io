@@ -1,3 +1,38 @@
+/* --- Tambahkan kode ini pada bagian NAVBAR di style.css --- */
+
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    margin-left: 1rem;
+}
+
+.lang-switcher span {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.3s;
+    padding: 2px 4px;
+}
+
+.lang-btn:hover, .lang-btn.active {
+    color: var(--accent);
+}
+
+
 /* Layout 3 Kolom Visi, Misi, Keunggulan & Fleet Grid */
 .about-grid-3, .fleet-grid {
     display: grid;
