@@ -2,11 +2,11 @@
 // PWA GALLERY LOAD MORE SYSTEM (158 PHOTOS)
 // ==========================================
 
-const galleryImages = [];
-const TOTAL_IMAGES = 158;
+const galleryimage = [];
+const TOTAL_image = 158;
 
-for (let i = 1; i <= TOTAL_IMAGES; i++) {
-    galleryImages.push({
+for (let i = 1; i <= TOTAL_image; i++) {
+    galleryimage.push({
         // Jalur folder diubah menjadi assets/image/gallery/
         src: `assets/image/gallery/gallery-${i}.jpg`,
         alt: `Dokumentasi TSHoliday Bandung #${i}`
@@ -24,7 +24,7 @@ const remainingCountSpan = document.getElementById('remainingCount');
 
 // 3. Fungsi Render Foto
 function renderGalleryItems() {
-    const nextItems = galleryImages.slice(currentIndex, currentIndex + ITEMS_PER_LOAD);
+    const nextItems = galleryimage.slice(currentIndex, currentIndex + ITEMS_PER_LOAD);
 
     nextItems.forEach(item => {
         const galleryItem = document.createElement('div');
@@ -43,13 +43,13 @@ function renderGalleryItems() {
     currentIndex += ITEMS_PER_LOAD;
 
     // Update jumlah sisa foto pada tombol
-    const remaining = TOTAL_IMAGES - currentIndex;
+    const remaining = TOTAL_image - currentIndex;
     if (remainingSpan()) {
         remainingCountSpan.textContent = remaining > 0 ? remaining : 0;
     }
 
     // Sembunyikan tombol jika semua 158 foto sudah tampil
-    if (currentIndex >= TOTAL_IMAGES) {
+    if (currentIndex >= TOTAL_image) {
         loadMoreBtn.style.display = 'none';
     }
 }
@@ -97,9 +97,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentZoom = 1;
 
     // Otomatis daftarkan semua gambar di paket, galeri, dan legalitas
-    const clickableImages = document.querySelectorAll('.card img, .gallery-grid img, .legality-img');
+    const clickableimage = document.querySelectorAll('.card img, .gallery-grid img, .legality-img');
 
-    clickableImages.forEach(img => {
+    clickableimage.forEach(img => {
         img.addEventListener('click', () => {
             modal.classList.add('show');
             modalImg.src = img.src;
