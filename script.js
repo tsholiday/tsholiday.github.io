@@ -1,136 +1,125 @@
-
-
-// Memaksa video hero diputar otomatis jika ditahan oleh browser
-const heroVideo = document.getElementById('heroVideo');
-if (heroVideo) {
-    heroVideo.play().catch(error => {
-        console.log("Autoplay ditahan oleh browser:", error);
-    });
-}
-
-
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. LANGUAGE SWITCHER (ID / EN)
-    const btnID = document.getElementById('btn-id');
-    const btnEN = document.getElementById('btn-en');
+    // ==========================================================================
+    // 1. MULTI-LANGUAGE SWITCHER (INDONESIA / ENGLISH)
+    // ==========================================================================
+    const btnId = document.getElementById('btn-id');
+    const btnEn = document.getElementById('btn-en');
 
+    // Fungsi untuk memperbarui bahasa pada seluruh elemen yang memiliki atribut data-id & data-en
     function switchLanguage(lang) {
+        // Ambil semua elemen yang memiliki atribut data-id dan data-en
         const translatableElements = document.querySelectorAll('[data-id][data-en]');
-        
+
         translatableElements.forEach(el => {
             if (lang === 'en') {
-                el.innerHTML = el.getAttribute('data-en');
+                el.textContent = el.getAttribute('data-en');
             } else {
-                el.innerHTML = el.getAttribute('data-id');
+                el.textContent = el.getAttribute('data-id');
             }
         });
 
+        // Perbarui status tombol aktif
         if (lang === 'en') {
-            btnEN.classList.add('active');
-            btnID.classList.remove('active');
+            btnEn.classList.add('active');
+            btnId.classList.remove('active');
+            localStorage.setItem('preferred_lang', 'en');
         } else {
-            btnID.classList.add('active');
-            btnEN.classList.remove('active');
+            btnId.classList.add('active');
+            btnEn.classList.remove('active');
+            localStorage.setItem('preferred_lang', 'id');
         }
     }
 
-    btnID.addEventListener('click', () => switchLanguage('id'));
-    btnEN.addEventListener('click', () => switchLanguage('en'));
+    // Event Listener untuk Tombol Bahasa
+    if (btnId && btnEn) {
+        btnId.addEventListener('click', () => switchLanguage('id'));
+        btnEn.addEventListener('click', () => switchLanguage('en'));
 
-    // 2. SMOOTH SCROLLING NAVIGASI
-    const links = document.querySelectorAll('a[href^="#"]');
-    links.forEach(link => {
-        link.addEventListener('click', function (e) {
+        // Cek bahasa pilihan pengguna yang tersimpan sebelumnya (Default: ID)
+        const savedLang = localStorage.getItem('preferred_lang') || 'id';
+        switchLanguage(savedLang);
+    }
+
+
+    // ==========================================================================
+    // 2. FORCE AUTO-PLAY HERO VIDEO
+    // ==========================================================================
+    const heroVideo = document.getElementById('heroVideo');
+    if (heroVideo) {
+        // Memastikan video langsung diputar otomatis
+        heroVideo.play().catch(error => {
+            console.log("Autoplay ditahan oleh browser, mencoba pemutaran ulang:", error);
+        });
+    }
+
+
+    // ==========================================================================
+    // 3. FORMULIR RESERVASI / BOOKING VIA WHATSAPP
+    // ==========================================================================
+    const whatsappForm = document.getElementById('whatsappForm');
+
+    if (whatsappForm) {
+        whatsappForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
 
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                const headerOffset = 70;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            // Nomor WhatsApp Resmi PT Keepgoing TSH Indonesia
+            const phoneNumber = "6282130640161";
 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
+            // Ambil data dari inputan formulir
+            const name = document.getElementById('bookingName').value.trim();
+            const service = document.getElementById('bookingService').value;
+            const date = document.getElementById('bookingDate').value;
+            const guests = document.getElementById('bookingGuests').value;
+            const notes = document.getElementById('bookingNotes').value.trim();
+
+            // Susun format pesan WhatsApp
+            let message = `Halo TSHoliday, saya ingin melakukan reservasi tour/armada:\n\n`;
+            message += `*Nama Lengkap:* ${name}\n`;
+            message += `*Layanan / Paket:* ${service}\n`;
+            message += `*Tanggal Keberangkatan:* ${date}\n`;
+            message += `*Jumlah Peserta:* ${guests} Orang\n`;
+            
+            if (notes !== "") {
+                message += `*Catatan Tambahan:* ${notes}\n`;
             }
-        });
-    });
 
-    // 3. NAVBAR SCROLL EFFECT
-    const navbar = document.getElementById('navbar');
+            message += `\nMohon informasi ketersediaan dan rincian penawarannya. Terima kasih!`;
+
+            // Encode karakter teks ke URL format
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+            // Buka link WhatsApp di tab baru
+            window.open(whatsappURL, '_blank');
+        });
+    }
+
+
+    // ==========================================================================
+    // 4. ACTIVE NAVBAR LINK HIGHLIGHT ON SCROLL
+    // ==========================================================================
+    const sections = document.querySelectorAll('section, footer');
+    const navItems = document.querySelectorAll('.nav-item');
+
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
+        let currentSection = '';
 
-    // 4. SWIPER AUTOMATIC SLIDER FOR TESTIMONI
-    const swiper = new Swiper('.testimoni-slider', {
-        loop: true,
-        autoplay: {
-            delay: 4000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-    });
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 120;
+            const sectionHeight = section.clientHeight;
 
-    // 5. FAQ TOGGLE
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        question.addEventListener('click', () => {
-            item.classList.toggle('active');
-        });
-    });
-
-    // 6. INTERSECTION OBSERVER (FADE IN)
-    const fadeInSections = document.querySelectorAll('.fade-in-section');
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
+            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                currentSection = section.getAttribute('id');
             }
         });
-    }, { threshold: 0.1 });
 
-    fadeInSections.forEach(section => {
-        observer.observe(section);
+        navItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('href') === `#${currentSection}`) {
+                item.classList.add('active');
+            }
+        });
     });
-
-     // 7. FORM BOOKING DIRECT TO WHATSAPP
-    const bookingForm = document.getElementById('bookingForm');
-    bookingForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const nama = document.getElementById('nama').value;
-        const whatsapp = document.getElementById('whatsapp').value;
-        const tanggal = document.getElementById('tanggal').value;
-        const peserta = document.getElementById('peserta').value;
-        const tujuan = document.getElementById('tujuan').value;
-
-        // Nomor WhatsApp Resmi PT Keepgoing TSH Indonesia
-        const adminWA = "6282130640161"; 
-
-        const pesan = `Halo Admin TSHoliday, saya ingin reservasi perjalanan:%0A%0A` +
-                      `*Nama:* ${nama}%0A` +
-                      `*No. WA:* ${whatsapp}%0A` +
-                      `*Tanggal Perjalanan:* ${tanggal}%0A` +
-                      `*Jumlah Peserta:* ${peserta} Orang%0A` +
-                      `*Tujuan/Paket:* ${tujuan}%0A%0A` +
-                      `Mohon info ketersediaan unit dan total harganya. Terima kasih!`;
-
-        window.open(`https://wa.me/${adminWA}?text=${pesan}`, '_blank');
-    });
-
 
 });
