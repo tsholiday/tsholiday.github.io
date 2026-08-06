@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TSHoliday - PT Keepgoing TSH Indonesia</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+
     <!-- Google Fonts & FontAwesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,9 +23,14 @@
 
     <!-- 1. NAVBAR -->
     <header id="navbar">
-        <div class="logo">
-            TSHOLIDAY
-            <span>KEEPGOING TSH INDONESIA</span>
+        <div class="logo-container">
+            <a href="#home">
+                <img src="logo.png" alt="TSHoliday Logo" class="nav-logo">
+            </a>
+            <div class="logo-text">
+                TSHOLIDAY
+                <span>KEEPGOING TSH INDONESIA</span>
+            </div>
         </div>
 
         <nav class="nav-links" id="navLinks">
@@ -51,8 +59,13 @@
         </div>
     </header>
 
-    <!-- 2. HERO SECTION -->
+    <!-- 2. HERO SECTION WITH VIDEO BACKGROUND -->
     <section class="hero" id="home">
+        <video autoplay loop muted playsinline class="hero-video">
+            <source src="hero.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>"Don't Just Travel,<br>Keepgoing to the Extraordinary"</h1>
             <div class="hero-buttons">
@@ -108,7 +121,7 @@
         </div>
         <div class="grid-cards">
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Ciwidey">
+                <img src="assets/images/ciwidey.jpg" alt="Ciwidey Tour">
                 <div class="card-body">
                     <h3>Ciwidey Tour</h3>
                     <p data-id="Nikmati Kawah Putih, Perkebunan Teh Rancabali, dan Glamping Lakeside dalam perjalanan sejuk dan menenangkan."
@@ -119,7 +132,7 @@
                 </div>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80" alt="Lembang">
+                <img src="assets/images/lembang.jpg" alt="Lembang Escape">
                 <div class="card-body">
                     <h3>Lembang Escape</h3>
                     <p data-id="Eksplorasi destinasi favorit keluarga seperti Tangkuban Perahu, Farmhouse, dan The Lodge Maribaya."
@@ -130,7 +143,7 @@
                 </div>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?auto=format&fit=crop&w=600&q=80" alt="Bandung City Tour">
+                <img src="assets/images/bandung.jpg" alt="Bandung City Tour">
                 <div class="card-body">
                     <h3>Bandung City Tour</h3>
                     <p data-id="Keliling landmark bersejarah Gedung Sate, Jalan Asia Afrika, hingga pusat kuliner dan wisata belanja."
@@ -141,7 +154,7 @@
                 </div>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&w=600&q=80" alt="Custom Tour">
+                <img src="assets/images/gallery1.jpg" alt="Custom Tour">
                 <div class="card-body">
                     <h3>Custom Tour</h3>
                     <p data-id="Rancang sendiri destinasi dan durasi perjalanan sesuai kebutuhan acara keluarga, gathering, atau instansi."
@@ -160,6 +173,32 @@
             <h2 data-id="Pilihan Armada" data-en="Our Fleet">Pilihan Armada</h2>
         </div>
         <div class="grid-cards">
+            <!-- Armada Kecil & MPV -->
+            <div class="cardfleet">
+                <i class="fas fa-car fleet-icon"></i>
+                <h3>Toyota Avanza</h3>
+                <p data-id="Kapasitas 5-6 Seat. Hemat, lincah, dan sangat cocok untuk perjalanan keluarga kecil atau keperluan bisnis pendek."
+                   data-en="5-6 Seats capacity. Economical, nimble, perfect for small family trips or short business needs.">
+                   Kapasitas 5-6 Seat. Hemat, lincah, dan sangat cocok untuk perjalanan keluarga kecil atau keperluan bisnis pendek.
+                </p>
+            </div>
+            <div class="cardfleet">
+                <i class="fas fa-car-side fleet-icon"></i>
+                <h3>Toyota Innova Diesel</h3>
+                <p data-id="Kapasitas 6-7 Seat. Tangguh, suspensi nyaman, dan mesin bertenaga untuk perjalanan jarak jauh."
+                   data-en="6-7 Seats capacity. Tough, comfortable suspension, and powerful engine for long trips.">
+                   Kapasitas 6-7 Seat. Tangguh, suspensi nyaman, dan mesin bertenaga untuk perjalanan jarak jauh.
+                </p>
+            </div>
+            <div class="cardfleet">
+                <i class="fas fa-car-rear fleet-icon"></i>
+                <h3>Toyota Zenix</h3>
+                <p data-id="Kapasitas 6-7 Seat. Mewah, modern, kabin senyap, serta teknologi hybrid untuk kenyamanan ekstra eksklusif."
+                   data-en="6-7 Seats capacity. Luxurious, modern, quiet cabin, and hybrid technology for extra exclusive comfort.">
+                   Kapasitas 6-7 Seat. Mewah, modern, kabin senyap, serta teknologi hybrid untuk kenyamanan ekstra eksklusif.
+                </p>
+            </div>
+            <!-- Armada Microbus & Bus -->
             <div class="cardfleet">
                 <i class="fas fa-van-shuttle fleet-icon"></i>
                 <h3>Toyota HiAce</h3>
@@ -201,45 +240,111 @@
             <h2 data-id="Galeri Perjalanan" data-en="Travel Gallery">Galeri Perjalanan</h2>
         </div>
         <div class="gallery-grid">
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Galeri 1">
-            <img src="https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?auto=format&fit=crop&w=600&q=80" alt="Galeri 2">
-            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80" alt="Galeri 3">
-            <img src="https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&w=600&q=80" alt="Galeri 4">
+            <img src="assets/images/ciwidey.jpg" alt="Galeri 1">
+            <img src="assets/images/lembang.jpg" alt="Galeri 2">
+            <img src="assets/images/bandung.jpg" alt="Galeri 3">
+            <img src="assets/images/gallery1.jpg" alt="Galeri 4">
             <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Galeri 5">
             <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=600&q=80" alt="Galeri 6">
         </div>
     </section>
 
-    <!-- 7. TESTIMONI -->
+    <!-- 7. TESTIMONI (10 TESTIMONI MULTI-NEGARA) -->
     <section id="testimoni" class="fade-in-section">
         <div class="section-title">
             <h2 data-id="Apa Kata Mereka?" data-en="What They Say">Apa Kata Mereka?</h2>
         </div>
         <div class="swiper testimoni-slider">
             <div class="swiper-wrapper">
+                <!-- 1. Malaysia -->
                 <div class="swiper-slide testimoni-card">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p data-id="&quot;Pelayanan TSHoliday luar biasa! Armada HiAce-nya bersih banget, driver ramah dan paham rute bebas macet di Bandung.&quot;"
-                       data-en="&quot;TSHoliday service was amazing! The HiAce fleet was super clean, the driver was friendly and knew traffic-free routes in Bandung.&quot;">
-                       "Pelayanan TSHoliday luar biasa! Armada HiAce-nya bersih banget, driver ramah dan paham rute bebas macet di Bandung."
+                    <p data-id="&quot;Sangat puas hati melancong ke Bandung dengan TSHoliday. Kereta Zenix selesa, pemandu ramah dan membantu kami cari tempat makan halal best!&quot;"
+                       data-en="&quot;Extremely satisfied traveling to Bandung with TSHoliday. The Zenix car was comfortable, the driver was friendly and helped us find great halal food!&quot;">
+                       "Sangat puas hati melancong ke Bandung dengan TSHoliday. Kereta Zenix selesa, pemandu ramah dan membantu kami cari tempat makan halal best!"
                     </p>
-                    <h4>— Bpk. Hendra (Jakarta)</h4>
+                    <h4>— Encik Azman & Keluarga (Kuala Lumpur, Malaysia 🇲🇾)</h4>
                 </div>
+                <!-- 2. Singapore -->
                 <div class="swiper-slide testimoni-card">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p data-id="&quot;Acara gathering kantor kami ke Ciwidey sukses besar. Pelayanan tepat waktu dan mobil nyaman sampai ke lokasi.&quot;"
-                       data-en="&quot;Our corporate gathering to Ciwidey was a huge success. Punctual service and comfortable vehicle all the way.&quot;">
-                       "Acara gathering kantor kami ke Ciwidey sukses besar. Pelayanan tepat waktu dan mobil nyaman sampai ke lokasi."
+                    <p data-id="&quot;Smooth experience from booking to tour day. The HiAce was super clean and comfortable for our weekend escape to Lembang.&quot;"
+                       data-en="&quot;Smooth experience from booking to tour day. The HiAce was super clean and comfortable for our weekend escape to Lembang.&quot;">
+                       "Smooth experience from booking to tour day. The HiAce was super clean and comfortable for our weekend escape to Lembang."
                     </p>
-                    <h4>— Ibu Rina (PT Kirana Jaya)</h4>
+                    <h4>— Sarah Lin (Singapore 🇸🇬)</h4>
                 </div>
+                <!-- 3. Brunei -->
                 <div class="swiper-slide testimoni-card">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p data-id="&quot;Respon tim WhatsApp sangat cepat saat konsultasi Custom Tour. Sangat merekomendasikan TSHoliday!&quot;"
-                       data-en="&quot;WhatsApp team response was very fast during Custom Tour consultation. Highly recommend TSHoliday!&quot;">
-                       "Respon tim WhatsApp sangat cepat saat konsultasi Custom Tour. Sangat merekomendasikan TSHoliday!"
+                    <p data-id="&quot;Pelayanan layanan bertaraf lima bintang! Driver sangat tepati masa dan suasananya amat mesra keluarga.&quot;"
+                       data-en="&quot;Five-star service quality! Driver was very punctual and the atmosphere was extremely family-friendly.&quot;">
+                       "Pelayanan layanan bertaraf lima bintang! Driver sangat tepati masa dan suasananya amat mesra keluarga."
                     </p>
-                    <h4>— Danang & Keluarga</h4>
+                    <h4>— Hj. Md Suffian (Bandar Seri Begawan, Brunei 🇧🇳)</h4>
+                </div>
+                <!-- 4. Vietnam -->
+                <div class="swiper-slide testimoni-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p data-id="&quot;Great service! We booked the custom tour to Ciwidey. Everything was well arranged and stress-free.&quot;"
+                       data-en="&quot;Great service! We booked the custom tour to Ciwidey. Everything was well arranged and stress-free.&quot;">
+                       "Great service! We booked the custom tour to Ciwidey. Everything was well arranged and stress-free."
+                    </p>
+                    <h4>— Nguyen Minh Tri (Ho Chi Minh City, Vietnam 🇻🇳)</h4>
+                </div>
+                <!-- 5. Jakarta -->
+                <div class="swiper-slide testimoni-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p data-id="&quot;Sewa Innova Diesel buat liburan keluarga di Bandung. Mobilnya bersih, wangi, dan driver paham jalan-jalan tikus bebas macet!&quot;"
+                       data-en="&quot;Rented Innova Diesel for family vacation in Bandung. Car was clean, fresh, and the driver knew traffic-free shortcut routes!&quot;">
+                       "Sewa Innova Diesel buat liburan keluarga di Bandung. Mobilnya bersih, wangi, dan driver paham jalan-jalan tikus bebas macet!"
+                    </p>
+                    <h4>— Bpk. Hendra Prasetya (Jakarta 🇮🇩)</h4>
+                </div>
+                <!-- 6. Surabaya -->
+                <div class="swiper-slide testimoni-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p data-id="&quot;Acara gathering kantor kami sukses besar pakai Coaster Bus TSHoliday. On time dan pelayanannya top banget.&quot;"
+                       data-en="&quot;Our office gathering was a huge success using TSHoliday's Coaster Bus. On time and top notch service.&quot;">
+                       "Acara gathering kantor kami sukses besar pakai Coaster Bus TSHoliday. On time dan pelayanannya top banget."
+                    </p>
+                    <h4>— Ibu Rina Indah (Surabaya 🇮🇩)</h4>
+                </div>
+                <!-- 7. Medan -->
+                <div class="swiper-slide testimoni-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p data-id="&quot;Sewa Avanza buat trip singkat bisnis & jalan-jalan. Harganya ramah dikantong tapi kualitas pelayanannya mewah!&quot;"
+                       data-en="&quot;Rented Avanza for a short business & leisure trip. Affordable price yet luxurious service quality!&quot;">
+                       "Sewa Avanza buat trip singkat bisnis & jalan-jalan. Harganya ramah dikantong tapi kualitas pelayanannya mewah!"
+                    </p>
+                    <h4>— Danang Wijaya (Medan 🇮🇩)</h4>
+                </div>
+                <!-- 8. Makassar -->
+                <div class="swiper-slide testimoni-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p data-id="&quot;Sangat merekomendasikan TSHoliday! Admin fast respon di WhatsApp dan itinerary city tour-nya disusun rapi.&quot;"
+                       data-en="&quot;Highly recommend TSHoliday! Admin was super fast responding on WhatsApp and city tour itinerary was well planned.&quot;">
+                       "Sangat merekomendasikan TSHoliday! Admin fast respon di WhatsApp dan itinerary city tour-nya disusun rapi."
+                    </p>
+                    <h4>— Andi Tenri (Makassar 🇮🇩)</h4>
+                </div>
+                <!-- 9. Bali -->
+                <div class="swiper-slide testimoni-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p data-id="&quot;Paket Lembang Escape-nya seru banget! Driver ramah dan serasa punya tour guide pribadi selama di Bandung.&quot;"
+                       data-en="&quot;The Lembang Escape package was so fun! Friendly driver and felt like having a personal tour guide in Bandung.&quot;">
+                       "Paket Lembang Escape-nya seru banget! Driver ramah dan serasa punya tour guide pribadi selama di Bandung."
+                    </p>
+                    <h4>— Made Artawa (Bali 🇮🇩)</h4>
+                </div>
+                <!-- 10. Yogyakarta -->
+                <div class="swiper-slide testimoni-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p data-id="&quot;Sewa Toyota Zenix untuk tamu penting kantor. Sangat berkelas, bersih, dan impresi tamu kami sangat memuaskan.&quot;"
+                       data-en="&quot;Rented Toyota Zenix for VIP company guests. Very classy, clean, and our guests were extremely satisfied.&quot;">
+                       "Sewa Toyota Zenix untuk tamu penting kantor. Sangat berkelas, bersih, dan impresi tamu kami sangat memuaskan."
+                    </p>
+                    <h4>— Bpk. Setyo Utomo (Yogyakarta 🇮🇩)</h4>
                 </div>
             </div>
             <div class="swiper-pagination"></div>
@@ -252,6 +357,17 @@
             <h2>Frequently Asked Questions</h2>
         </div>
         <div class="faq-container">
+            <!-- FAQ Paling Awal Mengenai Harga -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span data-id="Berapa harga sewa kendaraan paling murah di TSHoliday?" data-en="What is the lowest rental price at TSHoliday?">Berapa harga sewa kendaraan paling murah di TSHoliday?</span> 
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer" data-id="Harga sewa kendaraan kecil (seperti Toyota Avanza) kami tawarkan sangat terjangkau, mulai dari Rp500.000 per kendaraan!" data-en="Our smallest vehicle rental (such as Toyota Avanza) starts at a very affordable price, starting from IDR 500,000 per vehicle!">
+                    Harga sewa kendaraan kecil (seperti Toyota Avanza) kami tawarkan sangat terjangkau, mulai dari Rp500.000 per kendaraan!
+                </div>
+            </div>
+
             <div class="faq-item">
                 <div class="faq-question">
                     <span data-id="Bagaimana cara melakukan reservasi armada / paket tour?" data-en="How to book a fleet or tour package?">Bagaimana cara melakukan reservasi armada / paket tour?</span> 
@@ -261,6 +377,7 @@
                     Kamu cukup mengisi form booking di bawah atau langsung klik tombol WhatsApp untuk terhubung dengan customer service kami.
                 </div>
             </div>
+
             <div class="faq-item">
                 <div class="faq-question">
                     <span data-id="Apakah harga yang tertera sudah termasuk BBM & Driver?" data-en="Does the price include fuel and driver?">Apakah harga yang tertera sudah termasuk BBM & Driver?</span> 
@@ -270,6 +387,7 @@
                     Ya, sebagian besar paket kustom kami sudah mencakup unit, driver, dan BBM. Rincian detail akan dilampirkan dalam penawaran resmi.
                 </div>
             </div>
+
             <div class="faq-item">
                 <div class="faq-question">
                     <span data-id="Apakah bisa custom jadwal dan destinasi sendiri?" data-en="Can I customize my own schedule and itinerary?">Apakah bisa custom jadwal dan destinasi sendiri?</span> 
@@ -294,7 +412,7 @@
             </div>
             <div class="form-group">
                 <label for="whatsapp"><i class="fab fa-whatsapp"></i> <span data-id="Nomor WhatsApp" data-en="WhatsApp Number">Nomor WhatsApp</span></label>
-                <input type="tel" id="whatsapp" data-id-placeholder="Contoh: 08123456789" data-en-placeholder="e.g. +628123456789" placeholder="Contoh: 08123456789" required>
+                <input type="tel" id="whatsapp" data-id-placeholder="Contoh: 082130640161" data-en-placeholder="e.g. +6282130640161" placeholder="Contoh: 082130640161" required>
             </div>
             <div class="form-row">
                 <div class="form-group">
@@ -310,11 +428,13 @@
                 <label for="tujuan"><i class="fas fa-map-marker-alt"></i> <span data-id="Tujuan / Paket Wisata" data-en="Destination / Package">Tujuan / Paket Wisata</span></label>
                 <select id="tujuan" required>
                     <option value="" data-id="-- Pilih Tujuan / Paket --" data-en="-- Select Destination / Package --">-- Pilih Tujuan / Paket --</option>
+                    <option value="Sewa Toyota Avanza" data-id="Sewa Toyota Avanza (Mulai 500rb)" data-en="Rent Toyota Avanza (From 500k)">Sewa Toyota Avanza (Mulai 500rb)</option>
+                    <option value="Sewa Toyota Innova Diesel" data-id="Sewa Toyota Innova Diesel" data-en="Rent Toyota Innova Diesel">Sewa Toyota Innova Diesel</option>
+                    <option value="Sewa Toyota Zenix" data-id="Sewa Toyota Zenix" data-en="Rent Toyota Zenix">Sewa Toyota Zenix</option>
                     <option value="Paket Ciwidey" data-id="Paket Ciwidey" data-en="Ciwidey Tour Package">Paket Ciwidey</option>
                     <option value="Paket Lembang" data-id="Paket Lembang" data-en="Lembang Escape Package">Paket Lembang</option>
                     <option value="Bandung City Tour" data-id="Bandung City Tour" data-en="Bandung City Tour">Bandung City Tour</option>
-                    <option value="Sumba / Labuan Bajo Luxury Tour" data-id="Sumba / Labuan Bajo Luxury Tour" data-en="Sumba / Labuan Bajo Luxury Tour">Sumba / Labuan Bajo Luxury Tour</option>
-                    <option value="Sewa Armada (HiAce/Elf/Bus)" data-id="Sewa Armada (HiAce/Elf/Bus)" data-en="Fleet Rental Only (HiAce/Elf/Bus)">Sewa Armada (HiAce/Elf/Bus)</option>
+                    <option value="Sewa HiAce / Elf / Bus" data-id="Sewa HiAce / Elf / Bus" data-en="Fleet Rental (HiAce/Elf/Bus)">Sewa HiAce / Elf / Bus</option>
                     <option value="Custom Tour" data-id="Custom Tour" data-en="Custom Tour">Custom Tour</option>
                 </select>
             </div>
@@ -331,15 +451,19 @@
                 <h4>PT KEEPGOING TSH INDONESIA</h4>
                 <p>"Don't Just Travel, Keepgoing to the Extraordinary"</p>
                 <div class="social-links">
-                    <a href="https://wa.me/6281234567890" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://wa.me/6282130640161" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://instagram.com/tsholiday.id" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://facebook.com/tsholidaybandung" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://tiktok.com/@tsholiday" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
             <div class="footer-col">
                 <h4 data-id="Informasi Kontak" data-en="Contact Information">Informasi Kontak</h4>
-                <p><i class="fab fa-whatsapp"></i> WhatsApp: +62 812-3456-7890</p>
-                <p><i class="far fa-envelope"></i> Email: info@tsholiday.com</p>
+                <p><i class="fab fa-whatsapp"></i> WhatsApp: +62 821-3064-0161</p>
+                <p><i class="far fa-envelope"></i> Email: tsholidaybandung@gmail.com</p>
+                <p><i class="fab fa-instagram"></i> Instagram: @tsholiday.id</p>
+                <p><i class="fab fa-facebook"></i> Facebook: tsholiday bandung</p>
+                <p><i class="fab fa-tiktok"></i> TikTok: @tsholiday</p>
                 <p><i class="fas fa-map-pin"></i> Bandung, Jawa Barat - Indonesia</p>
             </div>
             <div class="footer-col">
