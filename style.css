@@ -1,199 +1,174 @@
-
-/* Terapkan variabel ke elemen */
-body {
-    background-color: var(--bg-main) !important;
-    color: var(--text-color) !important;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Card, Section, & Navbar di Dark Mode */
-.about-card, .info-card, .package-card, .fleet-card, #navbar {
-    background-color: var(--bg-card);
-    color: var(--text-color);
-    border-color: var(--border-color);
-}
-
-
-
-/* Penerapan Variabel ke Elemen Umum */
-body {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.about-card, .info-card {
-    background-color: var(--card-bg);
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
-}
-
-/* Styling Tombol Theme Toggle */
-.header-controls {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.theme-btn {
-    background: none;
-    border: none;
-    color: var(--warm-gold);
-    font-size: 1.2rem;
-    cursor: pointer;
-    padding: 5px;
-    transition: transform 0.3s ease;
-}
-
-.theme-btn:hover {
-    transform: scale(1.15) rotate(15deg);
-}
-
-
-/* --- Styling Logo Center di Hero Section --- */
-.hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.hero-center-logo {
-    height: 90px; /* Ukuran logo di tengah (bisa disesuaikan 80px - 110px) */
-    width: auto;
-    object-fit: contain;
-    margin-bottom: 1.5rem; /* Jarak antara logo dan teks slogan */
-    filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.5)); /* Efek bayangan halus */
-}
-
-/* Penyesuaian Responsif di Layar HP */
-@media (max-width: 768px) {
-    .hero-center-logo {
-        height: 70px;
-        margin-bottom: 1rem;
-    }
-}
-
-
-/* --- Styling Logo Navbar (Ukuran Sedang / Proporsional) --- */
-.logo-container {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-
-.brand-logo {
-    height: 38px; /* Ukuran pas: tidak terlalu besar & tidak kekecilan */
-    width: auto;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-}
-
-.brand-logo:hover {
-    transform: scale(1.04);
-}
-
-/* Penyesuaian di layar HP / Mobile */
-@media (max-width: 768px) {
-    .brand-logo {
-        height: 32px; /* Tetap seimbang di layar handphone */
-    }
-}
-
-
-
-
+/* ==========================================================================
+   1. RESET & BASE STYLES
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-:root {
-    --primary: #0a192f;
-    --accent: #d4af37;
-    --accent-hover: #aa8625;
-    --light-bg: #f8fafc;
-    --text-dark: #1e293b;
-    --text-light: #f8fafc;
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Montserrat', sans-serif;
-    color: #333;
-    background-color: #fff;
-    line-height: 1.7;
+    background-color: #0A192F; /* Deep Navy Blue */
+    color: #F8F9FA;
+    line-height: 1.6;
     overflow-x: hidden;
 }
 
-.light-bg {
-    background-color: var(--light-bg);
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
 }
 
-/* NAVBAR */
-header {
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+/* Container Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+.bg-alt {
+    background-color: #0F233D; /* Modifikasi sedikit lebih terang dari Navy utama */
+}
+
+/* Title Section */
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 2.2rem;
+    color: #FFFFFF;
+    letter-spacing: 1px;
+}
+
+.title-underline {
+    width: 70px;
+    height: 3px;
+    background-color: #D4AF37; /* Warm Gold */
+    margin: 12px auto 0;
+    border-radius: 2px;
+}
+
+/* ==========================================================================
+   2. NAVBAR HEADER
+   ========================================================================== */
+#navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(10, 25, 47, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 1.2rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 18px 50px;
+    background: rgba(10, 25, 47, 0.92);
+    backdrop-filter: blur(8px);
     z-index: 1000;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
     transition: all 0.3s ease;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.15);
-}
-
-header.scrolled {
-    padding: 0.8rem 5%;
 }
 
 .logo {
+    display: flex;
+    flex-direction: column;
     font-family: 'Playfair Display', serif;
     font-size: 1.4rem;
     font-weight: 700;
-    color: var(--accent);
-}
-
-.logo span {
-    color: #fff;
-    font-size: 0.75rem;
-    font-family: 'Montserrat', sans-serif;
-    display: block;
+    color: #D4AF37;
     letter-spacing: 1.5px;
 }
 
-nav {
-    display: flex;
-    gap: 1.2rem;
-}
-
-nav a {
-    color: var(--text-light);
-    text-decoration: none;
-    font-size: 0.85rem;
+.logo span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
     font-weight: 500;
-    transition: color 0.3s;
+    color: #FFFFFF;
+    letter-spacing: 2px;
 }
 
-nav a:hover, nav a.active {
-    color: var(--accent);
+.nav-links {
+    display: flex;
+    gap: 25px;
 }
 
-/* --- Styling Hero Video Background --- */
+.nav-item {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #E2E8F0;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    color: #D4AF37;
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #D4AF37;
+    transition: width 0.3s ease;
+}
+
+.nav-item:hover::after,
+.nav-item.active::after {
+    width: 100%;
+}
+
+/* Language Switcher */
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 2px 4px;
+    transition: color 0.3s ease;
+}
+
+.lang-btn.active,
+.lang-btn:hover {
+    color: #D4AF37;
+}
+
+/* ==========================================================================
+   3. HERO SECTION
+   ========================================================================== */
 .hero {
     position: relative;
     height: 100vh;
+    width: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
-    text-align: center;
+    align-items: center;
     overflow: hidden;
-    color: #fff;
 }
 
 .hero-video {
@@ -209,368 +184,439 @@ nav a:hover, nav a.active {
     z-index: 1;
 }
 
-/* Overlay gelap bernuansa Navy Blue khas TSHoliday */
 .hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(11, 25, 41, 0.6), rgba(11, 25, 41, 0.8));
+    background: linear-gradient(180deg, rgba(10, 25, 47, 0.6) 0%, rgba(10, 25, 47, 0.85) 100%);
     z-index: 2;
 }
 
-/* Pastikan teks berada di atas video dan overlay */
 .hero-content {
     position: relative;
     z-index: 3;
-    max-width: 800px;
+    text-align: center;
+    max-width: 850px;
     padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.hero-center-logo {
+    height: 95px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 1.8rem;
+    filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.6));
+}
 
 .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    margin-bottom: 2rem;
-    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #FFFFFF;
     line-height: 1.3;
+    margin-bottom: 2rem;
+    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .hero-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 20px;
     justify-content: center;
 }
 
+/* Buttons */
 .btn-gold {
-    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
-    color: #fff;
-    padding: 0.8rem 1.8rem;
-    border-radius: 50px;
-    text-decoration: none;
+    background-color: #D4AF37;
+    color: #0A192F;
+    padding: 12px 30px;
+    border-radius: 4px;
     font-weight: 600;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-    transition: transform 0.3s;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
 }
 
 .btn-gold:hover {
-    transform: translateY(-3px);
+    background-color: #F3E5AB;
+    transform: translateY(-2px);
 }
 
 .btn-outline {
-    border: 2px solid var(--accent);
-    color: #fff;
-    padding: 0.8rem 1.8rem;
-    border-radius: 50px;
-    text-decoration: none;
+    background-color: transparent;
+    color: #FFFFFF;
+    padding: 12px 30px;
+    border-radius: 4px;
     font-weight: 600;
-    transition: background 0.3s;
+    font-size: 0.95rem;
+    border: 1.5px solid #D4AF37;
+    letter-spacing: 0.5px;
 }
 
 .btn-outline:hover {
-    background: var(--accent);
+    background-color: rgba(212, 175, 55, 0.15);
+    color: #D4AF37;
+    transform: translateY(-2px);
 }
 
-.btn-sm {
-    padding: 0.5rem 1.2rem;
-    font-size: 0.8rem;
+.btn-gold-sm {
     display: inline-block;
-    margin-top: 1rem;
+    background-color: #D4AF37;
+    color: #0A192F;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 15px;
 }
 
-.btn-block {
+.btn-gold-sm:hover {
+    background-color: #F3E5AB;
+}
+
+.btn-gold-block {
     width: 100%;
-    padding: 1rem;
+    background-color: #D4AF37;
+    color: #0A192F;
+    padding: 14px;
+    border: none;
+    border-radius: 4px;
     font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
-/* SECTION GENERAL */
-section {
-    padding: 5rem 8%;
+.btn-gold-block:hover {
+    background-color: #F3E5AB;
 }
 
-.section-title {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.section-title h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
-    color: var(--primary);
-    position: relative;
-    display: inline-block;
-}
-
-.section-title h2::after {
-    content: '';
-    display: block;
-    width: 50%;
-    height: 3px;
-    background: var(--accent);
-    margin: 8px auto 0;
-}
-
-/* TENTANG */
+/* ==========================================================================
+   4. TENTANG TSHOLIDAY
+   ========================================================================== */
 .about-container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 30px;
 }
 
 .about-card {
-    background: var(--light-bg);
-    padding: 2rem;
-    border-radius: 10px;
-    border-left: 4px solid var(--accent);
+    background-color: #0F233D;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.about-card h3 {
+    color: #D4AF37;
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.about-card p {
+    color: #CBD5E1;
+    font-size: 1rem;
 }
 
 .about-grid-3 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
 }
 
 .info-card {
-    background: #fff;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    background-color: #0F233D;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.info-card i, .about-card i {
-    color: var(--accent);
-    margin-right: 8px;
+.info-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(212, 175, 55, 0.4);
 }
 
-/* GRID CARDS & ARMADA */
-.grid-cards {
+.info-card h3 {
+    color: #D4AF37;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-card p {
+    color: #CBD5E1;
+    font-size: 0.92rem;
+}
+
+/* ==========================================================================
+   5. PAKET WISATA EKSKLUSIF
+   ========================================================================== */
+.packages-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
-.card {
-    background: #fff;
-    border-radius: 10px;
+.package-card {
+    background-color: #0A192F;
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card img {
-    width: 100%;
+.package-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+    border-color: #D4AF37;
+}
+
+.package-img {
     height: 200px;
-    object-fit: cover;
+    background-size: cover;
+    background-position: center;
 }
 
-.card-body {
-    padding: 1.5rem;
+.package-content {
+    padding: 22px;
 }
 
-.cardfleet {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 10px;
+.package-content h3 {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.package-content p {
+    color: #94A3B8;
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   6. SEWA ARMADA
+   ========================================================================== */
+.fleet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.fleet-card {
+    background-color: #0F233D;
+    padding: 30px 25px;
+    border-radius: 8px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    border: 1px solid #eee;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.fleet-card:hover {
+    border-color: #D4AF37;
+    transform: translateY(-5px);
 }
 
 .fleet-icon {
     font-size: 2.5rem;
-    color: var(--accent);
-    margin-bottom: 1rem;
+    color: #D4AF37;
+    margin-bottom: 15px;
 }
 
-/* GALERI */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
+.fleet-card h3 {
+    font-size: 1.15rem;
+    color: #FFFFFF;
+    margin-bottom: 10px;
 }
 
-.gallery-grid img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 8px;
-    transition: transform 0.3s;
+.fleet-card p {
+    color: #94A3B8;
+    font-size: 0.88rem;
 }
 
-.gallery-grid img:hover {
-    transform: scale(1.03);
-}
-
-/* TESTIMONI */
-.testimoni-slider {
-    padding-bottom: 3rem;
-}
-
-.testimoni-card {
-    background: var(--light-bg);
-    padding: 2.5rem;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.stars {
-    margin-bottom: 1rem;
-}
-
-/* FAQ */
-.faq-container {
-    max-width: 800px;
+/* ==========================================================================
+   7. FORMULIR BOOKING / RESERVASI WA
+   ========================================================================== */
+.booking-wrapper {
+    max-width: 650px;
     margin: 0 auto;
-}
-
-.faq-item {
-    background: #fff;
-    margin-bottom: 1rem;
+    background-color: #0A192F;
+    padding: 40px;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
-.faq-question {
-    padding: 1.2rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--primary);
-}
-
-.faq-answer {
-    padding: 0 1.2rem 1.2rem;
-    display: none;
-    color: #555;
-    font-size: 0.95rem;
-}
-
-.faq-item.active .faq-answer {
-    display: block;
-}
-
-/* BOOKING FORM */
 .booking-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background: #fff;
-    padding: 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .form-group {
-    margin-bottom: 1.2rem;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .form-group label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 0.4rem;
     font-size: 0.9rem;
+    color: #D4AF37;
+    font-weight: 500;
 }
 
-.form-group input, .form-group select {
+.form-group input,
+.form-group select,
+.form-group textarea {
     width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-family: inherit;
+    padding: 12px 15px;
+    background-color: #0F233D;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s ease;
 }
 
-/* FOOTER */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #D4AF37;
+}
+
+.form-group select option {
+    background-color: #0F233D;
+    color: #FFFFFF;
+}
+
+/* ==========================================================================
+   8. KONTAK & FOOTER
+   ========================================================================== */
 footer {
-    background: var(--primary);
-    color: #a0aec0;
-    padding: 4rem 8% 2rem;
+    background-color: #060E1A;
+    padding-top: 60px;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
 }
 
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2.5rem;
-    margin-bottom: 2rem;
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding-bottom: 40px;
 }
 
-.footer-col h4 {
-    color: var(--accent);
-    margin-bottom: 1rem;
-    font-family: 'Playfair Display', serif;
+.footer-info h3 {
+    font-size: 1.3rem;
+    color: #D4AF37;
+    margin-bottom: 10px;
 }
 
-.social-links a {
-    color: #fff;
-    font-size: 1.5rem;
-    margin-right: 1rem;
+.footer-info p {
+    color: #94A3B8;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+}
+
+.footer-socials h4 {
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #0F233D;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: #D4AF37;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: #D4AF37;
+    color: #0A192F;
+    transform: translateY(-3px);
 }
 
 .footer-bottom {
     text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 1.5rem;
-    font-size: 0.85rem;
+    padding: 20px;
+    background-color: #040911;
+    color: #64748B;
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* FADE IN ANIMATION */
-.fade-in-section {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
-}
-
-.fade-in-section.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+/* ==========================================================================
+   9. RESPONSIVE DESIGN (Tampilan HP / Tablet)
+   ========================================================================== */
+@media (max-width: 992px) {
+    #navbar {
+        padding: 15px 30px;
+    }
+    
+    .nav-links {
+        display: none; /* Dapat ditambahkan menu burger jika diperlukan */
+    }
 }
 
 @media (max-width: 768px) {
-    nav { display: none; }
-    .hero h1 { font-size: 2rem; }
-    .form-row { grid-template-columns: 1fr; }
-}
-/* --- Tambahkan kode ini pada bagian NAVBAR di style.css --- */
+    #navbar {
+        padding: 12px 20px;
+    }
 
-.lang-switcher {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 0.3rem 0.7rem;
-    border-radius: 20px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    margin-left: 1rem;
-}
+    .hero-center-logo {
+        height: 70px;
+        margin-bottom: 1.2rem;
+    }
 
-.lang-switcher span {
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 0.8rem;
-}
+    .hero h1 {
+        font-size: 1.7rem;
+    }
 
-.lang-btn {
-    background: none;
-    border: none;
-    color: #fff;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: color 0.3s;
-    padding: 2px 4px;
-}
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 280px;
+    }
 
-.lang-btn:hover, .lang-btn.active {
-    color: var(--accent);
+    .btn-gold, .btn-outline {
+        width: 100%;
+        text-align: center;
+    }
+
+    .booking-wrapper {
+        padding: 25px 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
 }
