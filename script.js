@@ -1,4 +1,77 @@
-    // 10. REGISTER PWA SERVICE WORKER
+// ==========================================
+// PWA GALLERY LOAD MORE SYSTEM (158 PHOTOS)
+// ==========================================
+
+// 1. Buat Array daftar nama file foto (Misal: gallery-1.jpg s/d gallery-158.jpg)
+const galleryImages = [];
+const TOTAL_IMAGES = 158;
+
+for (let i = 1; i <= TOTAL_IMAGES; i++) {
+    galleryImages.push({
+        src: `assets/images/gallery/gallery-${i}.jpg`,
+        alt: `Dokumentasi TSHoliday Bandung #${i}`
+    });
+}
+
+// 2. Konfigurasi Tampilan
+const ITEMS_PER_LOAD = 10; // Jumlah foto yang dimuat per klik
+let currentIndex = 0;
+
+const galleryGrid = document.getElementById('galleryGrid');
+const loadMoreBtn = document.getElementById('loadMoreBtn');
+const remainingCountSpan = document.getElementById('remainingCount');
+
+// 3. Fungsi Render Foto
+function renderGalleryItems() {
+    const nextItems = galleryImages.slice(currentIndex, currentIndex + ITEMS_PER_LOAD);
+
+    nextItems.forEach(item => {
+        const galleryItem = document.createElement('div');
+        galleryItem.className = 'gallery-item fade-in'; // Animasi smooth
+
+        galleryItem.innerHTML = `
+            <img src="${item.src}" 
+                 alt="${item.alt}" 
+                 loading="lazy" 
+                 onclick="openLightbox('${item.src}')">
+        `;
+
+        galleryGrid.appendChild(galleryItem);
+    });
+
+    currentIndex += ITEMS_PER_LOAD;
+
+    // Update jumlah sisa foto pada tombol
+    const remaining = TOTAL_IMAGES - currentIndex;
+    if (remainingSpan()) {
+        remainingCountSpan.textContent = remaining > 0 ? remaining : 0;
+    }
+
+    // Sembunyikan tombol jika semua 158 foto sudah tampil
+    if (currentIndex >= TOTAL_IMAGES) {
+        loadMoreBtn.style.display = 'none';
+    }
+}
+
+// Helper untuk update counter aman
+function remainingSpan() {
+    return document.getElementById('remainingCount');
+}
+
+// 4. Inisialisasi Tampilan Pertama (10 Foto Pertama)
+document.addEventListener('DOMContentLoaded', () => {
+    if (galleryGrid && loadMoreBtn) {
+        renderGalleryItems(); // Load 10 foto awal
+
+        // Event Listener Tombol "Tampilkan Lebih Banyak"
+        loadMoreBtn.addEventListener('click', () => {
+            renderGalleryItems();
+        });
+    }
+});
+
+
+// 10. REGISTER PWA SERVICE WORKER
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('/sw.js')
