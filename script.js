@@ -1,3 +1,12 @@
+// Memaksa video hero diputar otomatis jika ditahan oleh browser
+const heroVideo = document.getElementById('heroVideo');
+if (heroVideo) {
+    heroVideo.play().catch(error => {
+        console.log("Autoplay ditahan oleh browser:", error);
+    });
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // 1. LANGUAGE SWITCHER (ID / EN)
