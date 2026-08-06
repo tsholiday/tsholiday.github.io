@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 
-    // 7. FORM BOOKING DIRECT TO WHATSAPP
+     // 7. FORM BOOKING DIRECT TO WHATSAPP
     const bookingForm = document.getElementById('bookingForm');
     bookingForm.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -107,8 +107,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const peserta = document.getElementById('peserta').value;
         const tujuan = document.getElementById('tujuan').value;
 
-        // Gantilah dengan nomor WhatsApp asli kamu
-        const adminWA = "6281234567890"; 
+        // Nomor WhatsApp Resmi PT Keepgoing TSH Indonesia
+        const adminWA = "6282130640161"; 
 
         const pesan = `Halo Admin TSHoliday, saya ingin reservasi perjalanan:%0A%0A` +
                       `*Nama:* ${nama}%0A` +
@@ -120,5 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         window.open(`https://wa.me/${adminWA}?text=${pesan}`, '_blank');
     });
+
 
 });
