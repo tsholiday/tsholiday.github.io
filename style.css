@@ -1,3 +1,29 @@
+/* --- Styling Logo Navbar --- */
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.brand-logo {
+    height: 45px; /* Sesuaikan tinggi logo agar pas di navbar */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.brand-logo:hover {
+    transform: scale(1.03);
+}
+
+/* Penyesuaian saat di layar HP / Layar Kecil */
+@media (max-width: 768px) {
+    .brand-logo {
+        height: 38px;
+    }
+}
+
+
 * {
     margin: 0;
     padding: 0;
