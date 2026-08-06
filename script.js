@@ -1,3 +1,86 @@
+    // 9. LIGHTBOX MODAL WITH ZOOM IN / ZOOM OUT SYSTEM
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.querySelector('.modal-close');
+    const zoomInBtn = document.getElementById('zoomInBtn');
+    const zoomOutBtn = document.getElementById('zoomOutBtn');
+    const resetZoomBtn = document.getElementById('resetZoomBtn');
+
+    let currentZoom = 1;
+
+    // Otomatis daftarkan semua gambar di paket, galeri, dan legalitas
+    const clickableImages = document.querySelectorAll('.card img, .gallery-grid img, .legality-img');
+
+    clickableImages.forEach(img => {
+        img.addEventListener('click', () => {
+            modal.classList.add('show');
+            modalImg.src = img.src;
+            modalImg.alt = img.alt || 'Preview Image';
+            currentZoom = 1;
+            updateZoom();
+        });
+    });
+
+    // Fungsi Update Transform Zoom
+    function updateZoom() {
+        modalImg.style.transform = `scale(${currentZoom})`;
+    }
+
+    // Tombol Zoom In
+    zoomInBtn.addEventListener('click', () => {
+        if (currentZoom < 3) {
+            currentZoom += 0.25;
+            updateZoom();
+        }
+    });
+
+    // Tombol Zoom Out
+    zoomOutBtn.addEventListener('click', () => {
+        if (currentZoom > 0.5) {
+            currentZoom -= 0.25;
+            updateZoom();
+        }
+    });
+
+    // Tombol Reset Zoom
+    resetZoomBtn.addEventListener('click', () => {
+        currentZoom = 1;
+        updateZoom();
+    });
+
+    // Zoom menggunakan Scroll Wheel pada Mouse
+    modal.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        if (e.deltaY < 0) {
+            if (currentZoom < 3) currentZoom += 0.15;
+        } else {
+            if (currentZoom > 0.5) currentZoom -= 0.15;
+        }
+        updateZoom();
+    }, { passive: false });
+
+    // Tutup Modal
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal || e.target === document.querySelector('.modal-content-wrapper')) {
+            closeModal();
+        }
+    });
+
+    // Tutup Modal dengan tombol ESC Keyboard
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('show')) {
+            closeModal();
+        }
+    });
+
+    function closeModal() {
+        modal.classList.remove('show');
+        currentZoom = 1;
+        updateZoom();
+    }
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
     let currentLang = 'id';
