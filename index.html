@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Official website of TSHoliday - Tour & Travel Indonesia.</title>
+    <title>TSHoliday - PT Keepgoing TSH Indonesia</title>
     
+    <!-- 1. FAVICON (Menggunakan logo.png) -->
+    <link rel="icon" type="image/png" href="logo.png">
+
     <!-- Google Fonts & FontAwesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,12 +21,11 @@
 </head>
 <body>
 
-    <!-- 1. NAVBAR -->
+    <!-- NAVBAR DENGAN LOGO GAMBAR -->
     <header id="navbar">
-        <div class="logo">
-            TSHOLIDAY
-            <span>KEEPGOING TSH INDONESIA</span>
-        </div>
+        <a href="#home" class="logo-container">
+            <img src="logo.png" alt="TSHoliday Logo" class="brand-logo">
+        </a>
         <nav class="nav-links">
             <a href="#home" class="nav-item active" data-id="Home" data-en="Home">Home</a>
             <a href="#tentang" class="nav-item" data-id="Tentang" data-en="About">Tentang</a>
@@ -35,13 +37,13 @@
             <a href="#booking" class="nav-item" data-id="Booking" data-en="Booking">Booking</a>
             <a href="#kontak" class="nav-item" data-id="Kontak" data-en="Contact">Kontak</a>
         </nav>
-        <!-- Language Switcher Button -->
         <div class="lang-switcher">
             <button id="btn-id" class="lang-btn active">ID</button>
             <span>|</span>
             <button id="btn-en" class="lang-btn">EN</button>
         </div>
     </header>
+
     <!-- 2. HERO SECTION DENGAN VIDEO BACKGROUND -->
     <section class="hero" id="home">
         <!-- Elemen Video -->
