@@ -48,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks.classList.toggle('active');
     });
 
-    // Close mobile menu on link click
     document.querySelectorAll('.nav-item').forEach(item => {
         item.addEventListener('click', () => {
             navLinks.classList.remove('active');
@@ -91,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const swiper = new Swiper('.testimoni-slider', {
         loop: true,
         autoplay: {
-            delay: 4000,
+            delay: 4500,
             disableOnInteraction: false,
         },
         pagination: {
@@ -124,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 
-    // 8. FORM BOOKING DIRECT TO WHATSAPP (MULTI-LANGUAGE MESSAGE)
+    // 8. FORM BOOKING DIRECT TO WHATSAPP (+62 821-3064-0161)
     const bookingForm = document.getElementById('bookingForm');
     bookingForm.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -136,8 +135,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const tujuanSelect = document.getElementById('tujuan');
         const tujuan = tujuanSelect.options[tujuanSelect.selectedIndex].text;
 
-        // Nomor WhatsApp Admin TSHoliday
-        const adminWA = "6281234567890"; 
+        // Nomor WhatsApp Resmi TSHoliday
+        const adminWA = "6282130640161"; 
 
         let pesan = "";
 
