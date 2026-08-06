@@ -1,3 +1,60 @@
+/* --- CSS VARIABLES (Default: Light Mode) --- */
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #1a1a1a;
+    --text-secondary: #555555;
+    --card-bg: #ffffff;
+    --navy-blue: #0A192F;
+    --warm-gold: #D4AF37;
+    --border-color: #e0e0e0;
+}
+
+/* --- DARK MODE OVERRIDE --- */
+body.dark-theme {
+    --bg-primary: #0a0f1d;
+    --bg-secondary: #111827;
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+    --card-bg: #1f2937;
+    --border-color: #374151;
+}
+
+/* Penerapan Variabel ke Elemen Umum */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.about-card, .info-card {
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+/* Styling Tombol Theme Toggle */
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.theme-btn {
+    background: none;
+    border: none;
+    color: var(--warm-gold);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.3s ease;
+}
+
+.theme-btn:hover {
+    transform: scale(1.15) rotate(15deg);
+}
+
+
 /* --- Styling Logo Center di Hero Section --- */
 .hero-content {
     display: flex;
