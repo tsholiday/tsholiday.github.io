@@ -8,20 +8,21 @@
     <!-- FAVICON -->
     <link rel="icon" type="image/png" href="logo.png">
 
-    <!-- Google Fonts & FontAwesome -->
+    <!-- Google Fonts & FontAwesome Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Swiper.js CSS -->
+    <!-- Swiper.js CSS (Untuk Slider Galeri / Armada) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
+    <!-- File CSS Utama -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- 1. NAVBAR -->
+    <!-- 1. NAVBAR HEADER -->
     <header id="navbar">
         <a href="#home" class="logo">
             TSHOLIDAY
@@ -38,30 +39,29 @@
             <a href="#booking" class="nav-item" data-id="Booking" data-en="Booking">Booking</a>
             <a href="#kontak" class="nav-item" data-id="Kontak" data-en="Contact">Kontak</a>
         </nav>
-
-        <!-- Header Controls: Language Switcher & Theme Toggle -->
         
-            <div class="lang-switcher">
-                <button id="btn-id" class="lang-btn active">ID</button>
-                <span>|</span>
-                <button id="btn-en" class="lang-btn">EN</button>
-            </div>
-        
-       
+        <!-- Language Switcher -->
+        <div class="lang-switcher">
+            <button id="btn-id" class="lang-btn active">ID</button>
+            <span>|</span>
+            <button id="btn-en" class="lang-btn">EN</button>
+        </div>
     </header>
 
-
-
-    <!-- 2. HERO SECTION (Logo Gambar di Tengah) -->
+    <!-- 2. HERO SECTION -->
     <section class="hero" id="home">
+        <!-- Background Video -->
         <video id="heroVideo" autoplay muted loop playsinline preload="auto" class="hero-video">
             <source src="hero.mp4" type="video/mp4">
+            Browser Anda tidak mendukung pemutaran video.
         </video>
         
+        <!-- Overlay Gelap -->
         <div class="hero-overlay"></div>
 
+        <!-- Konten Hero -->
         <div class="hero-content">
-            <!-- Gambar Logo di Tengah Atas Slogan -->
+            <!-- Logo Gambar Tepat di Tengah Atas Slogan -->
             <img src="logo.png" alt="TSHoliday Logo" class="hero-center-logo">
             
             <h1>"Don't Just Travel,<br>Keepgoing to the Extraordinary"</h1>
@@ -72,305 +72,186 @@
         </div>
     </section>
 
-
     <!-- 3. TENTANG TSHOLIDAY -->
-    <section id="tentang" class="fade-in-section">
-        <div class="section-title">
-            <h2 data-id="Tentang TSHoliday" data-en="About TSHoliday">Tentang TSHoliday</h2>
-        </div>
-        <div class="about-container">
-            <div class="about-card">
-                <h3><i class="fas fa-building"></i> <span data-id="Profil Perusahaan" data-en="Company Profile">Profil Perusahaan</span></h3>
-                <p data-id="PT Keepgoing TSH Indonesia (TSHoliday) adalah penyedia layanan travel, tour, & transportasi yang menghadirkan pengalaman perjalanan eksklusif, aman, dan berkesan."
-                   data-en="PT Keepgoing TSH Indonesia (TSHoliday) is a travel, tour, & transportation service provider offering exclusive, safe, and memorable travel experiences.">
-                   PT Keepgoing TSH Indonesia (TSHoliday) adalah penyedia layanan travel, tour, & transportasi yang menghadirkan pengalaman perjalanan eksklusif, aman, dan berkesan.
-                </p>
+    <section id="tentang" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-id="Tentang TSHoliday" data-en="About TSHoliday">Tentang TSHoliday</h2>
+                <div class="title-underline"></div>
             </div>
-            <div class="about-grid-3">
-                <div class="info-card">
-                    <h3><i class="fas fa-eye"></i> <span data-id="Visi" data-en="Vision">Visi</span></h3>
-                    <p data-id="Menjadi mitra perjalanan terdepan yang menghadirkan standar kenyamanan dan pengalaman wisata terbaik di Indonesia."
-                       data-en="To become a leading travel partner delivering the highest standards of comfort and best tour experiences in Indonesia.">
-                       Menjadi mitra perjalanan terdepan yang menghadirkan standar kenyamanan dan pengalaman wisata terbaik di Indonesia.
+            <div class="about-container">
+                <div class="about-card">
+                    <h3><i class="fas fa-building"></i> <span data-id="Profil Perusahaan" data-en="Company Profile">Profil Perusahaan</span></h3>
+                    <p data-id="PT Keepgoing TSH Indonesia (TSHoliday) adalah penyedia layanan travel, tour, & transportasi yang menghadirkan pengalaman perjalanan eksklusif, aman, dan berkesan."
+                       data-en="PT Keepgoing TSH Indonesia (TSHoliday) is a travel, tour, & transportation service provider offering exclusive, safe, and memorable travel experiences.">
+                       PT Keepgoing TSH Indonesia (TSHoliday) adalah penyedia layanan travel, tour, & transportasi yang menghadirkan pengalaman perjalanan eksklusif, aman, dan berkesan.
                     </p>
                 </div>
-                <div class="info-card">
-                    <h3><i class="fas fa-bullseye"></i> <span data-id="Misi" data-en="Mission">Misi</span></h3>
-                    <p data-id="Menyediakan armada berkualitas tinggi, pelayanan profesional, dan penataan rute destinasi yang otentik serta eksklusif."
-                       data-en="To provide high-quality fleet, professional services, and authentic, exclusive destination itineraries.">
-                       Menyediakan armada berkualitas tinggi, pelayanan profesional, dan penataan rute destinasi yang otentik serta eksklusif.
-                    </p>
-                </div>
-                <div class="info-card">
-                    <h3><i class="fas fa-star"></i> <span data-id="Keunggulan" data-en="Advantages">Keunggulan</span></h3>
-                    <p data-id="Armada prima & bersih, driver profesional, jadwal fleksibel, serta layanan pelanggan 24/7 yang responsif."
-                       data-en="Clean & prime fleet, professional drivers, flexible schedules, and responsive 24/7 customer service.">
-                       Armada prima & bersih, driver profesional, jadwal fleksibel, serta layanan pelanggan 24/7 yang responsif.
-                    </p>
+                <div class="about-grid-3">
+                    <div class="info-card">
+                        <h3><i class="fas fa-eye"></i> <span data-id="Visi" data-en="Vision">Visi</span></h3>
+                        <p data-id="Menjadi mitra perjalanan terdepan yang menghadirkan standar kenyamanan dan pengalaman wisata terbaik di Indonesia."
+                           data-en="To become a leading travel partner delivering the highest standards of comfort and best tour experiences in Indonesia.">
+                           Menjadi mitra perjalanan terdepan yang menghadirkan standar kenyamanan dan pengalaman wisata terbaik di Indonesia.
+                        </p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fas fa-bullseye"></i> <span data-id="Misi" data-en="Mission">Misi</span></h3>
+                        <p data-id="Menyediakan armada berkualitas tinggi, pelayanan profesional, dan penataan rute destinasi yang otentik serta eksklusif."
+                           data-en="To provide high-quality fleet, professional services, and authentic, exclusive destination itineraries.">
+                           Menyediakan armada berkualitas tinggi, pelayanan profesional, dan penataan rute destinasi yang otentik serta eksklusif.
+                        </p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fas fa-star"></i> <span data-id="Keunggulan" data-en="Advantages">Keunggulan</span></h3>
+                        <p data-id="Armada prima & bersih, driver profesional, jadwal fleksibel, serta layanan pelanggan 24/7 yang responsif."
+                           data-en="Clean & prime fleet, professional drivers, flexible schedules, and responsive 24/7 customer service.">
+                           Armada prima & bersih, driver profesional, jadwal fleksibel, serta layanan pelanggan 24/7 yang responsif.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. PAKET WISATA -->
-    <section id="paket" class="light-bg fade-in-section">
-        <div class="section-title">
-            <h2 data-id="Paket Wisata Pilihan" data-en="Popular Tour Packages">Paket Wisata Pilihan</h2>
-        </div>
-        <div class="grid-cards">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Ciwidey">
-                <div class="card-body">
-                    <h3>Ciwidey Tour</h3>
-                    <p data-id="Nikmati Kawah Putih, Perkebunan Teh Rancabali, dan Glamping Lakeside dalam perjalanan sejuk dan menenangkan."
-                       data-en="Enjoy Kawah Putih, Rancabali Tea Plantation, and Glamping Lakeside in a cool, relaxing trip.">
-                       Nikmati Kawah Putih, Perkebunan Teh Rancabali, dan Glamping Lakeside dalam perjalanan sejuk dan menenangkan.
-                    </p>
-                    <a href="#booking" class="btn-gold btn-sm" data-id="Pesan Paket" data-en="Book Package">Pesan Paket</a>
-                </div>
+    <!-- 4. PAKET WISATA EKSKLUSIF -->
+    <section id="paket" class="section-padding bg-alt">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-id="Paket Wisata Populer" data-en="Popular Tour Packages">Paket Wisata Populer</h2>
+                <div class="title-underline"></div>
             </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80" alt="Lembang">
-                <div class="card-body">
-                    <h3>Lembang Escape</h3>
-                    <p data-id="Eksplorasi destinasi favorit keluarga seperti Tangkuban Perahu, Farmhouse, dan The Lodge Maribaya."
-                       data-en="Explore family favorite destinations like Tangkuban Perahu, Farmhouse, and The Lodge Maribaya.">
-                       Eksplorasi destinasi favorit keluarga seperti Tangkuban Perahu, Farmhouse, dan The Lodge Maribaya.
-                    </p>
-                    <a href="#booking" class="btn-gold btn-sm" data-id="Pesan Paket" data-en="Book Package">Pesan Paket</a>
+            <div class="packages-grid">
+                <!-- Paket 1 -->
+                <div class="package-card">
+                    <div class="package-img" style="background-image: url('https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="package-content">
+                        <h3>Labuan Bajo Luxury Private Liveaboard</h3>
+                        <p data-id="Nikmati keindahan Pulau Komodo & Padar dengan Phinisi mewah private." data-en="Enjoy Komodo & Padar Island on a luxury private Phinisi boat.">Nikmati keindahan Pulau Komodo & Padar dengan Phinisi mewah private.</p>
+                        <a href="#booking" class="btn-gold-sm" data-id="Reservasi" data-en="Book Now">Reservasi</a>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?auto=format&fit=crop&w=600&q=80" alt="Bandung City Tour">
-                <div class="card-body">
-                    <h3>Bandung City Tour</h3>
-                    <p data-id="Keliling landmark bersejarah Gedung Sate, Jalan Asia Afrika, hingga pusat kuliner dan wisata belanja."
-                       data-en="Explore historic landmarks Gedung Sate, Asia Afrika Street, culinary spots, and shopping centers.">
-                       Keliling landmark bersejarah Gedung Sate, Jalan Asia Afrika, hingga pusat kuliner dan wisata belanja.
-                    </p>
-                    <a href="#booking" class="btn-gold btn-sm" data-id="Pesan Paket" data-en="Book Package">Pesan Paket</a>
+                <!-- Paket 2 -->
+                <div class="package-card">
+                    <div class="package-img" style="background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="package-content">
+                        <h3>Exotic Sumba Cultural & Nature Tour</h3>
+                        <p data-id="Eksplorasi bukit eksotis, air terjun tersembunyi, dan budaya lokal Sumba." data-en="Explore exotic hills, hidden waterfalls, and rich Sumba heritage.">Eksplorasi bukit eksotis, air terjun tersembunyi, dan budaya lokal Sumba.</p>
+                        <a href="#booking" class="btn-gold-sm" data-id="Reservasi" data-en="Book Now">Reservasi</a>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&w=600&q=80" alt="Custom Tour">
-                <div class="card-body">
-                    <h3>Custom Tour</h3>
-                    <p data-id="Rancang sendiri destinasi dan durasi perjalanan sesuai kebutuhan acara keluarga, gathering, atau instansi."
-                       data-en="Customize your own destination and duration for family events, corporate gatherings, or groups.">
-                       Rancang sendiri destinasi dan durasi perjalanan sesuai kebutuhan acara keluarga, gathering, atau instansi.
-                    </p>
-                    <a href="#booking" class="btn-gold btn-sm" data-id="Konsultasi Rute" data-en="Custom Itinerary">Konsultasi Rute</a>
+                <!-- Paket 3 -->
+                <div class="package-card">
+                    <div class="package-img" style="background-image: url('https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="package-content">
+                        <h3>Bandung Highland & Culinary Heritage</h3>
+                        <p data-id="Perjalanan sejuk mengelilingi destinasi premium dan kuliner pilihan Bandung." data-en="A refreshing tour around premium destinations and culinary spots in Bandung.">Perjalanan sejuk mengelilingi destinasi premium dan kuliner pilihan Bandung.</p>
+                        <a href="#booking" class="btn-gold-sm" data-id="Reservasi" data-en="Book Now">Reservasi</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5. ARMADA -->
-    <section id="armada" class="fade-in-section">
-        <div class="section-title">
-            <h2 data-id="Pilihan Armada" data-en="Our Fleet">Pilihan Armada</h2>
-        </div>
-        <div class="grid-cards">
-            <div class="cardfleet">
-                <i class="fas fa-van-shuttle fleet-icon"></i>
-                <h3>Toyota HiAce</h3>
-                <p data-id="Kapasitas 12-15 Seat. Nyaman, suspensi empuk, dan ideal untuk perjalanan grup sedang atau eksekutif."
-                   data-en="12-15 Seats capacity. Comfortable, soft suspension, ideal for executive or medium group trips.">
-                   Kapasitas 12-15 Seat. Nyaman, suspensi empuk, dan ideal untuk perjalanan grup sedang atau eksekutif.
-                </p>
+    <!-- 5. SEWA ARMADA -->
+    <section id="armada" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-id="Armada & Transportasi" data-en="Fleet & Transportation">Armada & Transportasi</h2>
+                <div class="title-underline"></div>
             </div>
-            <div class="cardfleet">
-                <i class="fas fa-bus-simple fleet-icon"></i>
-                <h3>Isuzu Elf Long</h3>
-                <p data-id="Kapasitas 16-19 Seat. Pilihan efisien dengan kabin luas untuk rombongan wisata keluarga besar."
-                   data-en="16-19 Seats capacity. Efficient option with spacious cabin for large family tours.">
-                   Kapasitas 16-19 Seat. Pilihan efisien dengan kabin luas untuk rombongan wisata keluarga besar.
-                </p>
-            </div>
-            <div class="cardfleet">
-                <i class="fas fa-bus fleet-icon"></i>
-                <h3>Coaster / Medium Bus</h3>
-                <p data-id="Kapasitas 25-31 Seat. Fasilitas lengkap, bagasi luas, cocok untuk perjalanan antar kota."
-                   data-en="25-31 Seats capacity. Full amenities, spacious luggage, suitable for intercity travel.">
-                   Kapasitas 25-31 Seat. Fasilitas lengkap, bagasi luas, cocok untuk perjalanan antar kota.
-                </p>
-            </div>
-            <div class="cardfleet">
-                <i class="fas fa-bus fleet-icon"></i>
-                <h3>Big Bus Executive</h3>
-                <p data-id="Kapasitas 45-59 Seat. Dilengkapi Reclining Seats, AC, TV LED, Audio & Karaoke untuk kenyamanan maksimal."
-                   data-en="45-59 Seats capacity. Equipped with Reclining Seats, AC, LED TV, Audio & Karaoke for ultimate comfort.">
-                   Kapasitas 45-59 Seat. Dilengkapi Reclining Seats, AC, TV LED, Audio & Karaoke untuk kenyamanan maksimal.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. GALERI -->
-    <section id="galeri" class="light-bg fade-in-section">
-        <div class="section-title">
-            <h2 data-id="Galeri Perjalanan" data-en="Travel Gallery">Galeri Perjalanan</h2>
-        </div>
-        <div class="gallery-grid">
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Galeri 1">
-            <img src="https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?auto=format&fit=crop&w=600&q=80" alt="Galeri 2">
-            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80" alt="Galeri 3">
-            <img src="https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&w=600&q=80" alt="Galeri 4">
-            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Galeri 5">
-            <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=600&q=80" alt="Galeri 6">
-        </div>
-    </section>
-
-    <!-- 7. TESTIMONI -->
-    <section id="testimoni" class="fade-in-section">
-        <div class="section-title">
-            <h2 data-id="Apa Kata Mereka?" data-en="What They Say">Apa Kata Mereka?</h2>
-        </div>
-        <div class="swiper testimoni-slider">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide testimoni-card">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p data-id="&quot;Pelayanan TSHoliday luar biasa! Armada HiAce-nya bersih banget, driver ramah dan paham rute bebas macet di Bandung.&quot;"
-                       data-en="&quot;TSHoliday service was amazing! The HiAce fleet was super clean, the driver was friendly and knew traffic-free routes in Bandung.&quot;">
-                       "Pelayanan TSHoliday luar biasa! Armada HiAce-nya bersih banget, driver ramah dan paham rute bebas macet di Bandung."
-                    </p>
-                    <h4>— Bpk. Hendra (Jakarta)</h4>
+            <div class="fleet-grid">
+                <div class="fleet-card">
+                    <i class="fas fa-bus fleet-icon"></i>
+                    <h3>Toyota Hi-Ace Premio / Commuter</h3>
+                    <p data-id="Kapasitas hingga 12-14 seat dengan interior nyaman, AC dingin, dan ruang kaki luas." data-en="Up to 12-14 seat capacity with comfortable interior, cold AC, and spacious legroom.">Kapasitas hingga 12-14 seat dengan interior nyaman, AC dingin, dan ruang kaki luas.</p>
                 </div>
-                <div class="swiper-slide testimoni-card">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p data-id="&quot;Acara gathering kantor kami ke Ciwidey sukses besar. Pelayanan tepat waktu dan mobil nyaman sampai ke lokasi.&quot;"
-                       data-en="&quot;Our corporate gathering to Ciwidey was a huge success. Punctual service and comfortable vehicle all the way.&quot;">
-                       "Acara gathering kantor kami ke Ciwidey sukses besar. Pelayanan tepat waktu dan mobil nyaman sampai ke lokasi."
-                    </p>
-                    <h4>— Ibu Rina (PT Kirana Jaya)</h4>
+                <div class="fleet-card">
+                    <i class="fas fa-car fleet-icon"></i>
+                    <h3>Premium MPV (Alphard / Innova Zenix)</h3>
+                    <p data-id="Kenyamanan maksimal untuk perjalanan bisnis maupun perjalanan keluarga private." data-en="Maximum comfort for business trips or private family journeys.">Kenyamanan maksimal untuk perjalanan bisnis maupun perjalanan keluarga private.</p>
                 </div>
-                <div class="swiper-slide testimoni-card">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p data-id="&quot;Respon tim WhatsApp sangat cepat saat konsultasi Custom Tour. Sangat merekomendasikan TSHoliday!&quot;"
-                       data-en="&quot;WhatsApp team response was very fast during Custom Tour consultation. Highly recommend TSHoliday!&quot;">
-                       "Respon tim WhatsApp sangat cepat saat konsultasi Custom Tour. Sangat merekomendasikan TSHoliday!"
-                    </p>
-                    <h4>— Danang & Keluarga</h4>
-                </div>
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
-    </section>
-
-    <!-- 8. FAQ -->
-    <section id="faq" class="light-bg fade-in-section">
-        <div class="section-title">
-            <h2>Frequently Asked Questions</h2>
-        </div>
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span data-id="Bagaimana cara melakukan reservasi armada / paket tour?" data-en="How to book a fleet or tour package?">Bagaimana cara melakukan reservasi armada / paket tour?</span> 
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer" data-id="Kamu cukup mengisi form booking di bawah atau langsung klik tombol WhatsApp untuk terhubung dengan customer service kami." data-en="Simply fill out the booking form below or click the WhatsApp button to connect directly with our customer service.">
-                    Kamu cukup mengisi form booking di bawah atau langsung klik tombol WhatsApp untuk terhubung dengan customer service kami.
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span data-id="Apakah harga yang tertera sudah termasuk BBM & Driver?" data-en="Does the price include fuel and driver?">Apakah harga yang tertera sudah termasuk BBM & Driver?</span> 
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer" data-id="Ya, sebagian besar paket kustom kami sudah mencakup unit, driver, dan BBM. Rincian detail akan dilampirkan dalam penawaran resmi." data-en="Yes, most of our custom packages include unit, driver, and fuel. Detailed breakdown will be attached in the official quotation.">
-                    Ya, sebagian besar paket kustom kami sudah mencakup unit, driver, dan BBM. Rincian detail akan dilampirkan dalam penawaran resmi.
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span data-id="Apakah bisa custom jadwal dan destinasi sendiri?" data-en="Can I customize my own schedule and itinerary?">Apakah bisa custom jadwal dan destinasi sendiri?</span> 
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer" data-id="Sangat bisa! Kami melayani Custom Tour sesuai waktu, destinasi, serta jumlah peserta yang kamu inginkan." data-en="Absolutely! We provide Custom Tours according to your preferred time, destination, and number of participants.">
-                    Sangat bisa! Kami melayani Custom Tour sesuai waktu, destinasi, serta jumlah peserta yang kamu inginkan.
+                <div class="fleet-card">
+                    <i class="fas fa-shuttle-van fleet-icon"></i>
+                    <h3>Medium & Big Luxury Bus</h3>
+                    <p data-id="Pilihan tepat untuk corporate gathering atau rombongan besar dengan fasilitas lengkap." data-en="The right choice for corporate gatherings or large groups with full amenities.">Pilihan tepat untuk corporate gathering atau rombongan besar dengan fasilitas lengkap.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 9. BOOKING FORM -->
-    <section id="booking" class="fade-in-section">
-        <div class="section-title">
-            <h2 data-id="Form Booking Perjalanan" data-en="Trip Booking Form">Form Booking Perjalanan</h2>
+    <!-- 6. FORMULIR BOOKING / RESERVASI WA -->
+    <section id="booking" class="section-padding bg-alt">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-id="Formulir Reservasi" data-en="Reservation Form">Formulir Reservasi</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="booking-wrapper">
+                <form id="whatsappForm" class="booking-form">
+                    <div class="form-group">
+                        <label data-id="Nama Lengkap" data-en="Full Name">Nama Lengkap</label>
+                        <input type="text" id="bookingName" required placeholder="Masukkan nama Anda">
+                    </div>
+                    <div class="form-group">
+                        <label data-id="Layanan / Paket" data-en="Service / Package">Layanan / Paket</label>
+                        <select id="bookingService" required>
+                            <option value="Paket Tour Labuan Bajo">Paket Tour Labuan Bajo</option>
+                            <option value="Paket Tour Sumba">Paket Tour Sumba</option>
+                            <option value="Paket Tour Bandung">Paket Tour Bandung</option>
+                            <option value="Sewa Hi-Ace / Bus">Sewa Hi-Ace / Bus</option>
+                            <option value="Custom Tour Request">Custom Tour Request</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label data-id="Tanggal Keberangkatan" data-en="Travel Date">Tanggal Keberangkatan</label>
+                        <input type="date" id="bookingDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-id="Jumlah Peserta" data-en="Number of Guests">Jumlah Peserta</label>
+                        <input type="number" id="bookingGuests" min="1" placeholder="Contoh: 4" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-id="Catatan Tambahan" data-en="Additional Notes">Catatan Tambahan</label>
+                        <textarea id="bookingNotes" rows="3" placeholder="Permintaan khusus atau pertanyaan..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-gold-block">
+                        <i class="fab fa-whatsapp"></i> <span data-id="Kirim via WhatsApp" data-en="Send via WhatsApp">Kirim via WhatsApp</span>
+                    </button>
+                </form>
+            </div>
         </div>
-        <form id="bookingForm" class="booking-form">
-            <div class="form-group">
-                <label for="nama"><i class="fas fa-user"></i> <span data-id="Nama Lengkap" data-en="Full Name">Nama Lengkap</span></label>
-                <input type="text" id="nama" placeholder="Full Name" required>
-            </div>
-            <div class="form-group">
-                <label for="whatsapp"><i class="fab fa-whatsapp"></i> <span data-id="Nomor WhatsApp" data-en="WhatsApp Number">Nomor WhatsApp</span></label>
-                <input type="tel" id="whatsapp" placeholder="e.g. +62 81 2345 6789" required>
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="tanggal"><i class="fas fa-calendar-alt"></i> <span data-id="Tanggal Perjalanan" data-en="Travel Date">Tanggal Perjalanan</span></label>
-                    <input type="date" id="tanggal" required>
-                </div>
-                <div class="form-group">
-                    <label for="peserta"><i class="fas fa-users"></i> <span data-id="Jumlah Peserta" data-en="Number of Guests">Jumlah Peserta</span></label>
-                    <input type="number" id="peserta" min="1" placeholder="Pax" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="tujuan"><i class="fas fa-map-marker-alt"></i> <span data-id="Tujuan / Paket Wisata" data-en="Destination / Package">Tujuan / Paket Wisata</span></label>
-                <select id="tujuan" required>
-                    <option value="" data-id="-- Pilih Tujuan / Paket --" data-en="-- Select Destination / Package --">-- Pilih Tujuan / Paket --</option>
-                    <option value="Paket Ciwidey">Ciwidey Tour Package</option>
-                    <option value="Paket Lembang">Lembang Escape Package</option>
-                    <option value="Bandung City Tour">Bandung City Tour</option>
-                    <option value="Sumba / Labuan Bajo Luxury Tour">Sumba / Labuan Bajo Luxury Tour</option>
-                    <option value="Sewa Armada (HiAce/Elf/Bus)">Sewa Armada / Fleet Rental (HiAce/Elf/Bus)</option>
-                    <option value="Custom Tour">Custom Tour</option>
-                </select>
-            </div>
-            <button type="submit" class="btn-gold btn-block">
-                <i class="fab fa-whatsapp"></i> <span data-id="Kirim Form via WhatsApp" data-en="Send Form via WhatsApp">Kirim Form via WhatsApp</span>
-            </button>
-        </form>
     </section>
 
-    <!-- 10. KONTAK & FOOTER -->
+    <!-- 7. KONTAK & FOOTER -->
     <footer id="kontak">
-        <div class="footer-grid">
-                       <div class="footer-col">
-                <h4>PT KEEPGOING TSH INDONESIA</h4>
-                <p>"Don't Just Travel, Keepgoing to the Extraordinary"</p>
-                <div class="social-links">
-                    <a href="https://wa.me/6282130640161" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://instagram.com/tsholiday.id" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://facebook.com/tsholiday.bandung" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="https://tiktok.com/@tsholiday" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-                </div>
+        <div class="container footer-content">
+            <div class="footer-info">
+                <h3>PT KEEPGOING TSH INDONESIA</h3>
+                <p><strong>TSHoliday</strong> - Exclusive Travel & Transport Service</p>
+                <p><i class="fas fa-map-marker-alt"></i> Bandung, West Java, Indonesia</p>
+                <p><i class="fab fa-whatsapp"></i> +62 821-3064-0161</p>
             </div>
-            <div class="footer-col">
-                <h4 data-id="Informasi Kontak" data-en="Contact Information">Informasi Kontak</h4>
-                <p><i class="fab fa-whatsapp"></i> WhatsApp: +62 821-3064-0161</p>
-                <p><i class="fab fa-instagram"></i> Instagram: @tsholiday.id</p>
-                <p><i class="fab fa-tiktok"></i> TikTok: @tsholiday</p>
-                <p><i class="fab fa-facebook"></i> Facebook: tsholiday bandung</p>
-                <p><i class="fas fa-map-pin"></i> Bandung, Jawa Barat - Indonesia</p>
-            </div>
-
-            <div class="footer-col">
-                <h4 data-id="Lokasi Google Maps" data-en="Google Maps Location">Lokasi Google Maps</h4>
-                <div class="maps-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.56347862248!2d107.57311687000216!3d-6.903444341641772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x1580f238714dbf54!2sBandung%2C%20Bandung%20City%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1710000000000!5m2!1sen!2sid" width="100%" height="150" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"></iframe>
+            
+            <!-- Sosial Media -->
+            <div class="footer-socials">
+                <h4 data-id="Ikuti Kami" data-en="Follow Us">Ikuti Kami</h4>
+                <div class="social-icons">
+                    <a href="https://wa.me/6282130640161" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://instagram.com/tsholiday.id" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://tiktok.com/@tsholiday" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://facebook.com/tsholidaybandung" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 PT Keepgoing TSH Indonesia. All rights reserved.</p>
+            <p>&copy; 2026 PT Keepgoing TSH Indonesia (TSHoliday). All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- Swiper.js Script & Custom JS -->
+    <!-- Swiper.js JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- Script JavaScript Utama -->
     <script src="script.js"></script>
 </body>
 </html>
