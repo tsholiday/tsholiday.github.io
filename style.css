@@ -1,3 +1,30 @@
+/* Layout 3 Kolom Visi, Misi, Keunggulan & Fleet Grid */
+.about-grid-3, .fleet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.info-card, .fleet-card {
+    background: #0F233D;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.info-card h3, .fleet-card h3 {
+    color: #D4AF37;
+    margin-bottom: 10px;
+}
+
+.fleet-icon {
+    font-size: 2rem;
+    color: #D4AF37;
+    margin-bottom: 12px;
+}
+
+
 * {
     margin: 0;
     padding: 0;
