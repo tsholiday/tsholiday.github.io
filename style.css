@@ -1,3 +1,29 @@
+/* --- Styling Logo Center di Hero Section --- */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-center-logo {
+    height: 90px; /* Ukuran logo di tengah (bisa disesuaikan 80px - 110px) */
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 1.5rem; /* Jarak antara logo dan teks slogan */
+    filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.5)); /* Efek bayangan halus */
+}
+
+/* Penyesuaian Responsif di Layar HP */
+@media (max-width: 768px) {
+    .hero-center-logo {
+        height: 70px;
+        margin-bottom: 1rem;
+    }
+}
+
+
 /* --- Styling Logo Navbar (Ukuran Sedang / Proporsional) --- */
 .logo-container {
     display: flex;
