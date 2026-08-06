@@ -1,4 +1,18 @@
-    // 9. LIGHTBOX MODAL WITH ZOOM IN / ZOOM OUT SYSTEM
+    // 10. REGISTER PWA SERVICE WORKER
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then((reg) => {
+                    console.log('TSHoliday PWA Registered Successfully:', reg.scope);
+                })
+                .catch((err) => {
+                    console.error('TSHoliday PWA Registration Failed:', err);
+                });
+        });
+    }
+
+
+// 9. LIGHTBOX MODAL WITH ZOOM IN / ZOOM OUT SYSTEM
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
     const closeBtn = document.querySelector('.modal-close');
