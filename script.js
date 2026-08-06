@@ -2,16 +2,17 @@
 // PWA GALLERY LOAD MORE SYSTEM (158 PHOTOS)
 // ==========================================
 
-// 1. Buat Array daftar nama file foto (Misal: gallery-1.jpg s/d gallery-158.jpg)
 const galleryImages = [];
 const TOTAL_IMAGES = 158;
 
 for (let i = 1; i <= TOTAL_IMAGES; i++) {
     galleryImages.push({
-        src: `assets/images/gallery/gallery-${i}.jpg`,
+        // Jalur folder diubah menjadi assets/image/gallery/
+        src: `assets/image/gallery/gallery-${i}.jpg`,
         alt: `Dokumentasi TSHoliday Bandung #${i}`
     });
 }
+
 
 // 2. Konfigurasi Tampilan
 const ITEMS_PER_LOAD = 10; // Jumlah foto yang dimuat per klik
