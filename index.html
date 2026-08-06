@@ -351,19 +351,25 @@
     </section>
 
     <!-- 6. GALERI -->
-    <section id="galeri" class="light-bg fade-in-section">
-        <div class="section-title">
-            <h2 data-id="Galeri Perjalanan" data-en="Travel Gallery">Galeri Perjalanan</h2>
+    <section id="gallery" class="gallery-section">
+    <div class="container">
+        <h2 class="section-title">Galeri Perjalanan Kami</h2>
+        <p class="section-subtitle">Momen berkesan bersama pelanggan PT Keepgoing TSH Indonesia</p>
+
+        <!-- Grid Tempat Foto Ditampilkan -->
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Foto 1 - 10 akan di-generate otomatis oleh JavaScript, atau ditulis manual di sini -->
         </div>
-        <div class="gallery-grid">
-            <img src="assets/images/ciwidey.jpg" alt="Galeri 1">
-            <img src="assets/images/lembang.jpg" alt="Galeri 2">
-            <img src="assets/images/bandung.jpg" alt="Galeri 3">
-            <img src="assets/images/gallery1.jpg" alt="Galeri 4">
-            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Galeri 5">
-            <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=600&q=80" alt="Galeri 6">
+
+        <!-- Tombol Load More -->
+        <div class="gallery-actions">
+            <button id="loadMoreBtn" class="btn btn-secondary">
+                <i class="fa-solid fa-images"></i> Tampilkan Lebih Banyak (<span id="remainingCount">148</span>)
+            </button>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- 7. TESTIMONI (10 TESTIMONI MULTI-NEGARA) -->
     <section id="testimoni" class="fade-in-section">
