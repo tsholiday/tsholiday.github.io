@@ -1,4 +1,4 @@
-/* --- Styling Logo Navbar (Ukuran Kecil / Compact) --- */
+/* --- Styling Logo Navbar (Ukuran Sedang / Proporsional) --- */
 .logo-container {
     display: flex;
     align-items: center;
@@ -6,22 +6,23 @@
 }
 
 .brand-logo {
-    height: 30px; /* Ukuran diperkecil agar lebih elegan */
+    height: 38px; /* Ukuran pas: tidak terlalu besar & tidak kekecilan */
     width: auto;
     object-fit: contain;
     transition: transform 0.3s ease;
 }
 
 .brand-logo:hover {
-    transform: scale(1.05);
+    transform: scale(1.04);
 }
 
-/* Penyesuaian responsif di layar HP */
+/* Penyesuaian di layar HP / Mobile */
 @media (max-width: 768px) {
     .brand-logo {
-        height: 25px; /* Lebih proporsional di tampilan mobile */
+        height: 32px; /* Tetap seimbang di layar handphone */
     }
 }
+
 
 
 
