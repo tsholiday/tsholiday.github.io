@@ -1,6 +1,3 @@
-/* ==========================================================================
-   1. RESET & BASE STYLES
-   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -10,23 +7,20 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #0A192F; /* Deep Navy Blue */
-    color: #F8F9FA;
+    background-color: #0A192F;
+    color: #FFFFFF;
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3 {
     font-family: 'Playfair Display', serif;
 }
 
 a {
     text-decoration: none;
     color: inherit;
-    transition: all 0.3s ease;
 }
 
-/* Container Layout */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -38,32 +32,22 @@ a {
 }
 
 .bg-alt {
-    background-color: #0F233D; /* Modifikasi sedikit lebih terang dari Navy utama */
+    background-color: #0F233D;
 }
 
-/* Title Section */
 .section-title {
     text-align: center;
-    margin-bottom: 50px;
-}
-
-.section-title h2 {
-    font-size: 2.2rem;
-    color: #FFFFFF;
-    letter-spacing: 1px;
+    margin-bottom: 40px;
 }
 
 .title-underline {
-    width: 70px;
+    width: 60px;
     height: 3px;
-    background-color: #D4AF37; /* Warm Gold */
-    margin: 12px auto 0;
-    border-radius: 2px;
+    background-color: #D4AF37;
+    margin: 10px auto 0;
 }
 
-/* ==========================================================================
-   2. NAVBAR HEADER
-   ========================================================================== */
+/* NAVBAR */
 #navbar {
     position: fixed;
     top: 0;
@@ -72,73 +56,43 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 50px;
-    background: rgba(10, 25, 47, 0.92);
-    backdrop-filter: blur(8px);
+    padding: 15px 40px;
+    background: rgba(10, 25, 47, 0.95);
     z-index: 1000;
     border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-    transition: all 0.3s ease;
 }
 
 .logo {
     display: flex;
     flex-direction: column;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 700;
     color: #D4AF37;
-    letter-spacing: 1.5px;
 }
 
 .logo span {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.6rem;
-    font-weight: 500;
+    font-size: 0.55rem;
     color: #FFFFFF;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
 }
 
 .nav-links {
     display: flex;
-    gap: 25px;
+    gap: 20px;
 }
 
 .nav-item {
     font-size: 0.9rem;
-    font-weight: 500;
-    color: #E2E8F0;
-    position: relative;
-    padding-bottom: 5px;
+    color: #FFFFFF;
 }
 
-.nav-item:hover,
-.nav-item.active {
+.nav-item.active, .nav-item:hover {
     color: #D4AF37;
 }
 
-.nav-item::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background-color: #D4AF37;
-    transition: width 0.3s ease;
-}
-
-.nav-item:hover::after,
-.nav-item.active::after {
-    width: 100%;
-}
-
-/* Language Switcher */
 .lang-switcher {
     display: flex;
-    align-items: center;
-    gap: 6px;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.4);
+    gap: 5px;
 }
 
 .lang-btn {
@@ -146,25 +100,17 @@ a {
     border: none;
     color: #FFFFFF;
     cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.85rem;
     font-weight: 600;
-    padding: 2px 4px;
-    transition: color 0.3s ease;
 }
 
-.lang-btn.active,
-.lang-btn:hover {
+.lang-btn.active {
     color: #D4AF37;
 }
 
-/* ==========================================================================
-   3. HERO SECTION
-   ========================================================================== */
+/* HERO */
 .hero {
     position: relative;
     height: 100vh;
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -173,450 +119,114 @@ a {
 
 .hero-video {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    z-index: 1;
 }
 
 .hero-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, rgba(10, 25, 47, 0.6) 0%, rgba(10, 25, 47, 0.85) 100%);
-    z-index: 2;
+    background: rgba(10, 25, 47, 0.7);
 }
 
 .hero-content {
     position: relative;
-    z-index: 3;
+    z-index: 2;
     text-align: center;
-    max-width: 850px;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .hero-center-logo {
-    height: 95px;
-    width: auto;
-    object-fit: contain;
-    margin-bottom: 1.8rem;
-    filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.6));
+    height: 80px;
+    margin-bottom: 15px;
 }
 
 .hero h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #FFFFFF;
-    line-height: 1.3;
-    margin-bottom: 2rem;
-    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    font-size: 2.2rem;
+    margin-bottom: 25px;
 }
 
 .hero-buttons {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     justify-content: center;
 }
 
-/* Buttons */
 .btn-gold {
-    background-color: #D4AF37;
+    background: #D4AF37;
     color: #0A192F;
-    padding: 12px 30px;
-    border-radius: 4px;
+    padding: 12px 25px;
     font-weight: 600;
-    font-size: 0.95rem;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-}
-
-.btn-gold:hover {
-    background-color: #F3E5AB;
-    transform: translateY(-2px);
+    border-radius: 4px;
 }
 
 .btn-outline {
-    background-color: transparent;
+    border: 1px solid #D4AF37;
     color: #FFFFFF;
-    padding: 12px 30px;
-    border-radius: 4px;
+    padding: 12px 25px;
     font-weight: 600;
-    font-size: 0.95rem;
-    border: 1.5px solid #D4AF37;
-    letter-spacing: 0.5px;
+    border-radius: 4px;
 }
 
-.btn-outline:hover {
-    background-color: rgba(212, 175, 55, 0.15);
-    color: #D4AF37;
-    transform: translateY(-2px);
+/* CARDS & FORMS */
+.about-card, .package-card, .booking-wrapper {
+    background: #0F233D;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
 }
 
 .btn-gold-sm {
     display: inline-block;
-    background-color: #D4AF37;
+    background: #D4AF37;
     color: #0A192F;
-    padding: 8px 20px;
-    border-radius: 4px;
+    padding: 8px 15px;
     font-size: 0.85rem;
     font-weight: 600;
-    margin-top: 15px;
+    margin-top: 10px;
+    border-radius: 4px;
 }
 
-.btn-gold-sm:hover {
-    background-color: #F3E5AB;
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #D4AF37;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 10px;
+    background: #0A192F;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
+    border-radius: 4px;
 }
 
 .btn-gold-block {
     width: 100%;
-    background-color: #D4AF37;
+    background: #D4AF37;
     color: #0A192F;
-    padding: 14px;
+    padding: 12px;
     border: none;
-    border-radius: 4px;
-    font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.btn-gold-block:hover {
-    background-color: #F3E5AB;
-}
-
-/* ==========================================================================
-   4. TENTANG TSHOLIDAY
-   ========================================================================== */
-.about-container {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.about-card {
-    background-color: #0F233D;
-    padding: 30px;
-    border-radius: 8px;
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.about-card h3 {
-    color: #D4AF37;
-    font-size: 1.4rem;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.about-card p {
-    color: #CBD5E1;
-    font-size: 1rem;
-}
-
-.about-grid-3 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-}
-
-.info-card {
-    background-color: #0F233D;
-    padding: 25px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.info-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(212, 175, 55, 0.4);
-}
-
-.info-card h3 {
-    color: #D4AF37;
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.info-card p {
-    color: #CBD5E1;
-    font-size: 0.92rem;
-}
-
-/* ==========================================================================
-   5. PAKET WISATA EKSKLUSIF
-   ========================================================================== */
-.packages-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.package-card {
-    background-color: #0A192F;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid rgba(212, 175, 55, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.package-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
-    border-color: #D4AF37;
-}
-
-.package-img {
-    height: 200px;
-    background-size: cover;
-    background-position: center;
-}
-
-.package-content {
-    padding: 22px;
-}
-
-.package-content h3 {
-    color: #FFFFFF;
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-}
-
-.package-content p {
-    color: #94A3B8;
-    font-size: 0.88rem;
-    line-height: 1.5;
-}
-
-/* ==========================================================================
-   6. SEWA ARMADA
-   ========================================================================== */
-.fleet-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-}
-
-.fleet-card {
-    background-color: #0F233D;
-    padding: 30px 25px;
-    border-radius: 8px;
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.3s ease;
-}
-
-.fleet-card:hover {
-    border-color: #D4AF37;
-    transform: translateY(-5px);
-}
-
-.fleet-icon {
-    font-size: 2.5rem;
-    color: #D4AF37;
-    margin-bottom: 15px;
-}
-
-.fleet-card h3 {
-    font-size: 1.15rem;
-    color: #FFFFFF;
-    margin-bottom: 10px;
-}
-
-.fleet-card p {
-    color: #94A3B8;
-    font-size: 0.88rem;
-}
-
-/* ==========================================================================
-   7. FORMULIR BOOKING / RESERVASI WA
-   ========================================================================== */
-.booking-wrapper {
-    max-width: 650px;
-    margin: 0 auto;
-    background-color: #0A192F;
-    padding: 40px;
-    border-radius: 8px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-}
-
-.booking-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.form-group label {
-    font-size: 0.9rem;
-    color: #D4AF37;
-    font-weight: 500;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 12px 15px;
-    background-color: #0F233D;
-    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 4px;
-    color: #FFFFFF;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
-    outline: none;
-    transition: border-color 0.3s ease;
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    border-color: #D4AF37;
-}
-
-.form-group select option {
-    background-color: #0F233D;
-    color: #FFFFFF;
-}
-
-/* ==========================================================================
-   8. KONTAK & FOOTER
-   ========================================================================== */
 footer {
-    background-color: #060E1A;
-    padding-top: 60px;
+    background: #050C17;
+    padding: 40px 0;
     border-top: 1px solid rgba(212, 175, 55, 0.2);
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 30px;
-    padding-bottom: 40px;
-}
-
-.footer-info h3 {
-    font-size: 1.3rem;
-    color: #D4AF37;
-    margin-bottom: 10px;
-}
-
-.footer-info p {
-    color: #94A3B8;
-    font-size: 0.9rem;
-    margin-bottom: 6px;
-}
-
-.footer-socials h4 {
-    color: #FFFFFF;
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-}
-
-.social-icons {
-    display: flex;
-    gap: 15px;
-}
-
-.social-icons a {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #0F233D;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    color: #D4AF37;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-}
-
-.social-icons a:hover {
-    background-color: #D4AF37;
-    color: #0A192F;
-    transform: translateY(-3px);
-}
-
-.footer-bottom {
     text-align: center;
-    padding: 20px;
-    background-color: #040911;
-    color: #64748B;
-    font-size: 0.8rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* ==========================================================================
-   9. RESPONSIVE DESIGN (Tampilan HP / Tablet)
-   ========================================================================== */
-@media (max-width: 992px) {
-    #navbar {
-        padding: 15px 30px;
-    }
-    
-    .nav-links {
-        display: none; /* Dapat ditambahkan menu burger jika diperlukan */
-    }
-}
-
-@media (max-width: 768px) {
-    #navbar {
-        padding: 12px 20px;
-    }
-
-    .hero-center-logo {
-        height: 70px;
-        margin-bottom: 1.2rem;
-    }
-
-    .hero h1 {
-        font-size: 1.7rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        width: 100%;
-        max-width: 280px;
-    }
-
-    .btn-gold, .btn-outline {
-        width: 100%;
-        text-align: center;
-    }
-
-    .booking-wrapper {
-        padding: 25px 20px;
-    }
-
-    .footer-content {
-        flex-direction: column;
-    }
 }
