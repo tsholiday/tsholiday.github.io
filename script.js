@@ -1,6 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. SMOOTH SCROLLING NAVIGASI
+    // 1. LANGUAGE SWITCHER (ID / EN)
+    const btnID = document.getElementById('btn-id');
+    const btnEN = document.getElementById('btn-en');
+
+    function switchLanguage(lang) {
+        const translatableElements = document.querySelectorAll('[data-id][data-en]');
+        
+        translatableElements.forEach(el => {
+            if (lang === 'en') {
+                el.innerHTML = el.getAttribute('data-en');
+            } else {
+                el.innerHTML = el.getAttribute('data-id');
+            }
+        });
+
+        if (lang === 'en') {
+            btnEN.classList.add('active');
+            btnID.classList.remove('active');
+        } else {
+            btnID.classList.add('active');
+            btnEN.classList.remove('active');
+        }
+    }
+
+    btnID.addEventListener('click', () => switchLanguage('id'));
+    btnEN.addEventListener('click', () => switchLanguage('en'));
+
+    // 2. SMOOTH SCROLLING NAVIGASI
     const links = document.querySelectorAll('a[href^="#"]');
     links.forEach(link => {
         link.addEventListener('click', function (e) {
@@ -22,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. NAVBAR SCROLL EFFECT
+    // 3. NAVBAR SCROLL EFFECT
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -32,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 3. SWIPER AUTOMATIC SLIDER FOR TESTIMONI
+    // 4. SWIPER AUTOMATIC SLIDER FOR TESTIMONI
     const swiper = new Swiper('.testimoni-slider', {
         loop: true,
         autoplay: {
@@ -45,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
     });
 
-    // 4. FAQ TOGGLE
+    // 5. FAQ TOGGLE
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
@@ -54,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 5. INTERSECTION OBSERVER (FADE IN)
+    // 6. INTERSECTION OBSERVER (FADE IN)
     const fadeInSections = document.querySelectorAll('.fade-in-section');
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -69,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 
-    // 6. FORM BOOKING DIRECT TO WHATSAPP
+    // 7. FORM BOOKING DIRECT TO WHATSAPP
     const bookingForm = document.getElementById('bookingForm');
     bookingForm.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -80,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const peserta = document.getElementById('peserta').value;
         const tujuan = document.getElementById('tujuan').value;
 
-        // Nomor WhatsApp Tujuan Admin TSHoliday (Ganti dengan nomor aslimu)
+        // Gantilah dengan nomor WhatsApp asli kamu
         const adminWA = "6281234567890"; 
 
         const pesan = `Halo Admin TSHoliday, saya ingin reservasi perjalanan:%0A%0A` +
