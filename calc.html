@@ -76,18 +76,19 @@
                 <div class="sm:col-span-2">
                     <label class="block text-xs font-bold mb-1.5">Pilih Armada Kendaraan:</label>
                     <select id="calcCar" onchange="updateCarPrice()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
-                        <option value="750000" data-name="Toyota Calya / Sigra">Toyota Calya / Sigra</option>
-                        <option value="900000" data-name="Toyota Avanza" selected>Toyota Avanza</option>
-                        <option value="1200000" data-name="Innova Reborn Diesel">Innova Reborn Diesel</option>
-                        <option value="1400000" data-name="Innova Zenix">Innova Zenix</option>
-                        <option value="1800000" data-name="Toyota HiAce Commuter">Toyota HiAce Commuter</option>
-                        <option value="3500000" data-name="Toyota Alphard VIP">Toyota Alphard VIP</option>
+                        <option value="500000" data-name="Toyota Calya / Sigra (Maks 4-5 Pax)">Toyota Calya / Sigra (Maks 4-5 Orang)</option>
+                        <option value="700000" data-name="Toyota Avanza / Xenia (Maks 5-6 Pax)" selected>Toyota Avanza / Xenia (Maks 5-6 Orang)</option>
+                        <option value="900000" data-name="Innova Reborn Diesel (Maks 6-7 Pax)">Innova Reborn Diesel (Maks 6-7 Orang)</option>
+                        <option value="1100000" data-name="Toyota Innova Zenix (Maks 6-7 Pax)">Toyota Innova Zenix (Maks 6-7 Orang)</option>
+                        <option value="1400000" data-name="Toyota HiAce Commuter (Maks 14 Pax)">Toyota HiAce Commuter (Maks 14 Orang)</option>
+                        <option value="1700000" data-name="Toyota HiAce Premio (Maks 11 Pax)">Toyota HiAce Premio (Maks 11 Orang)</option>
+                        <option value="3000000" data-name="Toyota Alphard VIP (Maks 5 Pax)">Toyota Alphard VIP (Maks 5 Orang)</option>
                     </select>
                 </div>
 
                 <div>
                     <label class="block text-xs font-bold mb-1.5">Harga / Hari (12j):</label>
-                    <input type="text" id="carPriceDisplay" readonly class="w-full bg-gray-100 dark:bg-navy-900/60 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-bold text-amber-500 cursor-not-allowed focus:outline-none" value="Rp 900.000">
+                    <input type="text" id="carPriceDisplay" readonly class="w-full bg-gray-100 dark:bg-navy-900/60 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-bold text-amber-500 cursor-not-allowed focus:outline-none" value="Rp 700.000">
                 </div>
             </div>
 
@@ -164,7 +165,6 @@
 
     <!-- Script Logika Aplikasi -->
     <script>
-        // Database Destinasi
         const destData = {
             Jakarta: ["Monas & Museum Fatahillah", "Kota Tua Jakarta", "Dufan & Ancol", "TMII", "PIK 2 & Cove at Batavia"],
             Bogor: ["Kebun Raya Bogor", "Taman Safari Indonesia", "Kuntum Farmfield", "Kebun Teh Puncak", "Telaga Saat"],
@@ -172,14 +172,13 @@
             Jogja: ["Jalan Malioboro", "Kraton & Taman Sari", "Candi Prambanan", "Jeep Lava Tour Merapi", "HeHa Ocean View"]
         };
 
-        // Muat Checkbox Destinasi berdasarkan Wilayah
         function loadDestinations() {
             const area = document.getElementById('calcArea').value;
             const container = document.getElementById('destinationOptions');
             const items = destData[area] || [];
 
             container.innerHTML = '';
-            items.forEach((item, index) => {
+            items.forEach((item) => {
                 container.innerHTML += `
                     <label class="flex items-center space-x-2 p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-navy-800/50 cursor-pointer">
                         <input type="checkbox" value="${item}" onchange="updateItinerary()" class="dest-checkbox rounded text-amber-500 focus:ring-amber-500 w-4 h-4">
@@ -192,7 +191,6 @@
             calculateTotal();
         }
 
-        // Update Akumulasi Tampilan Itinerary
         function updateItinerary() {
             const checkboxes = document.querySelectorAll('.dest-checkbox:checked');
             const summaryBox = document.getElementById('itinerarySummary');
@@ -228,12 +226,10 @@
             const pickupSelect = document.getElementById('calcPickup');
             const pickupFee = parseInt(pickupSelect.value);
 
-            // Subtotal
             const totalTransport = carPrice * days;
             const totalFullboard = fullboardPricePerPax * pax * days;
             const total = totalTransport + totalFullboard + pickupFee;
 
-            // Rincian
             document.getElementById('detailTransport').innerText = "Rp " + totalTransport.toLocaleString('id-ID');
             
             if (totalFullboard > 0) {
@@ -250,7 +246,6 @@
                 document.getElementById('rowPickupFee').classList.add('hidden');
             }
 
-            // Total
             document.getElementById('calcResult').innerText = "Rp " + total.toLocaleString('id-ID');
         }
 
@@ -274,7 +269,6 @@
             const detailFullboard = document.getElementById('detailFullboard').innerText;
             const total = document.getElementById('calcResult').innerText;
 
-            // Kumpulkan destinasi
             const checkboxes = document.querySelectorAll('.dest-checkbox:checked');
             let destListText = "";
             if (checkboxes.length > 0) {
@@ -311,7 +305,6 @@
             document.documentElement.classList.toggle('dark');
         }
 
-        // Inisialisasi awal
         loadDestinations();
         updateCarPrice();
     </script>
