@@ -53,7 +53,7 @@
                 <div>
                     <label class="block text-[11px] font-bold mb-1" data-i18n="pickupCat">Kategori Penjemputan (Pickup):</label>
                     <select id="calcPickup" onchange="calculateTotal()" class="w-full bg-white dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-semibold focus:outline-none focus:border-amber-500">
-                        <option value="0" data-name-id="Area Kota Bandung" data-name-en="Bandung City Area" data-i18n="pickupOpt1">Area Kota Bandung (Bebas Biaya Tambahan)</option>
+                        <option value="0" data-name-id="Area Kota Bandung (Hotel / Stasiun / KCIC Whoosh / Terminal Bus)" data-name-en="Bandung City Area (Hotel / Station / Whoosh HSR / Bus Terminal)" data-i18n="pickupOpt1">Area Kota Bandung (Hotel / Stasiun / KCIC Whoosh / Terminal Bus) - Bebas Biaya</option>
                         <option value="150000" data-name-id="Luar Kota Bandung (Non-Airport)" data-name-en="Outside Bandung City (Non-Airport)" data-i18n="pickupOpt2">Luar Kota Bandung Non-Airport (+ Rp 150.000)</option>
                         <option value="600000" data-name-id="Jemput Airport CGK (Sekali Jalan)" data-name-en="CGK Airport Pickup (One Way)" data-i18n="pickupOpt3">Jemput Airport Jakarta/Tangerang CGK (+ Rp 600.000)</option>
                     </select>
@@ -62,14 +62,14 @@
                 <!-- Detail Lokasi Penjemputan -->
                 <div>
                     <label class="block text-[11px] font-bold mb-1" data-i18n="pickupDetailLabel">Detail Alamat Penjemputan:</label>
-                    <input type="text" id="pickupDetail" placeholder="Contoh: Hotel Aston Pasteur / Stasiun Bandung / Terminal 3 CGK" data-i18n-ph="pickupDetailPh" class="w-full bg-white dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-medium focus:outline-none focus:border-amber-500">
+                    <input type="text" id="pickupDetail" placeholder="Contoh: Hotel Aston Pasteur / Stasiun Bandung / Stasiun KCIC Whoosh / Terminal Leuwipanjang" data-i18n-ph="pickupDetailPh" class="w-full bg-white dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-medium focus:outline-none focus:border-amber-500">
                 </div>
 
                 <!-- Opsi Kategori Drop Off -->
                 <div>
                     <label class="block text-[11px] font-bold mb-1" data-i18n="dropCat">Kategori Pengantaran Akhir (Drop Off):</label>
                     <select id="calcDrop" onchange="calculateTotal()" class="w-full bg-white dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-semibold focus:outline-none focus:border-amber-500">
-                        <option value="0" data-name-id="Area Kota Bandung" data-name-en="Bandung City Area" data-i18n="dropOpt1">Area Kota Bandung (Bebas Biaya Tambahan)</option>
+                        <option value="0" data-name-id="Area Kota Bandung (Hotel / Stasiun / KCIC Whoosh / Terminal Bus)" data-name-en="Bandung City Area (Hotel / Station / Whoosh HSR / Bus Terminal)" data-i18n="dropOpt1">Area Kota Bandung (Hotel / Stasiun / KCIC Whoosh / Terminal Bus) - Bebas Biaya</option>
                         <option value="150000" data-name-id="Luar Kota Bandung (Non-Airport)" data-name-en="Outside Bandung City (Non-Airport)" data-i18n="dropOpt2">Luar Kota Bandung Non-Airport (+ Rp 150.000)</option>
                         <option value="600000" data-name-id="Drop Airport CGK (Sekali Jalan)" data-name-en="CGK Airport Drop (One Way)" data-i18n="dropOpt3">Drop Off Airport Jakarta/Tangerang CGK (+ Rp 600.000)</option>
                     </select>
@@ -78,7 +78,7 @@
                 <!-- Detail Lokasi Drop Off -->
                 <div>
                     <label class="block text-[11px] font-bold mb-1" data-i18n="dropDetailLabel">Detail Alamat Drop Off:</label>
-                    <input type="text" id="dropDetail" placeholder="Contoh: Stasiun Bandung / Rumah / Hotel / Airport CGK" data-i18n-ph="dropDetailPh" class="w-full bg-white dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-medium focus:outline-none focus:border-amber-500">
+                    <input type="text" id="dropDetail" placeholder="Contoh: Stasiun KCIC Whoosh Tegalluar / Hotel / Rumah / Airport CGK" data-i18n-ph="dropDetailPh" class="w-full bg-white dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-medium focus:outline-none focus:border-amber-500">
                 </div>
             </div>
 
@@ -102,6 +102,12 @@
             </div>
             <div id="paxRecommendationBox" class="bg-blue-500/10 border border-blue-500/30 p-2.5 rounded-xl text-[11px] text-blue-600 dark:text-blue-400 font-medium">
                 💡 <strong data-i18n="recTitle">Rekomendasi Armada:</strong> <span id="recommendedCarText">Toyota Calya / Sigra / Avanza</span>
+            </div>
+
+            <!-- Box Catatan / Request Pelanggan -->
+            <div>
+                <label class="block text-xs font-bold mb-1 text-gray-700 dark:text-gray-300" data-i18n="custNotesLabel">📝 Catatan Lain-Lain / Request Khusus Pelanggan:</label>
+                <textarea id="customerNotes" rows="2" placeholder="Contoh: Bawa koper besar 4 unit, butuh supir ramah anak / bisa bahasa Inggris, atau minta car seat bayi..." data-i18n-ph="custNotesPh" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-medium focus:outline-none focus:border-amber-500"></textarea>
             </div>
 
             <!-- Pilih Armada Kendaraan & Tarif -->
@@ -157,10 +163,16 @@
                 </div>
 
                 <!-- Checklist Destinasi Hari Ini -->
-                <div id="destinationSection" class="pt-1">
-                    <label class="block text-[11px] font-bold mb-2 text-gray-600 dark:text-gray-400" data-i18n="selectDest">Pilih Tempat Wisata yang Ingin Dikunjungi:</label>
+                <div id="destinationSection" class="pt-1 space-y-2">
+                    <label class="block text-[11px] font-bold text-gray-600 dark:text-gray-400" data-i18n="selectDest">Pilih Tempat Wisata yang Ingin Dikunjungi:</label>
                     <div id="destinationOptions" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                         <!-- Checkbox generated by JS -->
+                    </div>
+
+                    <!-- Input Request Destinasi / Tempat Lainnya Per Hari -->
+                    <div class="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700/80">
+                        <label class="block text-[11px] font-bold text-amber-600 dark:text-amber-400 mb-1" data-i18n="customDestLabel">✨ Tempat yang Diinginkan Tidak Ada di Daftar? Tulis di Sini (Khusus Hari Ini):</label>
+                        <input type="text" id="customDayDest" onkeyup="onCustomDestChange()" onchange="onCustomDestChange()" placeholder="Contoh: Kuliner Sudirman Street, Cafe Sudut Rasa, Belanja Kartika Sari..." data-i18n-ph="customDestPh" class="w-full bg-white dark:bg-navy-800 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-medium focus:outline-none focus:border-amber-500">
                     </div>
                 </div>
             </div>
@@ -227,21 +239,23 @@
                 subtitle: "Hitung estimasi biaya & susun itinerary perjalanan Anda per hari",
                 pickupDropTitle: "📍 Pengaturan Penjemputan & Drop Off Utama:",
                 pickupCat: "Kategori Penjemputan (Pickup):",
-                pickupOpt1: "Area Kota Bandung (Bebas Biaya Tambahan)",
+                pickupOpt1: "Area Kota Bandung (Hotel / Stasiun / KCIC Whoosh / Terminal Bus) - Bebas Biaya",
                 pickupOpt2: "Luar Kota Bandung Non-Airport (+ Rp 150.000)",
                 pickupOpt3: "Jemput Airport Jakarta/Tangerang CGK (+ Rp 600.000)",
                 pickupDetailLabel: "Detail Alamat Penjemputan:",
-                pickupDetailPh: "Contoh: Hotel Aston Pasteur / Stasiun Bandung / Terminal 3 CGK",
+                pickupDetailPh: "Contoh: Hotel Aston Pasteur / Stasiun Bandung / Stasiun KCIC Whoosh / Terminal Leuwipanjang",
                 dropCat: "Kategori Pengantaran Akhir (Drop Off):",
-                dropOpt1: "Area Kota Bandung (Bebas Biaya Tambahan)",
+                dropOpt1: "Area Kota Bandung (Hotel / Stasiun / KCIC Whoosh / Terminal Bus) - Bebas Biaya",
                 dropOpt2: "Luar Kota Bandung Non-Airport (+ Rp 150.000)",
                 dropOpt3: "Drop Off Airport Jakarta/Tangerang CGK (+ Rp 600.000)",
                 dropDetailLabel: "Detail Alamat Drop Off:",
-                dropDetailPh: "Contoh: Stasiun Bandung / Rumah / Hotel / Airport CGK",
+                dropDetailPh: "Contoh: Stasiun KCIC Whoosh Tegalluar / Hotel / Rumah / Airport CGK",
                 durationLabel: "Durasi Sewa (Hari):",
                 paxLabel: "Jumlah Peserta (Orang):",
                 paxNote: "👶 *Sertakan anak kecil atau bayi jika membawa.",
                 recTitle: "Rekomendasi Armada:",
+                custNotesLabel: "📝 Catatan Lain-Lain / Request Khusus Pelanggan:",
+                custNotesPh: "Contoh: Bawa koper besar 4 unit, butuh supir ramah anak / bisa bahasa Inggris, atau minta car seat bayi...",
                 selectFleet: "Pilih Armada Kendaraan:",
                 pricePerDay: "Harga / Hari (12j):",
                 itineraryTitle: "🗓️ Penyusunan Itinerary Per Hari:",
@@ -255,6 +269,8 @@
                 areaBogor: "🌿 2. Bogor (Wisata Alam / Antar-Kota - Biaya Rp 600.000)",
                 areaJogja: "🏛️ 3. Yogyakarta / Jogja (⚠️ Tidak Direkomendasikan/Terlalu Jauh - Biaya Rp 1.500.000 sekali jalan)",
                 selectDest: "Pilih Tempat Wisata yang Ingin Dikunjungi:",
+                customDestLabel: "✨ Tempat yang Diinginkan Tidak Ada di Daftar? Tulis di Sini (Khusus Hari Ini):",
+                customDestPh: "Contoh: Kuliner Sudirman Street, Cafe Sudut Rasa, Belanja Kartika Sari...",
                 costBreakdown: "📊 Rincian Komponen Biaya:",
                 lblTransport: "Sewa Transport Utama:",
                 lblPickupFee: "Charge Penjemputan Utama:",
@@ -278,21 +294,23 @@
                 subtitle: "Estimate rental cost & organize your trip itinerary day by day",
                 pickupDropTitle: "📍 Main Pickup & Drop Off Settings:",
                 pickupCat: "Pickup Category:",
-                pickupOpt1: "Bandung City Area (No Extra Fee)",
+                pickupOpt1: "Bandung City Area (Hotel / Railway Station / Whoosh HSR Station / Bus Terminal) - Free Fee",
                 pickupOpt2: "Outside Bandung City (Non-Airport) (+ IDR 150,000)",
                 pickupOpt3: "Jakarta/Tangerang CGK Airport Pickup (+ IDR 600,000)",
                 pickupDetailLabel: "Pickup Address Details:",
-                pickupDetailPh: "Example: Aston Pasteur Hotel / Bandung Station / CGK Terminal 3",
+                pickupDetailPh: "Example: Aston Pasteur Hotel / Bandung Station / KCIC Whoosh Station / Bus Terminal",
                 dropCat: "Final Drop Off Category:",
-                dropOpt1: "Bandung City Area (No Extra Fee)",
+                dropOpt1: "Bandung City Area (Hotel / Railway Station / Whoosh HSR Station / Bus Terminal) - Free Fee",
                 dropOpt2: "Outside Bandung City (Non-Airport) (+ IDR 150,000)",
                 dropOpt3: "Jakarta/Tangerang CGK Airport Drop (+ IDR 600,000)",
                 dropDetailLabel: "Drop Off Address Details:",
-                dropDetailPh: "Example: Bandung Station / Home / Hotel / CGK Airport",
+                dropDetailPh: "Example: Tegalluar Whoosh Station / Hotel / Home / CGK Airport",
                 durationLabel: "Rental Duration (Days):",
                 paxLabel: "Total Passengers (Pax):",
                 paxNote: "👶 *Include toddlers or infants if any.",
                 recTitle: "Vehicle Recommendation:",
+                custNotesLabel: "📝 Other Notes / Special Customer Requests:",
+                custNotesPh: "Example: Bringing 4 large suitcases, need an English-speaking/kid-friendly driver, request child safety seat...",
                 selectFleet: "Select Vehicle / Fleet:",
                 pricePerDay: "Price / Day (12h):",
                 itineraryTitle: "🗓️ Daily Itinerary Builder:",
@@ -306,6 +324,8 @@
                 areaBogor: "🌿 2. Bogor (Nature Tour / Inter-City - Fee IDR 600,000)",
                 areaJogja: "🏛️ 3. Yogyakarta / Jogja (⚠️ Not Recommended/Too Far - Fee IDR 1,500,000 one way)",
                 selectDest: "Select Destinations to Visit:",
+                customDestLabel: "✨ Desired Place Not on the List? Write it Here (For Today):",
+                customDestPh: "Example: Sudirman Street Food, Local Cafe, Kartika Sari Bakery...",
                 costBreakdown: "📊 Cost Breakdown:",
                 lblTransport: "Main Fleet Rental:",
                 lblPickupFee: "Main Pickup Charge:",
@@ -507,7 +527,7 @@
 
             for (let i = 1; i <= days; i++) {
                 if (!dayData[i]) {
-                    dayData[i] = { area: 'BandungKota', dests: [] };
+                    dayData[i] = { area: 'BandungKota', dests: [], customText: '' };
                 }
             }
 
@@ -546,15 +566,16 @@
         }
 
         function loadActiveDayForm() {
-            const dayObj = dayData[currentActiveDay] || { area: 'BandungKota', dests: [] };
+            const dayObj = dayData[currentActiveDay] || { area: 'BandungKota', dests: [], customText: '' };
             document.getElementById('calcAreaDay').value = dayObj.area;
+            document.getElementById('customDayDest').value = dayObj.customText || '';
             renderDestinations();
         }
 
         function onAreaDayChange() {
             const selectedArea = document.getElementById('calcAreaDay').value;
             if (!dayData[currentActiveDay]) {
-                dayData[currentActiveDay] = { area: selectedArea, dests: [] };
+                dayData[currentActiveDay] = { area: selectedArea, dests: [], customText: '' };
             } else {
                 dayData[currentActiveDay].area = selectedArea;
                 const validItemIds = (destData[selectedArea] || []).map(item => item.id);
@@ -564,6 +585,16 @@
             renderDestinations();
             updateItinerarySummary();
             calculateTotal();
+        }
+
+        function onCustomDestChange() {
+            const val = document.getElementById('customDayDest').value;
+            if (!dayData[currentActiveDay]) {
+                dayData[currentActiveDay] = { area: document.getElementById('calcAreaDay').value, dests: [], customText: val };
+            } else {
+                dayData[currentActiveDay].customText = val;
+            }
+            updateItinerarySummary();
         }
 
         function renderDestinations() {
@@ -632,7 +663,7 @@
 
         function toggleDestination(destId, isChecked) {
             if (!dayData[currentActiveDay]) {
-                dayData[currentActiveDay] = { area: document.getElementById('calcAreaDay').value, dests: [] };
+                dayData[currentActiveDay] = { area: document.getElementById('calcAreaDay').value, dests: [], customText: '' };
             }
 
             if (isChecked) {
@@ -665,7 +696,7 @@
             const dict = i18nDict[currentLang];
 
             for (let i = 1; i <= days; i++) {
-                const dayObj = dayData[i] || { area: 'BandungKota', dests: [] };
+                const dayObj = dayData[i] || { area: 'BandungKota', dests: [], customText: '' };
                 
                 let areaText = dayObj.area;
                 for (let opt of areaSelectElem.options) {
@@ -684,7 +715,9 @@
                     `;
                 } else {
                     const list = dayObj.dests || [];
-                    if (list.length > 0) {
+                    const custom = (dayObj.customText || '').trim();
+
+                    if (list.length > 0 || custom !== '') {
                         hasAnySelection = true;
                         let destsListHtml = list.map(id => {
                             const obj = findDestObjectById(id);
@@ -693,6 +726,10 @@
                             const dDesc = obj.desc[currentLang] || obj.desc['id'];
                             return `<li><strong>${dName}</strong> <span class="text-gray-400 text-[10px]">(${dDesc})</span></li>`;
                         }).join('');
+
+                        if (custom !== '') {
+                            destsListHtml += `<li><span class="text-amber-500 font-bold">[Request Custom]:</span> <strong>${custom}</strong></li>`;
+                        }
 
                         html += `
                             <div class="mb-2 pb-1 border-b border-gray-100 dark:border-gray-700/50 last:border-none">
@@ -791,6 +828,8 @@
             const dropFee = parseInt(dropSelect.value) || 0;
             const dropDetail = document.getElementById('dropDetail').value || (isEn ? "Not specified" : "Belum diisi");
 
+            const custNotes = document.getElementById('customerNotes').value || (isEn ? "None" : "Tidak ada");
+
             const carSelect = document.getElementById('calcCar');
             const carName = isEn ? carSelect.options[carSelect.selectedIndex].getAttribute('data-name-en') : carSelect.options[carSelect.selectedIndex].getAttribute('data-name-id');
             
@@ -806,7 +845,7 @@
 
             let itineraryText = "";
             for (let i = 1; i <= totalDaysNum; i++) {
-                const dayObj = dayData[i] || { area: 'BandungKota', dests: [] };
+                const dayObj = dayData[i] || { area: 'BandungKota', dests: [], customText: '' };
                 
                 let areaText = dayObj.area;
                 let dayToll = 0;
@@ -823,7 +862,9 @@
                     itineraryText += `%0A  *${isEn ? 'Day' : 'Hari'} ${i}:* ${isEn ? 'Drop / Transfer Service Only' : 'Khusus Layanan Drop / Jemput Saja'}`;
                 } else {
                     const list = dayObj.dests || [];
-                    if (list.length > 0) {
+                    const custom = (dayObj.customText || '').trim();
+
+                    if (list.length > 0 || custom !== '') {
                         itineraryText += `%0A  *${isEn ? 'Day' : 'Hari'} ${i} (${areaText}):*`;
                         list.forEach(id => {
                             const obj = findDestObjectById(id);
@@ -833,6 +874,9 @@
                                 itineraryText += `%0A    - ${dName} (${dDesc})`;
                             }
                         });
+                        if (custom !== '') {
+                            itineraryText += `%0A    - *[Request Place]*: ${custom}`;
+                        }
                     } else {
                         itineraryText += `%0A  *${isEn ? 'Day' : 'Hari'} ${i} (${areaText}):* ${isEn ? 'Flexible / Not specified' : 'Fleksibel / Belum ditentukan'}`;
                     }
@@ -848,6 +892,7 @@
             text += `- *${isEn ? 'Vehicle' : 'Armada'}*: ${carName}%0A`;
             text += `- *${isEn ? 'Total Passengers' : 'Jumlah Peserta'}*: ${pax} ${isEn ? 'Pax' : 'Orang'}%0A`;
             text += `- *${isEn ? 'Duration' : 'Durasi'}*: ${days} ${isEn ? 'Days' : 'Hari'}%0A`;
+            text += `- *${isEn ? 'Special Customer Notes' : 'Catatan Khusus Pelanggan'}*: ${custNotes}%0A`;
             text += `- *${isEn ? 'Daily Itinerary Plan' : 'Rencana Itinerary Per Hari'}*:${itineraryText}%0A%0A`;
             text += `*${isEn ? 'Cost Breakdown' : 'Rincian Estimasi Biaya'}:*%0A`;
             text += `• ${isEn ? 'Vehicle Rental' : 'Sewa Armada & Driver'}: ${detailTransport}%0A`;
