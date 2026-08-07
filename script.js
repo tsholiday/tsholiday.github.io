@@ -31,7 +31,7 @@ const galleryImages = [
 ];
 
 let currentIndex = 0;
-const ITEMS_PER_LOAD = 5; // Memuat 5 foto per klik sesuai permintaan
+const ITEMS_PER_LOAD = 5; // Memuat 5 foto per klik
 
 function renderGalleryItems() {
     const galleryGrid = document.getElementById('galleryGrid');
@@ -60,7 +60,7 @@ function renderGalleryItems() {
 
     currentIndex += ITEMS_PER_LOAD;
 
-    // Update jumlah sisa foto jika elemen remainingCount ada
+    // Update jumlah sisa foto jika elemen counter ada
     if (remainingCountSpan) {
         const remaining = galleryImages.length - currentIndex;
         remainingCountSpan.textContent = remaining > 0 ? remaining : 0;
@@ -71,6 +71,7 @@ function renderGalleryItems() {
         loadMoreBtn.style.display = 'none';
     }
 }
+
 
 // ==========================================================================
 // 2. LIGHTBOX MODAL WITH ZOOM & NAVIGATION SYSTEM
@@ -113,7 +114,7 @@ function closeModal() {
     }
 }
 
-// FUNGSI NAVIGASI FOTO SELANJUTNYA
+// Fungsi Navigasi Foto Selanjutnya
 function showNextImage() {
     if (galleryImages.length === 0) return;
     currentModalIndex = (currentModalIndex + 1) % galleryImages.length;
@@ -126,7 +127,7 @@ function showNextImage() {
     }
 }
 
-// FUNGSI NAVIGASI FOTO SEBELUMNYA
+// Fungsi Navigasi Foto Sebelumnya
 function showPrevImage() {
     if (galleryImages.length === 0) return;
     currentModalIndex = (currentModalIndex - 1 + galleryImages.length) % galleryImages.length;
@@ -138,7 +139,6 @@ function showPrevImage() {
         updateZoom();
     }
 }
-
 
 
 // ==========================================================================
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-        // B. LIGHTBOX CONTROL EVENT LISTENERS
+    // B. LIGHTBOX CONTROL EVENT LISTENERS
     const modal = document.getElementById('imageModal');
     const closeBtn = document.querySelector('.modal-close');
     const zoomInBtn = document.getElementById('zoomInBtn');
@@ -223,6 +223,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Pendaftaran Event Klik untuk Gambar Legalitas & Kartu Paket Wisata
+    const extraClickableImages = document.querySelectorAll('.card img, .legality-img, .legality-card img');
+    extraClickableImages.forEach(img => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openLightbox(img.src);
+        });
+    });
 
     // C. SCROLL TO TOP CONTROL
     const scrollTopBtn = document.getElementById('scrollTopBtn');
