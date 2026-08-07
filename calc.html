@@ -23,7 +23,7 @@
     <!-- Container Utama Kalkulator -->
     <div class="w-full max-w-xl bg-white dark:bg-navy-800 p-6 sm:p-8 rounded-3xl shadow-xl border border-amber-500/20 relative">
         
-        <!-- Toggle Dark Mode (Atas Kanan) -->
+        <!-- Toggle Dark Mode -->
         <button onclick="toggleDarkMode()" class="absolute top-4 right-4 p-2 rounded-xl bg-gray-100 dark:bg-navy-900 text-amber-500 hover:scale-105 transition" title="Ganti Mode Tampilan">
             🌙
         </button>
@@ -31,26 +31,36 @@
         <!-- Judul -->
         <div class="text-center mb-6">
             <h1 class="text-2xl font-black text-navy-900 dark:text-white">Jelajah<span class="text-amber-500">Rute</span></h1>
-            <h2 class="text-base font-bold mt-1">🧮 Kalkulator Sewa Kendaraan</h2>
-            <p class="text-xs text-gray-500 dark:text-gray-400">Hitung estimasi biaya sewa mobil & driver secara instan</p>
+            <h2 class="text-base font-bold mt-1">🧮 Kalkulator Sewa & Tour</h2>
+            <p class="text-xs text-gray-500 dark:text-gray-400">Hitung estimasi biaya sewa kendaraan & paket perjalanan</p>
         </div>
 
         <!-- Form Input Kalkulator -->
         <div class="space-y-4">
+
+            <!-- Pilih Jenis Layanan / Paket -->
+            <div>
+                <label class="block text-xs font-bold mb-2 text-amber-500">Pilih Jenis Layanan Paket:</label>
+                <select id="calcService" onchange="calculateTotal()" class="w-full bg-amber-500/10 dark:bg-navy-900 border border-amber-500/40 rounded-xl p-3 text-xs font-bold focus:outline-none focus:border-amber-500">
+                    <option value="0" data-name="Transport Only (Driver, BBM, Parkir & Toll)">🚘 Transport Only (Mobil + Driver + BBM + Parkir + Toll)</option>
+                    <option value="250000" data-name="Fullboard Tour (Transport + Makan 2x + Tiket Wisata)">🍱 Fullboard Tour (+ Makan 2x & Tiket Wisata / pax/hr)</option>
+                </select>
+            </div>
+
             <!-- Pilih Armada -->
             <div>
                 <label class="block text-xs font-bold mb-2">Pilih Armada Kendaraan:</label>
                 <select id="calcCar" onchange="calculateTotal()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
-                    <option value="500000" data-name="Toyota Calya / Sigra">Toyota Calya / Sigra (Rp 500rb/hari)</option>
-                    <option value="600000" data-name="Toyota Avanza" selected>Toyota Avanza (Rp 600rb/hari)</option>
-                    <option value="800000" data-name="Innova Reborn Diesel">Innova Reborn Diesel (Rp 800rb/hari)</option>
-                    <option value="950000" data-name="Innova Zenix">Innova Zenix (Rp 950rb/hari)</option>
-                    <option value="1200000" data-name="Toyota HiAce Commuter">Toyota HiAce Commuter (Rp 1.2jt/hari)</option>
-                    <option value="2500000" data-name="Toyota Alphard VIP">Toyota Alphard VIP (Rp 2.5jt/hari)</option>
+                    <option value="750000" data-name="Toyota Calya / Sigra" data-capacity="4">Toyota Calya / Sigra (Rp 750rb/hr)</option>
+                    <option value="900000" data-name="Toyota Avanza" data-capacity="5" selected>Toyota Avanza (Rp 900rb/hr)</option>
+                    <option value="1200000" data-name="Innova Reborn Diesel" data-capacity="6">Innova Reborn Diesel (Rp 1.2jt/hr)</option>
+                    <option value="1400000" data-name="Innova Zenix" data-capacity="6">Innova Zenix (Rp 1.4jt/hr)</option>
+                    <option value="1800000" data-name="Toyota HiAce Commuter" data-capacity="14">Toyota HiAce Commuter (Rp 1.8jt/hr)</option>
+                    <option value="3500000" data-name="Toyota Alphard VIP" data-capacity="5">Toyota Alphard VIP (Rp 3.5jt/hr)</option>
                 </select>
             </div>
 
-            <!-- Durasi Hari & Area Tujuan -->
+            <!-- Durasi Hari & Jumlah Peserta -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                     <label class="block text-xs font-bold mb-2">Durasi Sewa (Hari):</label>
@@ -58,21 +68,27 @@
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold mb-2">Tujuan Area Utama:</label>
-                    <select id="calcArea" onchange="calculateTotal()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
-                        <option value="Jakarta City">Jakarta City Tour</option>
-                        <option value="Bogor / Puncak">Bogor & Puncak</option>
-                        <option value="Bandung / Ciwidey / Lembang">Bandung (Ciwidey/Lembang)</option>
-                        <option value="Yogyakarta">Yogyakarta (Jogja)</option>
-                    </select>
+                    <label class="block text-xs font-bold mb-2">Jumlah Peserta (Orang):</label>
+                    <input type="number" id="calcPax" value="4" min="1" max="50" onchange="calculateTotal()" onkeyup="calculateTotal()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
                 </div>
+            </div>
+
+            <!-- Tujuan Area Utama -->
+            <div>
+                <label class="block text-xs font-bold mb-2">Tujuan Area Utama:</label>
+                <select id="calcArea" onchange="calculateTotal()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
+                    <option value="Jakarta City">Jakarta City Tour</option>
+                    <option value="Bogor / Puncak">Bogor & Puncak</option>
+                    <option value="Bandung / Ciwidey / Lembang">Bandung (Ciwidey/Lembang)</option>
+                    <option value="Yogyakarta">Yogyakarta (Jogja)</option>
+                </select>
             </div>
 
             <!-- Box Hasil & Tombol WA -->
             <div class="bg-amber-500/10 border border-amber-500/30 p-5 rounded-2xl flex flex-col sm:flex-row justify-between items-center gap-4 mt-6">
                 <div class="text-center sm:text-left">
-                    <span class="text-xs text-gray-500 dark:text-gray-400 block">Estimasi Biaya + Driver:</span>
-                    <span id="calcResult" class="text-2xl sm:text-3xl font-black text-amber-500">Rp 600.000</span>
+                    <span class="text-xs text-gray-500 dark:text-gray-400 block">Estimasi Biaya Paket Total:</span>
+                    <span id="calcResult" class="text-2xl sm:text-3xl font-black text-amber-500">Rp 0</span>
                 </div>
                 <button onclick="sendOrderWA()" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-navy-900 font-extrabold px-6 py-3.5 rounded-xl text-xs shadow-lg hover:shadow-amber-500/20 transition">
                     Pesan via WhatsApp 📱
@@ -84,34 +100,48 @@
 
     <!-- Script Logika Kalkulator -->
     <script>
-        // Logika Hitung Total Biaya
         function calculateTotal() {
-            const price = parseInt(document.getElementById('calcCar').value);
+            const carSelect = document.getElementById('calcCar');
+            const carPrice = parseInt(carSelect.value);
             const days = parseInt(document.getElementById('calcDays').value) || 1;
-            const total = price * days;
+            const pax = parseInt(document.getElementById('calcPax').value) || 1;
+            
+            const serviceSelect = document.getElementById('calcService');
+            const fullboardPricePerPax = parseInt(serviceSelect.value);
+
+            // Hitung harga dasar transport (termasuk BBM, Driver, Parkir, Toll)
+            const totalTransport = carPrice * days;
+            
+            // Hitung tambahan fullboard (Makan 2x + Tiket Wisata per orang per hari)
+            const totalFullboard = fullboardPricePerPax * pax * days;
+
+            const total = totalTransport + totalFullboard;
             
             document.getElementById('calcResult').innerText = "Rp " + total.toLocaleString('id-ID');
         }
 
-        // Format Teks Otomatis ke WhatsApp
         function sendOrderWA() {
+            const serviceSelect = document.getElementById('calcService');
+            const serviceName = serviceSelect.options[serviceSelect.selectedIndex].getAttribute('data-name');
+            
             const carSelect = document.getElementById('calcCar');
             const carName = carSelect.options[carSelect.selectedIndex].getAttribute('data-name');
+            
             const days = document.getElementById('calcDays').value;
+            const pax = document.getElementById('calcPax').value;
             const area = document.getElementById('calcArea').value;
             const total = document.getElementById('calcResult').innerText;
 
-            const text = `Halo Admin JelajahRute, saya ingin cek ketersediaan sewa armada:%0A%0A- *Armada*: ${carName}%0A- *Durasi*: ${days} Hari%0A- *Tujuan*: ${area}%0A- *Estimasi Biaya*: ${total}%0A%0AMohon info ketersediaan tanggalnya, terima kasih!`;
+            const text = `Halo Admin JelajahRute, saya ingin reservasi/tanya ketersediaan armada:%0A%0A- *Layanan*: ${serviceName}%0A- *Armada*: ${carName}%0A- *Jumlah Peserta*: ${pax} Orang%0A- *Durasi*: ${days} Hari%0A- *Tujuan*: ${area}%0A- *Estimasi Total*: ${total}%0A%0AMohon konfirmasi ketersediaannya, terima kasih!`;
             
             window.open(`https://wa.me/6282130640161?text=${text}`, '_blank');
         }
 
-        // Toggle Dark Mode
         function toggleDarkMode() {
             document.documentElement.classList.toggle('dark');
         }
 
-        // Hitung awal saat web dibuka
+        // Jalankan kalkulasi pertama kali
         calculateTotal();
     </script>
 </body>
