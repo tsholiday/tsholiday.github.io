@@ -278,7 +278,6 @@ nav a:hover, nav a.active {
     padding: 0.5rem 1.2rem;
     font-size: 0.8rem;
     display: inline-block;
-    margin-top: 1rem;
 }
 
 .btn-block {
@@ -351,7 +350,7 @@ section {
 /* GRID CARDS & ARMADA */
 .grid-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
 
@@ -361,6 +360,8 @@ section {
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
 }
 
 .card:hover {
@@ -376,6 +377,39 @@ section {
 
 .card-body {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.card-body p {
+    color: #555;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.card-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.card-buttons .btn-detail {
+    border: 1.5px solid var(--accent);
+    color: var(--primary);
+    background: transparent;
+    cursor: pointer;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.card-buttons .btn-detail:hover {
+    background: var(--accent);
+    color: #fff;
 }
 
 .cardfleet {
@@ -434,58 +468,6 @@ section {
     margin-top: 20px;
 }
 
-/* Styling Tombol Panah Navigasi Modal */
-.modal-nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.15);
-    color: #ffffff;
-    border: 1px solid rgba(212, 175, 55, 0.4);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    cursor: pointer;
-    z-index: 2003;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
-}
-
-.modal-nav-btn.prev-btn {
-    left: 25px;
-}
-
-.modal-nav-btn.next-btn {
-    right: 25px;
-}
-
-.modal-nav-btn:hover {
-    background: #D4AF37;
-    color: #0A192F;
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
-}
-
-/* Penyesuaian di Layar HP */
-@media (max-width: 768px) {
-    .modal-nav-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1.1rem;
-    }
-    .modal-nav-btn.prev-btn {
-        left: 10px;
-    }
-    .modal-nav-btn.next-btn {
-        right: 10px;
-    }
-}
-
-
 /* ==========================================================================
    6. LIGHTBOX MODAL & ZOOM SYSTEM
    ========================================================================== */
@@ -523,6 +505,41 @@ section {
 
 .modal-close:hover {
     color: var(--accent);
+}
+
+.modal-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 2003;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.modal-nav-btn.prev-btn {
+    left: 25px;
+}
+
+.modal-nav-btn.next-btn {
+    right: 25px;
+}
+
+.modal-nav-btn:hover {
+    background: #D4AF37;
+    color: #0A192F;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
 }
 
 .modal-controls {
@@ -578,7 +595,125 @@ section {
 }
 
 /* ==========================================================================
-   7. LEGALITAS SECTION
+   7. MODAL DETAIL RINCIAN TEMPAT WISATA
+   ========================================================================== */
+.detail-modal {
+    display: none;
+    position: fixed;
+    z-index: 2500;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 25, 47, 0.85);
+    backdrop-filter: blur(6px);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.detail-modal.show {
+    display: flex;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.detail-modal-content {
+    background: #ffffff;
+    border-radius: 12px;
+    max-width: 650px;
+    width: 100%;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.detail-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.2s;
+    z-index: 10;
+}
+
+.detail-modal-close:hover {
+    color: var(--accent);
+}
+
+.detail-modal-header {
+    background: var(--primary);
+    color: #fff;
+    padding: 20px 25px;
+    border-bottom: 3px solid var(--accent);
+}
+
+.detail-modal-header h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--accent);
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+}
+
+.detail-modal-header p {
+    font-size: 0.85rem;
+    color: #CBD5E1;
+}
+
+.detail-modal-body {
+    padding: 20px 25px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.destination-item {
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed #e2e8f0;
+}
+
+.destination-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.destination-item h4 {
+    color: var(--primary);
+    font-size: 1rem;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.destination-item h4 i {
+    color: var(--accent);
+    font-size: 0.85rem;
+}
+
+.destination-item p {
+    color: #475569;
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.detail-modal-footer {
+    padding: 15px 25px;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+/* ==========================================================================
+   8. LEGALITAS SECTION
    ========================================================================== */
 .legality-card {
     background: #fff;
@@ -630,7 +765,7 @@ section {
 }
 
 /* ==========================================================================
-   8. TESTIMONI, FAQ, & BOOKING FORM
+   9. TESTIMONI, FAQ, & BOOKING FORM
    ========================================================================== */
 /* TESTIMONI */
 .testimoni-slider {
@@ -729,7 +864,7 @@ section {
 }
 
 /* ==========================================================================
-   9. TOMBOL SCROLL TO TOP & FOOTER
+   10. TOMBOL SCROLL TO TOP & FOOTER
    ========================================================================== */
 #scrollTopBtn {
     position: fixed;
@@ -817,7 +952,7 @@ footer {
 }
 
 /* ==========================================================================
-   10. RESPONSIVE DESIGN (MOBILE & TABLET)
+   11. RESPONSIVE DESIGN (MOBILE & TABLET)
    ========================================================================== */
 @media (max-width: 868px) {
     .mobile-toggle {
@@ -854,8 +989,31 @@ footer {
         font-size: 1rem;
     }
 
+    .modal-nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+    .modal-nav-btn.prev-btn {
+        left: 10px;
+    }
+    .modal-nav-btn.next-btn {
+        right: 10px;
+    }
+
     .legality-card {
         grid-template-columns: 1fr;
         padding: 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .card-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .card-buttons button, .card-buttons a {
+        width: 100%;
+        text-align: center;
     }
 }
