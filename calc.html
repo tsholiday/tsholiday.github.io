@@ -326,76 +326,71 @@
             }
         };
 
+        // Objek Data Destinasi Terstruktur (Bilingual)
         const destData = {
             BandungKota: [
-                "Jalan Asia Afrika & Gedung Merdeka (Spot bersejarah & arsitektur klasik)",
-                "Jalan Braga (Kawasan jalan ikonik dengan cafe, bangunan tua, & galeri lukisan)",
-                "Alun-Alun Bandung & Masjid Raya Bandung (Taman rumput sintetis di pusat kota)",
-                "Gedung Sate & Museum Gedung Sate (Ikon landmark Jawa Barat)",
-                "Kiara Artha Park (Taman kota modern dengan air mancur menari & taman Korea)",
-                "Hutan Kota Babakan Siliwangi (Babsil) (Forest walk di tengah kota)",
-                "Pasar Baru Trade Center (Pusat belanja tekstil & pakaian populer)",
-                "Saung Angklung Udjo (Pusat seni & pertunjukan budaya tradisional)"
+                { id: "bk_1", name: { id: "Jalan Asia Afrika & Gedung Merdeka", en: "Asia Afrika Street & Merdeka Building" }, desc: { id: "Spot bersejarah & arsitektur klasik", en: "Historic spot & classic colonial architecture" } },
+                { id: "bk_2", name: { id: "Jalan Braga", en: "Braga Street" }, desc: { id: "Kawasan jalan ikonik dengan cafe, bangunan tua, & galeri lukisan", en: "Iconic street with cafes, heritage buildings, & art galleries" } },
+                { id: "bk_3", name: { id: "Alun-Alun Bandung & Masjid Raya", en: "Bandung City Square & Grand Mosque" }, desc: { id: "Taman rumput sintetis di pusat kota", en: "Synthetic grass park in the heart of the city" } },
+                { id: "bk_4", name: { id: "Gedung Sate & Museum Gedung Sate", en: "Gedung Sate & Museum" }, desc: { id: "Ikon landmark Jawa Barat", en: "West Java's iconic landmark" } },
+                { id: "bk_5", name: { id: "Kiara Artha Park", en: "Kiara Artha Park" }, desc: { id: "Taman kota modern dengan air mancur menari & taman Korea", en: "Modern city park featuring dancing fountains & Korean park" } },
+                { id: "bk_6", name: { id: "Hutan Kota Babakan Siliwangi (Babsil)", en: "Babakan Siliwangi Forest Walk" }, desc: { id: "Forest walk di tengah kota", en: "Scenic urban forest walk in the city center" } },
+                { id: "bk_7", name: { id: "Pasar Baru Trade Center", en: "Pasar Baru Trade Center" }, desc: { id: "Pusat belanja tekstil & pakaian populer", en: "Famous market for textiles and local apparel" } },
+                { id: "bk_8", name: { id: "Saung Angklung Udjo", en: "Saung Angklung Udjo" }, desc: { id: "Pusat seni & pertunjukan budaya tradisional", en: "Traditional Sundanese bamboo culture & musical show" } }
             ],
             BandungUtara: [
-                "Orchid Forest Cikole (Hutan pinus dengan koleksi anggrek & jembatan gantung berlampu)",
-                "Dusun Bambu (Taman rekreasi alam, danau, & restoran khas Sunda)",
-                "The Lodge Maribaya (Wisata alam dengan wahana foto ekstrem/menantang)",
-                "Floating Market Lembang (Pasar terapung, taman bunga, & sewa kostum Jepang/Korea)",
-                "Farmhouse Susu Lembang (Wisata gaya Eropa dengan rumah Hobbit)",
-                "The Great Asia Africa (Taman miniatur landmark negara-negara Asia & Afrika)",
-                "Tangkuban Perahu (Kawah gunung berapi aktif yang bisa diakses langsung dengan mobil)",
-                "Taman Begonia (Taman bunga warna-warni)",
-                "Lembang Park & Zoo (Kebun binatang modern & resto berkonsep terbuka)"
+                { id: "bu_1", name: { id: "Orchid Forest Cikole", en: "Orchid Forest Cikole" }, desc: { id: "Hutan pinus dengan koleksi anggrek & jembatan gantung berlampu", en: "Pine forest with orchid collection & illuminated wooden bridge" } },
+                { id: "bu_2", name: { id: "Dusun Bambu", en: "Dusun Bambu Park" }, desc: { id: "Taman rekreasi alam, danau, & restoran khas Sunda", en: "Eco-tourism park with lake views & traditional Sundanese dining" } },
+                { id: "bu_3", name: { id: "The Lodge Maribaya", en: "The Lodge Maribaya" }, desc: { id: "Wisata alam dengan wahana foto ekstrem/menantang", en: "Nature park with adventure rides & scenic photo spots" } },
+                { id: "bu_4", name: { id: "Floating Market Lembang", en: "Lembang Floating Market" }, desc: { id: "Pasar terapung, taman bunga, & sewa kostum Jepang/Korea", en: "Floating food vendors, flower garden, & traditional costume rentals" } },
+                { id: "bu_5", name: { id: "Farmhouse Susu Lembang", en: "Farmhouse Lembang" }, desc: { id: "Wisata gaya Eropa dengan rumah Hobbit", en: "European-themed park featuring Hobbit houses & pet farm" } },
+                { id: "bu_6", name: { id: "The Great Asia Africa", en: "The Great Asia Africa" }, desc: { id: "Taman miniatur landmark negara-negara Asia & Afrika", en: "Miniature park showcasing iconic Asian & African landmarks" } },
+                { id: "bu_7", name: { id: "Tangkuban Perahu", en: "Tangkuban Perahu Crater" }, desc: { id: "Kawah gunung berapi aktif yang bisa diakses langsung dengan mobil", en: "Active volcanic crater easily accessible directly by vehicle" } },
+                { id: "bu_8", name: { id: "Taman Begonia", en: "Begonia Garden" }, desc: { id: "Taman bunga warna-warni", en: "Vibrant flower garden & flora nursery" } },
+                { id: "bu_9", name: { id: "Lembang Park & Zoo", en: "Lembang Park & Zoo" }, desc: { id: "Kebun binatang modern & resto berkonsep terbuka", en: "Modern zoo with interactive animal encounters & open-air cafes" } }
             ],
             BandungSelatan1: [
-                "Kawah Putih (Danau kawah vulkanik ikonik)",
-                "Ranca Upas (Penangkaran rusa, camping ground, & pemandian air panas)",
-                "Glamping Lakeside Rancabali (Restoran bentuk kapal Phinisi di tepi Danau Situ Patenggang)",
-                "Situ Patenggang (Danau alami di tengah kebun teh)",
-                "Kebun Teh Rancabali & Tea Cliff Bridge (Jembatan kayu di atas hamparan kebun teh)",
-                "Kawah Rengganis & Suspension Bridge (Jembatan gantung terpanjang & pemandian air panas alami)",
-                "Happy Farm Ciwidey (Wisata edukasi & ramah anak)"
+                { id: "bs1_1", name: { id: "Kawah Putih", en: "Kawah Putih (White Crater)" }, desc: { id: "Danau kawah vulkanik ikonik", en: "Iconic turquoise volcanic crater lake" } },
+                { id: "bs1_2", name: { id: "Ranca Upas", en: "Ranca Upas Deer Park" }, desc: { id: "Penangkaran rusa, camping ground, & pemandian air panas", en: "Deer sanctuary, camping ground, & natural hot spring pools" } },
+                { id: "bs1_3", name: { id: "Glamping Lakeside Rancabali", en: "Glamping Lakeside Rancabali" }, desc: { id: "Restoran bentuk kapal Phinisi di tepi Danau Situ Patenggang", en: "Pinisi ship restaurant located beside Situ Patenggang Lake" } },
+                { id: "bs1_4", name: { id: "Situ Patenggang", en: "Situ Patenggang Lake" }, desc: { id: "Danau alami di tengah kebun teh", en: "Scenic natural lake surrounded by lush tea plantations" } },
+                { id: "bs1_5", name: { id: "Kebun Teh Rancabali & Tea Cliff Bridge", en: "Rancabali Tea Plantation & Tea Cliff Bridge" }, desc: { id: "Jembatan kayu di atas hamparan kebun teh", en: "Wooden boardwalk path elevated over tea gardens" } },
+                { id: "bs1_6", name: { id: "Kawah Rengganis & Suspension Bridge", en: "Rengganis Crater & Suspension Bridge" }, desc: { id: "Jembatan gantung terpanjang & pemandian air panas alami", en: "Longest suspension bridge & natural mud hot springs" } },
+                { id: "bs1_7", name: { id: "Happy Farm Ciwidey", en: "Happy Farm Ciwidey" }, desc: { id: "Wisata edukasi & ramah anak", en: "Family-friendly educational farm & petting zoo" } }
             ],
             BandungSelatan2: [
-                "Nimo Highland (Jembatan kaca melingkar di atas kebun teh dengan pemandangan 360 derajat)",
-                "Wayang Windu Panenjoan (WWP) (Jembatan kayu meliuk di tengah hamparan kebun teh)",
-                "Situ Cileunca (Danau luas untuk wisata rafting/arung jeram, flying fox, & boating)",
-                "Taman Langit Pangalengan (Ciseupan) (Spot camping & sunrise di atas awan)",
-                "Pineus Tilu Riverside Camping (Camping eksklusif di tepi aliran sungai dalam hutan pinus)",
-                "Kebun Teh Malabar & Rumah Kayu Bosscha (Nilai sejarah pengelola kebun teh zaman Belanda)",
-                "Hutan Pinus Rahong (Area outbound, paintball, dan camping)"
+                { id: "bs2_1", name: { id: "Nimo Highland", en: "Nimo Highland" }, desc: { id: "Jembatan kaca melingkar di atas kebun teh dengan pemandangan 360 derajat", en: "Circular glass skywalk over tea plantations with 360-degree views" } },
+                { id: "bs2_2", name: { id: "Wayang Windu Panenjoan (WWP)", en: "Wayang Windu Panenjoan" }, desc: { id: "Jembatan kayu meliuk di tengah hamparan kebun teh", en: "Winding wooden bridge across tea hills" } },
+                { id: "bs2_3", name: { id: "Situ Cileunca", en: "Situ Cileunca Lake" }, desc: { id: "Danau luas untuk wisata rafting/arung jeram, flying fox, & boating", en: "Vast lake popular for river rafting, flying fox, & boat rides" } },
+                { id: "bs2_4", name: { id: "Taman Langit Pangalengan", en: "Taman Langit Pangalengan" }, desc: { id: "Spot camping & sunrise di atas awan", en: "Famous camping spot above the clouds for sunrise views" } },
+                { id: "bs2_5", name: { id: "Pineus Tilu Riverside Camping", en: "Pineus Tilu Riverside Camping" }, desc: { id: "Camping eksklusif di tepi aliran sungai dalam hutan pinus", en: "Exclusive riverside camping experience inside pine forest" } },
+                { id: "bs2_6", name: { id: "Kebun Teh Malabar & Rumah Kayu Bosscha", en: "Malabar Tea Estate & Bosscha Wooden House" }, desc: { id: "Nilai sejarah pengelola kebun teh zaman Belanda", en: "Historic Dutch heritage tea estate & plantation tea house" } },
+                { id: "bs2_7", name: { id: "Hutan Pinus Rahong", en: "Rahong Pine Forest" }, desc: { id: "Area outbound, paintball, dan camping", en: "Outdoor adventure park with paintball, rafting, & camping" } }
             ],
             Jakarta: [
-                "Monumen Nasional (Monas) – Tugu ikonik Indonesia dengan museum sejarah dan gardu pandang puncak",
-                "Kawasan Kota Tua & Museum Fatahillah – Arsitektur kolonial Belanda, sewa sepeda ontel, dan Museum Bank Indonesia",
-                "Pantai Indah Kapuk (PIK) 2 & San Antonio Promenade – Area pantai modern, pusat kuliner hits",
-                "Taman Mini Indonesia Indah (TMII) – Taman rekreasi edukasi kebudayaan nusantara",
-                "Taman Impian Jaya Ancol – Kompleks hiburan pesisir (Dufan, Sea World, Samudra, Pantai Ancol)",
-                "Masjid Istiqlal & Gereja Katedral – Wisata religi dan simbol toleransi berdekatan",
-                "Hutan Kota GBK (Gelora Bung Karno) – Area terbuka hijau di tengah gedung pencakar langit",
-                "Kepulauan Seribu – Wisata bahari (Pulau Pari, Pulau Pramuka, Pulau Macan)"
+                { id: "jk_1", name: { id: "Monumen Nasional (Monas)", en: "National Monument (Monas)" }, desc: { id: "Tugu ikonik Indonesia dengan museum sejarah dan gardu pandang puncak", en: "Indonesia's iconic landmark with history museum & observation deck" } },
+                { id: "jk_2", name: { id: "Kawasan Kota Tua & Museum Fatahillah", en: "Jakarta Old Town & Fatahillah Museum" }, desc: { id: "Arsitektur kolonial Belanda, sewa sepeda ontel, dan Museum Bank Indonesia", en: "Dutch colonial plaza, vintage bicycle rentals, & historical museums" } },
+                { id: "jk_3", name: { id: "Pantai Indah Kapuk (PIK) 2", en: "Pantai Indah Kapuk (PIK) 2 Promenade" }, desc: { id: "Area pantai modern, pusat kuliner hits", en: "Modern coastal area with trendy culinary hubs & waterfront walk" } },
+                { id: "jk_4", name: { id: "Taman Mini Indonesia Indah (TMII)", en: "Taman Mini Indonesia Indah (TMII)" }, desc: { id: "Taman rekreasi edukasi kebudayaan nusantara", en: "Cultural theme park showcasing Indonesian provinces" } },
+                { id: "jk_5", name: { id: "Taman Impian Jaya Ancol", en: "Ancol Dreamland Complex" }, desc: { id: "Kompleks hiburan pesisir (Dufan, Sea World, Samudra, Pantai Ancol)", en: "Coastal amusement park complex (Dufan theme park & Sea World)" } },
+                { id: "jk_6", name: { id: "Masjid Istiqlal & Gereja Katedral", en: "Istiqlal Mosque & Cathedral Church" }, desc: { id: "Wisata religi dan simbol toleransi berdekatan", en: "Adjacent landmark religious sites symbolizing harmony" } },
+                { id: "jk_7", name: { id: "Hutan Kota GBK", en: "GBK Urban Forest Park" }, desc: { id: "Area terbuka hijau di tengah gedung pencakar langit", en: "Lush green city park amid central Jakarta skyscrapers" } }
             ],
             Bogor: [
-                "Kebun Raya Bogor & Istana Bogor – Taman botani tertua di Asia Tenggara",
-                "Kebun Teh Puncak (Agrowisata Gunung Mas) – Pemandangan kebun teh, tea bridge & flying fox",
-                "Taman Safari Indonesia (Cisarua) – Safari berkendara melihat satwa dari dekat",
-                "Telaga Saat Puncak – Danau alami tersembunyi di tengah hamparan kebun teh Puncak",
-                "Kuntum Farmfield – Wisata edukasi peternakan dan pertanian ramah anak",
-                "Little Venice Kota Bunga – Taman rekreasi tematik berkonsep kota Venesia",
-                "Curug Lawe & Curug Cilember – Wisata air terjun alami dengan suasana hutan asri",
-                "Taman Bunga Nusantara – Taman bunga tematik internasional luas dan indah"
+                { id: "bg_1", name: { id: "Kebun Raya Bogor & Istana Bogor", en: "Bogor Botanical Gardens & Palace" }, desc: { id: "Taman botani tertua di Asia Tenggara", en: "Oldest botanical garden in Southeast Asia" } },
+                { id: "bg_2", name: { id: "Kebun Teh Puncak (Gunung Mas)", en: "Gunung Mas Puncak Tea Estate" }, desc: { id: "Pemandangan kebun teh, tea bridge & flying fox", en: "Sprawling tea hill views, wooden bridge walks, & flying fox" } },
+                { id: "bg_3", name: { id: "Taman Safari Indonesia (Cisarua)", en: "Taman Safari Indonesia" }, desc: { id: "Safari berkendara melihat satwa dari dekat", en: "Drive-through wildlife safari park" } },
+                { id: "bg_4", name: { id: "Telaga Saat Puncak", en: "Telaga Saat Lake Puncak" }, desc: { id: "Danau alami tersembunyi di tengah hamparan kebun teh Puncak", en: "Hidden natural lake surrounded by misty tea hills" } },
+                { id: "bg_5", name: { id: "Kuntum Farmfield", en: "Kuntum Farmfield" }, desc: { id: "Wisata edukasi peternakan dan pertanian ramah anak", en: "Kid-friendly organic farm & interactive animal feeding" } },
+                { id: "bg_6", name: { id: "Little Venice Kota Bunga", en: "Little Venice Puncak" }, desc: { id: "Taman rekreasi tematik berkonsep kota Venesia", en: "Venice-themed leisure resort with gondola rides" } }
             ],
             Jogja: [
-                "Jalan Malioboro & Titik Nol KM – Pusat belanja oleh-oleh & suasana malam khas Jogja",
-                "Kraton Yogyakarta & Taman Sari – Istana Kesultanan Yogyakarta & kompleks pemandian sejarah",
-                "Candi Prambanan – Kompleks candi Hindu terbesar di Indonesia",
-                "Candi Borobudur – Candi Buddha terbesar di dunia (Destinasi Super Prioritas)",
-                "Jeep Lava Tour Merapi – Wisata petualangan menyusuri jejak erupsi Gunung Merapi",
-                "HeHa Sky View & HeHa Ocean View – Spot foto modern pemandangan kota/laut",
-                "Pantai Timang – Pantai ekstrim dengan gondola kayu tradisional",
-                "Hutan Pinus Pengger & Mangunan – Wisata alam hutan pinus & spot foto bukit",
-                "Tebing Breksi – Bekas tambang batu kapur yang diukir artistik"
+                { id: "jg_1", name: { id: "Jalan Malioboro & Titik Nol KM", en: "Malioboro Street & Zero Kilometer Point" }, desc: { id: "Pusat belanja oleh-oleh & suasana malam khas Jogja", en: "Famous shopping district & vibrant Yogyakarta nightlife" } },
+                { id: "jg_2", name: { id: "Kraton Yogyakarta & Taman Sari", en: "Yogyakarta Palace & Water Castle" }, desc: { id: "Istana Kesultanan Yogyakarta & kompleks pemandian sejarah", en: "Historic Royal Sultan Palace & historic water castle ruins" } },
+                { id: "jg_3", name: { id: "Candi Prambanan", en: "Prambanan Temple" }, desc: { id: "Kompleks candi Hindu terbesar di Indonesia", en: "The largest Hindu temple complex in Indonesia" } },
+                { id: "jg_4", name: { id: "Candi Borobudur", en: "Borobudur Temple" }, desc: { id: "Candi Buddha terbesar di dunia", en: "World's largest Buddhist temple (UNESCO World Heritage Site)" } },
+                { id: "jg_5", name: { id: "Jeep Lava Tour Merapi", en: "Merapi Volcano Jeep Lava Tour" }, desc: { id: "Wisata petualangan menyusuri jejak erupsi Gunung Merapi", en: "Off-road 4x4 jeep adventure along Mt. Merapi eruption trails" } },
+                { id: "jg_6", name: { id: "HeHa Sky View & HeHa Ocean View", en: "HeHa Sky View & HeHa Ocean View" }, desc: { id: "Spot foto modern pemandangan kota/laut", en: "Popular cliffside photo spots with city skyline or ocean views" } }
             ],
             DropOnlyBandung: []
         };
@@ -424,6 +419,7 @@
 
             onPaxChange();
             renderDayTabs(parseInt(document.getElementById('calcDays').value) || 1);
+            renderDestinations();
             updateItinerarySummary();
         }
 
@@ -441,7 +437,6 @@
             let currentCarValid = true;
             let availableCars = [];
 
-            // Evaluasi setiap opsi mobil berdasarkan jumlah peserta
             for (let i = 0; i < options.length; i++) {
                 const maxPax = parseInt(options[i].getAttribute('data-maxpax'));
                 const nameAttr = currentLang === 'en' ? options[i].getAttribute('data-name-en') : options[i].getAttribute('data-name-id');
@@ -459,7 +454,6 @@
                 }
             }
 
-            // Jika mobil yang sedang dipilih tidak cukup, otomatis pindahkan ke mobil pertama yang muat
             if (!currentCarValid && availableCars.length > 0) {
                 carSelect.value = availableCars[0].value;
                 warningBox.classList.remove('hidden');
@@ -471,7 +465,6 @@
                 warningBox.classList.add('hidden');
             }
 
-            // Berikan saran/rekomendasi armada yang pas
             if (pax <= 5) {
                 recText.innerText = "Toyota Calya / Sigra / Avanza / Alphard VIP";
             } else if (pax == 6) {
@@ -564,8 +557,8 @@
                 dayData[currentActiveDay] = { area: selectedArea, dests: [] };
             } else {
                 dayData[currentActiveDay].area = selectedArea;
-                const validItems = destData[selectedArea] || [];
-                dayData[currentActiveDay].dests = dayData[currentActiveDay].dests.filter(d => validItems.includes(d));
+                const validItemIds = (destData[selectedArea] || []).map(item => item.id);
+                dayData[currentActiveDay].dests = dayData[currentActiveDay].dests.filter(id => validItemIds.includes(id));
             }
 
             renderDestinations();
@@ -579,7 +572,6 @@
             const destSection = document.getElementById('destinationSection');
             const dict = i18nDict[currentLang];
 
-            // Sembunyikan jika memilih Drop Only
             if (area === 'DropOnlyBandung') {
                 destSection.classList.add('hidden');
                 container.innerHTML = '';
@@ -594,24 +586,29 @@
             let usedInOtherDays = {}; 
             for (let day in dayData) {
                 if (parseInt(day) !== currentActiveDay) {
-                    (dayData[day].dests || []).forEach(dest => {
-                        usedInOtherDays[dest] = day;
+                    (dayData[day].dests || []).forEach(destId => {
+                        usedInOtherDays[destId] = day;
                     });
                 }
             }
 
-            const currentDayDests = (dayData[currentActiveDay] && dayData[currentActiveDay].dests) ? dayData[currentActiveDay].dests : [];
+            const currentDayDestIds = (dayData[currentActiveDay] && dayData[currentActiveDay].dests) ? dayData[currentActiveDay].dests : [];
 
             items.forEach((item) => {
-                const isSelectedInCurrentDay = currentDayDests.includes(item);
-                const chosenDay = usedInOtherDays[item];
+                const isSelectedInCurrentDay = currentDayDestIds.includes(item.id);
+                const chosenDay = usedInOtherDays[item.id];
+                const displayName = item.name[currentLang] || item.name['id'];
+                const displayDesc = item.desc[currentLang] || item.desc['id'];
 
                 if (chosenDay) {
                     container.innerHTML += `
                         <div class="flex items-center justify-between p-2 rounded-lg bg-gray-200/60 dark:bg-navy-900/40 border border-dashed border-gray-300 dark:border-gray-700">
                             <div class="flex items-center space-x-2 overflow-hidden">
                                 <input type="checkbox" disabled class="rounded text-gray-400 w-4 h-4 cursor-not-allowed flex-shrink-0">
-                                <span class="text-gray-500 dark:text-gray-400 font-medium text-xs line-through truncate" title="${item}">${item}</span>
+                                <div class="truncate">
+                                    <span class="text-gray-500 dark:text-gray-400 font-medium text-xs line-through block truncate" title="${displayName}">${displayName}</span>
+                                    <span class="text-[10px] text-gray-400 block truncate">${displayDesc}</span>
+                                </div>
                             </div>
                             <button type="button" onclick="switchDay(${chosenDay})" class="text-[10px] bg-amber-500/20 text-amber-600 dark:text-amber-400 font-bold px-2 py-0.5 rounded hover:bg-amber-500/30 transition flex-shrink-0 ml-1">
                                 ${dict.editInDay} ${chosenDay}
@@ -621,30 +618,41 @@
                 } else {
                     const checkedAttr = isSelectedInCurrentDay ? 'checked' : '';
                     container.innerHTML += `
-                        <label class="flex items-center space-x-2 p-2 rounded-lg hover:bg-amber-500/10 dark:hover:bg-navy-800/50 cursor-pointer border border-transparent hover:border-amber-500/20 transition">
-                            <input type="checkbox" value="${item}" ${checkedAttr} onchange="toggleDestination('${item.replace(/'/g, "\\'")}', this.checked)" class="dest-checkbox rounded text-amber-500 focus:ring-amber-500 w-4 h-4 flex-shrink-0">
-                            <span class="text-gray-700 dark:text-gray-300 font-medium text-xs">${item}</span>
+                        <label class="flex items-start space-x-2 p-2 rounded-lg hover:bg-amber-500/10 dark:hover:bg-navy-800/50 cursor-pointer border border-transparent hover:border-amber-500/20 transition">
+                            <input type="checkbox" value="${item.id}" ${checkedAttr} onchange="toggleDestination('${item.id}', this.checked)" class="dest-checkbox rounded text-amber-500 focus:ring-amber-500 w-4 h-4 mt-0.5 flex-shrink-0">
+                            <div class="leading-tight">
+                                <span class="text-gray-700 dark:text-gray-300 font-semibold text-xs block">${displayName}</span>
+                                <span class="text-[10px] text-gray-500 dark:text-gray-400 block mt-0.5">${displayDesc}</span>
+                            </div>
                         </label>
                     `;
                 }
             });
         }
 
-        function toggleDestination(item, isChecked) {
+        function toggleDestination(destId, isChecked) {
             if (!dayData[currentActiveDay]) {
                 dayData[currentActiveDay] = { area: document.getElementById('calcAreaDay').value, dests: [] };
             }
 
             if (isChecked) {
-                if (!dayData[currentActiveDay].dests.includes(item)) {
-                    dayData[currentActiveDay].dests.push(item);
+                if (!dayData[currentActiveDay].dests.includes(destId)) {
+                    dayData[currentActiveDay].dests.push(destId);
                 }
             } else {
-                dayData[currentActiveDay].dests = dayData[currentActiveDay].dests.filter(d => d !== item);
+                dayData[currentActiveDay].dests = dayData[currentActiveDay].dests.filter(id => id !== destId);
             }
 
             updateItinerarySummary();
             renderDestinations();
+        }
+
+        function findDestObjectById(destId) {
+            for (let area in destData) {
+                const found = destData[area].find(item => item.id === destId);
+                if (found) return found;
+            }
+            return null;
         }
 
         function updateItinerarySummary() {
@@ -678,11 +686,19 @@
                     const list = dayObj.dests || [];
                     if (list.length > 0) {
                         hasAnySelection = true;
+                        let destsListHtml = list.map(id => {
+                            const obj = findDestObjectById(id);
+                            if (!obj) return '';
+                            const dName = obj.name[currentLang] || obj.name['id'];
+                            const dDesc = obj.desc[currentLang] || obj.desc['id'];
+                            return `<li><strong>${dName}</strong> <span class="text-gray-400 text-[10px]">(${dDesc})</span></li>`;
+                        }).join('');
+
                         html += `
                             <div class="mb-2 pb-1 border-b border-gray-100 dark:border-gray-700/50 last:border-none">
                                 <span class="font-bold text-amber-600 dark:text-amber-400">📍 ${dict.dayText} ${i} (${areaText}):</span>
-                                <ul class="list-disc list-inside pl-2 font-medium text-gray-700 dark:text-gray-300">
-                                    ${list.map(item => `<li>${item}</li>`).join('')}
+                                <ul class="list-disc list-inside pl-2 font-medium text-gray-700 dark:text-gray-300 space-y-0.5 mt-0.5">
+                                    ${destsListHtml}
                                 </ul>
                             </div>
                         `;
@@ -809,8 +825,13 @@
                     const list = dayObj.dests || [];
                     if (list.length > 0) {
                         itineraryText += `%0A  *${isEn ? 'Day' : 'Hari'} ${i} (${areaText}):*`;
-                        list.forEach(item => {
-                            itineraryText += `%0A    - ${item}`;
+                        list.forEach(id => {
+                            const obj = findDestObjectById(id);
+                            if (obj) {
+                                const dName = obj.name[currentLang] || obj.name['id'];
+                                const dDesc = obj.desc[currentLang] || obj.desc['id'];
+                                itineraryText += `%0A    - ${dName} (${dDesc})`;
+                            }
                         });
                     } else {
                         itineraryText += `%0A  *${isEn ? 'Day' : 'Hari'} ${i} (${areaText}):* ${isEn ? 'Flexible / Not specified' : 'Fleksibel / Belum ditentukan'}`;
