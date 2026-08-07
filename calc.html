@@ -142,15 +142,21 @@
 
                 <div class="pt-1">
                     <label class="block text-[11px] font-bold mb-1 text-gray-700 dark:text-gray-300"><span data-i18n="selectRegion">Pilih Wilayah Tour / Layanan untuk</span> <span id="labelWilayahHari" class="text-amber-500">Hari 1</span>:</label>
+                    <!-- WILAYAH LENGKAP -->
                     <select id="calcAreaDay" onchange="onAreaDayChange()" class="w-full bg-white dark:bg-navy-800 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-semibold focus:outline-none focus:border-amber-500">
-                        <option value="BandungKota" data-toll="0" selected data-i18n="areaKota">🏛️ 2. Kota Bandung (Wisata Sejarah, Kuliner & Kota)</option>
-                        <option value="BandungUtara" data-toll="0" data-i18n="areaLembang">🌲 3. Lembang (Bandung Barat)</option>
-                        <option value="BandungSelatan1" data-toll="0" data-i18n="areaCiwidey">🌋 1. Ciwidey (Bandung Selatan)</option>
-                        <option value="BandungSelatan2" data-toll="0" data-i18n="areaPangalengan">🍃 4. Pangalengan (Bandung Selatan)</option>
-                        <option value="DropOnlyBandung" data-toll="200000" data-i18n="areaDrop">🚗 Khusus Layanan Drop / Jemput Saja (Hotel / Penginapan <-> Stasiun Area Bandung - Rp 200.000)</option>
-                        <option value="Jakarta" data-toll="600000" data-i18n="areaJakarta">🏙️ 1. Jakarta (Wisata Kota / Antar-Kota - Biaya Rp 600.000)</option>
-                        <option value="Bogor" data-toll="600000" data-i18n="areaBogor">🌿 2. Bogor (Wisata Alam / Antar-Kota - Biaya Rp 600.000)</option>
-                        <option value="Jogja" data-toll="1500000" data-i18n="areaJogja">🏛️ 3. Yogyakarta / Jogja (⚠️ Tidak Direkomendasikan/Terlalu Jauh - Biaya Rp 1.500.000 sekali jalan)</option>
+                        <option value="BandungKota" data-toll="0" selected data-i18n="areaKota">🏛️ Kota Bandung (Wisata Sejarah, Kuliner & City Tour)</option>
+                        <option value="BandungUtara" data-toll="0" data-i18n="areaLembang">🌲 Lembang & Bandung Barat</option>
+                        <option value="BandungSelatan1" data-toll="0" data-i18n="areaCiwidey">🌋 Ciwidey (Bandung Selatan)</option>
+                        <option value="BandungSelatan2" data-toll="0" data-i18n="areaPangalengan">🍃 Pangalengan (Bandung Selatan)</option>
+                        <option value="Garut" data-toll="250000" data-i18n="areaGarut">♨️ Garut (Wisata Cipanas, Kamojang & Cimanuk - Extra Rp 250.000)</option>
+                        <option value="Subang" data-toll="200000" data-i18n="areaSubang">🍵 Subang / Ciater (Pemandian Air Panas & Kebun Teh - Extra Rp 200.000)</option>
+                        <option value="Purwakarta" data-toll="250000" data-i18n="areaPurwakarta">🌊 Purwakarta (Jatiluhur & Kuliner Maranggi - Extra Rp 250.000)</option>
+                        <option value="Sumedang" data-toll="200000" data-i18n="areaSumedang">🏔️ Sumedang (Wisata Tahu & Alam - Extra Rp 200.000)</option>
+                        <option value="Jakarta" data-toll="600000" data-i18n="areaJakarta">🏙️ Jakarta (Wisata Kota / Antar-Kota - Extra Rp 600.000)</option>
+                        <option value="Bogor" data-toll="600000" data-i18n="areaBogor">🌿 Bogor / Puncak (Wisata Alam / Antar-Kota - Extra Rp 600.000)</option>
+                        <option value="Sukabumi" data-toll="500000" data-i18n="areaSukabumi">🌊 Sukabumi / Pelabuhanratu (Extra Rp 500.000)</option>
+                        <option value="Jogja" data-toll="1500000" data-i18n="areaJogja">🏛️ Yogyakarta / Jogja (Antar-Kota Sekali Jalan - Extra Rp 1.500.000)</option>
+                        <option value="DropOnlyBandung" data-toll="200000" data-i18n="areaDrop">🚗 Khusus Layanan Drop / Jemput Saja (Hotel <-> Stasiun Bandung - Rp 200.000)</option>
                     </select>
                 </div>
 
@@ -208,7 +214,6 @@
                     <span id="calcResult" class="text-2xl sm:text-3xl font-black text-amber-500">Rp 0</span>
                 </div>
                 
-                <!-- TOMBOL BERISI: Draft Akumulasi Itinerary Lengkap (Rp X.XXX.XXX) 📱 -->
                 <button id="btnBook" onclick="sendOrderWA()" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-navy-900 font-extrabold px-6 py-3.5 rounded-xl text-xs shadow-lg hover:shadow-amber-500/20 transition text-center">
                     Draft Akumulasi Itinerary Lengkap (Rp 0) 📱
                 </button>
@@ -217,7 +222,7 @@
 
     </div>
 
-    <!-- Script Logika -->
+    <!-- Script Logika Utuh -->
     <script>
         let currentLang = 'id';
 
@@ -248,14 +253,19 @@
                 pricePerDay: "Harga / Hari (12j):",
                 itineraryTitle: "🗓️ Penyusunan Itinerary Per Hari:",
                 selectRegion: "Pilih Wilayah Tour / Layanan untuk",
-                areaKota: "🏛️ 2. Kota Bandung (Wisata Sejarah, Kuliner & Kota)",
-                areaLembang: "🌲 3. Lembang (Bandung Barat)",
-                areaCiwidey: "🌋 1. Ciwidey (Bandung Selatan)",
-                areaPangalengan: "🍃 4. Pangalengan (Bandung Selatan)",
-                areaDrop: "🚗 Khusus Layanan Drop / Jemput Saja (Hotel / Penginapan <-> Stasiun Area Bandung - Rp 200.000)",
-                areaJakarta: "🏙️ 1. Jakarta (Wisata Kota / Antar-Kota - Biaya Rp 600.000)",
-                areaBogor: "🌿 2. Bogor (Wisata Alam / Antar-Kota - Biaya Rp 600.000)",
-                areaJogja: "🏛️ 3. Yogyakarta / Jogja (⚠️ Tidak Direkomendasikan/Terlalu Jauh - Biaya Rp 1.500.000 sekali jalan)",
+                areaKota: "🏛️ Kota Bandung (Wisata Sejarah, Kuliner & City Tour)",
+                areaLembang: "🌲 Lembang & Bandung Barat",
+                areaCiwidey: "🌋 Ciwidey (Bandung Selatan)",
+                areaPangalengan: "🍃 Pangalengan (Bandung Selatan)",
+                areaGarut: "♨️ Garut (Wisata Cipanas, Kamojang & Cimanuk - Extra Rp 250.000)",
+                areaSubang: "🍵 Subang / Ciater (Pemandian Air Panas & Kebun Teh - Extra Rp 200.000)",
+                areaPurwakarta: "🌊 Purwakarta (Jatiluhur & Kuliner Maranggi - Extra Rp 250.000)",
+                areaSumedang: "🏔️ Sumedang (Wisata Tahu & Alam - Extra Rp 200.000)",
+                areaJakarta: "🏙️ Jakarta (Wisata Kota / Antar-Kota - Extra Rp 600.000)",
+                areaBogor: "🌿 Bogor / Puncak (Wisata Alam / Antar-Kota - Extra Rp 600.000)",
+                areaSukabumi: "🌊 Sukabumi / Pelabuhanratu (Extra Rp 500.000)",
+                areaJogja: "🏛️ Yogyakarta / Jogja (Antar-Kota Sekali Jalan - Extra Rp 1.500.000)",
+                areaDrop: "🚗 Khusus Layanan Drop / Jemput Saja (Hotel <-> Stasiun Bandung - Rp 200.000)",
                 selectDest: "Pilih Tempat Wisata yang Ingin Dikunjungi:",
                 customDestLabel: "✨ Tempat yang Diinginkan Tidak Ada di Daftar? Tulis di Sini (Khusus Hari Ini):",
                 customDestPh: "Contoh: Kuliner Sudirman Street, Cafe Sudut Rasa...",
@@ -275,7 +285,6 @@
                 dayText: "Hari",
                 emptyDest: "Belum ada destinasi terpilih.",
                 emptyDuration: "Silakan isi durasi sewa (minimal 1 hari) terlebih dahulu.",
-                editInDay: "Edit di Hari",
                 exceededCap: "⚠️ Peringatan Kapasitas: Jumlah peserta ({pax} Orang) melebihi kapasitas armada sebelumnya. Sistem telah otomatis menyesuaikan ke {car}."
             },
             en: {
@@ -304,14 +313,19 @@
                 pricePerDay: "Price / Day (12h):",
                 itineraryTitle: "🗓️ Daily Itinerary Builder:",
                 selectRegion: "Select Region / Service for",
-                areaKota: "🏛️ 2. Bandung City (History, Culinary & City Tour)",
-                areaLembang: "🌲 3. Lembang (West Bandung)",
-                areaCiwidey: "🌋 1. Ciwidey (South Bandung)",
-                areaPangalengan: "🍃 4. Pangalengan (South Bandung)",
+                areaKota: "🏛️ Bandung City (History, Culinary & City Tour)",
+                areaLembang: "🌲 Lembang & West Bandung",
+                areaCiwidey: "🌋 Ciwidey (South Bandung)",
+                areaPangalengan: "🍃 Pangalengan (South Bandung)",
+                areaGarut: "♨️ Garut (Cipanas, Kamojang & Cimanuk - Extra IDR 250,000)",
+                areaSubang: "🍵 Subang / Ciater (Hot Springs & Tea Plantation - Extra IDR 200,000)",
+                areaPurwakarta: "🌊 Purwakarta (Jatiluhur & Culinary - Extra IDR 250,000)",
+                areaSumedang: "🏔️ Sumedang (Tofu & Nature Tour - Extra IDR 200,000)",
+                areaJakarta: "🏙️ Jakarta (City Tour / Inter-City - Extra IDR 600,000)",
+                areaBogor: "🌿 Bogor / Puncak (Nature Tour / Inter-City - Extra IDR 600,000)",
+                areaSukabumi: "🌊 Sukabumi / Pelabuhanratu (Extra IDR 500,000)",
+                areaJogja: "🏛️ Yogyakarta / Jogja (Inter-City One Way - Extra IDR 1,500,000)",
                 areaDrop: "🚗 Drop / Transfer Service Only (Hotel <-> Station in Bandung - IDR 200,000)",
-                areaJakarta: "🏙️ 1. Jakarta (City Tour / Inter-City - Fee IDR 600,000)",
-                areaBogor: "🌿 2. Bogor (Nature Tour / Inter-City - Fee IDR 600,000)",
-                areaJogja: "🏛️ 3. Yogyakarta / Jogja (⚠️ Not Recommended/Too Far - Fee IDR 1,500,000 one way)",
                 selectDest: "Select Destinations to Visit:",
                 customDestLabel: "✨ Desired Place Not on the List? Write it Here (For Today):",
                 customDestPh: "Example: Sudirman Street Food, Local Cafe...",
@@ -331,11 +345,11 @@
                 dayText: "Day",
                 emptyDest: "No destinations selected yet.",
                 emptyDuration: "Please fill in rental duration (minimum 1 day) first.",
-                editInDay: "Edit in Day",
                 exceededCap: "⚠️ Capacity Warning: Number of passengers ({pax} Pax) exceeds previous vehicle capacity. System automatically adjusted to {car}."
             }
         };
 
+        // DATA DESTINASI LENGKAP SETIAP WILAYAH
         const destData = {
             BandungKota: [
                 { id: "bk_1", name: { id: "Jalan Asia Afrika & Gedung Merdeka", en: "Asia Afrika Street & Merdeka Building" }, desc: { id: "Spot bersejarah & arsitektur klasik", en: "Historic spot & classic colonial architecture" } },
@@ -346,21 +360,45 @@
             BandungUtara: [
                 { id: "bu_1", name: { id: "Orchid Forest Cikole", en: "Orchid Forest Cikole" }, desc: { id: "Hutan pinus dengan koleksi anggrek", en: "Pine forest with orchid collection" } },
                 { id: "bu_2", name: { id: "Dusun Bambu", en: "Dusun Bambu Park" }, desc: { id: "Taman rekreasi alam & danau", en: "Eco-tourism park with lake views" } },
-                { id: "bu_3", name: { id: "Farmhouse Susu Lembang", en: "Farmhouse Lembang" }, desc: { id: "Wisata gaya Eropa dengan rumah Hobbit", en: "European-themed park featuring Hobbit houses" } }
+                { id: "bu_3", name: { id: "Farmhouse Susu Lembang", en: "Farmhouse Lembang" }, desc: { id: "Wisata gaya Eropa dengan rumah Hobbit", en: "European-themed park featuring Hobbit houses" } },
+                { id: "bu_4", name: { id: "Floating Market Lembang", en: "Floating Market Lembang" }, desc: { id: "Pasar terapung & jajanan kuliner", en: "Floating market & local snacks" } }
             ],
             BandungSelatan1: [
                 { id: "bs1_1", name: { id: "Kawah Putih", en: "Kawah Putih (White Crater)" }, desc: { id: "Danau kawah vulkanik ikonik", en: "Iconic turquoise volcanic crater lake" } },
-                { id: "bs1_2", name: { id: "Ranca Upas", en: "Ranca Upas Deer Park" }, desc: { id: "Penangkaran rusa & pemandian air panas", en: "Deer sanctuary & natural hot springs" } }
+                { id: "bs1_2", name: { id: "Ranca Upas", en: "Ranca Upas Deer Park" }, desc: { id: "Penangkaran rusa & pemandian air panas", en: "Deer sanctuary & natural hot springs" } },
+                { id: "bs1_3", name: { id: "Glamping Lakeside Rancabali", en: "Glamping Lakeside" }, desc: { id: "Resto Pinisi & pemandangan Situ Patenggang", en: "Pinisi ship restaurant & lake views" } }
             ],
             BandungSelatan2: [
                 { id: "bs2_1", name: { id: "Nimo Highland", en: "Nimo Highland" }, desc: { id: "Jembatan kaca melingkar di atas kebun teh", en: "Circular glass skywalk over tea plantations" } },
-                { id: "bs2_2", name: { id: "Situ Cileunca", en: "Situ Cileunca Lake" }, desc: { id: "Danau luas untuk wisata rafting & boating", en: "Vast lake popular for river rafting & boat rides" } }
+                { id: "bs2_2", name: { id: "Situ Cileunca", en: "Situ Cileunca Lake" }, desc: { id: "Danau luas untuk wisata rafting & boating", en: "Vast lake popular for river rafting & boat rides" } },
+                { id: "bs2_3", name: { id: "Wayang Windu Panenjoan", en: "Wayang Windu Panenjoan" }, desc: { id: "Pemandangan hamparan kebun teh pegunungan", en: "Panoramic mountain tea garden views" } }
+            ],
+            Garut: [
+                { id: "gt_1", name: { id: "Pemandian Air Panas Cipanas / Darajat", en: "Darajat Pass / Cipanas Hot Springs" }, desc: { id: "Wisata air panas & pemandangan pegunungan", en: "Hot spring waterpark & mountain scenery" } },
+                { id: "gt_2", name: { id: "Candi Cangkuang & Kampung Pulo", en: "Cangkuang Temple" }, desc: { id: "Wisata sejarah candi di tengah situ/danau", en: "Historic temple located in the middle of a lake" } }
+            ],
+            Subang: [
+                { id: "sb_1", name: { id: "Pemandian Air Panas Ciater", en: "Sari Ater Hot Springs" }, desc: { id: "Kolam air panas belerang alami", en: "Natural sulfur hot spring pools" } },
+                { id: "sb_2", name: { id: "Tangkuban Parahu (Sisi Subang)", en: "Tangkuban Parahu Crater" }, desc: { id: "Kawah gunung berapi aktif", en: "Active volcanic crater" } }
+            ],
+            Purwakarta: [
+                { id: "pw_1", name: { id: "Waduk Jatiluhur", en: "Jatiluhur Dam" }, desc: { id: "Danau waduk terbesar & pemandangan matahari terbenam", en: "Largest reservoir dam with sunset views" } },
+                { id: "pw_2", name: { id: "Kuliner Sate Maranggi Hj. Yetti", en: "Maranggi Satay Culinary" }, desc: { id: "Kuliner khas sate maranggi Purwakarta", en: "Famous traditional Purwakarta beef satay" } }
+            ],
+            Sumedang: [
+                { id: "sm_1", name: { id: "Wisata Kampung Tahu Sumedang", en: "Sumedang Tofu Culinary Village" }, desc: { id: "Pusat kuliner tahu khas Sumedang", en: "Famous authentic tofu culinary center" } },
+                { id: "sm_2", name: { id: "Waduk Jatigede / Panenjoan", en: "Jatigede Reservoir" }, desc: { id: "Pemandangan danau buatan indah di Sumedang", en: "Scenic artificial lake view" } }
             ],
             Jakarta: [
-                { id: "jk_1", name: { id: "Monumen Nasional (Monas)", en: "National Monument (Monas)" }, desc: { id: "Tugu ikonik Indonesia", en: "Indonesia's iconic landmark" } }
+                { id: "jk_1", name: { id: "Monumen Nasional (Monas)", en: "National Monument (Monas)" }, desc: { id: "Tugu ikonik Indonesia", en: "Indonesia's iconic landmark" } },
+                { id: "jk_2", name: { id: "Kota Tua Jakarta", en: "Jakarta Old Town" }, desc: { id: "Kawasan sejarah bangunan kolonial", en: "Historic colonial architectural area" } }
             ],
             Bogor: [
-                { id: "bg_1", name: { id: "Kebun Raya Bogor & Istana Bogor", en: "Bogor Botanical Gardens & Palace" }, desc: { id: "Taman botani tertua di Asia Tenggara", en: "Oldest botanical garden in Southeast Asia" } }
+                { id: "bg_1", name: { id: "Kebun Raya Bogor & Istana Bogor", en: "Bogor Botanical Gardens & Palace" }, desc: { id: "Taman botani tertua di Asia Tenggara", en: "Oldest botanical garden in Southeast Asia" } },
+                { id: "bg_2", name: { id: "Taman Safari Indonesia Cisarua", en: "Taman Safari Bogor" }, desc: { id: "Taman konservasi satwa alam terbuka", en: "Open-air wildlife conservation park" } }
+            ],
+            Sukabumi: [
+                { id: "sk_1", name: { id: "Situgunung Suspension Bridge", en: "Situgunung Suspension Bridge" }, desc: { id: "Jembatan gantung terpanjang di tengah hutan", en: "Longest suspension bridge in the forest" } }
             ],
             Jogja: [
                 { id: "jg_1", name: { id: "Jalan Malioboro", en: "Malioboro Street" }, desc: { id: "Pusat belanja oleh-oleh khas Jogja", en: "Famous shopping district in Yogyakarta" } }
@@ -450,7 +488,6 @@
             const durationWarningBox = document.getElementById('durationWarningBox');
             const itineraryContainer = document.getElementById('itineraryContainer');
 
-            // Validasi: Jika 0 atau Kosong
             if (isNaN(days) || days < 1) {
                 durationWarningBox.classList.remove('hidden');
                 itineraryContainer.classList.add('hidden');
@@ -657,7 +694,6 @@
             const formattedTotal = "Rp " + total.toLocaleString('id-ID');
             document.getElementById('calcResult').innerText = formattedTotal;
 
-            // Penggabungan tulisan "Draft Akumulasi Itinerary Lengkap" + Nominal calcResult
             const dict = i18nDict[currentLang];
             document.getElementById('btnBook').innerText = `${dict.btnBookPrefix} (${formattedTotal}) 📱`;
         }
@@ -665,7 +701,6 @@
         function sendOrderWA() {
             const days = parseInt(document.getElementById('calcDays').value) || 0;
 
-            // PREVENT SENDING IF DURATION IS < 1
             if (days < 1) {
                 alert(currentLang === 'en' 
                     ? "Please fill in the rental duration (minimum 1 day) first before sending!" 
@@ -690,7 +725,6 @@
             document.documentElement.classList.toggle('dark');
         }
 
-        // Inisialisasi awal saat halaman dimuat
         onPaxChange();
         onDaysChange();
     </script>
