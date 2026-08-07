@@ -434,6 +434,58 @@ section {
     margin-top: 20px;
 }
 
+/* Styling Tombol Panah Navigasi Modal */
+.modal-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 2003;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.modal-nav-btn.prev-btn {
+    left: 25px;
+}
+
+.modal-nav-btn.next-btn {
+    right: 25px;
+}
+
+.modal-nav-btn:hover {
+    background: #D4AF37;
+    color: #0A192F;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+/* Penyesuaian di Layar HP */
+@media (max-width: 768px) {
+    .modal-nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+    .modal-nav-btn.prev-btn {
+        left: 10px;
+    }
+    .modal-nav-btn.next-btn {
+        right: 10px;
+    }
+}
+
+
 /* ==========================================================================
    6. LIGHTBOX MODAL & ZOOM SYSTEM
    ========================================================================== */
