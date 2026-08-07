@@ -31,24 +31,15 @@
         <!-- Judul -->
         <div class="text-center mb-6">
             <h1 class="text-2xl font-black text-navy-900 dark:text-white">🧮 Kalkulator Sewa & Custom Itinerary</h1>
-            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Hitung estimasi biaya & susun itinerary wisata Anda per hari</p>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Hitung estimasi biaya & susun itinerary perjalanan Anda per hari</p>
         </div>
 
         <!-- Form Input Utama -->
         <div class="space-y-4">
 
-            <!-- Pilih Jenis Layanan -->
-            <div>
-                <label class="block text-xs font-bold mb-1.5 text-amber-500">Pilih Jenis Layanan Paket:</label>
-                <select id="calcService" onchange="calculateTotal()" class="w-full bg-amber-500/10 dark:bg-navy-900 border border-amber-500/40 rounded-xl p-3 text-xs font-bold focus:outline-none focus:border-amber-500">
-                    <option value="0" data-name="Transport Only (Driver, BBM, Parkir & Toll)">🚘 Transport Only (Mobil + Driver + BBM + Parkir + Toll)</option>
-                    <option value="250000" data-name="Fullboard Tour (Transport + Driver + BBM + Parkir + Toll + Makan 2x + Tiket Wisata All-In)">🍱 Fullboard Tour (Transport + Driver + BBM + Parkir + Toll + Makan 2x + Tiket Wisata All-In / pax/hr)</option>
-                </select>
-            </div>
-
             <!-- BAGIAN PENJEMPUTAN & DROP OFF -->
             <div class="bg-gray-50 dark:bg-navy-900/50 p-3.5 rounded-2xl border border-gray-200 dark:border-gray-700 space-y-3">
-                <p class="text-xs font-extrabold text-amber-600 dark:text-amber-400">📍 Pengaturan Penjemputan & Drop Off:</p>
+                <p class="text-xs font-extrabold text-amber-600 dark:text-amber-400">📍 Pengaturan Penjemputan & Drop Off Utama:</p>
                 
                 <!-- Opsi Kategori Penjemputan -->
                 <div>
@@ -63,7 +54,7 @@
                 <!-- Detail Lokasi Penjemputan -->
                 <div>
                     <label class="block text-[11px] font-bold mb-1">Detail Alamat Penjemputan:</label>
-                    <input type="text" id="pickupDetail" placeholder="Contoh: Hotel Aston Pasteur / Terminal 3 CGK" class="w-full bg-white dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-medium focus:outline-none focus:border-amber-500">
+                    <input type="text" id="pickupDetail" placeholder="Contoh: Hotel Aston Pasteur / Stasiun Bandung / Terminal 3 CGK" class="w-full bg-white dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-medium focus:outline-none focus:border-amber-500">
                 </div>
 
                 <!-- Opsi Kategori Drop Off -->
@@ -79,28 +70,7 @@
                 <!-- Detail Lokasi Drop Off -->
                 <div>
                     <label class="block text-[11px] font-bold mb-1">Detail Alamat Drop Off:</label>
-                    <input type="text" id="dropDetail" placeholder="Contoh: Stasiun Bandung / Rumah / Airport CGK" class="w-full bg-white dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-medium focus:outline-none focus:border-amber-500">
-                </div>
-            </div>
-
-            <!-- Pilih Armada Kendaraan & Tarif -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <div class="sm:col-span-2">
-                    <label class="block text-xs font-bold mb-1.5">Pilih Armada Kendaraan:</label>
-                    <select id="calcCar" onchange="updateCarPrice()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
-                        <option value="500000" data-name="Toyota Calya / Sigra (Maks 4-5 Pax)">Toyota Calya / Sigra (Maks 4-5 Orang)</option>
-                        <option value="700000" data-name="Toyota Avanza / Xenia (Maks 5-6 Pax)" selected>Toyota Avanza / Xenia (Maks 5-6 Orang)</option>
-                        <option value="900000" data-name="Innova Reborn Diesel (Maks 6-7 Pax)">Innova Reborn Diesel (Maks 6-7 Orang)</option>
-                        <option value="1100000" data-name="Toyota Innova Zenix (Maks 6-7 Pax)">Toyota Innova Zenix (Maks 6-7 Orang)</option>
-                        <option value="1400000" data-name="Toyota HiAce Commuter (Maks 14 Pax)">Toyota HiAce Commuter (Maks 14 Orang)</option>
-                        <option value="1700000" data-name="Toyota HiAce Premio (Maks 11 Pax)">Toyota HiAce Premio (Maks 11 Orang)</option>
-                        <option value="3000000" data-name="Toyota Alphard VIP (Maks 5 Pax)">Toyota Alphard VIP (Maks 5 Orang)</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold mb-1.5">Harga / Hari (12j):</label>
-                    <input type="text" id="carPriceDisplay" readonly class="w-full bg-gray-100 dark:bg-navy-900/60 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-bold text-amber-500 cursor-not-allowed focus:outline-none" value="Rp 700.000">
+                    <input type="text" id="dropDetail" placeholder="Contoh: Stasiun Bandung / Rumah / Hotel / Airport CGK" class="w-full bg-white dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-medium focus:outline-none focus:border-amber-500">
                 </div>
             </div>
 
@@ -113,7 +83,37 @@
 
                 <div>
                     <label class="block text-xs font-bold mb-1.5">Jumlah Peserta (Orang):</label>
-                    <input type="number" id="calcPax" value="4" min="1" max="50" onchange="calculateTotal()" onkeyup="calculateTotal()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
+                    <input type="number" id="calcPax" value="4" min="1" max="50" onchange="onPaxChange()" onkeyup="onPaxChange()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
+                    <p class="text-[10px] text-gray-500 dark:text-gray-400 mt-1">👶 *Sertakan anak kecil atau bayi jika membawa.</p>
+                </div>
+            </div>
+
+            <!-- Pesan Rekomendasi / Peringatan Kapasitas Armada -->
+            <div id="paxWarningBox" class="hidden bg-red-500/10 border border-red-500/30 p-2.5 rounded-xl text-[11px] text-red-600 dark:text-red-400 font-medium">
+                <!-- Pesan Peringatan Otomatis dari JS -->
+            </div>
+            <div id="paxRecommendationBox" class="bg-blue-500/10 border border-blue-500/30 p-2.5 rounded-xl text-[11px] text-blue-600 dark:text-blue-400 font-medium">
+                💡 <strong>Rekomendasi Armada:</strong> <span id="recommendedCarText">Toyota Calya / Sigra / Avanza</span>
+            </div>
+
+            <!-- Pilih Armada Kendaraan & Tarif -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div class="sm:col-span-2">
+                    <label class="block text-xs font-bold mb-1.5">Pilih Armada Kendaraan:</label>
+                    <select id="calcCar" onchange="updateCarPrice()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
+                        <option value="500000" data-maxpax="5" data-name="Toyota Calya / Sigra (Maks 5 Pax)">Toyota Calya / Sigra (Maks 5 Orang)</option>
+                        <option value="700000" data-maxpax="6" data-name="Toyota Avanza / Xenia (Maks 6 Pax)" selected>Toyota Avanza / Xenia (Maks 6 Orang)</option>
+                        <option value="900000" data-maxpax="7" data-name="Innova Reborn Diesel (Maks 7 Pax)">Innova Reborn Diesel (Maks 7 Orang)</option>
+                        <option value="1100000" data-maxpax="7" data-name="Toyota Innova Zenix (Maks 7 Pax)">Toyota Innova Zenix (Maks 7 Orang)</option>
+                        <option value="1400000" data-maxpax="14" data-name="Toyota HiAce Commuter (Maks 14 Pax)">Toyota HiAce Commuter (Maks 14 Orang)</option>
+                        <option value="1700000" data-maxpax="11" data-name="Toyota HiAce Premio (Maks 11 Pax)">Toyota HiAce Premio (Maks 11 Orang)</option>
+                        <option value="3000000" data-maxpax="5" data-name="Toyota Alphard VIP (Maks 5 Pax)">Toyota Alphard VIP (Maks 5 Orang)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold mb-1.5">Harga / Hari (12j):</label>
+                    <input type="text" id="carPriceDisplay" readonly class="w-full bg-gray-100 dark:bg-navy-900/60 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-bold text-amber-500 cursor-not-allowed focus:outline-none" value="Rp 700.000">
                 </div>
             </div>
 
@@ -131,20 +131,21 @@
 
                 <!-- Select Wilayah Utama Khusus Hari Aktif -->
                 <div class="pt-1">
-                    <label class="block text-[11px] font-bold mb-1 text-gray-700 dark:text-gray-300">Pilih Wilayah Tour untuk <span id="labelWilayahHari" class="text-amber-500">Hari 1</span>:</label>
+                    <label class="block text-[11px] font-bold mb-1 text-gray-700 dark:text-gray-300">Pilih Wilayah Tour / Layanan untuk <span id="labelWilayahHari" class="text-amber-500">Hari 1</span>:</label>
                     <select id="calcAreaDay" onchange="onAreaDayChange()" class="w-full bg-white dark:bg-navy-800 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-semibold focus:outline-none focus:border-amber-500">
                         <option value="BandungKota" data-toll="0" selected>🏛️ 2. Kota Bandung (Wisata Sejarah, Kuliner & Kota)</option>
                         <option value="BandungUtara" data-toll="0">🌲 3. Lembang (Bandung Barat)</option>
                         <option value="BandungSelatan1" data-toll="0">🌋 1. Ciwidey (Bandung Selatan)</option>
                         <option value="BandungSelatan2" data-toll="0">🍃 4. Pangalengan (Bandung Selatan)</option>
-                        <option value="Jakarta" data-toll="300000">🏙️ 1. Jakarta (Wisata Kota, Sejarah & Modern - Toll + Rp 300.000/hr)</option>
-                        <option value="Bogor" data-toll="350000">🌿 2. Bogor (Wisata Alam, Pegunungan & Keluarga - Toll + Rp 350.000/hr)</option>
-                        <option value="Jogja" data-toll="500000">🏛️ 3. Yogyakarta / Jogja (Wisata Budaya, Alam & Seni - Toll + Rp 500.000/hr)</option>
+                        <option value="DropOnlyBandung" data-toll="200000">🚗 Khusus Layanan Drop / Jemput Saja (Hotel / Penginapan <-> Stasiun Area Bandung - Rp 200.000)</option>
+                        <option value="Jakarta" data-toll="600000">🏙️ 1. Jakarta (Wisata Kota / Antar-Kota - Biaya Rp 600.000)</option>
+                        <option value="Bogor" data-toll="600000">🌿 2. Bogor (Wisata Alam / Antar-Kota - Biaya Rp 600.000)</option>
+                        <option value="Jogja" data-toll="1500000">🏛️ 3. Yogyakarta / Jogja (⚠️ Tidak Direkomendasikan/Terlalu Jauh - Biaya Rp 1.500.000 sekali jalan)</option>
                     </select>
                 </div>
 
                 <!-- Checklist Destinasi Hari Ini -->
-                <div class="pt-1">
+                <div id="destinationSection" class="pt-1">
                     <label class="block text-[11px] font-bold mb-2 text-gray-600 dark:text-gray-400">Pilih Tempat Wisata yang Ingin Dikunjungi:</label>
                     <div id="destinationOptions" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                         <!-- Checkbox generated by JS -->
@@ -160,15 +161,15 @@
                     <span id="detailTransport" class="font-semibold">Rp 0</span>
                 </div>
                 <div id="rowPickupFee" class="flex justify-between text-amber-600 dark:text-amber-400 font-semibold hidden">
-                    <span>Charge Penjemputan (Pickup):</span>
+                    <span>Charge Penjemputan Utama:</span>
                     <span id="detailPickupFee">Rp 0</span>
                 </div>
                 <div id="rowDropFee" class="flex justify-between text-amber-600 dark:text-amber-400 font-semibold hidden">
-                    <span>Charge Pengantaran (Drop Off):</span>
+                    <span>Charge Pengantaran Utama:</span>
                     <span id="detailDropFee">Rp 0</span>
                 </div>
                 <div id="rowOutTownToll" class="flex justify-between text-amber-600 dark:text-amber-400 font-semibold hidden">
-                    <span>Toll & Operasional Wisata Luar Bandung:</span>
+                    <span>Biaya Layanan Wilayah / Antar-Kota:</span>
                     <span id="detailOutTownToll">Rp 0</span>
                 </div>
 
@@ -180,23 +181,13 @@
                     </div>
                 </div>
 
-                <!-- RINCIAN BIAYA FULLBOARD SETELAH HARI TERAKHIR -->
-                <div id="rowFullboardDetail" class="pt-2 border-t border-gray-200 dark:border-gray-700 mt-2 hidden">
-                    <div class="flex justify-between items-center text-amber-600 dark:text-amber-400 font-bold">
-                        <span>🍱 Paket Fullboard Tour (Makan 2x + Tiket Wisata):</span>
-                        <span id="detailFullboard">Rp 0</span>
-                    </div>
-                    <p id="fullboardCalcSubtext" class="text-[10px] text-gray-500 dark:text-gray-400 italic mt-0.5">
-                        Perhitungan: Rp 250.000 x 0 Orang x 0 Hari
-                    </p>
-                </div>
-
-                <!-- Informasi Ketentuan Operasional (DIPINDAHKAN KE BAWAH RINCIAN BIAYA) -->
+                <!-- Informasi Ketentuan Operasional -->
                 <div class="bg-amber-500/10 border-l-4 border-amber-500 p-3 rounded-r-xl mt-3 text-[11px] leading-relaxed text-gray-700 dark:text-gray-300">
                     <p class="font-bold text-amber-600 dark:text-amber-400 mb-0.5">ℹ️ Ketentuan Operasional & Penjemputan:</p>
                     <p>• Durasi pelayanan maksimal <strong>12 Jam per hari</strong> (maksimal selesai pukul <strong>21.00 WIB</strong>).</p>
                     <p>• Layanan antar/jemput Bandara CGK (Jakarta/Tangerang) dikenakan <strong>Rp 600.000 / sekali jalan</strong>.</p>
-                    <p>• Destinasi luar kota Bandung otomatis dikenakan <strong>tambahan biaya toll & operasional antar-kota</strong>.</p>
+                    <p>• Layanan Drop/Jemput lokal area Kota Bandung (Hotel ke Stasiun/sebaliknya) <strong>Rp 200.000</strong>.</p>
+                    <p>• Destinasi luar kota / beda kota dikenakan <strong>tambahan biaya operasional antar-kota</strong>.</p>
                 </div>
             </div>
 
@@ -286,19 +277,75 @@
                 "Pantai Timang – Pantai ekstrim dengan gondola kayu tradisional",
                 "Hutan Pinus Pengger & Mangunan – Wisata alam hutan pinus & spot foto bukit",
                 "Tebing Breksi – Bekas tambang batu kapur yang diukir artistik"
-            ]
+            ],
+            DropOnlyBandung: [] // Kosong karena khusus drop/jemput saja
         };
 
-        // Mengatur struktur data per-hari
         let dayData = {};
         let currentActiveDay = 1;
+
+        function onPaxChange() {
+            const paxInput = document.getElementById('calcPax');
+            let pax = parseInt(paxInput.value) || 1;
+            if (pax < 1) pax = 1;
+
+            const carSelect = document.getElementById('calcCar');
+            const options = carSelect.options;
+            const warningBox = document.getElementById('paxWarningBox');
+            const recText = document.getElementById('recommendedCarText');
+
+            let currentCarValid = true;
+            let availableCars = [];
+
+            // Evaluasi setiap opsi mobil berdasarkan jumlah peserta
+            for (let i = 0; i < options.length; i++) {
+                const maxPax = parseInt(options[i].getAttribute('data-maxpax'));
+                
+                if (pax > maxPax) {
+                    options[i].disabled = true;
+                    options[i].text = options[i].getAttribute('data-name') + " 🚫 (Kapasitas Tidak Cukup)";
+                    if (carSelect.selectedIndex === i) {
+                        currentCarValid = false;
+                    }
+                } else {
+                    options[i].disabled = false;
+                    options[i].text = options[i].getAttribute('data-name');
+                    availableCars.push(options[i]);
+                }
+            }
+
+            // Jika mobil yang sedang dipilih tidak cukup, otomatis pindahkan ke mobil pertama yang muat
+            if (!currentCarValid && availableCars.length > 0) {
+                carSelect.value = availableCars[0].value;
+                warningBox.classList.remove('hidden');
+                warningBox.innerHTML = `⚠️ <strong>Peringatan Kapasitas:</strong> Jumlah peserta (${pax} Orang) melebihi kapasitas armada sebelumnya. Sistem telah otomatis menyesuaikan ke <strong>${availableCars[0].text}</strong>.`;
+            } else {
+                warningBox.classList.add('hidden');
+            }
+
+            // Berikan saran/rekomendasi armada yang pas
+            if (pax <= 5) {
+                recText.innerText = "Toyota Calya / Sigra / Avanza / Alphard VIP";
+            } else if (pax == 6) {
+                recText.innerText = "Toyota Avanza / Xenia / Innova Reborn / Zenix";
+            } else if (pax == 7) {
+                recText.innerText = "Innova Reborn Diesel / Toyota Innova Zenix";
+            } else if (pax <= 11) {
+                recText.innerText = "Toyota HiAce Premio (Maks 11 Orang) / HiAce Commuter";
+            } else if (pax <= 14) {
+                recText.innerText = "Toyota HiAce Commuter (Maks 14 Orang)";
+            } else {
+                recText.innerText = "Sangat disarankan menggunakan 2 Armada / Mini Bus Medium";
+            }
+
+            updateCarPrice();
+        }
 
         function onDaysChange() {
             let days = parseInt(document.getElementById('calcDays').value) || 1;
             if (days < 1) days = 1;
             if (days > 10) days = 10;
             
-            // Hapus data hari yang melebihi jumlah durasi baru
             for (let d in dayData) {
                 if (parseInt(d) > days) {
                     delete dayData[d];
@@ -309,7 +356,6 @@
                 currentActiveDay = days;
             }
 
-            // Inisialisasi default jika hari belum ada
             for (let i = 1; i <= days; i++) {
                 if (!dayData[i]) {
                     dayData[i] = { area: 'BandungKota', dests: [] };
@@ -361,7 +407,6 @@
                 dayData[currentActiveDay] = { area: selectedArea, dests: [] };
             } else {
                 dayData[currentActiveDay].area = selectedArea;
-                // Bersihkan pilihan tempat yang tidak relevan dengan area baru
                 const validItems = destData[selectedArea] || [];
                 dayData[currentActiveDay].dests = dayData[currentActiveDay].dests.filter(d => validItems.includes(d));
             }
@@ -374,11 +419,20 @@
         function renderDestinations() {
             const area = document.getElementById('calcAreaDay').value;
             const container = document.getElementById('destinationOptions');
-            const items = destData[area] || [];
+            const destSection = document.getElementById('destinationSection');
 
+            // Jika memilih layanan Drop / Jemput Saja, sembunyikan checklist tempat wisata
+            if (area === 'DropOnlyBandung') {
+                destSection.classList.add('hidden');
+                container.innerHTML = '';
+                return;
+            } else {
+                destSection.classList.remove('hidden');
+            }
+
+            const items = destData[area] || [];
             container.innerHTML = '';
 
-            // Cari destinasi mana saja yang sudah dipilih di HARI LAIN
             let usedInOtherDays = {}; 
             for (let day in dayData) {
                 if (parseInt(day) !== currentActiveDay) {
@@ -395,7 +449,6 @@
                 const chosenDay = usedInOtherDays[item];
 
                 if (chosenDay) {
-                    // Jika sudah dipilih di hari lain
                     container.innerHTML += `
                         <div class="flex items-center justify-between p-2 rounded-lg bg-gray-200/60 dark:bg-navy-900/40 border border-dashed border-gray-300 dark:border-gray-700">
                             <div class="flex items-center space-x-2 overflow-hidden">
@@ -408,7 +461,6 @@
                         </div>
                     `;
                 } else {
-                    // Bisa dipilih normal
                     const checkedAttr = isSelectedInCurrentDay ? 'checked' : '';
                     container.innerHTML += `
                         <label class="flex items-center space-x-2 p-2 rounded-lg hover:bg-amber-500/10 dark:hover:bg-navy-800/50 cursor-pointer border border-transparent hover:border-amber-500/20 transition">
@@ -456,23 +508,32 @@
                     }
                 }
 
-                const list = dayObj.dests || [];
-                if (list.length > 0) {
+                if (dayObj.area === 'DropOnlyBandung') {
                     hasAnySelection = true;
                     html += `
                         <div class="mb-2 pb-1 border-b border-gray-100 dark:border-gray-700/50 last:border-none">
-                            <span class="font-bold text-amber-600 dark:text-amber-400">📍 Hari ${i} (${areaText}):</span>
-                            <ul class="list-disc list-inside pl-2 font-medium text-gray-700 dark:text-gray-300">
-                                ${list.map(item => `<li>${item}</li>`).join('')}
-                            </ul>
+                            <span class="font-bold text-amber-600 dark:text-amber-400">📍 Hari ${i}:</span> Khusus Layanan Drop / Jemput Saja (Area Kota Bandung - Hotel/Stasiun)
                         </div>
                     `;
                 } else {
-                    html += `
-                        <div class="mb-1">
-                            <span class="font-bold text-gray-400">📍 Hari ${i} (${areaText}):</span> <span class="italic text-gray-400">(Belum memilih tempat)</span>
-                        </div>
-                    `;
+                    const list = dayObj.dests || [];
+                    if (list.length > 0) {
+                        hasAnySelection = true;
+                        html += `
+                            <div class="mb-2 pb-1 border-b border-gray-100 dark:border-gray-700/50 last:border-none">
+                                <span class="font-bold text-amber-600 dark:text-amber-400">📍 Hari ${i} (${areaText}):</span>
+                                <ul class="list-disc list-inside pl-2 font-medium text-gray-700 dark:text-gray-300">
+                                    ${list.map(item => `<li>${item}</li>`).join('')}
+                                </ul>
+                            </div>
+                        `;
+                    } else {
+                        html += `
+                            <div class="mb-1">
+                                <span class="font-bold text-gray-400">📍 Hari ${i} (${areaText}):</span> <span class="italic text-gray-400">(Belum memilih tempat)</span>
+                            </div>
+                        `;
+                    }
                 }
             }
 
@@ -495,16 +556,12 @@
             const carSelect = document.getElementById('calcCar');
             const carPrice = parseInt(carSelect.value);
             const days = parseInt(document.getElementById('calcDays').value) || 1;
-            const pax = parseInt(document.getElementById('calcPax').value) || 1;
-            
-            const serviceSelect = document.getElementById('calcService');
-            const fullboardPricePerPax = parseInt(serviceSelect.value);
 
-            // Fee Pickup & Drop Off
+            // Fee Pickup & Drop Off Utama
             const pickupFee = parseInt(document.getElementById('calcPickup').value) || 0;
             const dropFee = parseInt(document.getElementById('calcDrop').value) || 0;
 
-            // Fee Toll Luar Bandung
+            // Fee Tambahan Wilayah / Operasional Antar Kota
             let totalOutTownToll = 0;
             const areaSelectElem = document.getElementById('calcAreaDay');
 
@@ -522,20 +579,10 @@
 
             // Subtotal
             const totalTransport = carPrice * days;
-            const totalFullboard = fullboardPricePerPax * pax * days;
-            const total = totalTransport + totalFullboard + pickupFee + dropFee + totalOutTownToll;
+            const total = totalTransport + pickupFee + dropFee + totalOutTownToll;
 
             // Display Rincian
             document.getElementById('detailTransport').innerText = "Rp " + totalTransport.toLocaleString('id-ID');
-            
-            // Tampilkan detail Fullboard setelah Hari Terakhir
-            if (totalFullboard > 0) {
-                document.getElementById('rowFullboardDetail').classList.remove('hidden');
-                document.getElementById('detailFullboard').innerText = "Rp " + totalFullboard.toLocaleString('id-ID');
-                document.getElementById('fullboardCalcSubtext').innerText = `Perhitungan: Rp ${fullboardPricePerPax.toLocaleString('id-ID')} x ${pax} Orang x ${days} Hari`;
-            } else {
-                document.getElementById('rowFullboardDetail').classList.add('hidden');
-            }
 
             if (pickupFee > 0) {
                 document.getElementById('rowPickupFee').classList.remove('hidden');
@@ -562,9 +609,6 @@
         }
 
         function sendOrderWA() {
-            const serviceSelect = document.getElementById('calcService');
-            const serviceName = serviceSelect.options[serviceSelect.selectedIndex].getAttribute('data-name');
-            
             const pickupSelect = document.getElementById('calcPickup');
             const pickupName = pickupSelect.options[pickupSelect.selectedIndex].getAttribute('data-name');
             const pickupFee = parseInt(pickupSelect.value) || 0;
@@ -582,7 +626,6 @@
             const pax = document.getElementById('calcPax').value;
             
             const detailTransport = document.getElementById('detailTransport').innerText;
-            const detailFullboard = document.getElementById('detailFullboard').innerText;
             const total = document.getElementById('calcResult').innerText;
 
             let totalOutTownToll = 0;
@@ -605,40 +648,40 @@
                 }
                 totalOutTownToll += dayToll;
 
-                const list = dayObj.dests || [];
-                if (list.length > 0) {
-                    itineraryText += `%0A  *Hari ${i} (${areaText}):*`;
-                    list.forEach(item => {
-                        itineraryText += `%0A    - ${item}`;
-                    });
+                if (dayObj.area === 'DropOnlyBandung') {
+                    itineraryText += `%0A  *Hari ${i}:* Khusus Layanan Drop / Jemput Saja (Hotel <-> Stasiun Bandung)`;
                 } else {
-                    itineraryText += `%0A  *Hari ${i} (${areaText}):* Fleksibel / Belum ditentukan`;
+                    const list = dayObj.dests || [];
+                    if (list.length > 0) {
+                        itineraryText += `%0A  *Hari ${i} (${areaText}):*`;
+                        list.forEach(item => {
+                            itineraryText += `%0A    - ${item}`;
+                        });
+                    } else {
+                        itineraryText += `%0A  *Hari ${i} (${areaText}):* Fleksibel / Belum ditentukan`;
+                    }
                 }
             }
 
             let text = `Halo, saya ingin reservasi / tanya ketersediaan armada:%0A%0A`;
-            text += `- *Layanan*: ${serviceName}%0A`;
-            text += `- *Penjemputan (Pickup)*: ${pickupName} (${pickupDetail})%0A`;
-            text += `- *Pengantaran (Drop Off)*: ${dropName} (${dropDetail})%0A`;
+            text += `- *Penjemputan Utama*: ${pickupName} (${pickupDetail})%0A`;
+            text += `- *Pengantaran Utama*: ${dropName} (${dropDetail})%0A`;
             text += `- *Armada*: ${carName}%0A`;
-            text += `- *Jumlah Peserta*: ${pax} Orang%0A`;
+            text += `- *Jumlah Peserta*: ${pax} Orang (termasuk anak/bayi jika ada)%0A`;
             text += `- *Durasi*: ${days} Hari (Maks 12 Jam/Hari, Selesai Maks 21:00)%0A`;
             text += `- *Rencana Itinerary Per Hari*:${itineraryText}%0A%0A`;
             text += `*Rincian Estimasi Biaya:*%0A`;
             text += `• Sewa Armada & Driver: ${detailTransport}%0A`;
-            if (parseInt(serviceSelect.value) > 0) {
-                text += `• Paket Fullboard Tour (Makan 2x + Tiket Wisata): ${detailFullboard}%0A`;
-            }
             if (pickupFee > 0) {
-                text += `• Charge Penjemputan: Rp ${pickupFee.toLocaleString('id-ID')}%0A`;
+                text += `• Charge Penjemputan Utama: Rp ${pickupFee.toLocaleString('id-ID')}%0A`;
             }
             if (dropFee > 0) {
-                text += `• Charge Drop Off: Rp ${dropFee.toLocaleString('id-ID')}%0A`;
+                text += `• Charge Drop Off Utama: Rp ${dropFee.toLocaleString('id-ID')}%0A`;
             }
             if (totalOutTownToll > 0) {
-                text += `• Toll & Operasional Wisata Luar Bandung: Rp ${totalOutTownToll.toLocaleString('id-ID')}%0A`;
+                text += `• Biaya Tambahan Wilayah / Antar-Kota: Rp ${totalOutTownToll.toLocaleString('id-ID')}%0A`;
             }
-            text += `*Total*: ${total}%0A%0AMohon konfirmasi ketersediaannya, terima kasih!`;
+            text += `*Total Estimasi*: ${total}%0A%0AMohon konfirmasi ketersediaannya, terima kasih!`;
             
             window.open(`https://wa.me/6282130640161?text=${text}`, '_blank');
         }
@@ -648,8 +691,8 @@
         }
 
         // Inisialisasi awal
+        onPaxChange();
         onDaysChange();
-        updateCarPrice();
     </script>
 </body>
 </html>
