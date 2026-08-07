@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JelajahRute - Tour & Travel Jakarta Bogor Bandung</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Konfigurasi Warna Kustom Tailwind
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        navy: { 800: '#1e293b', 900: '#0f172a' },
+                        gold: { 500: '#d97706', 600: '#b45309' },
+                        purple: { 600: '#7c3aed', 700: '#6d28d9' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-navy-900 dark:bg-navy-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white/90 dark:bg-navy-900/90 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-amber-500/20">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center space-x-2">
+                <span class="text-2xl font-black tracking-wider text-navy-900 dark:text-white">Jelajah<span class="text-amber-500">Rute</span></span>
+                <span class="text-xs bg-purple-600 text-white px-2 py-0.5 rounded-full font-bold">VIP</span>
+            </div>
+
+            <!-- Control & Actions -->
+            <div class="flex items-center space-x-3 md:space-x-4">
+                <!-- Selector Bahasa -->
+                <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-gray-100 dark:bg-navy-800 text-xs md:text-sm font-semibold rounded-lg px-2 py-1.5 border border-amber-500/30 focus:outline-none">
+                    <option value="id">🇮🇩 ID</option>
+                    <option value="en">🇬🇧 EN</option>
+                    <option value="vi">🇻🇳 VI</option>
+                </select>
+
+                <!-- Dark Mode Toggle Button -->
+                <button onclick="toggleDarkMode()" class="p-2 rounded-lg bg-gray-100 dark:bg-navy-800 text-amber-500 hover:bg-gray-200 dark:hover:bg-gray-700 transition" title="Toggle Dark Mode">
+                    <span id="themeIcon">🌙</span>
+                </button>
+
+                <!-- WA Button -->
+                <a href="https://wa.me/6282130640161?text=Halo,%20saya%20ingin%20tanya%20paket%20tour/sewa%20mobil" target="_blank" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold px-3 md:px-4 py-2 rounded-lg text-xs md:text-sm shadow-md transition">
+                    Chat WA
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-b from-navy-900 via-navy-800 to-purple-900 text-white py-20 px-4 text-center overflow-hidden">
+        <div class="max-w-3xl mx-auto relative z-10">
+            <span class="bg-amber-500/20 text-amber-400 border border-amber-500/40 text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-widest inline-block mb-4">
+                Private Tour & Premium Charter
+            </span>
+            <h1 id="heroTitle" class="text-3xl md:text-5xl font-extrabold mb-4 leading-tight">
+                Eksplor Jakarta, Bogor & Bandung Bebas Pusing
+            </h1>
+            <p id="heroSub" class="text-gray-300 text-sm md:text-base mb-8 max-w-2xl mx-auto">
+                Layanan tour privat & sewa armada (Calya hingga Big Bus) termasuk driver berpengalaman, BBM, dan penjemputan bebas.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#paket" class="bg-amber-500 hover:bg-amber-600 text-navy-900 font-bold px-6 py-3 rounded-xl shadow-lg transition">Lihat Paket Tour</a>
+                <a href="#armada" class="bg-purple-600 hover:bg-purple-700 text-white font-bold px-6 py-3 rounded-xl shadow-lg transition">Sewa Mobil (Mulai Rp 500rb)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keunggulan Singkat -->
+    <section class="py-10 bg-white dark:bg-navy-800 border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div class="p-3">
+                <div class="text-2xl mb-1">🚗</div>
+                <h4 class="font-bold text-sm md:text-base">Armada Lengkap</h4>
+                <p class="text-xs text-gray-500 dark:text-gray-400">Calya s/d Bus Besar</p>
+            </div>
+            <div class="p-3">
+                <div class="text-2xl mb-1">📍</div>
+                <h4 class="font-bold text-sm md:text-base">Penjemputan Bebas</h4>
+                <p class="text-xs text-gray-500 dark:text-gray-400">Bandara, Hotel, Rumah</p>
+            </div>
+            <div class="p-3">
+                <div class="text-2xl mb-1">🍲</div>
+                <h4 class="font-bold text-sm md:text-base">Halal Friendly</h4>
+                <p class="text-xs text-gray-500 dark:text-gray-400">Resto & Fasilitas Sholat</p>
+            </div>
+            <div class="p-3">
+                <div class="text-2xl mb-1">💎</div>
+                <h4 class="font-bold text-sm md:text-base">Layanan VIP</h4>
+                <p class="text-xs text-gray-500 dark:text-gray-400">Driver Sopan & Paham Rute</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Paket Wisata Section (Slide Kanan) -->
+    <section id="paket" class="max-w-6xl mx-auto px-4 py-16">
+        <div class="flex justify-between items-end mb-6">
+            <div>
+                <h2 id="secPaket" class="text-2xl md:text-3xl font-bold">Paket Wisata Favorit</h2>
+                <p class="text-gray-500 dark:text-gray-400 text-xs md:text-sm">Geser ke kanan untuk opsi paket ➡️</p>
+            </div>
+            <div class="hidden md:flex space-x-2">
+                <button onclick="slide('sliderPaket', -340)" class="p-2 bg-white dark:bg-navy-800 border dark:border-gray-700 rounded-full hover:bg-gray-100 shadow">👈</button>
+                <button onclick="slide('sliderPaket', 340)" class="p-2 bg-white dark:bg-navy-800 border dark:border-gray-700 rounded-full hover:bg-gray-100 shadow">👉</button>
+            </div>
+        </div>
+
+        <div id="sliderPaket" class="flex space-x-6 overflow-x-auto scroll-smooth no-scrollbar pb-4 snap-x snap-mandatory">
+            <!-- Card Paket 1 -->
+            <div class="min-w-[280px] md:min-w-[340px] bg-white dark:bg-navy-800 rounded-2xl shadow-md border border-gray-100 dark:border-gray-700 overflow-hidden snap-start flex-shrink-0 flex flex-col justify-between">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1555899434-94d1368aa7af?w=500&auto=format&fit=crop" class="w-full h-48 object-cover" alt="Jakarta Tour">
+                    <div class="p-5">
+                        <span class="text-xs font-bold text-amber-600 bg-amber-50 dark:bg-amber-900/30 px-2.5 py-1 rounded-full">1 Day Trip</span>
+                        <h3 class="text-lg font-bold mt-2">Jakarta City Tour & Modern PIK</h3>
+                        <p class="text-gray-500 dark:text-gray-400 text-xs mt-1">Kota Tua, Monas, Kuliner Malam & Pantai PIK 2.</p>
+                    </div>
+                </div>
+                <div class="p-5 pt-0 border-t border-gray-100 dark:border-gray-700 mt-4 flex justify-between items-center">
+                    <div><span class="text-xs text-gray-400 block">Mulai dari</span><span class="text-amber-500 font-extrabold text-lg">Rp 350.000</span></div>
+                    <a href="https://wa.me/6282130640161?text=Saya%20tertarik%20Paket%20Jakarta%20City%20Tour" target="_blank" class="bg-navy-900 dark:bg-purple-600 text-white px-4 py-2 rounded-xl text-xs font-bold hover:opacity-90">Pesan</a>
+                </div>
+            </div>
+
+            <!-- Card Paket 2 -->
+            <div class="min-w-[280px] md:min-w-[340px] bg-white dark:bg-navy-800 rounded-2xl shadow-md border border-gray-100 dark:border-gray-700 overflow-hidden snap-start flex-shrink-0 flex flex-col justify-between">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1584810359583-96fc3448beaa?w=500&auto=format&fit=crop" class="w-full h-48 object-cover" alt="Bogor Puncak">
+                    <div class="p-5">
+                        <span class="text-xs font-bold text-purple-600 bg-purple-50 dark:bg-purple-900/30 px-2.5 py-1 rounded-full">1 Day / 2D1N</span>
+                        <h3 class="text-lg font-bold mt-2">Bogor & Puncak Fresh Nature</h3>
+                        <p class="text-gray-500 dark:text-gray-400 text-xs mt-1">Kebun Raya Bogor, Kebun Teh Puncak, & Cafe Awan.</p>
+                    </div>
+                </div>
+                <div class="p-5 pt-0 border-t border-gray-100 dark:border-gray-700 mt-4 flex justify-between items-center">
+                    <div><span class="text-xs text-gray-400 block">Mulai dari</span><span class="text-amber-500 font-extrabold text-lg">Rp 400.000</span></div>
+                    <a href="https://wa.me/6282130640161?text=Saya%20tertarik%20Paket%20Bogor%20Puncak" target="_blank" class="bg-navy-900 dark:bg-purple-600 text-white px-4 py-2 rounded-xl text-xs font-bold hover:opacity-90">Pesan</a>
+                </div>
+            </div>
+
+            <!-- Card Paket 3 -->
+            <div class="min-w-[280px] md:min-w-[340px] bg-white dark:bg-navy-800 rounded-2xl shadow-md border border-gray-100 dark:border-gray-700 overflow-hidden snap-start flex-shrink-0 flex flex-col justify-between">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1596402184320-417e7178b2cd?w=500&auto=format&fit=crop" class="w-full h-48 object-cover" alt="Bandung Lembang">
+                    <div class="p-5">
+                        <span class="text-xs font-bold text-amber-600 bg-amber-50 dark:bg-amber-900/30 px-2.5 py-1 rounded-full">2D1N / 3D2N</span>
+                        <h3 class="text-lg font-bold mt-2">Bandung Shopping & Nature</h3>
+                        <p class="text-gray-500 dark:text-gray-400 text-xs mt-1">Lembang, Kawah Putih, Factory Outlet & Oleh-oleh.</p>
+                    </div>
+                </div>
+                <div class="p-5 pt-0 border-t border-gray-100 dark:border-gray-700 mt-4 flex justify-between items-center">
+                    <div><span class="text-xs text-gray-400 block">Mulai dari</span><span class="text-amber-500 font-extrabold text-lg">Rp 650.000</span></div>
+                    <a href="https://wa.me/6282130640161?text=Saya%20tertarik%20Paket%20Bandung" target="_blank" class="bg-navy-900 dark:bg-purple-600 text-white px-4 py-2 rounded-xl text-xs font-bold hover:opacity-90">Pesan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Layanan Sewa Armada Section -->
+    <section id="armada" class="bg-gray-100 dark:bg-navy-800/50 py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold text-purple-600 bg-purple-100 dark:bg-purple-900/40 px-3 py-1 rounded-full">Pilihan Kendaraan</span>
+                <h2 class="text-2xl md:text-3xl font-bold mt-2">Sewa Armada + Driver</h2>
+                <p class="text-gray-500 dark:text-gray-400 text-xs md:text-sm mt-1">Bersih, dingin, terawat. Harga transparan <strong class="text-amber-500">Mulai Rp 500.000</strong></p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Calya -->
+                <div class="bg-white dark:bg-navy-800 p-5 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 flex justify-between items-center">
+                    <div>
+                        <h3 class="font-bold text-base">Toyota Calya / Sigra</h3>
+                        <p class="text-xs text-gray-400">Cap: 3-4 Seat</p>
+                        <p class="text-amber-500 font-extrabold text-sm mt-2">Rp 500.000 <span class="text-[10px] font-normal text-gray-400">/hari</span></p>
+                    </div>
+                    <a href="https://wa.me/6282130640161?text=Sewa%20Calya" target="_blank" class="bg-amber-500 text-navy-900 px-3 py-1.5 rounded-lg text-xs font-bold">Sewa</a>
+                </div>
+
+                <!-- Avanza -->
+                <div class="bg-white dark:bg-navy-800 p-5 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 flex justify-between items-center">
+                    <div>
+                        <h3 class="font-bold text-base">Toyota Avanza</h3>
+                        <p class="text-xs text-gray-400">Cap: 4-5 Seat</p>
+                        <p class="text-amber-500 font-extrabold text-sm mt-2">Rp 600.000 <span class="text-[10px] font-normal text-gray-400">/hari</span></p>
+                    </div>
+                    <a href="https://wa.me/6282130640161?text=Sewa%20Avanza" target="_blank" class="bg-amber-500 text-navy-900 px-3 py-1.5 rounded-lg text-xs font-bold">Sewa</a>
+                </div>
+
+                <!-- Innova Reborn -->
+                <div class="bg-white dark:bg-navy-800 p-5 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 flex justify-between items-center">
+                    <div>
+                        <h3 class="font-bold text-base">Innova Reborn Diesel</h3>
+                        <p class="text-xs text-gray-400">Cap: 5-6 Seat (Favorit)</p>
+                        <p class="text-amber-500 font-extrabold text-sm mt-2">Rp 800.000 <span class="text-[10px] font-normal text-gray-400">/hari</span></p>
+                    </div>
+                    <a href="https://wa.me/6282130640161?text=Sewa%20Innova%20Reborn" target="_blank" class="bg-amber-500 text-navy-900 px-3 py-1.5 rounded-lg text-xs font-bold">Sewa</a>
+                </div>
+
+                <!-- Innova Zenix -->
+                <div class="bg-white dark:bg-navy-800 p-5 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 flex justify-between items-center">
+                    <div>
+                        <h3 class="font-bold text-base">Innova Zenix</h3>
+                        <p class="text-xs text-gray-400">Cap: 5-6 Seat (Luxury)</p>
+                        <p class="text-amber-500 font-extrabold text-sm mt-2">Rp 950.000 <span class="text-[10px] font-normal text-gray-400">/hari</span></p>
+                    </div>
+                    <a href="https://wa.me/6282130640161?text=Sewa%20Zenix" target="_blank" class="bg-amber-500 text-navy-900 px-3 py-1.5 rounded-lg text-xs font-bold">Sewa</a>
+                </div>
+
+                <!-- Toyota Hiace -->
+                <div class="bg-white dark:bg-navy-800 p-5 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 flex justify-between items-center">
+                    <div>
+                        <h3 class="font-bold text-base">HiAce Commuter / Premio</h3>
+                        <p class="text-xs text-gray-400">Cap: 11-14 Seat</p>
+                        <p class="text-amber-500 font-extrabold text-sm mt-2">Rp 1.200.000 <span class="text-[10px] font-normal text-gray-400">/hari</span></p>
+                    </div>
+                    <a href="https://wa.me/6282130640161?text=Sewa%20Hiace" target="_blank" class="bg-amber-500 text-navy-900 px-3 py-1.5 rounded-lg text-xs font-bold">Sewa</a>
+                </div>
+
+                <!-- Alphard / Bus -->
+                <div class="bg-white dark:bg-navy-800 p-5 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 flex justify-between items-center">
+                    <div>
+                        <h3 class="font-bold text-base">Alphard / Bus Pariwisata</h3>
+                        <p class="text-xs text-gray-400">VIP / Group Besar</p>
+                        <p class="text-amber-500 font-extrabold text-sm mt-2">Custom Quote</p>
+                    </div>
+                    <a href="https://wa.me/6282130640161?text=Tanya%20Alphard/Bus" target="_blank" class="bg-purple-600 text-white px-3 py-1.5 rounded-lg text-xs font-bold">Chat WA</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeri Foto (5 Foto Awal + Lazy Load) -->
+    <section class="max-w-6xl mx-auto px-4 py-16">
+        <div class="text-center mb-8">
+            <h2 class="text-2xl md:text-3xl font-bold">Galeri Dokumentasi</h2>
+            <p class="text-gray-500 dark:text-gray-400 text-xs md:text-sm mt-1">Koleksi perjalanan menyenangkan bersama pelanggan kami</p>
+        </div>
+
+        <div id="galleryGrid" class="grid grid-cols-2 md:grid-cols-5 gap-3">
+            <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&auto=format&fit=crop" class="rounded-xl h-40 w-full object-cover shadow-sm hover:opacity-90 transition">
+            <img src="https://images.unsplash.com/photo-1584810359583-96fc3448beaa?w=400&auto=format&fit=crop" class="rounded-xl h-40 w-full object-cover shadow-sm hover:opacity-90 transition">
+            <img src="https://images.unsplash.com/photo-1555899434-94d1368aa7af?w=400&auto=format&fit=crop" class="rounded-xl h-40 w-full object-cover shadow-sm hover:opacity-90 transition">
+            <img src="https://images.unsplash.com/photo-1596402184320-417e7178b2cd?w=400&auto=format&fit=crop" class="rounded-xl h-40 w-full object-cover shadow-sm hover:opacity-90 transition">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&auto=format&fit=crop" class="rounded-xl h-40 w-full object-cover shadow-sm hover:opacity-90 transition">
+        </div>
+
+        <div class="text-center mt-8">
+            <button onclick="loadMoreGallery()" id="loadBtn" class="bg-gray-200 dark:bg-navy-800 hover:bg-gray-300 border border-amber-500/30 text-xs font-bold px-6 py-2.5 rounded-xl transition">
+                Lihat Foto Selengkapnya (150+)
+            </button>
+        </div>
+    </section>
+
+    <!-- Testimoni 20 Cust (Slide Kanan) -->
+    <section class="bg-navy-900 text-white py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-10">
+                <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Social Proof</span>
+                <h2 class="text-2xl md:text-3xl font-bold mt-1">Ulasan Pelanggan</h2>
+            </div>
+
+            <div id="sliderTesti" class="flex space-x-4 overflow-x-auto no-scrollbar scroll-smooth snap-x">
+                <!-- Testi Item Sample (Disusun otomatis) -->
+                <div class="min-w-[260px] md:min-w-[300px] bg-navy-800 p-5 rounded-2xl border border-amber-500/20 snap-start flex-shrink-0">
+                    <div class="text-amber-400 text-sm mb-2">⭐⭐⭐⭐⭐</div>
+                    <p class="text-xs text-gray-300 mb-4">"Sangat puas hati! Driver ramah, tau tempat shopping best kat Bandung & makanan halal."</p>
+                    <div class="text-xs font-bold">Siti Nurhalizah 🇲🇾</div>
+                    <div class="text-[10px] text-gray-400">Kuala Lumpur, Malaysia</div>
+                </div>
+
+                <div class="min-w-[260px] md:min-w-[300px] bg-navy-800 p-5 rounded-2xl border border-amber-500/20 snap-start flex-shrink-0">
+                    <div class="text-amber-400 text-sm mb-2">⭐⭐⭐⭐⭐</div>
+                    <p class="text-xs text-gray-300 mb-4">"Innova Reborn super comfortable, punctual driver. Excellent Jakarta-Puncak trip!"</p>
+                    <div class="text-xs font-bold">Derrick & Cheryl 🇸🇬</div>
+                    <div class="text-[10px] text-gray-400">Singapore</div>
+                </div>
+
+                <div class="min-w-[260px] md:min-w-[300px] bg-navy-800 p-5 rounded-2xl border border-amber-500/20 snap-start flex-shrink-0">
+                    <div class="text-amber-400 text-sm mb-2">⭐⭐⭐⭐⭐</div>
+                    <p class="text-xs text-gray-300 mb-4">"Dịch vụ tuyệt vời! Chuyến đi Bandung 2 ngày rất vui, tài xế rất nhiệt tình."</p>
+                    <div class="text-xs font-bold">Nguyen Van Minh 🇻🇳</div>
+                    <div class="text-[10px] text-gray-400">Ho Chi Minh City</div>
+                </div>
+
+                <div class="min-w-[260px] md:min-w-[300px] bg-navy-800 p-5 rounded-2xl border border-amber-500/20 snap-start flex-shrink-0">
+                    <div class="text-amber-400 text-sm mb-2">⭐⭐⭐⭐⭐</div>
+                    <p class="text-xs text-gray-300 mb-4">"Sewa HiAce buat rombongan keluarga Surabaya. Driver mas-masnya paham jalan bebas macet."</p>
+                    <div class="text-xs font-bold">Bpk. Budi Santoso 🇮🇩</div>
+                    <div class="text-[10px] text-gray-400">Surabaya, Indonesia</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-900 border-t border-gray-800 text-gray-400 py-10 text-center text-xs">
+        <div class="max-w-6xl mx-auto px-4">
+            <p class="text-white font-bold text-sm mb-1">JelajahRute Tour & Transport</p>
+            <p class="mb-3">Spesialis Tour & Sewa Mobil Jakarta - Bogor - Bandung</p>
+            <p class="text-amber-400 font-semibold mb-4">WhatsApp: +62 821-3064-0161</p>
+            <p>&copy; 2026 JelajahRute. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripting Sederhana -->
+    <script>
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const icon = document.getElementById('themeIcon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                icon.textContent = '🌙';
+            } else {
+                html.classList.add('dark');
+                icon.textContent = '☀️';
+            }
+        }
+
+        // Horizontal Slider Function
+        function slide(id, amount) {
+            document.getElementById(id).scrollBy({ left: amount, behavior: 'smooth' });
+        }
+
+        // Lazy Load Gallery Sample
+        function loadMoreGallery() {
+            const grid = document.getElementById('galleryGrid');
+            const newImages = [
+                "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1476514525535-ce74f45814ce?w=400&auto=format&fit=crop"
+            ];
+            newImages.forEach(src => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.className = 'rounded-xl h-40 w-full object-cover shadow-sm animate-fade-in';
+                grid.appendChild(img);
+            });
+            document.getElementById('loadBtn').innerText = "Memuat Foto Lainnya...";
+        }
+
+        // Simple Language Translation Dictionary
+        function changeLanguage(lang) {
+            const t = {
+                id: {
+                    title: "Eksplor Jakarta, Bogor & Bandung Bebas Pusing",
+                    sub: "Layanan tour privat & sewa armada termasuk driver berpengalaman, BBM, dan penjemputan bebas."
+                },
+                en: {
+                    title: "Explore Jakarta, Bogor & Bandung Hassle-Free",
+                    sub: "Private tour & car rental services including experienced driver, petrol, and flexible pickup."
+                },
+                vi: {
+                    title: "Khám phá Jakarta, Bogor & Bandung không lo lắng",
+                    sub: "Dịch vụ tour riêng & thuê xe bao gồm tài xế kinh nghiệm, xăng xe và đón tận nơi."
+                }
+            };
+            document.getElementById('heroTitle').innerText = t[lang].title;
+            document.getElementById('heroSub').innerText = t[lang].sub;
+        }
+    </script>
+</body>
+</html>
