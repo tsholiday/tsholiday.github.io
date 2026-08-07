@@ -105,13 +105,16 @@
                 </div>
             </div>
 
-            <!-- Wilayah Utama & Pemilihan Destinasi Wisata -->
+            <!-- Wilayah Utama Tour (Bandung Diurutan Teratas) -->
             <div>
                 <label class="block text-xs font-bold mb-1.5">Pilih Wilayah Utama Tour:</label>
                 <select id="calcArea" onchange="loadDestinations()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
+                    <option value="BandungKota" selected>Bandung Kota</option>
+                    <option value="BandungUtara">Bandung Utara (Lembang)</option>
+                    <option value="BandungSelatan1">Bandung Selatan (Ciwidey)</option>
+                    <option value="BandungSelatan2">Bandung Selatan 2 (Pangalengan)</option>
                     <option value="Jakarta">Jakarta</option>
                     <option value="Bogor">Bogor & Puncak</option>
-                    <option value="Bandung" selected>Bandung (Ciwidey/Lembang)</option>
                     <option value="Jogja">Yogyakarta (Jogja)</option>
                 </select>
             </div>
@@ -165,11 +168,57 @@
 
     <!-- Script Logika Aplikasi -->
     <script>
+        // Database Destinasi Berdasarkan Area
         const destData = {
-            Jakarta: ["Monas & Museum Fatahillah", "Kota Tua Jakarta", "Dufan & Ancol", "TMII", "PIK 2 & Cove at Batavia"],
-            Bogor: ["Kebun Raya Bogor", "Taman Safari Indonesia", "Kuntum Farmfield", "Kebun Teh Puncak", "Telaga Saat"],
-            Bandung: ["Kawah Putih Ciwidey", "Dusun Bambu Lembang", "Floating Market Lembang", "Nimo Highland Pangalengan", "Tebing Keraton"],
-            Jogja: ["Jalan Malioboro", "Kraton & Taman Sari", "Candi Prambanan", "Jeep Lava Tour Merapi", "HeHa Ocean View"]
+            BandungKota: [
+                "Jalan Asia Afrika & Gedung Merdeka",
+                "Alun-Alun Bandung & Jalan Braga",
+                "Saung Angklung Udjo",
+                "Museum Geologi & Gedung Sate",
+                "Wisata Kuliner & Shopping Factory Outlet"
+            ],
+            BandungUtara: [
+                "Dusun Bambu Lembang",
+                "Floating Market & Rainbow Garden",
+                "The Great Asia Africa Lembang",
+                "Farmhouse Susu Lembang",
+                "Tebing Keraton / Orchid Forest Cikole"
+            ],
+            BandungSelatan1: [
+                "Kawah Putih Ciwidey",
+                "Glamping Lakeside Rancabali",
+                "Ranca Upas (Penangkaran Rusa)",
+                "Kebun Teh & Suspension Bridge Rancabali",
+                "Kawah Rengganis & Cibuni"
+            ],
+            BandungSelatan2: [
+                "Nimo Highland Pangalengan",
+                "Wayang Windu Panenjoan",
+                "Rafting & Tubing Sungai Palayangan",
+                "Situ Cileunca Pangalengan",
+                "Hutan Pinus Rahong"
+            ],
+            Jakarta: [
+                "Monas & Museum Fatahillah",
+                "Kota Tua Jakarta",
+                "Dufan & Ancol Beach",
+                "TMII (Taman Mini Indonesia Indah)",
+                "PIK 2 & Cove at Batavia"
+            ],
+            Bogor: [
+                "Kebun Raya Bogor",
+                "Taman Safari Indonesia Puncak",
+                "Kuntum Farmfield",
+                "Kebun Teh Puncak",
+                "Telaga Saat Puncak"
+            ],
+            Jogja: [
+                "Jalan Malioboro",
+                "Kraton Jogja & Taman Sari",
+                "Candi Prambanan",
+                "Jeep Lava Tour Merapi",
+                "HeHa Ocean View / Sky View"
+            ]
         };
 
         function loadDestinations() {
@@ -263,7 +312,9 @@
             
             const days = document.getElementById('calcDays').value;
             const pax = document.getElementById('calcPax').value;
-            const area = document.getElementById('calcArea').value;
+            
+            const areaSelect = document.getElementById('calcArea');
+            const areaName = areaSelect.options[areaSelect.selectedIndex].text;
             
             const detailTransport = document.getElementById('detailTransport').innerText;
             const detailFullboard = document.getElementById('detailFullboard').innerText;
@@ -286,7 +337,7 @@
             text += `- *Armada*: ${carName}%0A`;
             text += `- *Jumlah Peserta*: ${pax} Orang%0A`;
             text += `- *Durasi*: ${days} Hari (Maks 12 Jam/Hari, Selesai Maks 21:00)%0A`;
-            text += `- *Wilayah Tour*: ${area}%0A`;
+            text += `- *Wilayah Tour*: ${areaName}%0A`;
             text += `- *Rencana Destinasi (Itinerary)*:${destListText}%0A%0A`;
             text += `*Rincian Estimasi Biaya:*%0A`;
             text += `• Sewa Armada & Driver: ${detailTransport}%0A`;
