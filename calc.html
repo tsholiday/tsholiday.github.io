@@ -37,9 +37,10 @@
 
         <!-- Informasi Ketentuan Operasional -->
         <div class="bg-amber-500/10 border-l-4 border-amber-500 p-3.5 rounded-r-xl mb-5 text-[11px] leading-relaxed text-gray-700 dark:text-gray-300">
-            <p class="font-bold text-amber-600 dark:text-amber-400 mb-0.5">ℹ️ Ketentuan Waktu Operasional:</p>
+            <p class="font-bold text-amber-600 dark:text-amber-400 mb-0.5">ℹ️ Ketentuan Waktu Operasional & Penjemputan:</p>
             <p>• Durasi pelayanan maksimal <strong>12 Jam per hari</strong>.</p>
             <p>• Penjemputan di jam berapapun, operasional harian akan berakhir <strong>maksimal pukul 21.00 WIB (9 malam)</strong>.</p>
+            <p>• Layanan antar/jemput Bandara CGK (Jakarta/Tangerang) dikenakan biaya <strong>Rp 600.000 / sekali jalan</strong>.</p>
         </div>
 
         <!-- Form Input Kalkulator -->
@@ -54,7 +55,18 @@
                 </select>
             </div>
 
-            <!-- Pilih Armada Kendaraan & Tarif (Terpisah) -->
+            <!-- Pilih Lokasi Penjemputan & Pengantaran Bandara -->
+            <div>
+                <label class="block text-xs font-bold mb-1.5">Lokasi Penjemputan / Drop Off:</label>
+                <select id="calcPickup" onchange="calculateTotal()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
+                    <option value="0" data-name="Area Kota Bandung">Area Kota Bandung (Bebas Biaya Tambahan)</option>
+                    <option value="150000" data-name="Luar Kota Bandung (Non-Airport)">Luar Kota Bandung Non-Airport (+ Rp 150.000)</option>
+                    <option value="600000" data-name="Jemput / Drop Airport CGK (Sekali Jalan)">Jemput / Drop Airport Jakarta/Tangerang CGK - Sekali Jalan (+ Rp 600.000)</option>
+                    <option value="1200000" data-name="Jemput & Drop Airport CGK (PP)">Jemput & Drop Airport Jakarta/Tangerang CGK - Pulang Pergi (+ Rp 1.200.000)</option>
+                </select>
+            </div>
+
+            <!-- Pilih Armada Kendaraan & Tarif -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div class="sm:col-span-2">
                     <label class="block text-xs font-bold mb-1.5">Pilih Armada Kendaraan:</label>
@@ -98,8 +110,25 @@
                 </select>
             </div>
 
+            <!-- Breakdown / Rincian Terpisah -->
+            <div class="bg-gray-100 dark:bg-navy-900/80 rounded-2xl p-4 border border-gray-200 dark:border-gray-700 space-y-1.5 text-xs">
+                <p class="font-bold mb-2 text-gray-700 dark:text-gray-300 border-b border-gray-200 dark:border-gray-700 pb-1">📊 Rincian Komponen Biaya:</p>
+                <div class="flex justify-between">
+                    <span class="text-gray-500 dark:text-gray-400">Sewa Transport Utama:</span>
+                    <span id="detailTransport" class="font-semibold">Rp 0</span>
+                </div>
+                <div id="rowFullboard" class="flex justify-between">
+                    <span class="text-gray-500 dark:text-gray-400">Paket Fullboard (Makan+Wisata):</span>
+                    <span id="detailFullboard" class="font-semibold">Rp 0</span>
+                </div>
+                <div id="rowPickupFee" class="flex justify-between text-amber-600 dark:text-amber-400 font-semibold hidden">
+                    <span>Charge Penjemputan / Drop Airport CGK / Luar Kota:</span>
+                    <span id="detailPickupFee">Rp 0</span>
+                </div>
+            </div>
+
             <!-- Box Hasil & Tombol WA -->
-            <div class="bg-amber-500/10 border border-amber-500/30 p-5 rounded-2xl flex flex-col sm:flex-row justify-between items-center gap-4 mt-6">
+            <div class="bg-amber-500/10 border border-amber-500/30 p-5 rounded-2xl flex flex-col sm:flex-row justify-between items-center gap-4 mt-4">
                 <div class="text-center sm:text-left">
                     <span class="text-xs text-gray-500 dark:text-gray-400 block">Estimasi Biaya Paket Total:</span>
                     <span id="calcResult" class="text-2xl sm:text-3xl font-black text-amber-500">Rp 0</span>
@@ -118,9 +147,7 @@
             const carSelect = document.getElementById('calcCar');
             const carPrice = parseInt(carSelect.value);
             
-            // Tampilkan harga terpisah di kolom tampilan harga
             document.getElementById('carPriceDisplay').value = "Rp " + carPrice.toLocaleString('id-ID');
-            
             calculateTotal();
         }
 
@@ -133,14 +160,32 @@
             const serviceSelect = document.getElementById('calcService');
             const fullboardPricePerPax = parseInt(serviceSelect.value);
 
-            // Hitung harga dasar transport (termasuk BBM, Driver, Parkir, Toll)
-            const totalTransport = carPrice * days;
-            
-            // Hitung tambahan fullboard (Makan 2x + Tiket Wisata per orang per hari)
-            const totalFullboard = fullboardPricePerPax * pax * days;
+            const pickupSelect = document.getElementById('calcPickup');
+            const pickupFee = parseInt(pickupSelect.value);
 
-            const total = totalTransport + totalFullboard;
+            // Hitung subtotal
+            const totalTransport = carPrice * days;
+            const totalFullboard = fullboardPricePerPax * pax * days;
+            const total = totalTransport + totalFullboard + pickupFee;
+
+            // Update Tampilan Rincian Terpisah
+            document.getElementById('detailTransport').innerText = "Rp " + totalTransport.toLocaleString('id-ID');
             
+            if (totalFullboard > 0) {
+                document.getElementById('rowFullboard').classList.remove('hidden');
+                document.getElementById('detailFullboard').innerText = "Rp " + totalFullboard.toLocaleString('id-ID');
+            } else {
+                document.getElementById('rowFullboard').classList.add('hidden');
+            }
+
+            if (pickupFee > 0) {
+                document.getElementById('rowPickupFee').classList.remove('hidden');
+                document.getElementById('detailPickupFee').innerText = "Rp " + pickupFee.toLocaleString('id-ID');
+            } else {
+                document.getElementById('rowPickupFee').classList.add('hidden');
+            }
+
+            // Total Keseluruhan
             document.getElementById('calcResult').innerText = "Rp " + total.toLocaleString('id-ID');
         }
 
@@ -148,15 +193,39 @@
             const serviceSelect = document.getElementById('calcService');
             const serviceName = serviceSelect.options[serviceSelect.selectedIndex].getAttribute('data-name');
             
+            const pickupSelect = document.getElementById('calcPickup');
+            const pickupName = pickupSelect.options[pickupSelect.selectedIndex].getAttribute('data-name');
+            const pickupFee = parseInt(pickupSelect.value);
+
             const carSelect = document.getElementById('calcCar');
             const carName = carSelect.options[carSelect.selectedIndex].getAttribute('data-name');
             
             const days = document.getElementById('calcDays').value;
             const pax = document.getElementById('calcPax').value;
             const area = document.getElementById('calcArea').value;
+            
+            const detailTransport = document.getElementById('detailTransport').innerText;
+            const detailFullboard = document.getElementById('detailFullboard').innerText;
             const total = document.getElementById('calcResult').innerText;
 
-            const text = `Halo Admin JelajahRute, saya ingin reservasi/tanya ketersediaan armada:%0A%0A- *Layanan*: ${serviceName}%0A- *Armada*: ${carName}%0A- *Jumlah Peserta*: ${pax} Orang%0A- *Durasi*: ${days} Hari (Maks 12 Jam/Hari, Selesai Maks 21:00)%0A- *Tujuan*: ${area}%0A- *Estimasi Total*: ${total}%0A%0AMohon konfirmasi ketersediaannya, terima kasih!`;
+            let pickupInfoWA = `- *Lokasi Penjemputan / Drop*: ${pickupName}`;
+
+            let text = `Halo Admin JelajahRute, saya ingin reservasi/tanya ketersediaan armada:%0A%0A`;
+            text += `- *Layanan*: ${serviceName}%0A`;
+            text += `${pickupInfoWA}%0A`;
+            text += `- *Armada*: ${carName}%0A`;
+            text += `- *Jumlah Peserta*: ${pax} Orang%0A`;
+            text += `- *Durasi*: ${days} Hari (Maks 12 Jam/Hari, Selesai Maks 21:00)%0A`;
+            text += `- *Tujuan*: ${area}%0A%0A`;
+            text += `*Rincian Estimasi Biaya:*%0A`;
+            text += `• Sewa Armada & Driver: ${detailTransport}%0A`;
+            if (parseInt(serviceSelect.value) > 0) {
+                text += `• Paket Fullboard: ${detailFullboard}%0A`;
+            }
+            if (pickupFee > 0) {
+                text += `• Charge Penjemputan/Drop Airport/Luar Kota: Rp ${pickupFee.toLocaleString('id-ID')}%0A`;
+            }
+            text += `*Total*: ${total}%0A%0AMohon konfirmasi ketersediaannya, terima kasih!`;
             
             window.open(`https://wa.me/6282130640161?text=${text}`, '_blank');
         }
