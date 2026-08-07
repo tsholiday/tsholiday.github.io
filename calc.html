@@ -86,7 +86,9 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                     <label class="block text-xs font-bold mb-1.5" data-i18n="durationLabel">Durasi Sewa (Hari):</label>
-                    <input type="number" id="calcDays" value="1" min="1" max="10" onchange="onDaysChange()" onkeyup="onDaysChange()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
+                    <input type="number" id="calcDays" value="0" min="0" max="10" onchange="onDaysChange()" onkeyup="onDaysChange()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
+                    <!-- Peringatan Wajib Isi Hari -->
+                    <p id="daysWarningText" class="hidden text-[11px] text-red-500 font-bold mt-1" data-i18n="daysWarning">⚠️ Silakan isi durasi hari sewa terlebih dahulu!</p>
                 </div>
 
                 <div>
@@ -221,7 +223,7 @@
                     <span class="text-xs text-gray-500 dark:text-gray-400 block" data-i18n="totalEstimate">Estimasi Biaya Paket Total:</span>
                     <span id="calcResult" class="text-2xl sm:text-3xl font-black text-amber-500">Rp 0</span>
                 </div>
-                <button onclick="sendOrderWA()" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-navy-900 font-extrabold px-6 py-3.5 rounded-xl text-xs shadow-lg hover:shadow-amber-500/20 transition" data-i18n="btnBook">
+                <button id="btnSendWA" onclick="sendOrderWA()" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-navy-900 font-extrabold px-6 py-3.5 rounded-xl text-xs shadow-lg hover:shadow-amber-500/20 transition" data-i18n="btnBook">
                     Pesan via WhatsApp 📱
                 </button>
             </div>
@@ -287,6 +289,7 @@
                 dayText: "Hari",
                 emptyDest: "Belum ada destinasi terpilih.",
                 editInDay: "Edit di Hari",
+                daysWarning: "⚠️ Silakan isi durasi hari sewa terlebih dahulu!",
                 exceededCap: "⚠️ Peringatan Kapasitas: Jumlah peserta ({pax} Orang) melebihi kapasitas armada sebelumnya. Sistem telah otomatis menyesuaikan ke {car}."
             },
             en: {
@@ -342,6 +345,7 @@
                 dayText: "Day",
                 emptyDest: "No destinations selected yet.",
                 editInDay: "Edit in Day",
+                daysWarning: "⚠️ Please fill in the rental duration first!",
                 exceededCap: "⚠️ Capacity Warning: Number of passengers ({pax} Pax) exceeds previous vehicle capacity. System automatically adjusted to {car}."
             }
         };
@@ -438,7 +442,7 @@
             });
 
             onPaxChange();
-            renderDayTabs(parseInt(document.getElementById('calcDays').value) || 1);
+            renderDayTabs(parseInt(document.getElementById('calcDays').value) || 0);
             renderDestinations();
             updateItinerarySummary();
         }
@@ -511,9 +515,32 @@
         }
 
         function onDaysChange() {
-            let days = parseInt(document.getElementById('calcDays').value) || 1;
-            if (days < 1) days = 1;
-            if (days > 10) days = 10;
+            let daysInput = document.getElementById('calcDays');
+            let days = parseInt(daysInput.value);
+
+            if (isNaN(days) || days <= 0) {
+                days = 0;
+                daysInput.value = 0;
+            } else if (days > 10) {
+                days = 10;
+                daysInput.value = 10;
+            }
+
+            const daysWarningText = document.getElementById('daysWarningText');
+            const btnSendWA = document.getElementById('btnSendWA');
+
+            if (days === 0) {
+                daysWarningText.classList.remove('hidden');
+                btnSendWA.disabled = true;
+                dayData = {};
+                renderDayTabs(0);
+                updateItinerarySummary();
+                calculateTotal();
+                return;
+            } else {
+                daysWarningText.classList.add('hidden');
+                btnSendWA.disabled = false;
+            }
             
             for (let d in dayData) {
                 if (parseInt(d) > days) {
@@ -542,6 +569,13 @@
             container.innerHTML = '';
             const dict = i18nDict[currentLang];
 
+            if (totalDays === 0) {
+                container.innerHTML = `<span class="text-xs text-gray-400 italic">${dict.daysWarning}</span>`;
+                document.getElementById('activeDayIndicator').innerText = `-`;
+                document.getElementById('labelWilayahHari').innerText = `-`;
+                return;
+            }
+
             for (let i = 1; i <= totalDays; i++) {
                 const isActive = i === currentActiveDay;
                 const btnClass = isActive 
@@ -560,7 +594,7 @@
 
         function switchDay(dayNum) {
             currentActiveDay = dayNum;
-            const days = parseInt(document.getElementById('calcDays').value) || 1;
+            const days = parseInt(document.getElementById('calcDays').value) || 0;
             renderDayTabs(days);
             loadActiveDayForm();
         }
@@ -573,6 +607,9 @@
         }
 
         function onAreaDayChange() {
+            const days = parseInt(document.getElementById('calcDays').value) || 0;
+            if (days === 0) return;
+
             const selectedArea = document.getElementById('calcAreaDay').value;
             if (!dayData[currentActiveDay]) {
                 dayData[currentActiveDay] = { area: selectedArea, dests: [], customText: '' };
@@ -588,6 +625,9 @@
         }
 
         function onCustomDestChange() {
+            const days = parseInt(document.getElementById('calcDays').value) || 0;
+            if (days === 0) return;
+
             const val = document.getElementById('customDayDest').value;
             if (!dayData[currentActiveDay]) {
                 dayData[currentActiveDay] = { area: document.getElementById('calcAreaDay').value, dests: [], customText: val };
@@ -598,10 +638,17 @@
         }
 
         function renderDestinations() {
-            const area = document.getElementById('calcAreaDay').value;
+            const days = parseInt(document.getElementById('calcDays').value) || 0;
             const container = document.getElementById('destinationOptions');
             const destSection = document.getElementById('destinationSection');
             const dict = i18nDict[currentLang];
+
+            if (days === 0) {
+                container.innerHTML = `<span class="text-xs text-gray-400 italic">${dict.daysWarning}</span>`;
+                return;
+            }
+
+            const area = document.getElementById('calcAreaDay').value;
 
             if (area === 'DropOnlyBandung') {
                 destSection.classList.add('hidden');
@@ -662,6 +709,9 @@
         }
 
         function toggleDestination(destId, isChecked) {
+            const days = parseInt(document.getElementById('calcDays').value) || 0;
+            if (days === 0) return;
+
             if (!dayData[currentActiveDay]) {
                 dayData[currentActiveDay] = { area: document.getElementById('calcAreaDay').value, dests: [], customText: '' };
             }
@@ -691,9 +741,14 @@
             let hasAnySelection = false;
             let html = '';
 
-            const days = parseInt(document.getElementById('calcDays').value) || 1;
+            const days = parseInt(document.getElementById('calcDays').value) || 0;
             const areaSelectElem = document.getElementById('calcAreaDay');
             const dict = i18nDict[currentLang];
+
+            if (days === 0) {
+                summaryBox.innerText = dict.daysWarning;
+                return;
+            }
 
             for (let i = 1; i <= days; i++) {
                 const dayObj = dayData[i] || { area: 'BandungKota', dests: [], customText: '' };
@@ -767,7 +822,16 @@
         function calculateTotal() {
             const carSelect = document.getElementById('calcCar');
             const carPrice = parseInt(carSelect.value);
-            const days = parseInt(document.getElementById('calcDays').value) || 1;
+            const days = parseInt(document.getElementById('calcDays').value) || 0;
+
+            if (days === 0) {
+                document.getElementById('detailTransport').innerText = "Rp 0";
+                document.getElementById('rowPickupFee').classList.add('hidden');
+                document.getElementById('rowDropFee').classList.add('hidden');
+                document.getElementById('rowOutTownToll').classList.add('hidden');
+                document.getElementById('calcResult').innerText = "Rp 0";
+                return;
+            }
 
             const pickupFee = parseInt(document.getElementById('calcPickup').value) || 0;
             const dropFee = parseInt(document.getElementById('calcDrop').value) || 0;
@@ -817,6 +881,12 @@
         }
 
         function sendOrderWA() {
+            const days = parseInt(document.getElementById('calcDays').value) || 0;
+            if (days === 0) {
+                alert(i18nDict[currentLang].daysWarning);
+                return;
+            }
+
             const isEn = currentLang === 'en';
             const pickupSelect = document.getElementById('calcPickup');
             const pickupName = isEn ? pickupSelect.options[pickupSelect.selectedIndex].getAttribute('data-name-en') : pickupSelect.options[pickupSelect.selectedIndex].getAttribute('data-name-id');
@@ -833,7 +903,6 @@
             const carSelect = document.getElementById('calcCar');
             const carName = isEn ? carSelect.options[carSelect.selectedIndex].getAttribute('data-name-en') : carSelect.options[carSelect.selectedIndex].getAttribute('data-name-id');
             
-            const days = document.getElementById('calcDays').value;
             const pax = document.getElementById('calcPax').value;
             
             const detailTransport = document.getElementById('detailTransport').innerText;
@@ -841,10 +910,9 @@
 
             let totalOutTownToll = 0;
             const areaSelectElem = document.getElementById('calcAreaDay');
-            let totalDaysNum = parseInt(days) || 1;
 
             let itineraryText = "";
-            for (let i = 1; i <= totalDaysNum; i++) {
+            for (let i = 1; i <= days; i++) {
                 const dayObj = dayData[i] || { area: 'BandungKota', dests: [], customText: '' };
                 
                 let areaText = dayObj.area;
@@ -904,9 +972,6 @@
             }
             if (totalOutTownToll > 0) {
                 text += `• ${isEn ? 'Inter-City Surcharge' : 'Biaya Tambahan Wilayah / Antar-Kota'}: Rp ${totalOutTownToll.toLocaleString('id-ID')}%0A`;
-                text += `- *Durasi*: ${days} Hari%0A`;
-            text += `- *Armada*: ${carName}%0A`;
-            text += `- *Estimasi Total*: ${total}%0A`;
             }
             text += `*${isEn ? 'Total Estimate' : 'Total Estimasi'}*: ${total}%0A%0A${isEn ? 'Please confirm availability, thank you!' : 'Mohon konfirmasi ketersediaannya, terima kasih!'}`;
             
@@ -916,7 +981,6 @@
         function toggleDarkMode() {
             document.documentElement.classList.toggle('dark');
         }
-        
 
         // Inisialisasi
         onPaxChange();
