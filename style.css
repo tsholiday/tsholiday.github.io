@@ -1,4 +1,65 @@
 /* ==========================================================================
+   GALERI SECTION & LOAD MORE
+   ========================================================================== */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 180px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-outline-gold {
+    background: transparent;
+    color: #D4AF37;
+    border: 1.5px solid #D4AF37;
+    padding: 10px 25px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-outline-gold:hover {
+    background: #D4AF37;
+    color: #0A192F;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ==========================================================================
    TOMBOL SCROLL TO TOP
    ========================================================================== */
 #scrollTopBtn {
