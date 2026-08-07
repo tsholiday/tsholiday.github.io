@@ -40,6 +40,7 @@
             <p class="font-bold text-amber-600 dark:text-amber-400 mb-0.5">ℹ️ Ketentuan Operasional & Penjemputan:</p>
             <p>• Durasi pelayanan maksimal <strong>12 Jam per hari</strong> (maksimal selesai pukul <strong>21.00 WIB</strong>).</p>
             <p>• Layanan antar/jemput Bandara CGK (Jakarta/Tangerang) dikenakan <strong>Rp 600.000 / sekali jalan</strong>.</p>
+            <p>• Destinasi luar kota Bandung otomatis dikenakan <strong>tambahan biaya toll & operasional antar-kota</strong>.</p>
         </div>
 
         <!-- Form Input Utama -->
@@ -54,21 +55,41 @@
                 </select>
             </div>
 
-            <!-- Opsi Kategori Penjemputan -->
-            <div>
-                <label class="block text-xs font-bold mb-1.5">Kategori Penjemputan / Drop Off:</label>
-                <select id="calcPickup" onchange="calculateTotal()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
-                    <option value="0" data-name="Area Kota Bandung">Area Kota Bandung (Bebas Biaya Tambahan)</option>
-                    <option value="150000" data-name="Luar Kota Bandung (Non-Airport)">Luar Kota Bandung Non-Airport (+ Rp 150.000)</option>
-                    <option value="600000" data-name="Jemput / Drop Airport CGK (Sekali Jalan)">Jemput / Drop Airport Jakarta/Tangerang CGK - Sekali Jalan (+ Rp 600.000)</option>
-                    <option value="1200000" data-name="Jemput & Drop Airport CGK (PP)">Jemput & Drop Airport Jakarta/Tangerang CGK - Pulang Pergi (+ Rp 1.200.000)</option>
-                </select>
-            </div>
+            <!-- BAGIAN PENJEMPUTAN & DROP OFF -->
+            <div class="bg-gray-50 dark:bg-navy-900/50 p-3.5 rounded-2xl border border-gray-200 dark:border-gray-700 space-y-3">
+                <p class="text-xs font-extrabold text-amber-600 dark:text-amber-400">📍 Pengaturan Penjemputan & Drop Off:</p>
+                
+                <!-- Opsi Kategori Penjemputan -->
+                <div>
+                    <label class="block text-[11px] font-bold mb-1">Kategori Penjemputan (Pickup):</label>
+                    <select id="calcPickup" onchange="calculateTotal()" class="w-full bg-white dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-semibold focus:outline-none focus:border-amber-500">
+                        <option value="0" data-name="Area Kota Bandung">Area Kota Bandung (Bebas Biaya Tambahan)</option>
+                        <option value="150000" data-name="Luar Kota Bandung (Non-Airport)">Luar Kota Bandung Non-Airport (+ Rp 150.000)</option>
+                        <option value="600000" data-name="Jemput Airport CGK (Sekali Jalan)">Jemput Airport Jakarta/Tangerang CGK (+ Rp 600.000)</option>
+                    </select>
+                </div>
 
-            <!-- Catatan Detail Alamat Penjemputan -->
-            <div>
-                <label class="block text-xs font-bold mb-1.5">Alamat / Lokasi Spesifik Penjemputan:</label>
-                <input type="text" id="pickupDetail" placeholder="Contoh: Hotel Aston Pasteur / Terminal 3 Bandara Soekarno Hatta" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-medium focus:outline-none focus:border-amber-500">
+                <!-- Detail Lokasi Penjemputan -->
+                <div>
+                    <label class="block text-[11px] font-bold mb-1">Detail Alamat Penjemputan:</label>
+                    <input type="text" id="pickupDetail" placeholder="Contoh: Hotel Aston Pasteur / Terminal 3 CGK" class="w-full bg-white dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-medium focus:outline-none focus:border-amber-500">
+                </div>
+
+                <!-- Opsi Kategori Drop Off -->
+                <div>
+                    <label class="block text-[11px] font-bold mb-1">Kategori Pengantaran Akhir (Drop Off):</label>
+                    <select id="calcDrop" onchange="calculateTotal()" class="w-full bg-white dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-semibold focus:outline-none focus:border-amber-500">
+                        <option value="0" data-name="Area Kota Bandung">Area Kota Bandung (Bebas Biaya Tambahan)</option>
+                        <option value="150000" data-name="Luar Kota Bandung (Non-Airport)">Luar Kota Bandung Non-Airport (+ Rp 150.000)</option>
+                        <option value="600000" data-name="Drop Airport CGK (Sekali Jalan)">Drop Off Airport Jakarta/Tangerang CGK (+ Rp 600.000)</option>
+                    </select>
+                </div>
+
+                <!-- Detail Lokasi Drop Off -->
+                <div>
+                    <label class="block text-[11px] font-bold mb-1">Detail Alamat Drop Off:</label>
+                    <input type="text" id="dropDetail" placeholder="Contoh: Stasiun Bandung / Rumah / Airport CGK" class="w-full bg-white dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-medium focus:outline-none focus:border-amber-500">
+                </div>
             </div>
 
             <!-- Pilih Armada Kendaraan & Tarif -->
@@ -109,13 +130,13 @@
             <div>
                 <label class="block text-xs font-bold mb-1.5">Pilih Wilayah Utama Tour:</label>
                 <select id="calcArea" onchange="loadDestinations()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
-                    <option value="BandungKota" selected>Bandung Kota</option>
-                    <option value="BandungUtara">Bandung Utara (Lembang)</option>
-                    <option value="BandungSelatan1">Bandung Selatan (Ciwidey)</option>
-                    <option value="BandungSelatan2">Bandung Selatan 2 (Pangalengan)</option>
-                    <option value="Jakarta">Jakarta</option>
-                    <option value="Bogor">Bogor & Puncak</option>
-                    <option value="Jogja">Yogyakarta (Jogja)</option>
+                    <option value="BandungKota" data-toll="0" selected>Bandung Kota</option>
+                    <option value="BandungUtara" data-toll="0">Bandung Utara (Lembang)</option>
+                    <option value="BandungSelatan1" data-toll="0">Bandung Selatan (Ciwidey)</option>
+                    <option value="BandungSelatan2" data-toll="0">Bandung Selatan 2 (Pangalengan)</option>
+                    <option value="Jakarta" data-toll="300000">Jakarta (Toll Luar Bandung + Rp 300.000/hr)</option>
+                    <option value="Bogor" data-toll="350000">Bogor & Puncak (Toll Luar Bandung + Rp 350.000/hr)</option>
+                    <option value="Jogja" data-toll="500000">Yogyakarta (Toll Luar Bandung + Rp 500.000/hr)</option>
                 </select>
             </div>
 
@@ -139,8 +160,16 @@
                     <span id="detailFullboard" class="font-semibold">Rp 0</span>
                 </div>
                 <div id="rowPickupFee" class="flex justify-between text-amber-600 dark:text-amber-400 font-semibold hidden">
-                    <span>Charge Penjemputan / Drop Airport CGK / Luar Kota:</span>
+                    <span>Charge Penjemputan (Pickup):</span>
                     <span id="detailPickupFee">Rp 0</span>
+                </div>
+                <div id="rowDropFee" class="flex justify-between text-amber-600 dark:text-amber-400 font-semibold hidden">
+                    <span>Charge Pengantaran (Drop Off):</span>
+                    <span id="detailDropFee">Rp 0</span>
+                </div>
+                <div id="rowOutTownToll" class="flex justify-between text-amber-600 dark:text-amber-400 font-semibold hidden">
+                    <span>Toll & Operasional Wisata Luar Bandung:</span>
+                    <span id="detailOutTownToll">Rp 0</span>
                 </div>
 
                 <!-- Summary Itinerary -->
@@ -168,7 +197,6 @@
 
     <!-- Script Logika Aplikasi -->
     <script>
-        // Database Destinasi Berdasarkan Area
         const destData = {
             BandungKota: [
                 "Jalan Asia Afrika & Gedung Merdeka",
@@ -272,13 +300,21 @@
             const serviceSelect = document.getElementById('calcService');
             const fullboardPricePerPax = parseInt(serviceSelect.value);
 
-            const pickupSelect = document.getElementById('calcPickup');
-            const pickupFee = parseInt(pickupSelect.value);
+            // Fee Pickup & Drop Off
+            const pickupFee = parseInt(document.getElementById('calcPickup').value) || 0;
+            const dropFee = parseInt(document.getElementById('calcDrop').value) || 0;
 
+            // Fee Toll Luar Bandung berdasarkan area pilihan
+            const areaSelect = document.getElementById('calcArea');
+            const tollPerDay = parseInt(areaSelect.options[areaSelect.selectedIndex].getAttribute('data-toll')) || 0;
+            const totalOutTownToll = tollPerDay * days;
+
+            // Subtotal
             const totalTransport = carPrice * days;
             const totalFullboard = fullboardPricePerPax * pax * days;
-            const total = totalTransport + totalFullboard + pickupFee;
+            const total = totalTransport + totalFullboard + pickupFee + dropFee + totalOutTownToll;
 
+            // Display Rincian
             document.getElementById('detailTransport').innerText = "Rp " + totalTransport.toLocaleString('id-ID');
             
             if (totalFullboard > 0) {
@@ -295,6 +331,20 @@
                 document.getElementById('rowPickupFee').classList.add('hidden');
             }
 
+            if (dropFee > 0) {
+                document.getElementById('rowDropFee').classList.remove('hidden');
+                document.getElementById('detailDropFee').innerText = "Rp " + dropFee.toLocaleString('id-ID');
+            } else {
+                document.getElementById('rowDropFee').classList.add('hidden');
+            }
+
+            if (totalOutTownToll > 0) {
+                document.getElementById('rowOutTownToll').classList.remove('hidden');
+                document.getElementById('detailOutTownToll').innerText = "Rp " + totalOutTownToll.toLocaleString('id-ID');
+            } else {
+                document.getElementById('rowOutTownToll').classList.add('hidden');
+            }
+
             document.getElementById('calcResult').innerText = "Rp " + total.toLocaleString('id-ID');
         }
 
@@ -304,8 +354,13 @@
             
             const pickupSelect = document.getElementById('calcPickup');
             const pickupName = pickupSelect.options[pickupSelect.selectedIndex].getAttribute('data-name');
-            const pickupFee = parseInt(pickupSelect.value);
+            const pickupFee = parseInt(pickupSelect.value) || 0;
             const pickupDetail = document.getElementById('pickupDetail').value || "Belum diisi";
+
+            const dropSelect = document.getElementById('calcDrop');
+            const dropName = dropSelect.options[dropSelect.selectedIndex].getAttribute('data-name');
+            const dropFee = parseInt(dropSelect.value) || 0;
+            const dropDetail = document.getElementById('dropDetail').value || "Belum diisi";
 
             const carSelect = document.getElementById('calcCar');
             const carName = carSelect.options[carSelect.selectedIndex].getAttribute('data-name');
@@ -315,7 +370,9 @@
             
             const areaSelect = document.getElementById('calcArea');
             const areaName = areaSelect.options[areaSelect.selectedIndex].text;
-            
+            const tollPerDay = parseInt(areaSelect.options[areaSelect.selectedIndex].getAttribute('data-toll')) || 0;
+            const totalOutTownToll = tollPerDay * parseInt(days);
+
             const detailTransport = document.getElementById('detailTransport').innerText;
             const detailFullboard = document.getElementById('detailFullboard').innerText;
             const total = document.getElementById('calcResult').innerText;
@@ -332,8 +389,8 @@
 
             let text = `Halo Admin JelajahRute, saya ingin reservasi/tanya ketersediaan armada:%0A%0A`;
             text += `- *Layanan*: ${serviceName}%0A`;
-            text += `- *Kategori Penjemputan*: ${pickupName}%0A`;
-            text += `- *Detail Alamat Jemput*: ${pickupDetail}%0A`;
+            text += `- *Penjemputan (Pickup)*: ${pickupName} (${pickupDetail})%0A`;
+            text += `- *Pengantaran (Drop Off)*: ${dropName} (${dropDetail})%0A`;
             text += `- *Armada*: ${carName}%0A`;
             text += `- *Jumlah Peserta*: ${pax} Orang%0A`;
             text += `- *Durasi*: ${days} Hari (Maks 12 Jam/Hari, Selesai Maks 21:00)%0A`;
@@ -345,7 +402,13 @@
                 text += `• Paket Fullboard: ${detailFullboard}%0A`;
             }
             if (pickupFee > 0) {
-                text += `• Charge Penjemputan/Drop Airport/Luar Kota: Rp ${pickupFee.toLocaleString('id-ID')}%0A`;
+                text += `• Charge Penjemputan: Rp ${pickupFee.toLocaleString('id-ID')}%0A`;
+            }
+            if (dropFee > 0) {
+                text += `• Charge Drop Off: Rp ${dropFee.toLocaleString('id-ID')}%0A`;
+            }
+            if (totalOutTownToll > 0) {
+                text += `• Toll & Operasional Wisata Luar Bandung: Rp ${totalOutTownToll.toLocaleString('id-ID')}%0A`;
             }
             text += `*Total*: ${total}%0A%0AMohon konfirmasi ketersediaannya, terima kasih!`;
             
