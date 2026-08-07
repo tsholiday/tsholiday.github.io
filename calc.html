@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulator Sewa & Custom Itinerary - JelajahRute</title>
+    <title>Kalkulator Sewa & Custom Itinerary</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -30,17 +30,8 @@
 
         <!-- Judul -->
         <div class="text-center mb-6">
-            <h1 class="text-2xl font-black text-navy-900 dark:text-white">Jelajah<span class="text-amber-500">Rute</span></h1>
-            <h2 class="text-base font-bold mt-1">🧮 Kalkulator Sewa & Custom Itinerary</h2>
-            <p class="text-xs text-gray-500 dark:text-gray-400">Hitung estimasi biaya & susun itinerary wisata Anda per hari</p>
-        </div>
-
-        <!-- Informasi Ketentuan Operasional -->
-        <div class="bg-amber-500/10 border-l-4 border-amber-500 p-3.5 rounded-r-xl mb-5 text-[11px] leading-relaxed text-gray-700 dark:text-gray-300">
-            <p class="font-bold text-amber-600 dark:text-amber-400 mb-0.5">ℹ️ Ketentuan Operasional & Penjemputan:</p>
-            <p>• Durasi pelayanan maksimal <strong>12 Jam per hari</strong> (maksimal selesai pukul <strong>21.00 WIB</strong>).</p>
-            <p>• Layanan antar/jemput Bandara CGK (Jakarta/Tangerang) dikenakan <strong>Rp 600.000 / sekali jalan</strong>.</p>
-            <p>• Destinasi luar kota Bandung otomatis dikenakan <strong>tambahan biaya toll & operasional antar-kota</strong>.</p>
+            <h1 class="text-2xl font-black text-navy-900 dark:text-white">🧮 Kalkulator Sewa & Custom Itinerary</h1>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Hitung estimasi biaya & susun itinerary wisata Anda per hari</p>
         </div>
 
         <!-- Form Input Utama -->
@@ -51,7 +42,7 @@
                 <label class="block text-xs font-bold mb-1.5 text-amber-500">Pilih Jenis Layanan Paket:</label>
                 <select id="calcService" onchange="calculateTotal()" class="w-full bg-amber-500/10 dark:bg-navy-900 border border-amber-500/40 rounded-xl p-3 text-xs font-bold focus:outline-none focus:border-amber-500">
                     <option value="0" data-name="Transport Only (Driver, BBM, Parkir & Toll)">🚘 Transport Only (Mobil + Driver + BBM + Parkir + Toll)</option>
-                    <option value="250000" data-name="Fullboard Tour (Transport + Makan 2x + Tiket Wisata)">🍱 Fullboard Tour (+ Makan 2x & Tiket Wisata / pax/hr)</option>
+                    <option value="250000" data-name="Fullboard Tour (Transport + Driver + BBM + Parkir + Toll + Makan 2x + Tiket Wisata All-In)">🍱 Fullboard Tour (Transport + Driver + BBM + Parkir + Toll + Makan 2x + Tiket Wisata All-In / pax/hr)</option>
                 </select>
             </div>
 
@@ -142,13 +133,13 @@
                 <div class="pt-1">
                     <label class="block text-[11px] font-bold mb-1 text-gray-700 dark:text-gray-300">Pilih Wilayah Tour untuk <span id="labelWilayahHari" class="text-amber-500">Hari 1</span>:</label>
                     <select id="calcAreaDay" onchange="onAreaDayChange()" class="w-full bg-white dark:bg-navy-800 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-semibold focus:outline-none focus:border-amber-500">
-                        <option value="BandungKota" data-toll="0" selected>Bandung Kota</option>
-                        <option value="BandungUtara" data-toll="0">Bandung Utara (Lembang)</option>
-                        <option value="BandungSelatan1" data-toll="0">Bandung Selatan (Ciwidey)</option>
-                        <option value="BandungSelatan2" data-toll="0">Bandung Selatan 2 (Pangalengan)</option>
-                        <option value="Jakarta" data-toll="300000">Jakarta (Toll Luar Bandung + Rp 300.000/hr)</option>
-                        <option value="Bogor" data-toll="350000">Bogor & Puncak (Toll Luar Bandung + Rp 350.000/hr)</option>
-                        <option value="Jogja" data-toll="500000">Yogyakarta (Toll Luar Bandung + Rp 500.000/hr)</option>
+                        <option value="BandungKota" data-toll="0" selected>🏛️ 2. Kota Bandung (Wisata Sejarah, Kuliner & Kota)</option>
+                        <option value="BandungUtara" data-toll="0">🌲 3. Lembang (Bandung Barat)</option>
+                        <option value="BandungSelatan1" data-toll="0">🌋 1. Ciwidey (Bandung Selatan)</option>
+                        <option value="BandungSelatan2" data-toll="0">🍃 4. Pangalengan (Bandung Selatan)</option>
+                        <option value="Jakarta" data-toll="300000">🏙️ 1. Jakarta (Wisata Kota, Sejarah & Modern - Toll + Rp 300.000/hr)</option>
+                        <option value="Bogor" data-toll="350000">🌿 2. Bogor (Wisata Alam, Pegunungan & Keluarga - Toll + Rp 350.000/hr)</option>
+                        <option value="Jogja" data-toll="500000">🏛️ 3. Yogyakarta / Jogja (Wisata Budaya, Alam & Seni - Toll + Rp 500.000/hr)</option>
                     </select>
                 </div>
 
@@ -167,10 +158,6 @@
                 <div class="flex justify-between">
                     <span class="text-gray-500 dark:text-gray-400">Sewa Transport Utama:</span>
                     <span id="detailTransport" class="font-semibold">Rp 0</span>
-                </div>
-                <div id="rowFullboard" class="flex justify-between">
-                    <span class="text-gray-500 dark:text-gray-400">Paket Fullboard (Makan+Wisata):</span>
-                    <span id="detailFullboard" class="font-semibold">Rp 0</span>
                 </div>
                 <div id="rowPickupFee" class="flex justify-between text-amber-600 dark:text-amber-400 font-semibold hidden">
                     <span>Charge Penjemputan (Pickup):</span>
@@ -192,6 +179,25 @@
                         Belum ada destinasi terpilih.
                     </div>
                 </div>
+
+                <!-- RINCIAN BIAYA FULLBOARD SETELAH HARI TERAKHIR -->
+                <div id="rowFullboardDetail" class="pt-2 border-t border-gray-200 dark:border-gray-700 mt-2 hidden">
+                    <div class="flex justify-between items-center text-amber-600 dark:text-amber-400 font-bold">
+                        <span>🍱 Paket Fullboard Tour (Makan 2x + Tiket Wisata):</span>
+                        <span id="detailFullboard">Rp 0</span>
+                    </div>
+                    <p id="fullboardCalcSubtext" class="text-[10px] text-gray-500 dark:text-gray-400 italic mt-0.5">
+                        Perhitungan: Rp 250.000 x 0 Orang x 0 Hari
+                    </p>
+                </div>
+
+                <!-- Informasi Ketentuan Operasional (DIPINDAHKAN KE BAWAH RINCIAN BIAYA) -->
+                <div class="bg-amber-500/10 border-l-4 border-amber-500 p-3 rounded-r-xl mt-3 text-[11px] leading-relaxed text-gray-700 dark:text-gray-300">
+                    <p class="font-bold text-amber-600 dark:text-amber-400 mb-0.5">ℹ️ Ketentuan Operasional & Penjemputan:</p>
+                    <p>• Durasi pelayanan maksimal <strong>12 Jam per hari</strong> (maksimal selesai pukul <strong>21.00 WIB</strong>).</p>
+                    <p>• Layanan antar/jemput Bandara CGK (Jakarta/Tangerang) dikenakan <strong>Rp 600.000 / sekali jalan</strong>.</p>
+                    <p>• Destinasi luar kota Bandung otomatis dikenakan <strong>tambahan biaya toll & operasional antar-kota</strong>.</p>
+                </div>
             </div>
 
             <!-- Box Hasil & Tombol WA -->
@@ -212,57 +218,78 @@
     <script>
         const destData = {
             BandungKota: [
-                "Jalan Asia Afrika & Gedung Merdeka",
-                "Alun-Alun Bandung & Jalan Braga",
-                "Saung Angklung Udjo",
-                "Museum Geologi & Gedung Sate",
-                "Wisata Kuliner & Shopping Factory Outlet"
+                "Jalan Asia Afrika & Gedung Merdeka (Spot bersejarah & arsitektur klasik)",
+                "Jalan Braga (Kawasan jalan ikonik dengan cafe, bangunan tua, & galeri lukisan)",
+                "Alun-Alun Bandung & Masjid Raya Bandung (Taman rumput sintetis di pusat kota)",
+                "Gedung Sate & Museum Gedung Sate (Ikon landmark Jawa Barat)",
+                "Kiara Artha Park (Taman kota modern dengan air mancur menari & taman Korea)",
+                "Hutan Kota Babakan Siliwangi (Babsil) (Forest walk di tengah kota)",
+                "Pasar Baru Trade Center (Pusat belanja tekstil & pakaian populer)",
+                "Saung Angklung Udjo (Pusat seni & pertunjukan budaya tradisional)"
             ],
             BandungUtara: [
-                "Dusun Bambu Lembang",
-                "Floating Market & Rainbow Garden",
-                "The Great Asia Africa Lembang",
-                "Farmhouse Susu Lembang",
-                "Tebing Keraton / Orchid Forest Cikole"
+                "Orchid Forest Cikole (Hutan pinus dengan koleksi anggrek & jembatan gantung berlampu)",
+                "Dusun Bambu (Taman rekreasi alam, danau, & restoran khas Sunda)",
+                "The Lodge Maribaya (Wisata alam dengan wahana foto ekstrem/menantang)",
+                "Floating Market Lembang (Pasar terapung, taman bunga, & sewa kostum Jepang/Korea)",
+                "Farmhouse Susu Lembang (Wisata gaya Eropa dengan rumah Hobbit)",
+                "The Great Asia Africa (Taman miniatur landmark negara-negara Asia & Afrika)",
+                "Tangkuban Perahu (Kawah gunung berapi aktif yang bisa diakses langsung dengan mobil)",
+                "Taman Begonia (Taman bunga warna-warni)",
+                "Lembang Park & Zoo (Kebun binatang modern & resto berkonsep terbuka)"
             ],
             BandungSelatan1: [
-                "Kawah Putih Ciwidey",
-                "Glamping Lakeside Rancabali",
-                "Ranca Upas (Penangkaran Rusa)",
-                "Kebun Teh & Suspension Bridge Rancabali",
-                "Kawah Rengganis & Cibuni"
+                "Kawah Putih (Danau kawah vulkanik ikonik)",
+                "Ranca Upas (Penangkaran rusa, camping ground, & pemandian air panas)",
+                "Glamping Lakeside Rancabali (Restoran bentuk kapal Phinisi di tepi Danau Situ Patenggang)",
+                "Situ Patenggang (Danau alami di tengah kebun teh)",
+                "Kebun Teh Rancabali & Tea Cliff Bridge (Jembatan kayu di atas hamparan kebun teh)",
+                "Kawah Rengganis & Suspension Bridge (Jembatan gantung terpanjang & pemandian air panas alami)",
+                "Happy Farm Ciwidey (Wisata edukasi & ramah anak)"
             ],
             BandungSelatan2: [
-                "Nimo Highland Pangalengan",
-                "Wayang Windu Panenjoan",
-                "Rafting & Tubing Sungai Palayangan",
-                "Situ Cileunca Pangalengan",
-                "Hutan Pinus Rahong"
+                "Nimo Highland (Jembatan kaca melingkar di atas kebun teh dengan pemandangan 360 derajat)",
+                "Wayang Windu Panenjoan (WWP) (Jembatan kayu meliuk di tengah hamparan kebun teh)",
+                "Situ Cileunca (Danau luas untuk wisata rafting/arung jeram, flying fox, & boating)",
+                "Taman Langit Pangalengan (Ciseupan) (Spot camping & sunrise di atas awan)",
+                "Pineus Tilu Riverside Camping (Camping eksklusif di tepi aliran sungai dalam hutan pinus)",
+                "Kebun Teh Malabar & Rumah Kayu Bosscha (Nilai sejarah pengelola kebun teh zaman Belanda)",
+                "Hutan Pinus Rahong (Area outbound, paintball, dan camping)"
             ],
             Jakarta: [
-                "Monas & Museum Fatahillah",
-                "Kota Tua Jakarta",
-                "Dufan & Ancol Beach",
-                "TMII (Taman Mini Indonesia Indah)",
-                "PIK 2 & Cove at Batavia"
+                "Monumen Nasional (Monas) – Tugu ikonik Indonesia dengan museum sejarah dan gardu pandang puncak",
+                "Kawasan Kota Tua & Museum Fatahillah – Arsitektur kolonial Belanda, sewa sepeda ontel, dan Museum Bank Indonesia",
+                "Pantai Indah Kapuk (PIK) 2 & San Antonio Promenade – Area pantai modern, pusat kuliner hits",
+                "Taman Mini Indonesia Indah (TMII) – Taman rekreasi edukasi kebudayaan nusantara",
+                "Taman Impian Jaya Ancol – Kompleks hiburan pesisir (Dufan, Sea World, Samudra, Pantai Ancol)",
+                "Masjid Istiqlal & Gereja Katedral – Wisata religi dan simbol toleransi berdekatan",
+                "Hutan Kota GBK (Gelora Bung Karno) – Area terbuka hijau di tengah gedung pencakar langit",
+                "Kepulauan Seribu – Wisata bahari (Pulau Pari, Pulau Pramuka, Pulau Macan)"
             ],
             Bogor: [
-                "Kebun Raya Bogor",
-                "Taman Safari Indonesia Puncak",
-                "Kuntum Farmfield",
-                "Kebun Teh Puncak",
-                "Telaga Saat Puncak"
+                "Kebun Raya Bogor & Istana Bogor – Taman botani tertua di Asia Tenggara",
+                "Kebun Teh Puncak (Agrowisata Gunung Mas) – Pemandangan kebun teh, tea bridge & flying fox",
+                "Taman Safari Indonesia (Cisarua) – Safari berkendara melihat satwa dari dekat",
+                "Telaga Saat Puncak – Danau alami tersembunyi di tengah hamparan kebun teh Puncak",
+                "Kuntum Farmfield – Wisata edukasi peternakan dan pertanian ramah anak",
+                "Little Venice Kota Bunga – Taman rekreasi tematik berkonsep kota Venesia",
+                "Curug Lawe & Curug Cilember – Wisata air terjun alami dengan suasana hutan asri",
+                "Taman Bunga Nusantara – Taman bunga tematik internasional luas dan indah"
             ],
             Jogja: [
-                "Jalan Malioboro",
-                "Kraton Jogja & Taman Sari",
-                "Candi Prambanan",
-                "Jeep Lava Tour Merapi",
-                "HeHa Ocean View / Sky View"
+                "Jalan Malioboro & Titik Nol KM – Pusat belanja oleh-oleh & suasana malam khas Jogja",
+                "Kraton Yogyakarta & Taman Sari – Istana Kesultanan Yogyakarta & kompleks pemandian sejarah",
+                "Candi Prambanan – Kompleks candi Hindu terbesar di Indonesia",
+                "Candi Borobudur – Candi Buddha terbesar di dunia (Destinasi Super Prioritas)",
+                "Jeep Lava Tour Merapi – Wisata petualangan menyusuri jejak erupsi Gunung Merapi",
+                "HeHa Sky View & HeHa Ocean View – Spot foto modern pemandangan kota/laut",
+                "Pantai Timang – Pantai ekstrim dengan gondola kayu tradisional",
+                "Hutan Pinus Pengger & Mangunan – Wisata alam hutan pinus & spot foto bukit",
+                "Tebing Breksi – Bekas tambang batu kapur yang diukir artistik"
             ]
         };
 
-        // Mengatur struktur data per-hari: { 1: { area: 'BandungKota', dests: [] }, 2: { area: 'BandungUtara', dests: [] } }
+        // Mengatur struktur data per-hari
         let dayData = {};
         let currentActiveDay = 1;
 
@@ -334,7 +361,7 @@
                 dayData[currentActiveDay] = { area: selectedArea, dests: [] };
             } else {
                 dayData[currentActiveDay].area = selectedArea;
-                // Jika ganti area di hari tersebut, bersihkan pilihan tempat yang tidak relevan dengan area baru
+                // Bersihkan pilihan tempat yang tidak relevan dengan area baru
                 const validItems = destData[selectedArea] || [];
                 dayData[currentActiveDay].dests = dayData[currentActiveDay].dests.filter(d => validItems.includes(d));
             }
@@ -352,7 +379,7 @@
             container.innerHTML = '';
 
             // Cari destinasi mana saja yang sudah dipilih di HARI LAIN
-            let usedInOtherDays = {}; // format: { "Nama Destinasi": HariNomor }
+            let usedInOtherDays = {}; 
             for (let day in dayData) {
                 if (parseInt(day) !== currentActiveDay) {
                     (dayData[day].dests || []).forEach(dest => {
@@ -368,14 +395,14 @@
                 const chosenDay = usedInOtherDays[item];
 
                 if (chosenDay) {
-                    // Jika sudah dipilih di hari lain -> DISABLED & beri Tombol/Label Keterangan
+                    // Jika sudah dipilih di hari lain
                     container.innerHTML += `
                         <div class="flex items-center justify-between p-2 rounded-lg bg-gray-200/60 dark:bg-navy-900/40 border border-dashed border-gray-300 dark:border-gray-700">
-                            <div class="flex items-center space-x-2">
-                                <input type="checkbox" disabled class="rounded text-gray-400 w-4 h-4 cursor-not-allowed">
-                                <span class="text-gray-500 dark:text-gray-400 font-medium text-xs line-through">${item}</span>
+                            <div class="flex items-center space-x-2 overflow-hidden">
+                                <input type="checkbox" disabled class="rounded text-gray-400 w-4 h-4 cursor-not-allowed flex-shrink-0">
+                                <span class="text-gray-500 dark:text-gray-400 font-medium text-xs line-through truncate" title="${item}">${item}</span>
                             </div>
-                            <button type="button" onclick="switchDay(${chosenDay})" class="text-[10px] bg-amber-500/20 text-amber-600 dark:text-amber-400 font-bold px-2 py-0.5 rounded hover:bg-amber-500/30 transition">
+                            <button type="button" onclick="switchDay(${chosenDay})" class="text-[10px] bg-amber-500/20 text-amber-600 dark:text-amber-400 font-bold px-2 py-0.5 rounded hover:bg-amber-500/30 transition flex-shrink-0 ml-1">
                                 Edit di Hari ${chosenDay}
                             </button>
                         </div>
@@ -385,8 +412,8 @@
                     const checkedAttr = isSelectedInCurrentDay ? 'checked' : '';
                     container.innerHTML += `
                         <label class="flex items-center space-x-2 p-2 rounded-lg hover:bg-amber-500/10 dark:hover:bg-navy-800/50 cursor-pointer border border-transparent hover:border-amber-500/20 transition">
-                            <input type="checkbox" value="${item}" ${checkedAttr} onchange="toggleDestination('${item}', this.checked)" class="dest-checkbox rounded text-amber-500 focus:ring-amber-500 w-4 h-4">
-                            <span class="text-gray-700 dark:text-gray-300 font-medium">${item}</span>
+                            <input type="checkbox" value="${item}" ${checkedAttr} onchange="toggleDestination('${item.replace(/'/g, "\\'")}', this.checked)" class="dest-checkbox rounded text-amber-500 focus:ring-amber-500 w-4 h-4 flex-shrink-0">
+                            <span class="text-gray-700 dark:text-gray-300 font-medium text-xs">${item}</span>
                         </label>
                     `;
                 }
@@ -407,7 +434,7 @@
             }
 
             updateItinerarySummary();
-            renderDestinations(); // Refresh tampilan untuk memastikan konsistensi
+            renderDestinations();
         }
 
         function updateItinerarySummary() {
@@ -421,11 +448,10 @@
             for (let i = 1; i <= days; i++) {
                 const dayObj = dayData[i] || { area: 'BandungKota', dests: [] };
                 
-                // Cari nama teks label wilayah dari option
                 let areaText = dayObj.area;
                 for (let opt of areaSelectElem.options) {
                     if (opt.value === dayObj.area) {
-                        areaText = opt.text.split('(')[0].trim();
+                        areaText = opt.text.split('-')[0].split('(')[0].trim();
                         break;
                     }
                 }
@@ -478,7 +504,7 @@
             const pickupFee = parseInt(document.getElementById('calcPickup').value) || 0;
             const dropFee = parseInt(document.getElementById('calcDrop').value) || 0;
 
-            // Fee Toll Luar Bandung dihitung akumulasi berdasarkan pilihan wilayah per-hari
+            // Fee Toll Luar Bandung
             let totalOutTownToll = 0;
             const areaSelectElem = document.getElementById('calcAreaDay');
 
@@ -502,11 +528,13 @@
             // Display Rincian
             document.getElementById('detailTransport').innerText = "Rp " + totalTransport.toLocaleString('id-ID');
             
+            // Tampilkan detail Fullboard setelah Hari Terakhir
             if (totalFullboard > 0) {
-                document.getElementById('rowFullboard').classList.remove('hidden');
+                document.getElementById('rowFullboardDetail').classList.remove('hidden');
                 document.getElementById('detailFullboard').innerText = "Rp " + totalFullboard.toLocaleString('id-ID');
+                document.getElementById('fullboardCalcSubtext').innerText = `Perhitungan: Rp ${fullboardPricePerPax.toLocaleString('id-ID')} x ${pax} Orang x ${days} Hari`;
             } else {
-                document.getElementById('rowFullboard').classList.add('hidden');
+                document.getElementById('rowFullboardDetail').classList.add('hidden');
             }
 
             if (pickupFee > 0) {
@@ -557,7 +585,6 @@
             const detailFullboard = document.getElementById('detailFullboard').innerText;
             const total = document.getElementById('calcResult').innerText;
 
-            // Hitung Ulang Toll Luar Bandung
             let totalOutTownToll = 0;
             const areaSelectElem = document.getElementById('calcAreaDay');
             let totalDaysNum = parseInt(days) || 1;
@@ -571,7 +598,7 @@
                 let dayToll = 0;
                 for (let opt of areaSelectElem.options) {
                     if (opt.value === dayObj.area) {
-                        areaText = opt.text.split('(')[0].trim();
+                        areaText = opt.text.split('-')[0].split('(')[0].trim();
                         dayToll = parseInt(opt.getAttribute('data-toll')) || 0;
                         break;
                     }
@@ -589,7 +616,7 @@
                 }
             }
 
-            let text = `Halo Admin JelajahRute, saya ingin reservasi/tanya ketersediaan armada:%0A%0A`;
+            let text = `Halo, saya ingin reservasi / tanya ketersediaan armada:%0A%0A`;
             text += `- *Layanan*: ${serviceName}%0A`;
             text += `- *Penjemputan (Pickup)*: ${pickupName} (${pickupDetail})%0A`;
             text += `- *Pengantaran (Drop Off)*: ${dropName} (${dropDetail})%0A`;
@@ -600,7 +627,7 @@
             text += `*Rincian Estimasi Biaya:*%0A`;
             text += `• Sewa Armada & Driver: ${detailTransport}%0A`;
             if (parseInt(serviceSelect.value) > 0) {
-                text += `• Paket Fullboard: ${detailFullboard}%0A`;
+                text += `• Paket Fullboard Tour (Makan 2x + Tiket Wisata): ${detailFullboard}%0A`;
             }
             if (pickupFee > 0) {
                 text += `• Charge Penjemputan: Rp ${pickupFee.toLocaleString('id-ID')}%0A`;
