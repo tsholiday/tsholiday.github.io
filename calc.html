@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulator Sewa Kendaraan - JelajahRute</title>
+    <title>Kalkulator Sewa & Custom Itinerary - JelajahRute</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -21,7 +21,7 @@
 <body class="bg-gray-50 text-navy-900 dark:bg-navy-900 dark:text-gray-100 min-h-screen flex flex-col justify-center items-center p-4 transition-colors duration-300 font-sans">
 
     <!-- Container Utama Kalkulator -->
-    <div class="w-full max-w-xl bg-white dark:bg-navy-800 p-6 sm:p-8 rounded-3xl shadow-xl border border-amber-500/20 relative">
+    <div class="w-full max-w-xl bg-white dark:bg-navy-800 p-6 sm:p-8 rounded-3xl shadow-xl border border-amber-500/20 relative my-8">
         
         <!-- Toggle Dark Mode -->
         <button onclick="toggleDarkMode()" class="absolute top-4 right-4 p-2 rounded-xl bg-gray-100 dark:bg-navy-900 text-amber-500 hover:scale-105 transition" title="Ganti Mode Tampilan">
@@ -31,22 +31,21 @@
         <!-- Judul -->
         <div class="text-center mb-6">
             <h1 class="text-2xl font-black text-navy-900 dark:text-white">Jelajah<span class="text-amber-500">Rute</span></h1>
-            <h2 class="text-base font-bold mt-1">🧮 Kalkulator Sewa & Tour</h2>
-            <p class="text-xs text-gray-500 dark:text-gray-400">Hitung estimasi biaya sewa kendaraan & paket perjalanan</p>
+            <h2 class="text-base font-bold mt-1">🧮 Kalkulator Sewa & Custom Itinerary</h2>
+            <p class="text-xs text-gray-500 dark:text-gray-400">Hitung estimasi biaya & pilih destinasi wisata Anda</p>
         </div>
 
         <!-- Informasi Ketentuan Operasional -->
         <div class="bg-amber-500/10 border-l-4 border-amber-500 p-3.5 rounded-r-xl mb-5 text-[11px] leading-relaxed text-gray-700 dark:text-gray-300">
-            <p class="font-bold text-amber-600 dark:text-amber-400 mb-0.5">ℹ️ Ketentuan Waktu Operasional & Penjemputan:</p>
-            <p>• Durasi pelayanan maksimal <strong>12 Jam per hari</strong>.</p>
-            <p>• Penjemputan di jam berapapun, operasional harian akan berakhir <strong>maksimal pukul 21.00 WIB (9 malam)</strong>.</p>
-            <p>• Layanan antar/jemput Bandara CGK (Jakarta/Tangerang) dikenakan biaya <strong>Rp 600.000 / sekali jalan</strong>.</p>
+            <p class="font-bold text-amber-600 dark:text-amber-400 mb-0.5">ℹ️ Ketentuan Operasional & Penjemputan:</p>
+            <p>• Durasi pelayanan maksimal <strong>12 Jam per hari</strong> (maksimal selesai pukul <strong>21.00 WIB</strong>).</p>
+            <p>• Layanan antar/jemput Bandara CGK (Jakarta/Tangerang) dikenakan <strong>Rp 600.000 / sekali jalan</strong>.</p>
         </div>
 
-        <!-- Form Input Kalkulator -->
+        <!-- Form Input Utama -->
         <div class="space-y-4">
 
-            <!-- Pilih Jenis Layanan / Paket -->
+            <!-- Pilih Jenis Layanan -->
             <div>
                 <label class="block text-xs font-bold mb-1.5 text-amber-500">Pilih Jenis Layanan Paket:</label>
                 <select id="calcService" onchange="calculateTotal()" class="w-full bg-amber-500/10 dark:bg-navy-900 border border-amber-500/40 rounded-xl p-3 text-xs font-bold focus:outline-none focus:border-amber-500">
@@ -55,15 +54,21 @@
                 </select>
             </div>
 
-            <!-- Pilih Lokasi Penjemputan & Pengantaran Bandara -->
+            <!-- Opsi Kategori Penjemputan -->
             <div>
-                <label class="block text-xs font-bold mb-1.5">Lokasi Penjemputan / Drop Off:</label>
+                <label class="block text-xs font-bold mb-1.5">Kategori Penjemputan / Drop Off:</label>
                 <select id="calcPickup" onchange="calculateTotal()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
                     <option value="0" data-name="Area Kota Bandung">Area Kota Bandung (Bebas Biaya Tambahan)</option>
                     <option value="150000" data-name="Luar Kota Bandung (Non-Airport)">Luar Kota Bandung Non-Airport (+ Rp 150.000)</option>
                     <option value="600000" data-name="Jemput / Drop Airport CGK (Sekali Jalan)">Jemput / Drop Airport Jakarta/Tangerang CGK - Sekali Jalan (+ Rp 600.000)</option>
                     <option value="1200000" data-name="Jemput & Drop Airport CGK (PP)">Jemput & Drop Airport Jakarta/Tangerang CGK - Pulang Pergi (+ Rp 1.200.000)</option>
                 </select>
+            </div>
+
+            <!-- Catatan Detail Alamat Penjemputan -->
+            <div>
+                <label class="block text-xs font-bold mb-1.5">Alamat / Lokasi Spesifik Penjemputan:</label>
+                <input type="text" id="pickupDetail" placeholder="Contoh: Hotel Aston Pasteur / Terminal 3 Bandara Soekarno Hatta" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-medium focus:outline-none focus:border-amber-500">
             </div>
 
             <!-- Pilih Armada Kendaraan & Tarif -->
@@ -99,20 +104,28 @@
                 </div>
             </div>
 
-            <!-- Tujuan Area Utama -->
+            <!-- Wilayah Utama & Pemilihan Destinasi Wisata -->
             <div>
-                <label class="block text-xs font-bold mb-1.5">Tujuan Area Utama:</label>
-                <select id="calcArea" onchange="calculateTotal()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
-                    <option value="Jakarta City">Jakarta City Tour</option>
-                    <option value="Bogor / Puncak">Bogor & Puncak</option>
-                    <option value="Bandung / Ciwidey / Lembang">Bandung (Ciwidey/Lembang)</option>
-                    <option value="Yogyakarta">Yogyakarta (Jogja)</option>
+                <label class="block text-xs font-bold mb-1.5">Pilih Wilayah Utama Tour:</label>
+                <select id="calcArea" onchange="loadDestinations()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
+                    <option value="Jakarta">Jakarta</option>
+                    <option value="Bogor">Bogor & Puncak</option>
+                    <option value="Bandung" selected>Bandung (Ciwidey/Lembang)</option>
+                    <option value="Jogja">Yogyakarta (Jogja)</option>
                 </select>
             </div>
 
-            <!-- Breakdown / Rincian Terpisah -->
-            <div class="bg-gray-100 dark:bg-navy-900/80 rounded-2xl p-4 border border-gray-200 dark:border-gray-700 space-y-1.5 text-xs">
-                <p class="font-bold mb-2 text-gray-700 dark:text-gray-300 border-b border-gray-200 dark:border-gray-700 pb-1">📊 Rincian Komponen Biaya:</p>
+            <!-- Checklist Pilihan Destinasi -->
+            <div class="bg-gray-50 dark:bg-navy-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-4">
+                <label class="block text-xs font-bold mb-2">Pilih Destinasi Wisata Yang Ingin Dikunjungi:</label>
+                <div id="destinationOptions" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                    <!-- Opsi checkbox di-generate oleh JavaScript -->
+                </div>
+            </div>
+
+            <!-- Breakdown Rincian Terpisah & Itinerary Summary -->
+            <div class="bg-gray-100 dark:bg-navy-900/80 rounded-2xl p-4 border border-gray-200 dark:border-gray-700 space-y-2 text-xs">
+                <p class="font-bold text-gray-700 dark:text-gray-300 border-b border-gray-200 dark:border-gray-700 pb-1">📊 Rincian Komponen Biaya:</p>
                 <div class="flex justify-between">
                     <span class="text-gray-500 dark:text-gray-400">Sewa Transport Utama:</span>
                     <span id="detailTransport" class="font-semibold">Rp 0</span>
@@ -124,6 +137,14 @@
                 <div id="rowPickupFee" class="flex justify-between text-amber-600 dark:text-amber-400 font-semibold hidden">
                     <span>Charge Penjemputan / Drop Airport CGK / Luar Kota:</span>
                     <span id="detailPickupFee">Rp 0</span>
+                </div>
+
+                <!-- Summary Itinerary -->
+                <div class="pt-2 border-t border-gray-200 dark:border-gray-700 mt-2">
+                    <p class="font-bold text-gray-700 dark:text-gray-300 mb-1">🗺️ Draf Akumulasi Itinerary:</p>
+                    <div id="itinerarySummary" class="text-[11px] text-gray-600 dark:text-gray-400 bg-white dark:bg-navy-800 p-2.5 rounded-xl border border-gray-200 dark:border-gray-700 italic">
+                        Belum ada destinasi terpilih.
+                    </div>
                 </div>
             </div>
 
@@ -141,8 +162,52 @@
 
     </div>
 
-    <!-- Script Logika Kalkulator -->
+    <!-- Script Logika Aplikasi -->
     <script>
+        // Database Destinasi
+        const destData = {
+            Jakarta: ["Monas & Museum Fatahillah", "Kota Tua Jakarta", "Dufan & Ancol", "TMII", "PIK 2 & Cove at Batavia"],
+            Bogor: ["Kebun Raya Bogor", "Taman Safari Indonesia", "Kuntum Farmfield", "Kebun Teh Puncak", "Telaga Saat"],
+            Bandung: ["Kawah Putih Ciwidey", "Dusun Bambu Lembang", "Floating Market Lembang", "Nimo Highland Pangalengan", "Tebing Keraton"],
+            Jogja: ["Jalan Malioboro", "Kraton & Taman Sari", "Candi Prambanan", "Jeep Lava Tour Merapi", "HeHa Ocean View"]
+        };
+
+        // Muat Checkbox Destinasi berdasarkan Wilayah
+        function loadDestinations() {
+            const area = document.getElementById('calcArea').value;
+            const container = document.getElementById('destinationOptions');
+            const items = destData[area] || [];
+
+            container.innerHTML = '';
+            items.forEach((item, index) => {
+                container.innerHTML += `
+                    <label class="flex items-center space-x-2 p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-navy-800/50 cursor-pointer">
+                        <input type="checkbox" value="${item}" onchange="updateItinerary()" class="dest-checkbox rounded text-amber-500 focus:ring-amber-500 w-4 h-4">
+                        <span class="text-gray-700 dark:text-gray-300 font-medium">${item}</span>
+                    </label>
+                `;
+            });
+
+            updateItinerary();
+            calculateTotal();
+        }
+
+        // Update Akumulasi Tampilan Itinerary
+        function updateItinerary() {
+            const checkboxes = document.querySelectorAll('.dest-checkbox:checked');
+            const summaryBox = document.getElementById('itinerarySummary');
+            
+            if (checkboxes.length === 0) {
+                summaryBox.innerText = "Belum ada destinasi terpilih.";
+                return;
+            }
+
+            let selected = [];
+            checkboxes.forEach(cb => selected.push(cb.value));
+            
+            summaryBox.innerHTML = "<strong>Tujuan Visit:</strong><br>• " + selected.join("<br>• ");
+        }
+
         function updateCarPrice() {
             const carSelect = document.getElementById('calcCar');
             const carPrice = parseInt(carSelect.value);
@@ -163,12 +228,12 @@
             const pickupSelect = document.getElementById('calcPickup');
             const pickupFee = parseInt(pickupSelect.value);
 
-            // Hitung subtotal
+            // Subtotal
             const totalTransport = carPrice * days;
             const totalFullboard = fullboardPricePerPax * pax * days;
             const total = totalTransport + totalFullboard + pickupFee;
 
-            // Update Tampilan Rincian Terpisah
+            // Rincian
             document.getElementById('detailTransport').innerText = "Rp " + totalTransport.toLocaleString('id-ID');
             
             if (totalFullboard > 0) {
@@ -185,7 +250,7 @@
                 document.getElementById('rowPickupFee').classList.add('hidden');
             }
 
-            // Total Keseluruhan
+            // Total
             document.getElementById('calcResult').innerText = "Rp " + total.toLocaleString('id-ID');
         }
 
@@ -196,6 +261,7 @@
             const pickupSelect = document.getElementById('calcPickup');
             const pickupName = pickupSelect.options[pickupSelect.selectedIndex].getAttribute('data-name');
             const pickupFee = parseInt(pickupSelect.value);
+            const pickupDetail = document.getElementById('pickupDetail').value || "Belum diisi";
 
             const carSelect = document.getElementById('calcCar');
             const carName = carSelect.options[carSelect.selectedIndex].getAttribute('data-name');
@@ -208,15 +274,26 @@
             const detailFullboard = document.getElementById('detailFullboard').innerText;
             const total = document.getElementById('calcResult').innerText;
 
-            let pickupInfoWA = `- *Lokasi Penjemputan / Drop*: ${pickupName}`;
+            // Kumpulkan destinasi
+            const checkboxes = document.querySelectorAll('.dest-checkbox:checked');
+            let destListText = "";
+            if (checkboxes.length > 0) {
+                checkboxes.forEach(cb => {
+                    destListText += `%0A  - ${cb.value}`;
+                });
+            } else {
+                destListText = "%0A  - Fleksibel / Belum ditentukan";
+            }
 
             let text = `Halo Admin JelajahRute, saya ingin reservasi/tanya ketersediaan armada:%0A%0A`;
             text += `- *Layanan*: ${serviceName}%0A`;
-            text += `${pickupInfoWA}%0A`;
+            text += `- *Kategori Penjemputan*: ${pickupName}%0A`;
+            text += `- *Detail Alamat Jemput*: ${pickupDetail}%0A`;
             text += `- *Armada*: ${carName}%0A`;
             text += `- *Jumlah Peserta*: ${pax} Orang%0A`;
             text += `- *Durasi*: ${days} Hari (Maks 12 Jam/Hari, Selesai Maks 21:00)%0A`;
-            text += `- *Tujuan*: ${area}%0A%0A`;
+            text += `- *Wilayah Tour*: ${area}%0A`;
+            text += `- *Rencana Destinasi (Itinerary)*:${destListText}%0A%0A`;
             text += `*Rincian Estimasi Biaya:*%0A`;
             text += `• Sewa Armada & Driver: ${detailTransport}%0A`;
             if (parseInt(serviceSelect.value) > 0) {
@@ -234,7 +311,8 @@
             document.documentElement.classList.toggle('dark');
         }
 
-        // Jalankan kalkulasi pertama kali
+        // Inisialisasi awal
+        loadDestinations();
         updateCarPrice();
     </script>
 </body>
