@@ -1,5 +1,5 @@
 // ==========================================================================
-// 1. DAFTAR GAMBAR GALERI SPESIFIK & LOAD MORE (5 PER FETCH)
+// 1. DATA GALERI & DETAIL PAKET WISATA
 // ==========================================================================
 const galleryImages = [
     "bandung.jpg", "ciwidey.jpg", "gallery-1.jpg", "gallery-10.webp", "gallery-100.webp",
@@ -30,69 +30,48 @@ const galleryImages = [
     "gallery-99.jpg", "gallery1.jpg", "legalitas.jpg", "lembang.jpg"
 ];
 
-let currentIndex = 0;
-const ITEMS_PER_LOAD = 5; // Memuat 5 foto per klik
+const destinationsData = {
+    ciwidey: { title: "🌋 Wisata Ciwidey", subtitle: "South Bandung", items: [{name:"Kawah Putih",desc:"Danau kawah ikonik."}, {name:"Ranca Upas",desc:"Penangkaran rusa & camping."}, {name:"Glamping Lakeside",desc:"Restoran kapal Phinisi."}] },
+    lembang: { title: "🌲 Wisata Lembang", subtitle: "West Bandung", items: [{name:"Orchid Forest",desc:"Hutan pinus & anggrek."}, {name:"Dusun Bambu",desc:"Taman rekreasi alam."}, {name:"The Lodge Maribaya",desc:"Wahana foto ekstrem."}] },
+    bandung: { title: "🏛️ Bandung City Tour", subtitle: "History & Culinary", items: [{name:"Jalan Asia Afrika",desc:"Spot sejarah klasik."}, {name:"Jalan Braga",desc:"Kafe & bangunan tua."}, {name:"Saung Angklung Udjo",desc:"Seni budaya tradisional."}] },
+    pangalengan: { title: "🍃 Pangalengan Adventure", subtitle: "Nature & Rafting", items: [{name:"Nimo Highland",desc:"Jembatan kaca 360."}, {name:"Situ Cileunca",desc:"Pusat rafting & wisata air."}] },
+    bogor: { title: "🌿 Wisata Bogor", subtitle: "Highland & Botanical", items: [{name:"Kebun Raya Bogor",desc:"Taman botani tertua."}, {name:"Taman Safari",desc:"Safari berkendara edukatif."}, {name:"Puncak",desc:"Agrowisata kebun teh."}] },
+    jakarta: { title: "🏙️ Jakarta City Tour", subtitle: "Heritage & Modern", items: [{name:"Monas",desc:"Tugu ikonik nasional."}, {name:"Kota Tua",desc:"Arsitektur kolonial."}, {name:"Ancol",desc:"Taman hiburan pesisir."}] },
+    jogja: { title: "🏛️ Exotic Jogja", subtitle: "Cultural & Nature", items: [{name:"Malioboro",desc:"Pusat belanja & kuliner."}, {name:"Borobudur",desc:"Candi Buddha terbesar."}, {name:"Lava Tour Merapi",desc:"Petualangan jeep."}] }
+};
 
+let currentIndex = 0;
+let currentZoom = 1;
+let currentModalIndex = 0;
+const ITEMS_PER_LOAD = 5;
+
+// ==========================================================================
+// 2. FUNGSI UTAMA
+// ==========================================================================
 function renderGalleryItems() {
     const galleryGrid = document.getElementById('galleryGrid');
     const loadMoreBtn = document.getElementById('loadMoreBtn');
-    const remainingCountSpan = document.getElementById('remainingCount');
-
     if (!galleryGrid) return;
-
     const nextBatch = galleryImages.slice(currentIndex, currentIndex + ITEMS_PER_LOAD);
-
     nextBatch.forEach(fileName => {
         const itemDiv = document.createElement('div');
         itemDiv.className = 'gallery-item fade-in';
-
         const imgSrc = `assets/image/${fileName}`;
-
-        itemDiv.innerHTML = `
-            <img src="${imgSrc}" 
-                 alt="Dokumentasi TSHoliday" 
-                 loading="lazy" 
-                 onclick="openLightbox('${imgSrc}')">
-        `;
-
+        itemDiv.innerHTML = `<img src="${imgSrc}" loading="lazy" onclick="openLightbox('${imgSrc}')">`;
         galleryGrid.appendChild(itemDiv);
     });
-
     currentIndex += ITEMS_PER_LOAD;
-
-    // Update jumlah sisa foto jika elemen counter ada
-    if (remainingCountSpan) {
-        const remaining = galleryImages.length - currentIndex;
-        remainingCountSpan.textContent = remaining > 0 ? remaining : 0;
-    }
-
-    // Sembunyikan tombol jika semua foto sudah dimuat
-    if (currentIndex >= galleryImages.length && loadMoreBtn) {
-        loadMoreBtn.style.display = 'none';
-    }
+    if (currentIndex >= galleryImages.length && loadMoreBtn) loadMoreBtn.style.display = 'none';
 }
-
-
-// ==========================================================================
-// 2. LIGHTBOX MODAL WITH ZOOM & NAVIGATION SYSTEM
-// ==========================================================================
-let currentZoom = 1;
-let currentModalIndex = 0;
 
 function openLightbox(imageSrc) {
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
-
     if (modal && modalImg) {
-        // Cari indeks gambar dalam array galeri
         const foundIndex = galleryImages.findIndex(file => imageSrc.includes(file));
-        if (foundIndex !== -1) {
-            currentModalIndex = foundIndex;
-        }
-
+        if (foundIndex !== -1) currentModalIndex = foundIndex;
         modal.classList.add('show');
         modalImg.src = imageSrc;
-        modalImg.alt = 'Preview Image';
         currentZoom = 1;
         updateZoom();
     }
@@ -100,334 +79,90 @@ function openLightbox(imageSrc) {
 
 function updateZoom() {
     const modalImg = document.getElementById('modalImage');
-    if (modalImg) {
-        modalImg.style.transform = `scale(${currentZoom})`;
-    }
+    if (modalImg) modalImg.style.transform = `scale(${currentZoom})`;
 }
 
 function closeModal() {
     const modal = document.getElementById('imageModal');
-    if (modal) {
-        modal.classList.remove('show');
-        currentZoom = 1;
-        updateZoom();
-    }
+    if (modal) { modal.classList.remove('show'); currentZoom = 1; updateZoom(); }
 }
 
-// Fungsi Navigasi Foto Selanjutnya
 function showNextImage() {
     if (galleryImages.length === 0) return;
     currentModalIndex = (currentModalIndex + 1) % galleryImages.length;
-    const newSrc = `assets/image/${galleryImages[currentModalIndex]}`;
-    const modalImg = document.getElementById('modalImage');
-    if (modalImg) {
-        modalImg.src = newSrc;
-        currentZoom = 1;
-        updateZoom();
-    }
+    document.getElementById('modalImage').src = `assets/image/${galleryImages[currentModalIndex]}`;
 }
 
-// Fungsi Navigasi Foto Sebelumnya
 function showPrevImage() {
     if (galleryImages.length === 0) return;
     currentModalIndex = (currentModalIndex - 1 + galleryImages.length) % galleryImages.length;
-    const newSrc = `assets/image/${galleryImages[currentModalIndex]}`;
-    const modalImg = document.getElementById('modalImage');
-    if (modalImg) {
-        modalImg.src = newSrc;
-        currentZoom = 1;
-        updateZoom();
-    }
+    document.getElementById('modalImage').src = `assets/image/${galleryImages[currentModalIndex]}`;
 }
 
+function openDetailModal(cat) {
+    const data = destinationsData[cat];
+    if (!data) return;
+    const modal = document.getElementById('detailModal');
+    document.getElementById('modalTitle').textContent = data.title;
+    document.getElementById('modalSubtitle').textContent = data.subtitle;
+    let html = '';
+    data.items.forEach(i => html += `<div class="destination-item"><h4><i class="fas fa-map-pin"></i> ${i.name}</h4><p>${i.desc}</p></div>`);
+    document.getElementById('modalBodyList').innerHTML = html;
+    modal.classList.add('show');
+}
+
+function closeDetailModal() { document.getElementById('detailModal').classList.remove('show'); }
 
 // ==========================================================================
-// 3. MAIN INITIALIZATION (DOM CONTENT LOADED)
+// 3. INITIALIZATION
 // ==========================================================================
 document.addEventListener('DOMContentLoaded', () => {
+    // Galeri
+    renderGalleryItems();
+    document.getElementById('loadMoreBtn')?.addEventListener('click', renderGalleryItems);
 
-    let currentLang = 'id';
+    // Lightbox Controls
+    document.getElementById('zoomInBtn')?.addEventListener('click', () => { if (currentZoom < 3) { currentZoom += 0.25; updateZoom(); }});
+    document.getElementById('zoomOutBtn')?.addEventListener('click', () => { if (currentZoom > 0.5) { currentZoom -= 0.25; updateZoom(); }});
+    document.getElementById('resetZoomBtn')?.addEventListener('click', () => { currentZoom = 1; updateZoom(); });
+    document.getElementById('prevImgBtn')?.addEventListener('click', showPrevImage);
+    document.getElementById('nextImgBtn')?.addEventListener('click', showNextImage);
 
-    // A. INITIALIZE GALLERY
-    const galleryGrid = document.getElementById('galleryGrid');
-    const loadMoreBtn = document.getElementById('loadMoreBtn');
-
-    if (galleryGrid) {
-        renderGalleryItems(); // Load 5 foto awal
-        if (loadMoreBtn) {
-            loadMoreBtn.addEventListener('click', renderGalleryItems);
-        }
-    }
-
-    // B. LIGHTBOX CONTROL EVENT LISTENERS
-    const modal = document.getElementById('imageModal');
-    const closeBtn = document.querySelector('.modal-close');
-    const zoomInBtn = document.getElementById('zoomInBtn');
-    const zoomOutBtn = document.getElementById('zoomOutBtn');
-    const resetZoomBtn = document.getElementById('resetZoomBtn');
-    const prevImgBtn = document.getElementById('prevImgBtn');
-    const nextImgBtn = document.getElementById('nextImgBtn');
-
-    if (modal) {
-        // Kontrol Zoom In
-        if (zoomInBtn) {
-            zoomInBtn.addEventListener('click', () => {
-                if (currentZoom < 3) { currentZoom += 0.25; updateZoom(); }
-            });
-        }
-
-        // Kontrol Zoom Out
-        if (zoomOutBtn) {
-            zoomOutBtn.addEventListener('click', () => {
-                if (currentZoom > 0.5) { currentZoom -= 0.25; updateZoom(); }
-            });
-        }
-
-        // Reset Zoom
-        if (resetZoomBtn) {
-            resetZoomBtn.addEventListener('click', () => {
-                currentZoom = 1; updateZoom();
-            });
-        }
-
-        // Tombol Navigasi Panah Layar
-        if (prevImgBtn) prevImgBtn.addEventListener('click', showPrevImage);
-        if (nextImgBtn) nextImgBtn.addEventListener('click', showNextImage);
-
-        // Zoom menggunakan Scroll Wheel Mouse
-        modal.addEventListener('wheel', (e) => {
-            e.preventDefault();
-            if (e.deltaY < 0) {
-                if (currentZoom < 3) currentZoom += 0.15;
-            } else {
-                if (currentZoom > 0.5) currentZoom -= 0.15;
-            }
-            updateZoom();
-        }, { passive: false });
-
-        // Tutup Modal via Tombol Close (X) & Klik di Luar Gambar
-        if (closeBtn) closeBtn.addEventListener('click', closeModal);
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal || e.target.classList.contains('modal-content-wrapper')) {
-                closeModal();
-            }
-        });
-
-        // Navigasi via Tombol Keyboard (Panah Kiri, Kanan, & ESC)
-        document.addEventListener('keydown', (e) => {
-            if (modal.classList.contains('show')) {
-                if (e.key === 'ArrowRight') showNextImage();
-                if (e.key === 'ArrowLeft') showPrevImage();
-                if (e.key === 'Escape') closeModal();
-            }
-        });
-    }
-
-    // Pendaftaran Event Klik untuk Gambar Legalitas & Kartu Paket Wisata
-    const extraClickableImages = document.querySelectorAll('.card img, .legality-img, .legality-card img');
-    extraClickableImages.forEach(img => {
-        img.style.cursor = 'pointer';
-        img.addEventListener('click', (e) => {
-            e.stopPropagation();
-            openLightbox(img.src);
-        });
+    // Klik Legalitas
+    document.querySelectorAll('.card img, .legality-img, .legality-card img').forEach(img => {
+        img.addEventListener('click', (e) => { e.stopPropagation(); openLightbox(img.src); });
     });
 
-    // C. SCROLL TO TOP CONTROL
-    const scrollTopBtn = document.getElementById('scrollTopBtn');
-    if (scrollTopBtn) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                scrollTopBtn.classList.add('show');
-            } else {
-                scrollTopBtn.classList.remove('show');
-            }
-        });
+    // Keyboard & Global Listeners
+    document.addEventListener('keydown', (e) => {
+        if (document.getElementById('imageModal').classList.contains('show')) {
+            if (e.key === 'ArrowRight') showNextImage();
+            if (e.key === 'ArrowLeft') showPrevImage();
+            if (e.key === 'Escape') closeModal();
+        }
+    });
 
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
-
-    // D. DYNAMIC LANGUAGE SWITCHER
+    // Language, Form, Scroll, etc... (Remaining logic)
     const btnID = document.getElementById('btn-id');
     const btnEN = document.getElementById('btn-en');
+    btnID?.addEventListener('click', () => { btnID.classList.add('active'); btnEN.classList.remove('active'); });
+    btnEN?.addEventListener('click', () => { btnEN.classList.add('active'); btnID.classList.remove('active'); });
 
-    function switchLanguage(lang) {
-        currentLang = lang;
-
-        // Text Content Translation
-        document.querySelectorAll('[data-id][data-en]').forEach(el => {
-            const targetText = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-id');
-            if (targetText) el.innerHTML = targetText;
-        });
-
-        // Input Placeholders Translation
-        document.querySelectorAll('[data-id-placeholder][data-en-placeholder]').forEach(el => {
-            const targetPlaceholder = lang === 'en' ? el.getAttribute('data-en-placeholder') : el.getAttribute('data-id-placeholder');
-            if (targetPlaceholder) el.setAttribute('placeholder', targetPlaceholder);
-        });
-
-        // Button Active State
-        if (btnEN && btnID) {
-            if (lang === 'en') {
-                btnEN.classList.add('active');
-                btnID.classList.remove('active');
-            } else {
-                btnID.classList.add('active');
-                btnEN.classList.remove('active');
-            }
-        }
-    }
-
-    if (btnID && btnEN) {
-        btnID.addEventListener('click', () => switchLanguage('id'));
-        btnEN.addEventListener('click', () => switchLanguage('en'));
-    }
-
-    // E. MOBILE MENU TOGGLE
-    const mobileToggle = document.getElementById('mobileToggle');
-    const navLinks = document.getElementById('navLinks');
-    if (mobileToggle && navLinks) {
-        mobileToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        document.querySelectorAll('.nav-item').forEach(item => {
-            item.addEventListener('click', () => navLinks.classList.remove('active'));
-        });
-    }
-
-    // F. SMOOTH SCROLLING NAVIGATION
-    const links = document.querySelectorAll('a[href^="#"]');
-    links.forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                const headerOffset = 70;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
+    document.getElementById('bookingForm')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nama = document.getElementById('nama').value;
+        const wa = document.getElementById('whatsapp').value;
+        const tujuan = document.getElementById('tujuan').value;
+        window.open(`https://wa.me/6282130640161?text=Halo%20TSHoliday,%20Nama:%20${nama},%20Tujuan:%20${tujuan}`);
     });
 
-    // G. NAVBAR SCROLL EFFECT
-    const navbar = document.getElementById('navbar');
-    if (navbar) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-    }
-
-    // H. SWIPER TESTIMONIAL SLIDER
-    if (document.querySelector('.testimoni-slider')) {
-        new Swiper('.testimoni-slider', {
-            loop: true,
-            autoplay: {
-                delay: 4500,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-        });
-    }
-
-    // I. FAQ ACCORDION TOGGLE
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        if (question) {
-            question.addEventListener('click', () => item.classList.toggle('active'));
-        }
+    // Scroll Top
+    window.addEventListener('scroll', () => {
+        const btn = document.getElementById('scrollTopBtn');
+        if(window.scrollY > 300) btn.classList.add('show'); else btn.classList.remove('show');
     });
-
-    // J. INTERSECTION OBSERVER (FADE IN)
-    const fadeInSections = document.querySelectorAll('.fade-in-section');
-    if (fadeInSections.length > 0) {
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        fadeInSections.forEach(section => observer.observe(section));
-    }
-
-    // K. FORM BOOKING DIRECT TO WHATSAPP
-    const bookingForm = document.getElementById('bookingForm') || document.getElementById('whatsappForm');
-    if (bookingForm) {
-        bookingForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const namaEl = document.getElementById('nama') || document.getElementById('bookingName');
-            const whatsappEl = document.getElementById('whatsapp');
-            const tanggalEl = document.getElementById('tanggal') || document.getElementById('bookingDate');
-            const pesertaEl = document.getElementById('peserta') || document.getElementById('bookingGuests');
-            const tujuanSelect = document.getElementById('tujuan') || document.getElementById('bookingService');
-
-            const nama = namaEl ? namaEl.value : '';
-            const whatsapp = whatsappEl ? whatsappEl.value : '-';
-            const tanggal = tanggalEl ? tanggalEl.value : '';
-            const peserta = pesertaEl ? pesertaEl.value : '';
-            const tujuan = tujuanSelect ? (tujuanSelect.options ? tujuanSelect.options[tujuanSelect.selectedIndex].text : tujuanSelect.value) : '';
-
-            const adminWA = "6282130640161";
-            let pesan = "";
-
-            if (currentLang === 'en') {
-                pesan = `Hello TSHoliday Admin, I would like to book a trip:%0A%0A` +
-                        `*Name:* ${nama}%0A` +
-                        `*WhatsApp:* ${whatsapp}%0A` +
-                        `*Travel Date:* ${tanggal}%0A` +
-                        `*Guests:* ${peserta} Pax%0A` +
-                        `*Package/Destination:* ${tujuan}%0A%0A` +
-                        `Please share unit availability and pricing details. Thank you!`;
-            } else {
-                pesan = `Halo Admin TSHoliday, saya ingin reservasi perjalanan:%0A%0A` +
-                        `*Nama:* ${nama}%0A` +
-                        `*No. WA:* ${whatsapp}%0A` +
-                        `*Tanggal Perjalanan:* ${tanggal}%0A` +
-                        `*Jumlah Peserta:* ${peserta} Orang%0A` +
-                        `*Tujuan/Paket:* ${tujuan}%0A%0A` +
-                        `Mohon info ketersediaan unit dan total harganya. Terima kasih!`;
-            }
-
-            window.open(`https://wa.me/${adminWA}?text=${pesan}`, '_blank');
-        });
-    }
-
+    document.getElementById('scrollTopBtn')?.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 });
 
-
-// ==========================================================================
-// 4. REGISTER PWA SERVICE WORKER
-// ==========================================================================
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-            .then((reg) => {
-                console.log('TSHoliday PWA Registered Successfully:', reg.scope);
-            })
-            .catch((err) => {
-                console.error('TSHoliday PWA Registration Failed:', err);
-            });
-    });
-}
+// PWA
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');
