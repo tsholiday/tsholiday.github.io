@@ -911,6 +911,7 @@
             let totalOutTownToll = 0;
             const areaSelectElem = document.getElementById('calcAreaDay');
 
+            // Menyusun Draf Itinerary Lengkap
             let itineraryText = "";
             for (let i = 1; i <= days; i++) {
                 const dayObj = dayData[i] || { area: 'BandungKota', dests: [], customText: '' };
@@ -951,6 +952,7 @@
                 }
             }
 
+            // Menyusun seluruh format isi pesan WhatsApp
             let text = isEn 
                 ? `Hello, I would like to book / inquire about vehicle availability:%0A%0A`
                 : `Halo, saya ingin reservasi / tanya ketersediaan armada:%0A%0A`;
@@ -960,20 +962,24 @@
             text += `- *${isEn ? 'Vehicle' : 'Armada'}*: ${carName}%0A`;
             text += `- *${isEn ? 'Total Passengers' : 'Jumlah Peserta'}*: ${pax} ${isEn ? 'Pax' : 'Orang'}%0A`;
             text += `- *${isEn ? 'Duration' : 'Durasi'}*: ${days} ${isEn ? 'Days' : 'Hari'}%0A`;
-            text += `- *${isEn ? 'Special Customer Notes' : 'Catatan Khusus Pelanggan'}*: ${custNotes}%0A`;
-            text += `- *${isEn ? 'Daily Itinerary Plan' : 'Rencana Itinerary Per Hari'}*:${itineraryText}%0A%0A`;
-            text += `*${isEn ? 'Cost Breakdown' : 'Rincian Estimasi Biaya'}:*%0A`;
-            text += `• ${isEn ? 'Vehicle Rental' : 'Sewa Armada & Driver'}: ${detailTransport}%0A`;
+            text += `- *${isEn ? 'Special Customer Notes' : 'Catatan Khusus Pelanggan'}*: ${custNotes}%0A%0A`;
+            
+            // Integrasi Header Draf Itinerary
+            text += `*🗺️ ${isEn ? 'Accumulated Itinerary Draft' : 'Draf Akumulasi Itinerary Lengkap'}:*${itineraryText}%0A%0A`;
+            
+            // Integrasi Header & Rincian Biaya Paket Total
+            text += `*📊 ${isEn ? 'Cost Breakdown' : 'Rincian Komponen Biaya'}:*%0A`;
+            text += `• ${isEn ? 'Vehicle Rental' : 'Sewa Transport Utama'}: ${detailTransport}%0A`;
             if (pickupFee > 0) {
                 text += `• ${isEn ? 'Pickup Fee' : 'Charge Penjemputan Utama'}: Rp ${pickupFee.toLocaleString('id-ID')}%0A`;
             }
             if (dropFee > 0) {
-                text += `• ${isEn ? 'Drop Off Fee' : 'Charge Drop Off Utama'}: Rp ${dropFee.toLocaleString('id-ID')}%0A`;
+                text += `• ${isEn ? 'Drop Off Fee' : 'Charge Pengantaran Utama'}: Rp ${dropFee.toLocaleString('id-ID')}%0A`;
             }
             if (totalOutTownToll > 0) {
-                text += `• ${isEn ? 'Inter-City Surcharge' : 'Biaya Tambahan Wilayah / Antar-Kota'}: Rp ${totalOutTownToll.toLocaleString('id-ID')}%0A`;
+                text += `• ${isEn ? 'Inter-City Surcharge' : 'Biaya Layanan Wilayah / Antar-Kota'}: Rp ${totalOutTownToll.toLocaleString('id-ID')}%0A`;
             }
-            text += `*${isEn ? 'Total Estimate' : 'Total Estimasi'}*: ${total}%0A%0A${isEn ? 'Please confirm availability, thank you!' : 'Mohon konfirmasi ketersediaannya, terima kasih!'}`;
+            text += `%0A*💰 ${isEn ? 'Total Package Estimated Cost' : 'Estimasi Biaya Paket Total'}: ${total}*%0A%0A${isEn ? 'Please confirm availability, thank you!' : 'Mohon konfirmasi ketersediaannya, terima kasih!'}`;
             
             window.open(`https://wa.me/6282130640161?text=${text}`, '_blank');
         }
