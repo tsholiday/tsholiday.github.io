@@ -21,8 +21,8 @@
     <!-- SEO Primary Meta Tags -->
     <title>TSHoliday - Sewa Mobil & Paket Wisata Bandung Murah | PT Keepgoing TSH Indonesia</title>
     <meta name="title" content="TSHoliday - Sewa Mobil & Paket Wisata Bandung Murah | PT Keepgoing TSH Indonesia">
-    <meta name="description" content="Sewa mobil & rental murah Bandung mulai Rp 500rb. Menyediakan Avanza, Innova Diesel, Zenix, HiAce, Elf, hingga Bus Pariwisata & Paket Tour Ciwidey, Lembang. Telp/WA: 0821-3064-0161">
-    <meta name="keywords" content="sewa mobil bandung, rental mobil murah bandung, sewa hiace bandung, sewa zenix bandung, paket wisata bandung, ciwidey tour, lembang tour, tsholiday, pt keepgoing tsh indonesia">
+    <meta name="description" content="Sewa mobil & rental murah Bandung mulai Rp 500rb. Menyediakan Avanza, Innova Diesel, Zenix, HiAce, Elf, hingga Bus Pariwisata & Paket Tour Ciwidey, Lembang, Bogor, Jakarta, Jogja. Telp/WA: 0821-3064-0161">
+    <meta name="keywords" content="sewa mobil bandung, rental mobil murah bandung, sewa hiace bandung, sewa zenix bandung, paket wisata bandung, ciwidey tour, lembang tour, paket wisata bogor, paket wisata jakarta, paket wisata jogja, tsholiday, pt keepgoing tsh indonesia">
     <meta name="robots" content="index, follow">
     <meta name="author" content="PT Keepgoing TSH Indonesia">
     <link rel="canonical" href="https://tsholiday.github.io/">
@@ -59,13 +59,13 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://tsholiday.github.io/">
     <meta name="twitter:title" content="TSHoliday - Sewa Mobil & Paket Wisata Bandung">
-    <meta name="twitter:description" content="Sewa mobil murah di Bandung mulai 500rb & paket wisata Lembang, Ciwidey, City Tour. Hubungi WA: +62 821-3064-0161">
+    <meta name="twitter:description" content="Sewa mobil murah di Bandung mulai 500rb & paket wisata Lembang, Ciwidey, Bogor, Jakarta, Jogja, City Tour. Hubungi WA: +62 821-3064-0161">
     <meta name="twitter:image" content="https://tsholiday.github.io/assets/image/bandung.jpg">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="logo.png">
 
-        <!-- PWA MANIFEST LINK -->
+    <!-- PWA MANIFEST LINK -->
     <link rel="manifest" href="manifest.json">
 
     <!-- Google Fonts & FontAwesome -->
@@ -163,7 +163,7 @@
 
     <!-- 2. HERO SECTION WITH VIDEO BACKGROUND -->
     <section class="hero" id="home">
-        <video autoplay loop muted playsinline class="hero-video">
+        <video id="heroVideo" autoplay loop muted playsinline class="hero-video">
             <source src="hero.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -179,19 +179,19 @@
 
     <!-- 3. TENTANG TSHOLIDAY -->
     <section id="tentang" class="fade-in-section">
-                    <!-- LEGALITAS PERUSAHAAN -->
-            <div class="legality-card">
-                <div class="legality-info">
-                    <h3><i class="fas fa-file-contract"></i> <span data-id="Legalitas Perusahaan Terdaftar" data-en="Registered Legal Compliance">Legalitas Perusahaan Terdaftar</span></h3>
-                    <p data-id="PT Keepgoing TSH Indonesia merupakan entitas bisnis resmi yang terdaftar dan berizin di Republik Indonesia dengan NIB (Nomor Induk Berusaha) serta dokumen hukum yang sah untuk menjamin keamanan dan kenyamanan transaksi Anda."
-                       data-en="PT Keepgoing TSH Indonesia is an officially registered and licensed business entity in the Republic of Indonesia with a valid NIB (Business Identification Number) to guarantee the security of your transactions.">
-                       PT Keepgoing TSH Indonesia merupakan entitas bisnis resmi yang terdaftar dan berizin di Republik Indonesia dengan NIB (Nomor Induk Berusaha) serta dokumen hukum yang sah untuk menjamin keamanan dan kenyamanan transaksi Anda.
-                    </p>
-                </div>
-                <div class="legality-img-container">
-                    <img src="assets/image/legalitas.jpg" alt="Legalitas Resmi PT Keepgoing TSH Indonesia" class="legality-img">
-                </div>
+        <!-- LEGALITAS PERUSAHAAN -->
+        <div class="legality-card">
+            <div class="legality-info">
+                <h3><i class="fas fa-file-contract"></i> <span data-id="Legalitas Perusahaan Terdaftar" data-en="Registered Legal Compliance">Legalitas Perusahaan Terdaftar</span></h3>
+                <p data-id="PT Keepgoing TSH Indonesia merupakan entitas bisnis resmi yang terdaftar dan berizin di Republik Indonesia dengan NIB (Nomor Induk Berusaha) serta dokumen hukum yang sah untuk menjamin keamanan dan kenyamanan transaksi Anda."
+                   data-en="PT Keepgoing TSH Indonesia is an officially registered and licensed business entity in the Republic of Indonesia with a valid NIB (Business Identification Number) to guarantee the security of your transactions.">
+                   PT Keepgoing TSH Indonesia merupakan entitas bisnis resmi yang terdaftar dan berizin di Republik Indonesia dengan NIB (Nomor Induk Berusaha) serta dokumen hukum yang sah untuk menjamin keamanan dan kenyamanan transaksi Anda.
+                </p>
             </div>
+            <div class="legality-img-container">
+                <img src="assets/image/legalitas.jpg" alt="Legalitas Resmi PT Keepgoing TSH Indonesia" class="legality-img">
+            </div>
+        </div>
 
         <div class="section-title">
             <h2 data-id="Tentang TSHoliday" data-en="About TSHoliday">Tentang TSHoliday</h2>
@@ -236,8 +236,9 @@
             <h2 data-id="Paket Wisata Pilihan" data-en="Popular Tour Packages">Paket Wisata Pilihan</h2>
         </div>
         <div class="grid-cards">
+            <!-- Paket Ciwidey -->
             <div class="card">
-                <img src="ciwidey.jpg" alt="Ciwidey Tour">
+                <img src="assets/image/ciwidey.jpg" alt="Ciwidey Tour">
                 <div class="card-body">
                     <h3>Ciwidey Tour</h3>
                     <p data-id="Nikmati Kawah Putih, Perkebunan Teh Rancabali, dan Glamping Lakeside dalam perjalanan sejuk dan menenangkan."
@@ -247,8 +248,10 @@
                     <a href="#booking" class="btn-gold btn-sm" data-id="Pesan Paket" data-en="Book Package">Pesan Paket</a>
                 </div>
             </div>
+
+            <!-- Paket Lembang -->
             <div class="card">
-                <img src="lembang.jpg" alt="Lembang Escape">
+                <img src="assets/image/lembang.jpg" alt="Lembang Escape">
                 <div class="card-body">
                     <h3>Lembang Escape</h3>
                     <p data-id="Eksplorasi destinasi favorit keluarga seperti Tangkuban Perahu, Farmhouse, dan The Lodge Maribaya."
@@ -258,8 +261,10 @@
                     <a href="#booking" class="btn-gold btn-sm" data-id="Pesan Paket" data-en="Book Package">Pesan Paket</a>
                 </div>
             </div>
+
+            <!-- Paket Bandung City Tour -->
             <div class="card">
-                <img src="bandung.jpg" alt="Bandung City Tour">
+                <img src="assets/image/bandung.jpg" alt="Bandung City Tour">
                 <div class="card-body">
                     <h3>Bandung City Tour</h3>
                     <p data-id="Keliling landmark bersejarah Gedung Sate, Jalan Asia Afrika, hingga pusat kuliner dan wisata belanja."
@@ -269,8 +274,49 @@
                     <a href="#booking" class="btn-gold btn-sm" data-id="Pesan Paket" data-en="Book Package">Pesan Paket</a>
                 </div>
             </div>
+
+            <!-- Paket Bogor Tour -->
             <div class="card">
-                <img src="gallery1.jpg" alt="Custom Tour">
+                <img src="assets/image/gallery-10.webp" alt="Bogor Highland Tour">
+                <div class="card-body">
+                    <h3>Bogor Highland & Botanical</h3>
+                    <p data-id="Nikmati kesejukan Kebun Raya Bogor, keindahan Puncak, Taman Safari, hingga wisata kuliner khas Bogor."
+                       data-en="Enjoy the fresh air of Bogor Botanical Gardens, scenic Puncak, Safari Park, and iconic local culinary spots.">
+                       Nikmati kesejukan Kebun Raya Bogor, keindahan Puncak, Taman Safari, hingga wisata kuliner khas Bogor.
+                    </p>
+                    <a href="#booking" class="btn-gold btn-sm" data-id="Pesan Paket" data-en="Book Package">Pesan Paket</a>
+                </div>
+            </div>
+
+            <!-- Paket Jakarta Tour -->
+            <div class="card">
+                <img src="assets/image/gallery-12.webp" alt="Jakarta City Tour">
+                <div class="card-body">
+                    <h3>Jakarta Heritage & City Tour</h3>
+                    <p data-id="Jelajahi keindahan Kota Tua, Monas, Ancol, hingga pusat perbelanjaan dan hiburan modern ibu kota."
+                       data-en="Explore Old Town Batavia, National Monument (Monas), Ancol, and modern shopping & entertainment hubs.">
+                       Jelajahi keindahan Kota Tua, Monas, Ancol, hingga pusat perbelanjaan dan hiburan modern ibu kota.
+                    </p>
+                    <a href="#booking" class="btn-gold btn-sm" data-id="Pesan Paket" data-en="Book Package">Pesan Paket</a>
+                </div>
+            </div>
+
+            <!-- Paket Jogja Tour -->
+            <div class="card">
+                <img src="assets/image/gallery-14.webp" alt="Exotic Jogja Tour">
+                <div class="card-body">
+                    <h3>Exotic Jogja Cultural Tour</h3>
+                    <p data-id="Eksplorasi warisan budaya Candi Borobudur, Prambanan, Keraton, Malioboro, dan pesona pantai Jogja."
+                       data-en="Explore cultural heritage sites like Borobudur, Prambanan, Sultan Palace, Malioboro, and exotic beaches.">
+                       Eksplorasi warisan budaya Candi Borobudur, Prambanan, Keraton, Malioboro, dan pesona pantai Jogja.
+                    </p>
+                    <a href="#booking" class="btn-gold btn-sm" data-id="Pesan Paket" data-en="Book Package">Pesan Paket</a>
+                </div>
+            </div>
+
+            <!-- Custom Tour -->
+            <div class="card">
+                <img src="assets/image/gallery1.jpg" alt="Custom Tour">
                 <div class="card-body">
                     <h3>Custom Tour</h3>
                     <p data-id="Rancang sendiri destinasi dan durasi perjalanan sesuai kebutuhan acara keluarga, gathering, atau instansi."
@@ -350,7 +396,7 @@
         </div>
     </section>
 
-        <!-- SECTION GALERI -->
+    <!-- 6. SECTION GALERI -->
     <section id="galeri" class="section-padding">
         <div class="container">
             <div class="section-title">
@@ -370,8 +416,6 @@
             </div>
         </div>
     </section>
-
-
 
     <!-- 7. TESTIMONI (10 TESTIMONI MULTI-NEGARA) -->
     <section id="testimoni" class="fade-in-section">
@@ -481,7 +525,6 @@
             <h2>Frequently Asked Questions</h2>
         </div>
         <div class="faq-container">
-            <!-- FAQ Paling Awal Mengenai Harga -->
             <div class="faq-item">
                 <div class="faq-question">
                     <span data-id="Berapa harga sewa kendaraan paling murah di TSHoliday?" data-en="What is the lowest rental price at TSHoliday?">Berapa harga sewa kendaraan paling murah di TSHoliday?</span> 
@@ -558,6 +601,9 @@
                     <option value="Paket Ciwidey" data-id="Paket Ciwidey" data-en="Ciwidey Tour Package">Paket Ciwidey</option>
                     <option value="Paket Lembang" data-id="Paket Lembang" data-en="Lembang Escape Package">Paket Lembang</option>
                     <option value="Bandung City Tour" data-id="Bandung City Tour" data-en="Bandung City Tour">Bandung City Tour</option>
+                    <option value="Paket Bogor Tour" data-id="Paket Bogor Highland Tour" data-en="Bogor Highland Tour Package">Paket Bogor Highland Tour</option>
+                    <option value="Paket Jakarta City Tour" data-id="Paket Jakarta Heritage & City Tour" data-en="Jakarta Heritage & City Tour Package">Paket Jakarta Heritage & City Tour</option>
+                    <option value="Paket Jogja Tour" data-id="Paket Exotic Jogja Tour" data-en="Exotic Jogja Cultural Tour Package">Paket Exotic Jogja Cultural Tour</option>
                     <option value="Sewa HiAce / Elf / Bus" data-id="Sewa HiAce / Elf / Bus" data-en="Fleet Rental (HiAce/Elf/Bus)">Sewa HiAce / Elf / Bus</option>
                     <option value="Custom Tour" data-id="Custom Tour" data-en="Custom Tour">Custom Tour</option>
                 </select>
@@ -601,7 +647,8 @@
             <p>&copy; 2026 PT Keepgoing TSH Indonesia. All rights reserved.</p>
         </div>
     </footer>
-        <!-- LIGHTBOX / ZOOM MODAL DENGAN NAVIGASI PANAH -->
+
+    <!-- LIGHTBOX / ZOOM MODAL DENGAN NAVIGASI PANAH -->
     <div id="imageModal" class="image-modal">
         <span class="modal-close">&times;</span>
         
@@ -630,7 +677,7 @@
         <i class="fas fa-chevron-up"></i>
     </button>
 
-    <!-- Swiper.js Script & Custom JS Utama (Cukup dipanggil sekali di akhir) -->
+    <!-- Swiper.js Script & Custom JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
