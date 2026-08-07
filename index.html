@@ -601,14 +601,25 @@
             <p>&copy; 2026 PT Keepgoing TSH Indonesia. All rights reserved.</p>
         </div>
     </footer>
-    <!-- LIGHTBOX / ZOOM MODAL -->
+        <!-- LIGHTBOX / ZOOM MODAL DENGAN NAVIGASI PANAH -->
     <div id="imageModal" class="image-modal">
         <span class="modal-close">&times;</span>
+        
+        <!-- Tombol Panah Navigasi Gambar -->
+        <button id="prevImgBtn" class="modal-nav-btn prev-btn" title="Gambar Sebelumnya" aria-label="Previous Image">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button id="nextImgBtn" class="modal-nav-btn next-btn" title="Gambar Selanjutnya" aria-label="Next Image">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Kontrol Zoom -->
         <div class="modal-controls">
             <button id="zoomInBtn" title="Zoom In"><i class="fas fa-search-plus"></i></button>
             <button id="zoomOutBtn" title="Zoom Out"><i class="fas fa-search-minus"></i></button>
             <button id="resetZoomBtn" title="Reset Zoom"><i class="fas fa-sync-alt"></i></button>
         </div>
+
         <div class="modal-content-wrapper">
             <img class="modal-image" id="modalImage" alt="Preview Gambar">
         </div>
