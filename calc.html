@@ -904,6 +904,9 @@
             }
             if (totalOutTownToll > 0) {
                 text += `• ${isEn ? 'Inter-City Surcharge' : 'Biaya Tambahan Wilayah / Antar-Kota'}: Rp ${totalOutTownToll.toLocaleString('id-ID')}%0A`;
+                text += `- *Durasi*: ${days} Hari%0A`;
+            text += `- *Armada*: ${carName}%0A`;
+            text += `- *Estimasi Total*: ${total}%0A`;
             }
             text += `*${isEn ? 'Total Estimate' : 'Total Estimasi'}*: ${total}%0A%0A${isEn ? 'Please confirm availability, thank you!' : 'Mohon konfirmasi ketersediaannya, terima kasih!'}`;
             
@@ -913,6 +916,7 @@
         function toggleDarkMode() {
             document.documentElement.classList.toggle('dark');
         }
+        
 
         // Inisialisasi
         onPaxChange();
