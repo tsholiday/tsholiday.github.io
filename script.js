@@ -1,4 +1,79 @@
-    // ==========================================================================
+// ==========================================================================
+// DYNAMIC GALLERY WITH LOAD MORE (5 PER FETCH)
+// ==========================================================================
+const galleryImages = [
+    "bandung.jpg", "ciwidey.jpg", "gallery-1.jpg", "gallery-10.webp", "gallery-100.webp",
+    "gallery-101.webp", "gallery-11.webp", "gallery-12.webp", "gallery-13.webp", "gallery-136.webp",
+    "gallery-137.webp", "gallery-138.webp", "gallery-139.webp", "gallery-14.webp", "gallery-140.webp",
+    "gallery-141.webp", "gallery-142.webp", "gallery-143.webp", "gallery-144.webp", "gallery-145.webp",
+    "gallery-146.webp", "gallery-147.jpg", "gallery-148.webp", "gallery-149.webp", "gallery-15.jpg",
+    "gallery-150.jpg", "gallery-151.webp", "gallery-152.webp", "gallery-153.webp", "gallery-154.webp",
+    "gallery-155.webp", "gallery-156.webp", "gallery-157.webp", "gallery-158.webp", "gallery-16.webp",
+    "gallery-17.webp", "gallery-18.webp", "gallery-19.webp", "gallery-2.webp", "gallery-20.webp",
+    "gallery-21.webp", "gallery-22.webp", "gallery-23.webp", "gallery-24.webp", "gallery-25.webp",
+    "gallery-26.webp", "gallery-27.jpg", "gallery-28.webp", "gallery-29.webp", "gallery-3.jpg",
+    "gallery-30.webp", "gallery-31.webp", "gallery-32.webp", "gallery-33.webp", "gallery-34.webp",
+    "gallery-35.webp", "gallery-36.webp", "gallery-37.webp", "gallery-38.webp", "gallery-39.jpg",
+    "gallery-4.webp", "gallery-40.webp", "gallery-41.webp", "gallery-42.webp", "gallery-43.webp",
+    "gallery-44.webp", "gallery-45.webp", "gallery-46.webp", "gallery-47.webp", "gallery-48.webp",
+    "gallery-49.webp", "gallery-5.webp", "gallery-50.webp", "gallery-51.jpg", "gallery-52.webp",
+    "gallery-53.webp", "gallery-54.webp", "gallery-55.webp", "gallery-56.jpg", "gallery-57.webp",
+    "gallery-58.jpg", "gallery-59.webp", "gallery-6.webp", "gallery-60.webp", "gallery-61.webp",
+    "gallery-62.webp", "gallery-63.jpg", "gallery-64.webp", "gallery-65.webp", "gallery-66.webp",
+    "gallery-67.webp", "gallery-68.webp", "gallery-69.webp", "gallery-7.webp", "gallery-70.webp",
+    "gallery-71.webp", "gallery-72.webp", "gallery-73.webp", "gallery-74.webp", "gallery-75.jpg",
+    "gallery-76.webp", "gallery-77.webp", "gallery-78.webp", "gallery-79.webp", "gallery-8.webp",
+    "gallery-80.webp", "gallery-81.webp", "gallery-82.webp", "gallery-83.webp", "gallery-84.webp",
+    "gallery-85.webp", "gallery-86.webp", "gallery-87.jpg", "gallery-88.webp", "gallery-89.webp",
+    "gallery-9.webp", "gallery-90.webp", "gallery-91.webp", "gallery-92.webp", "gallery-93.webp",
+    "gallery-94.webp", "gallery-95.webp", "gallery-96.webp", "gallery-97.webp", "gallery-98.webp",
+    "gallery-99.jpg", "gallery1.jpg", "legalitas.jpg", "lembang.jpg"
+];
+
+let currentIndex = 0;
+const imagesPerLoad = 5;
+
+function loadGalleryImages() {
+    const galleryGrid = document.getElementById('galleryGrid');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+
+    if (!galleryGrid) return;
+
+    const nextBatch = galleryImages.slice(currentIndex, currentIndex + imagesPerLoad);
+
+    nextBatch.forEach(fileName => {
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'gallery-item';
+
+        const img = document.createElement('img');
+        img.src = `assets/image/${fileName}`;
+        img.alt = 'TSHoliday Gallery';
+        img.loading = 'lazy'; // Lazy loading untuk menghemat kuota & mempercepat muat halaman
+
+        itemDiv.appendChild(img);
+        galleryGrid.appendChild(itemDiv);
+    });
+
+    currentIndex += imagesPerLoad;
+
+    // Sembunyikan tombol jika semua gambar sudah ditampilkan
+    if (currentIndex >= galleryImages.length && loadMoreBtn) {
+        loadMoreBtn.style.display = 'none';
+    }
+}
+
+// Inisialisasi awal saat DOM siap
+document.addEventListener('DOMContentLoaded', () => {
+    loadGalleryImages(); // Muat 5 gambar pertama
+
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', loadGalleryImages);
+    }
+});
+
+
+// ==========================================================================
     // KONTROL TOMBOL SCROLL TO TOP
     // ==========================================================================
     const scrollTopBtn = document.getElementById('scrollTopBtn');
