@@ -221,8 +221,8 @@
                     <span class="text-xs text-gray-500 dark:text-gray-400 block" data-i18n="totalEstimate">Estimasi Biaya Paket Total:</span>
                     <span id="calcResult" class="text-2xl sm:text-3xl font-black text-amber-500">Rp 0</span>
                 </div>
-                <button onclick="sendOrderWA()" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-navy-900 font-extrabold px-6 py-3.5 rounded-xl text-xs shadow-lg hover:shadow-amber-500/20 transition" data-i18n="btnBook">
-                    Pesan via WhatsApp 📱
+                <button id="btnBook" onclick="sendOrderWA()" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-navy-900 font-extrabold px-6 py-3.5 rounded-xl text-xs shadow-lg hover:shadow-amber-500/20 transition">
+                    Pesan via WhatsApp (Rp 0) 📱
                 </button>
             </div>
         </div>
@@ -283,7 +283,7 @@
                 term3: "• Layanan Drop/Jemput lokal area Kota Bandung (Hotel ke Stasiun/sebaliknya) Rp 200.000.",
                 term4: "• Destinasi luar kota / beda kota dikenakan tambahan biaya operasional antar-kota.",
                 totalEstimate: "Estimasi Biaya Paket Total:",
-                btnBook: "Pesan via WhatsApp 📱",
+                btnBookPrefix: "Pesan via WhatsApp",
                 dayText: "Hari",
                 emptyDest: "Belum ada destinasi terpilih.",
                 editInDay: "Edit di Hari",
@@ -338,7 +338,7 @@
                 term3: "• Local drop/pickup in Bandung City (Hotel to Station/vice versa) is IDR 200,000.",
                 term4: "• Out of city / inter-city destinations incur additional operational fees.",
                 totalEstimate: "Total Estimated Package Cost:",
-                btnBook: "Book via WhatsApp 📱",
+                btnBookPrefix: "Book via WhatsApp",
                 dayText: "Day",
                 emptyDest: "No destinations selected yet.",
                 editInDay: "Edit in Day",
@@ -441,6 +441,7 @@
             renderDayTabs(parseInt(document.getElementById('calcDays').value) || 1);
             renderDestinations();
             updateItinerarySummary();
+            calculateTotal();
         }
 
         function onPaxChange() {
@@ -813,7 +814,12 @@
                 document.getElementById('rowOutTownToll').classList.add('hidden');
             }
 
-            document.getElementById('calcResult').innerText = "Rp " + total.toLocaleString('id-ID');
+            const formattedTotal = "Rp " + total.toLocaleString('id-ID');
+            document.getElementById('calcResult').innerText = formattedTotal;
+
+            // Update keterangan biaya di tombol WhatsApp
+            const dict = i18nDict[currentLang];
+            document.getElementById('btnBook').innerText = `${dict.btnBookPrefix} (${formattedTotal}) 📱`;
         }
 
         function sendOrderWA() {
