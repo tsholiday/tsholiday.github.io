@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JelajahRute - Tour & Transport Explorer</title>
+    <title>Kalkulator Sewa Kendaraan - JelajahRute</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -11,57 +11,55 @@
             theme: {
                 extend: {
                     colors: {
-                        navy: { 800: '#1e293b', 900: '#0f172a' },
-                        gold: { 500: '#d97706', 600: '#b45309' }
+                        navy: { 800: '#1e293b', 900: '#0f172a' }
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-gray-50 text-navy-900 dark:bg-navy-900 dark:text-gray-100 transition-colors duration-300 font-sans">
+<body class="bg-gray-50 text-navy-900 dark:bg-navy-900 dark:text-gray-100 min-h-screen flex flex-col justify-center items-center p-4 transition-colors duration-300 font-sans">
 
-    <!-- Header -->
-    <header class="bg-white/90 dark:bg-navy-900/90 backdrop-blur-md sticky top-0 z-50 border-b border-amber-500/20 shadow-sm">
-        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-            <span class="text-2xl font-black text-navy-900 dark:text-white">Jelajah<span class="text-amber-500">Rute</span></span>
-            <div class="flex items-center space-x-3">
-                <button onclick="toggleDarkMode()" class="p-2 rounded-lg bg-gray-100 dark:bg-navy-800 text-amber-500">🌙</button>
-                <a href="https://wa.me/6282130640161" target="_blank" class="bg-amber-500 text-navy-900 font-bold px-4 py-2 rounded-xl text-xs">Chat WA</a>
-            </div>
+    <!-- Container Utama Kalkulator -->
+    <div class="w-full max-w-xl bg-white dark:bg-navy-800 p-6 sm:p-8 rounded-3xl shadow-xl border border-amber-500/20 relative">
+        
+        <!-- Toggle Dark Mode (Atas Kanan) -->
+        <button onclick="toggleDarkMode()" class="absolute top-4 right-4 p-2 rounded-xl bg-gray-100 dark:bg-navy-900 text-amber-500 hover:scale-105 transition" title="Ganti Mode Tampilan">
+            🌙
+        </button>
+
+        <!-- Judul -->
+        <div class="text-center mb-6">
+            <h1 class="text-2xl font-black text-navy-900 dark:text-white">Jelajah<span class="text-amber-500">Rute</span></h1>
+            <h2 class="text-base font-bold mt-1">🧮 Kalkulator Sewa Kendaraan</h2>
+            <p class="text-xs text-gray-500 dark:text-gray-400">Hitung estimasi biaya sewa mobil & driver secara instan</p>
         </div>
-    </header>
 
-    <!-- 1. MODUL KALKULATOR SEWA VEHICLE -->
-    <section class="max-w-4xl mx-auto px-4 py-10">
-        <div class="bg-white dark:bg-navy-800 p-6 rounded-3xl shadow-lg border border-amber-500/20">
-            <h2 class="text-xl font-bold mb-1 text-center">🧮 Hitung Estimasi Sewa Kendaraan</h2>
-            <p class="text-xs text-gray-500 text-center mb-6">Pilih kendaraan dan durasi trip untuk melihat estimasi biaya</p>
+        <!-- Form Input Kalkulator -->
+        <div class="space-y-4">
+            <!-- Pilih Armada -->
+            <div>
+                <label class="block text-xs font-bold mb-2">Pilih Armada Kendaraan:</label>
+                <select id="calcCar" onchange="calculateTotal()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
+                    <option value="500000" data-name="Toyota Calya / Sigra">Toyota Calya / Sigra (Rp 500rb/hari)</option>
+                    <option value="600000" data-name="Toyota Avanza" selected>Toyota Avanza (Rp 600rb/hari)</option>
+                    <option value="800000" data-name="Innova Reborn Diesel">Innova Reborn Diesel (Rp 800rb/hari)</option>
+                    <option value="950000" data-name="Innova Zenix">Innova Zenix (Rp 950rb/hari)</option>
+                    <option value="1200000" data-name="Toyota HiAce Commuter">Toyota HiAce Commuter (Rp 1.2jt/hari)</option>
+                    <option value="2500000" data-name="Toyota Alphard VIP">Toyota Alphard VIP (Rp 2.5jt/hari)</option>
+                </select>
+            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                <!-- Pilih Armada -->
+            <!-- Durasi Hari & Area Tujuan -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                    <label class="block text-xs font-bold mb-2">Pilih Armada:</label>
-                    <select id="calcCar" onchange="calculateTotal()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-semibold focus:outline-none">
-                        <option value="500000" data-name="Toyota Calya / Sigra">Toyota Calya (Rp 500rb/hr)</option>
-                        <option value="600000" data-name="Toyota Avanza" selected>Toyota Avanza (Rp 600rb/hr)</option>
-                        <option value="800000" data-name="Innova Reborn Diesel">Innova Reborn (Rp 800rb/hr)</option>
-                        <option value="950000" data-name="Innova Zenix">Innova Zenix (Rp 950rb/hr)</option>
-                        <option value="1200000" data-name="Toyota HiAce">Toyota HiAce (Rp 1.2jt/hr)</option>
-                        <option value="2500000" data-name="Toyota Alphard VIP">Toyota Alphard VIP (Rp 2.5jt/hr)</option>
-                    </select>
+                    <label class="block text-xs font-bold mb-2">Durasi Sewa (Hari):</label>
+                    <input type="number" id="calcDays" value="1" min="1" max="30" onchange="calculateTotal()" onkeyup="calculateTotal()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
                 </div>
 
-                <!-- Durasi Hari -->
                 <div>
-                    <label class="block text-xs font-bold mb-2">Durasi (Hari):</label>
-                    <input type="number" id="calcDays" value="1" min="1" max="14" onchange="calculateTotal()" onkeyup="calculateTotal()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-semibold focus:outline-none">
-                </div>
-
-                <!-- Tujuan Utama -->
-                <div>
-                    <label class="block text-xs font-bold mb-2">Tujuan Area:</label>
-                    <select id="calcArea" onchange="calculateTotal()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-semibold focus:outline-none">
+                    <label class="block text-xs font-bold mb-2">Tujuan Area Utama:</label>
+                    <select id="calcArea" onchange="calculateTotal()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
                         <option value="Jakarta City">Jakarta City Tour</option>
                         <option value="Bogor / Puncak">Bogor & Puncak</option>
                         <option value="Bandung / Ciwidey / Lembang">Bandung (Ciwidey/Lembang)</option>
@@ -70,87 +68,23 @@
                 </div>
             </div>
 
-            <!-- Hasil Output & Button -->
-            <div class="bg-amber-500/10 border border-amber-500/30 p-4 rounded-2xl flex flex-col sm:flex-row justify-between items-center gap-4">
-                <div>
-                    <span class="text-xs text-gray-500 block">Estimasi Biaya Sewa + Driver:</span>
-                    <span id="calcResult" class="text-2xl font-black text-amber-500">Rp 600.000</span>
+            <!-- Box Hasil & Tombol WA -->
+            <div class="bg-amber-500/10 border border-amber-500/30 p-5 rounded-2xl flex flex-col sm:flex-row justify-between items-center gap-4 mt-6">
+                <div class="text-center sm:text-left">
+                    <span class="text-xs text-gray-500 dark:text-gray-400 block">Estimasi Biaya + Driver:</span>
+                    <span id="calcResult" class="text-2xl sm:text-3xl font-black text-amber-500">Rp 600.000</span>
                 </div>
-                <button onclick="sendOrderWA()" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-navy-900 font-extrabold px-6 py-3 rounded-xl text-xs shadow-md transition">
-                    Pesan Rincian Ini via WhatsApp 📱
+                <button onclick="sendOrderWA()" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-navy-900 font-extrabold px-6 py-3.5 rounded-xl text-xs shadow-lg hover:shadow-amber-500/20 transition">
+                    Pesan via WhatsApp 📱
                 </button>
             </div>
         </div>
-    </section>
 
-    <!-- 2. MODUL EKSPLORASI DESTINASI WISATA -->
-    <section class="max-w-6xl mx-auto px-4 py-8">
-        <div class="text-center mb-8">
-            <h2 class="text-2xl font-bold">🗺️ Eksplorasi Destinasi Populer</h2>
-            <p class="text-xs text-gray-500 mt-1">Cari dan pilih tempat wisata menarik di kota tujuan Anda</p>
+    </div>
 
-            <!-- Filter Buttons -->
-            <div class="flex flex-wrap justify-center gap-2 mt-4" id="filterBtns">
-                <button onclick="filterDest('all')" class="btn-filter bg-amber-500 text-navy-900 px-4 py-1.5 rounded-full text-xs font-bold">Semua</button>
-                <button onclick="filterDest('jakarta')" class="btn-filter bg-gray-200 dark:bg-navy-800 px-4 py-1.5 rounded-full text-xs font-bold">Jakarta</button>
-                <button onclick="filterDest('bogor')" class="btn-filter bg-gray-200 dark:bg-navy-800 px-4 py-1.5 rounded-full text-xs font-bold">Bogor</button>
-                <button onclick="filterDest('bandung')" class="btn-filter bg-gray-200 dark:bg-navy-800 px-4 py-1.5 rounded-full text-xs font-bold">Bandung & Ciwidey</button>
-                <button onclick="filterDest('jogja')" class="btn-filter bg-gray-200 dark:bg-navy-800 px-4 py-1.5 rounded-full text-xs font-bold">Jogja</button>
-            </div>
-        </div>
-
-        <!-- Grid Container Tempat Wisata -->
-        <div id="destGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Data dimasukkan secara dinamis via JavaScript -->
-        </div>
-    </section>
-
-    <!-- JavaScript Aplikasi Web -->
+    <!-- Script Logika Kalkulator -->
     <script>
-        // Database Tempat Wisata
-        const destinations = [
-            { name: "Kawah Putih Ciwidey", city: "bandung", tag: "Nature & Lake", desc: "Danau kawah vulkanik indah dengan tanah putih dan air kehijauan di Ciwidey.", img: "ciwidey.jpg" },
-            { name: "Dusun Bambu Lembang", city: "bandung", tag: "Family & Park", desc: "Taman rekreasi ramah keluarga, danau asri, & wisata kuliner Sunda.", img: "lembang.jpg" },
-            { name: "Kota Tua Jakarta", city: "jakarta", tag: "Heritage", desc: "Kawasan bersejarah dengan gedung arsitektur kolonial & sewa sepeda ontel.", img: "gallery-1.jpg" },
-            { name: "Kebun Raya Bogor", city: "bogor", tag: "Botanical", desc: "Taman botani tertua di Asia Tenggara dengan pepohonan rimbun & Istana.", img: "gallery-3.jpg" },
-            { name: "Candi Prambanan", city: "jogja", tag: "Culture & Temple", desc: "Kompleks candi Hindu terbesar dan megah di Yogyakarta.", img: "gallery-150.jpg" },
-            { name: "Nimo Highland Pangalengan", city: "bandung", tag: "Tea Garden", desc: "Jembatan kaca melingkar di tengah kebun teh dengan pemandangan 360 derajat.", img: "bandung.jpg" }
-        ];
-
-        // Render Tempat Wisata
-        function renderDestinations(items) {
-            const grid = document.getElementById('destGrid');
-            grid.innerHTML = '';
-            items.forEach(item => {
-                grid.innerHTML += `
-                    <div class="bg-white dark:bg-navy-800 rounded-2xl overflow-hidden shadow-sm border border-gray-200 dark:border-gray-700 flex flex-col justify-between">
-                        <div>
-                            <img src="${item.img}" onerror="this.src='https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400'" class="w-full h-44 object-cover" alt="${item.name}">
-                            <div class="p-4">
-                                <span class="text-[10px] font-bold text-amber-500 bg-amber-500/10 px-2 py-0.5 rounded-md uppercase">${item.tag}</span>
-                                <h3 class="font-bold text-base mt-2">${item.name}</h3>
-                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">${item.desc}</p>
-                            </div>
-                        </div>
-                        <div class="p-4 pt-0">
-                            <a href="https://wa.me/6282130640161?text=Halo,%20saya%20ingin%20berkunjung%20ke%20${encodeURIComponent(item.name)}" target="_blank" class="block text-center bg-gray-100 dark:bg-navy-900 hover:bg-amber-500 hover:text-navy-900 text-xs font-bold py-2 rounded-xl transition">Tanyakan Trip Ini ➔</a>
-                        </div>
-                    </div>
-                `;
-            });
-        }
-
-        // Filter Tempat Wisata
-        function filterDest(category) {
-            if (category === 'all') {
-                renderDestinations(destinations);
-            } else {
-                const filtered = destinations.filter(d => d.city === category);
-                renderDestinations(filtered);
-            }
-        }
-
-        // Kalkulator Harga Sewa
+        // Logika Hitung Total Biaya
         function calculateTotal() {
             const price = parseInt(document.getElementById('calcCar').value);
             const days = parseInt(document.getElementById('calcDays').value) || 1;
@@ -159,7 +93,7 @@
             document.getElementById('calcResult').innerText = "Rp " + total.toLocaleString('id-ID');
         }
 
-        // Kirim Order via WhatsApp
+        // Format Teks Otomatis ke WhatsApp
         function sendOrderWA() {
             const carSelect = document.getElementById('calcCar');
             const carName = carSelect.options[carSelect.selectedIndex].getAttribute('data-name');
@@ -167,18 +101,17 @@
             const area = document.getElementById('calcArea').value;
             const total = document.getElementById('calcResult').innerText;
 
-            const text = `Halo Admin JelajahRute, saya mau cek ketersediaan sewa armada:%0A%0A- *Armada*: ${carName}%0A- *Durasi*: ${days} Hari%0A- *Tujuan*: ${area}%0A- *Estimasi Total*: ${total}%0A%0AMohon info ketersediaan tanggalnya ya!`;
+            const text = `Halo Admin JelajahRute, saya ingin cek ketersediaan sewa armada:%0A%0A- *Armada*: ${carName}%0A- *Durasi*: ${days} Hari%0A- *Tujuan*: ${area}%0A- *Estimasi Biaya*: ${total}%0A%0AMohon info ketersediaan tanggalnya, terima kasih!`;
             
             window.open(`https://wa.me/6282130640161?text=${text}`, '_blank');
         }
 
-        // Dark Mode Toggle
+        // Toggle Dark Mode
         function toggleDarkMode() {
             document.documentElement.classList.toggle('dark');
         }
 
-        // Initialize Render Awal
-        renderDestinations(destinations);
+        // Hitung awal saat web dibuka
         calculateTotal();
     </script>
 </body>
