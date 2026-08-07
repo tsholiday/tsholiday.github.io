@@ -86,7 +86,8 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                     <label class="block text-xs font-bold mb-1.5" data-i18n="durationLabel">Durasi Sewa (Hari):</label>
-                    <input type="number" id="calcDays" value="1" min="1" max="10" onchange="onDaysChange()" onkeyup="onDaysChange()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
+                    <!-- Default value diset ke 0 -->
+                    <input type="number" id="calcDays" value="0" min="0" max="10" onchange="onDaysChange()" onkeyup="onDaysChange()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
                 </div>
 
                 <div>
@@ -94,6 +95,11 @@
                     <input type="number" id="calcPax" value="4" min="1" max="50" onchange="onPaxChange()" onkeyup="onPaxChange()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
                     <p class="text-[10px] text-gray-500 dark:text-gray-400 mt-1" data-i18n="paxNote">👶 *Sertakan anak kecil atau bayi jika membawa.</p>
                 </div>
+            </div>
+
+            <!-- Pesan Peringatan Jika Durasi 0 -->
+            <div id="durationWarningBox" class="bg-amber-500/10 border border-amber-500/30 p-2.5 rounded-xl text-[11px] text-amber-600 dark:text-amber-400 font-bold">
+                ⚠️ Silakan isi durasi sewa (minimal 1 hari) terlebih dahulu.
             </div>
 
             <!-- Pesan Rekomendasi / Peringatan Kapasitas Armada -->
@@ -136,7 +142,7 @@
             </div>
 
             <!-- Custom Itinerary Per Hari -->
-            <div class="bg-gray-50 dark:bg-navy-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-4 space-y-3">
+            <div id="itineraryContainer" class="bg-gray-50 dark:bg-navy-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-4 space-y-3 hidden">
                 <div class="flex items-center justify-between">
                     <label class="block text-xs font-bold text-amber-500" data-i18n="itineraryTitle">🗓️ Penyusunan Itinerary Per Hari:</label>
                     <span id="activeDayIndicator" class="text-[11px] bg-amber-500/20 text-amber-600 dark:text-amber-400 font-bold px-2 py-0.5 rounded-lg">Hari 1</span>
@@ -201,7 +207,7 @@
                 <div class="pt-2 border-t border-gray-200 dark:border-gray-700 mt-2">
                     <p class="font-bold text-gray-700 dark:text-gray-300 mb-1" data-i18n="draftTitle">🗺️ Draf Akumulasi Itinerary Lengkap:</p>
                     <div id="itinerarySummary" class="text-[11px] text-gray-600 dark:text-gray-400 bg-white dark:bg-navy-800 p-2.5 rounded-xl border border-gray-200 dark:border-gray-700 italic space-y-1">
-                        Belum ada destinasi terpilih.
+                        Belum ada durasi sewa yang diisi.
                     </div>
                 </div>
 
@@ -221,8 +227,10 @@
                     <span class="text-xs text-gray-500 dark:text-gray-400 block" data-i18n="totalEstimate">Estimasi Biaya Paket Total:</span>
                     <span id="calcResult" class="text-2xl sm:text-3xl font-black text-amber-500">Rp 0</span>
                 </div>
-                <button id="btnBook" onclick="sendOrderWA()" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-navy-900 font-extrabold px-6 py-3.5 rounded-xl text-xs shadow-lg hover:shadow-amber-500/20 transition">
-                    Pesan via WhatsApp (Rp 0) 📱
+                
+                <!-- Tombol berisi draft akumulasi itinerary lengkap & estimasi calcResult -->
+                <button id="btnBook" onclick="sendOrderWA()" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-navy-900 font-extrabold px-6 py-3.5 rounded-xl text-xs shadow-lg hover:shadow-amber-500/20 transition text-center">
+                    Draft Akumulasi Itinerary Lengkap (Rp 0) 📱
                 </button>
             </div>
         </div>
@@ -283,9 +291,10 @@
                 term3: "• Layanan Drop/Jemput lokal area Kota Bandung (Hotel ke Stasiun/sebaliknya) Rp 200.000.",
                 term4: "• Destinasi luar kota / beda kota dikenakan tambahan biaya operasional antar-kota.",
                 totalEstimate: "Estimasi Biaya Paket Total:",
-                btnBookPrefix: "Pesan via WhatsApp",
+                btnBookPrefix: "Draft Akumulasi Itinerary Lengkap",
                 dayText: "Hari",
                 emptyDest: "Belum ada destinasi terpilih.",
+                emptyDuration: "Silakan isi durasi sewa (minimal 1 hari) terlebih dahulu.",
                 editInDay: "Edit di Hari",
                 exceededCap: "⚠️ Peringatan Kapasitas: Jumlah peserta ({pax} Orang) melebihi kapasitas armada sebelumnya. Sistem telah otomatis menyesuaikan ke {car}."
             },
@@ -338,15 +347,15 @@
                 term3: "• Local drop/pickup in Bandung City (Hotel to Station/vice versa) is IDR 200,000.",
                 term4: "• Out of city / inter-city destinations incur additional operational fees.",
                 totalEstimate: "Total Estimated Package Cost:",
-                btnBookPrefix: "Book via WhatsApp",
+                btnBookPrefix: "Full Accumulated Itinerary Draft",
                 dayText: "Day",
                 emptyDest: "No destinations selected yet.",
+                emptyDuration: "Please fill in rental duration (minimum 1 day) first.",
                 editInDay: "Edit in Day",
                 exceededCap: "⚠️ Capacity Warning: Number of passengers ({pax} Pax) exceeds previous vehicle capacity. System automatically adjusted to {car}."
             }
         };
 
-        // Objek Data Destinasi Terstruktur (Bilingual)
         const destData = {
             BandungKota: [
                 { id: "bk_1", name: { id: "Jalan Asia Afrika & Gedung Merdeka", en: "Asia Afrika Street & Merdeka Building" }, desc: { id: "Spot bersejarah & arsitektur klasik", en: "Historic spot & classic colonial architecture" } },
@@ -438,8 +447,11 @@
             });
 
             onPaxChange();
-            renderDayTabs(parseInt(document.getElementById('calcDays').value) || 1);
-            renderDestinations();
+            const days = parseInt(document.getElementById('calcDays').value) || 0;
+            if (days > 0) {
+                renderDayTabs(days);
+                renderDestinations();
+            }
             updateItinerarySummary();
             calculateTotal();
         }
@@ -512,10 +524,27 @@
         }
 
         function onDaysChange() {
-            let days = parseInt(document.getElementById('calcDays').value) || 1;
-            if (days < 1) days = 1;
+            let daysInput = document.getElementById('calcDays').value;
+            let days = parseInt(daysInput);
+
+            const durationWarningBox = document.getElementById('durationWarningBox');
+            const itineraryContainer = document.getElementById('itineraryContainer');
+
+            // Jika tidak diisi atau bernilai < 1
+            if (isNaN(days) || days < 1) {
+                durationWarningBox.classList.remove('hidden');
+                itineraryContainer.classList.add('hidden');
+                dayData = {};
+                updateItinerarySummary();
+                calculateTotal();
+                return;
+            }
+
             if (days > 10) days = 10;
-            
+            document.getElementById('calcDays').value = days;
+            durationWarningBox.classList.add('hidden');
+            itineraryContainer.classList.remove('hidden');
+
             for (let d in dayData) {
                 if (parseInt(d) > days) {
                     delete dayData[d];
@@ -561,7 +590,7 @@
 
         function switchDay(dayNum) {
             currentActiveDay = dayNum;
-            const days = parseInt(document.getElementById('calcDays').value) || 1;
+            const days = parseInt(document.getElementById('calcDays').value) || 0;
             renderDayTabs(days);
             loadActiveDayForm();
         }
@@ -692,9 +721,14 @@
             let hasAnySelection = false;
             let html = '';
 
-            const days = parseInt(document.getElementById('calcDays').value) || 1;
+            const days = parseInt(document.getElementById('calcDays').value) || 0;
             const areaSelectElem = document.getElementById('calcAreaDay');
             const dict = i18nDict[currentLang];
+
+            if (days < 1) {
+                summaryBox.innerText = dict.emptyDuration;
+                return;
+            }
 
             for (let i = 1; i <= days; i++) {
                 const dayObj = dayData[i] || { area: 'BandungKota', dests: [], customText: '' };
@@ -768,7 +802,7 @@
         function calculateTotal() {
             const carSelect = document.getElementById('calcCar');
             const carPrice = parseInt(carSelect.value);
-            const days = parseInt(document.getElementById('calcDays').value) || 1;
+            const days = parseInt(document.getElementById('calcDays').value) || 0;
 
             const pickupFee = parseInt(document.getElementById('calcPickup').value) || 0;
             const dropFee = parseInt(document.getElementById('calcDrop').value) || 0;
@@ -776,38 +810,40 @@
             let totalOutTownToll = 0;
             const areaSelectElem = document.getElementById('calcAreaDay');
 
-            for (let i = 1; i <= days; i++) {
-                const dayObj = dayData[i] || { area: 'BandungKota' };
-                let dayToll = 0;
-                for (let opt of areaSelectElem.options) {
-                    if (opt.value === dayObj.area) {
-                        dayToll = parseInt(opt.getAttribute('data-toll')) || 0;
-                        break;
+            if (days > 0) {
+                for (let i = 1; i <= days; i++) {
+                    const dayObj = dayData[i] || { area: 'BandungKota' };
+                    let dayToll = 0;
+                    for (let opt of areaSelectElem.options) {
+                        if (opt.value === dayObj.area) {
+                            dayToll = parseInt(opt.getAttribute('data-toll')) || 0;
+                            break;
+                        }
                     }
+                    totalOutTownToll += dayToll;
                 }
-                totalOutTownToll += dayToll;
             }
 
             const totalTransport = carPrice * days;
-            const total = totalTransport + pickupFee + dropFee + totalOutTownToll;
+            const total = totalTransport + (days > 0 ? (pickupFee + dropFee + totalOutTownToll) : 0);
 
             document.getElementById('detailTransport').innerText = "Rp " + totalTransport.toLocaleString('id-ID');
 
-            if (pickupFee > 0) {
+            if (pickupFee > 0 && days > 0) {
                 document.getElementById('rowPickupFee').classList.remove('hidden');
                 document.getElementById('detailPickupFee').innerText = "Rp " + pickupFee.toLocaleString('id-ID');
             } else {
                 document.getElementById('rowPickupFee').classList.add('hidden');
             }
 
-            if (dropFee > 0) {
+            if (dropFee > 0 && days > 0) {
                 document.getElementById('rowDropFee').classList.remove('hidden');
                 document.getElementById('detailDropFee').innerText = "Rp " + dropFee.toLocaleString('id-ID');
             } else {
                 document.getElementById('rowDropFee').classList.add('hidden');
             }
 
-            if (totalOutTownToll > 0) {
+            if (totalOutTownToll > 0 && days > 0) {
                 document.getElementById('rowOutTownToll').classList.remove('hidden');
                 document.getElementById('detailOutTownToll').innerText = "Rp " + totalOutTownToll.toLocaleString('id-ID');
             } else {
@@ -817,13 +853,22 @@
             const formattedTotal = "Rp " + total.toLocaleString('id-ID');
             document.getElementById('calcResult').innerText = formattedTotal;
 
-            // Update keterangan biaya di tombol WhatsApp
+            // Tombol berisi: Draft Akumulasi Itinerary Lengkap (Rp X.XXX.XXX) 📱
             const dict = i18nDict[currentLang];
             document.getElementById('btnBook').innerText = `${dict.btnBookPrefix} (${formattedTotal}) 📱`;
         }
 
         function sendOrderWA() {
+            const days = parseInt(document.getElementById('calcDays').value) || 0;
             const isEn = currentLang === 'en';
+
+            // Peringatan jika durasi belum diisi (masih 0)
+            if (days < 1) {
+                alert(isEn ? "Please fill in the rental duration (minimum 1 day) first!" : "Mohon isi durasi sewa (minimal 1 hari) terlebih dahulu!");
+                document.getElementById('calcDays').focus();
+                return;
+            }
+
             const pickupSelect = document.getElementById('calcPickup');
             const pickupName = isEn ? pickupSelect.options[pickupSelect.selectedIndex].getAttribute('data-name-en') : pickupSelect.options[pickupSelect.selectedIndex].getAttribute('data-name-id');
             const pickupFee = parseInt(pickupSelect.value) || 0;
@@ -838,8 +883,6 @@
 
             const carSelect = document.getElementById('calcCar');
             const carName = isEn ? carSelect.options[carSelect.selectedIndex].getAttribute('data-name-en') : carSelect.options[carSelect.selectedIndex].getAttribute('data-name-id');
-            
-            const days = document.getElementById('calcDays').value;
             const pax = document.getElementById('calcPax').value;
             
             const detailTransport = document.getElementById('detailTransport').innerText;
@@ -847,10 +890,9 @@
 
             let totalOutTownToll = 0;
             const areaSelectElem = document.getElementById('calcAreaDay');
-            let totalDaysNum = parseInt(days) || 1;
 
             let itineraryText = "";
-            for (let i = 1; i <= totalDaysNum; i++) {
+            for (let i = 1; i <= days; i++) {
                 const dayObj = dayData[i] || { area: 'BandungKota', dests: [], customText: '' };
                 
                 let areaText = dayObj.area;
@@ -920,7 +962,7 @@
             document.documentElement.classList.toggle('dark');
         }
 
-        // Inisialisasi
+        // Inisialisasi awal
         onPaxChange();
         onDaysChange();
     </script>
