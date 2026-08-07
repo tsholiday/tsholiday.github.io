@@ -86,9 +86,10 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                     <label class="block text-xs font-bold mb-1.5" data-i18n="durationLabel">Durasi Sewa (Hari):</label>
-                    <input type="number" id="calcDays" value="2" min="1" max="10" onchange="onDaysChange()" onkeyup="onDaysChange()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
+                    <!-- Nilai Default di-set ke 0 -->
+                    <input type="number" id="calcDays" value="0" min="0" max="10" onchange="onDaysChange()" onkeyup="onDaysChange()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
                     <!-- Peringatan Wajib Isi Hari -->
-                    <p id="daysWarningText" class="hidden text-[11px] text-red-500 font-bold mt-1" data-i18n="daysWarning">⚠️ Silakan isi durasi hari sewa terlebih dahulu!</p>
+                    <p id="daysWarningText" class="text-[11px] text-red-500 font-bold mt-1" data-i18n="daysWarning">⚠️ Silakan isi durasi hari sewa terlebih dahulu!</p>
                 </div>
 
                 <div>
@@ -141,7 +142,7 @@
             <div class="bg-gray-50 dark:bg-navy-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-4 space-y-3">
                 <div class="flex items-center justify-between">
                     <label class="block text-xs font-bold text-amber-500" data-i18n="itineraryTitle">🗓️ Penyusunan Itinerary Per Hari:</label>
-                    <span id="activeDayIndicator" class="text-[11px] bg-amber-500/20 text-amber-600 dark:text-amber-400 font-bold px-2 py-0.5 rounded-lg">Hari 1</span>
+                    <span id="activeDayIndicator" class="text-[11px] bg-amber-500/20 text-amber-600 dark:text-amber-400 font-bold px-2 py-0.5 rounded-lg">-</span>
                 </div>
 
                 <!-- Tab Pilih Hari -->
@@ -151,7 +152,7 @@
 
                 <!-- Select Wilayah Utama Khusus Hari Aktif -->
                 <div class="pt-1">
-                    <label class="block text-[11px] font-bold mb-1 text-gray-700 dark:text-gray-300"><span data-i18n="selectRegion">Pilih Wilayah Tour / Layanan untuk</span> <span id="labelWilayahHari" class="text-amber-500">Hari 1</span>:</label>
+                    <label class="block text-[11px] font-bold mb-1 text-gray-700 dark:text-gray-300"><span data-i18n="selectRegion">Pilih Wilayah Tour / Layanan untuk</span> <span id="labelWilayahHari" class="text-amber-500">-</span>:</label>
                     <select id="calcAreaDay" onchange="onAreaDayChange()" class="w-full bg-white dark:bg-navy-800 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-semibold focus:outline-none focus:border-amber-500">
                         <option value="BandungKota" data-toll="0" selected data-i18n="areaKota">🏛️ 2. Kota Bandung (Wisata Sejarah, Kuliner & Kota)</option>
                         <option value="BandungUtara" data-toll="0" data-i18n="areaLembang">🌲 3. Lembang (Bandung Barat)</option>
@@ -223,7 +224,7 @@
                     <span class="text-xs text-gray-500 dark:text-gray-400 block" data-i18n="totalEstimate">Estimasi Biaya Paket Total:</span>
                     <span id="calcResult" class="text-2xl sm:text-3xl font-black text-amber-500">Rp 0</span>
                 </div>
-                <button id="btnSendWA" onclick="sendOrderWA()" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-navy-900 font-extrabold px-6 py-3.5 rounded-xl text-xs shadow-lg hover:shadow-amber-500/20 transition" data-i18n="btnBook">
+                <button id="btnSendWA" disabled onclick="sendOrderWA()" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-navy-900 font-extrabold px-6 py-3.5 rounded-xl text-xs shadow-lg hover:shadow-amber-500/20 transition" data-i18n="btnBook">
                     Pesan via WhatsApp 📱
                 </button>
             </div>
@@ -419,6 +420,18 @@
             DropOnlyBandung: []
         };
 
+        // Rekomendasi Destinasi Otomatis Default Per Area
+        const defaultSelectedDestinations = {
+            BandungKota: ["bk_1", "bk_2", "bk_4"], // Asia Afrika, Braga, Gedung Sate
+            BandungUtara: ["bu_1", "bu_4", "bu_5"], // Orchid Forest, Floating Market, Farmhouse
+            BandungSelatan1: ["bs1_1", "bs1_2", "bs1_3"], // Kawah Putih, Ranca Upas, Glamping Lakeside
+            BandungSelatan2: ["bs2_1", "bs2_3"], // Nimo Highland, Situ Cileunca
+            Jakarta: ["jk_1", "jk_2"], // Monas, Kota Tua
+            Bogor: ["bg_1", "bg_2"], // Kebun Raya Bogor, Kebun Teh Puncak
+            Jogja: ["jg_1", "jg_2"], // Malioboro, Kraton
+            DropOnlyBandung: []
+        };
+
         let dayData = {};
         let currentActiveDay = 1;
 
@@ -552,9 +565,12 @@
                 currentActiveDay = days;
             }
 
+            // Inisialisasi data hari dengan destinasi otomatis terisi
             for (let i = 1; i <= days; i++) {
                 if (!dayData[i]) {
-                    dayData[i] = { area: 'BandungKota', dests: [], customText: '' };
+                    const defaultArea = 'BandungKota';
+                    const autoDests = [...(defaultSelectedDestinations[defaultArea] || [])];
+                    dayData[i] = { area: defaultArea, dests: autoDests, customText: '' };
                 }
             }
 
@@ -611,12 +627,14 @@
             if (days === 0) return;
 
             const selectedArea = document.getElementById('calcAreaDay').value;
+            const autoDests = [...(defaultSelectedDestinations[selectedArea] || [])];
+
             if (!dayData[currentActiveDay]) {
-                dayData[currentActiveDay] = { area: selectedArea, dests: [], customText: '' };
+                dayData[currentActiveDay] = { area: selectedArea, dests: autoDests, customText: '' };
             } else {
                 dayData[currentActiveDay].area = selectedArea;
-                const validItemIds = (destData[selectedArea] || []).map(item => item.id);
-                dayData[currentActiveDay].dests = dayData[currentActiveDay].dests.filter(id => validItemIds.includes(id));
+                // Otomatis terisi destinasi default area baru
+                dayData[currentActiveDay].dests = autoDests;
             }
 
             renderDestinations();
@@ -988,7 +1006,8 @@
             document.documentElement.classList.toggle('dark');
         }
 
-        // Inisialisasi
+        // Inisialisasi saat Halaman Ditinggalkan / Di-refresh
+        document.getElementById('calcDays').value = 0;
         onPaxChange();
         onDaysChange();
     </script>
