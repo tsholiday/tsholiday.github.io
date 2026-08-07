@@ -159,25 +159,42 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    
-    // B. LIGHTBOX CONTROL EVENT LISTENERS
+        // B. LIGHTBOX CONTROL EVENT LISTENERS
+    const modal = document.getElementById('imageModal');
+    const closeBtn = document.querySelector('.modal-close');
+    const zoomInBtn = document.getElementById('zoomInBtn');
+    const zoomOutBtn = document.getElementById('zoomOutBtn');
+    const resetZoomBtn = document.getElementById('resetZoomBtn');
     const prevImgBtn = document.getElementById('prevImgBtn');
     const nextImgBtn = document.getElementById('nextImgBtn');
 
-    if (prevImgBtn) prevImgBtn.addEventListener('click', showPrevImage);
-    if (nextImgBtn) nextImgBtn.addEventListener('click', showNextImage);
-
-    // Navigasi via Keyboard (Panah Kiri, Panah Kanan, & ESC)
-    document.addEventListener('keydown', (e) => {
-        const modal = document.getElementById('imageModal');
-        if (modal && modal.classList.contains('show')) {
-            if (e.key === 'ArrowRight') showNextImage();
-            if (e.key === 'ArrowLeft') showPrevImage();
-            if (e.key === 'Escape') closeModal();
+    if (modal) {
+        // Kontrol Zoom In
+        if (zoomInBtn) {
+            zoomInBtn.addEventListener('click', () => {
+                if (currentZoom < 3) { currentZoom += 0.25; updateZoom(); }
+            });
         }
-    });
 
-        // Scroll Wheel Zooming
+        // Kontrol Zoom Out
+        if (zoomOutBtn) {
+            zoomOutBtn.addEventListener('click', () => {
+                if (currentZoom > 0.5) { currentZoom -= 0.25; updateZoom(); }
+            });
+        }
+
+        // Reset Zoom
+        if (resetZoomBtn) {
+            resetZoomBtn.addEventListener('click', () => {
+                currentZoom = 1; updateZoom();
+            });
+        }
+
+        // Tombol Navigasi Panah Layar
+        if (prevImgBtn) prevImgBtn.addEventListener('click', showPrevImage);
+        if (nextImgBtn) nextImgBtn.addEventListener('click', showNextImage);
+
+        // Zoom menggunakan Scroll Wheel Mouse
         modal.addEventListener('wheel', (e) => {
             e.preventDefault();
             if (e.deltaY < 0) {
@@ -188,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
             updateZoom();
         }, { passive: false });
 
-        // Close Trigger
+        // Tutup Modal via Tombol Close (X) & Klik di Luar Gambar
         if (closeBtn) closeBtn.addEventListener('click', closeModal);
         modal.addEventListener('click', (e) => {
             if (e.target === modal || e.target.classList.contains('modal-content-wrapper')) {
@@ -196,19 +213,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // ESC Key Close
+        // Navigasi via Tombol Keyboard (Panah Kiri, Kanan, & ESC)
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('show')) {
-                closeModal();
+            if (modal.classList.contains('show')) {
+                if (e.key === 'ArrowRight') showNextImage();
+                if (e.key === 'ArrowLeft') showPrevImage();
+                if (e.key === 'Escape') closeModal();
             }
         });
     }
 
-    // Otomatis daftarkan juga gambar lain (misal: kartu paket / legalitas)
-    const extraClickableImages = document.querySelectorAll('.card img, .legality-img');
-    extraClickableImages.forEach(img => {
-        img.addEventListener('click', () => openLightbox(img.src));
-    });
 
     // C. SCROLL TO TOP CONTROL
     const scrollTopBtn = document.getElementById('scrollTopBtn');
