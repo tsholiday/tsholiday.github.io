@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulator Sewa & Custom Itinerary</title>
+    <title>Kalkulator Sewa & Custom Itinerary Multi-Hari</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -86,7 +86,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                     <label class="block text-xs font-bold mb-1.5" data-i18n="durationLabel">Durasi Sewa (Hari):</label>
-                    <input type="number" id="calcDays" value="0" min="0" max="10" onchange="onDaysChange()" onkeyup="onDaysChange()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
+                    <input type="number" id="calcDays" value="2" min="1" max="10" onchange="onDaysChange()" onkeyup="onDaysChange()" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-amber-500">
                     <!-- Peringatan Wajib Isi Hari -->
                     <p id="daysWarningText" class="hidden text-[11px] text-red-500 font-bold mt-1" data-i18n="daysWarning">⚠️ Silakan isi durasi hari sewa terlebih dahulu!</p>
                 </div>
@@ -911,7 +911,7 @@
             let totalOutTownToll = 0;
             const areaSelectElem = document.getElementById('calcAreaDay');
 
-            // Menyusun Draf Itinerary Lengkap
+            // Menyusun Akumulasi Itinerary Lengkap (Mendukung Multi-Hari > 1)
             let itineraryText = "";
             for (let i = 1; i <= days; i++) {
                 const dayObj = dayData[i] || { area: 'BandungKota', dests: [], customText: '' };
@@ -952,10 +952,10 @@
                 }
             }
 
-            // Menyusun seluruh format isi pesan WhatsApp
+            // Formatting Pesan WhatsApp Komprehensif
             let text = isEn 
-                ? `Hello, I would like to book / inquire about vehicle availability:%0A%0A`
-                : `Halo, saya ingin reservasi / tanya ketersediaan armada:%0A%0A`;
+                ? `Hello, I would like to book / inquire about vehicle availability for ${days} days:%0A%0A`
+                : `Halo, saya ingin reservasi / tanya ketersediaan armada untuk ${days} hari:%0A%0A`;
                 
             text += `- *${isEn ? 'Main Pickup' : 'Penjemputan Utama'}*: ${pickupName} (${pickupDetail})%0A`;
             text += `- *${isEn ? 'Main Drop Off' : 'Pengantaran Utama'}*: ${dropName} (${dropDetail})%0A`;
@@ -964,12 +964,12 @@
             text += `- *${isEn ? 'Duration' : 'Durasi'}*: ${days} ${isEn ? 'Days' : 'Hari'}%0A`;
             text += `- *${isEn ? 'Special Customer Notes' : 'Catatan Khusus Pelanggan'}*: ${custNotes}%0A%0A`;
             
-            // Integrasi Header Draf Itinerary
+            // Draf Akumulasi Itinerary Lengkap Multi-Hari
             text += `*🗺️ ${isEn ? 'Accumulated Itinerary Draft' : 'Draf Akumulasi Itinerary Lengkap'}:*${itineraryText}%0A%0A`;
             
-            // Integrasi Header & Rincian Biaya Paket Total
+            // Rincian Komponen & Biaya Paket Total Multi-Hari
             text += `*📊 ${isEn ? 'Cost Breakdown' : 'Rincian Komponen Biaya'}:*%0A`;
-            text += `• ${isEn ? 'Vehicle Rental' : 'Sewa Transport Utama'}: ${detailTransport}%0A`;
+            text += `• ${isEn ? 'Vehicle Rental' : 'Sewa Transport Utama'} (${days} ${isEn ? 'Days' : 'Hari'}): ${detailTransport}%0A`;
             if (pickupFee > 0) {
                 text += `• ${isEn ? 'Pickup Fee' : 'Charge Penjemputan Utama'}: Rp ${pickupFee.toLocaleString('id-ID')}%0A`;
             }
@@ -979,7 +979,7 @@
             if (totalOutTownToll > 0) {
                 text += `• ${isEn ? 'Inter-City Surcharge' : 'Biaya Layanan Wilayah / Antar-Kota'}: Rp ${totalOutTownToll.toLocaleString('id-ID')}%0A`;
             }
-            text += `%0A*💰 ${isEn ? 'Total Package Estimated Cost' : 'Estimasi Biaya Paket Total'}: ${total}*%0A%0A${isEn ? 'Please confirm availability, thank you!' : 'Mohon konfirmasi ketersediaannya, terima kasih!'}`;
+            text += `%0A*💰 ${isEn ? 'Total Package Estimated Cost' : 'Estimasi Biaya Paket Total'} (${days} ${isEn ? 'Days' : 'Hari'}): ${total}*%0A%0A${isEn ? 'Please confirm availability, thank you!' : 'Mohon konfirmasi ketersediaannya, terima kasih!'}`;
             
             window.open(`https://wa.me/6282130640161?text=${text}`, '_blank');
         }
