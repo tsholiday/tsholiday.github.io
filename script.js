@@ -159,29 +159,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    
     // B. LIGHTBOX CONTROL EVENT LISTENERS
-    const modal = document.getElementById('imageModal');
-    const closeBtn = document.querySelector('.modal-close');
-    const zoomInBtn = document.getElementById('zoomInBtn');
-    const zoomOutBtn = document.getElementById('zoomOutBtn');
-    const resetZoomBtn = document.getElementById('resetZoomBtn');
+    const prevImgBtn = document.getElementById('prevImgBtn');
+    const nextImgBtn = document.getElementById('nextImgBtn');
 
-    if (modal) {
-        if (zoomInBtn) {
-            zoomInBtn.addEventListener('click', () => {
-                if (currentZoom < 3) { currentZoom += 0.25; updateZoom(); }
-            });
+    if (prevImgBtn) prevImgBtn.addEventListener('click', showPrevImage);
+    if (nextImgBtn) nextImgBtn.addEventListener('click', showNextImage);
+
+    // Navigasi via Keyboard (Panah Kiri, Panah Kanan, & ESC)
+    document.addEventListener('keydown', (e) => {
+        const modal = document.getElementById('imageModal');
+        if (modal && modal.classList.contains('show')) {
+            if (e.key === 'ArrowRight') showNextImage();
+            if (e.key === 'ArrowLeft') showPrevImage();
+            if (e.key === 'Escape') closeModal();
         }
-        if (zoomOutBtn) {
-            zoomOutBtn.addEventListener('click', () => {
-                if (currentZoom > 0.5) { currentZoom -= 0.25; updateZoom(); }
-            });
-        }
-        if (resetZoomBtn) {
-            resetZoomBtn.addEventListener('click', () => {
-                currentZoom = 1; updateZoom();
-            });
-        }
+    });
 
         // Scroll Wheel Zooming
         modal.addEventListener('wheel', (e) => {
