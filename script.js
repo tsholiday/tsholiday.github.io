@@ -72,17 +72,23 @@ function renderGalleryItems() {
     }
 }
 
-
 // ==========================================================================
-// 2. LIGHTBOX MODAL WITH ZOOM SYSTEM
+// 2. LIGHTBOX MODAL WITH ZOOM & NAVIGATION SYSTEM
 // ==========================================================================
 let currentZoom = 1;
+let currentModalIndex = 0;
 
 function openLightbox(imageSrc) {
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
 
     if (modal && modalImg) {
+        // Cari indeks gambar dalam array galeri
+        const foundIndex = galleryImages.findIndex(file => imageSrc.includes(file));
+        if (foundIndex !== -1) {
+            currentModalIndex = foundIndex;
+        }
+
         modal.classList.add('show');
         modalImg.src = imageSrc;
         modalImg.alt = 'Preview Image';
@@ -106,6 +112,33 @@ function closeModal() {
         updateZoom();
     }
 }
+
+// FUNGSI NAVIGASI FOTO SELANJUTNYA
+function showNextImage() {
+    if (galleryImages.length === 0) return;
+    currentModalIndex = (currentModalIndex + 1) % galleryImages.length;
+    const newSrc = `assets/image/${galleryImages[currentModalIndex]}`;
+    const modalImg = document.getElementById('modalImage');
+    if (modalImg) {
+        modalImg.src = newSrc;
+        currentZoom = 1;
+        updateZoom();
+    }
+}
+
+// FUNGSI NAVIGASI FOTO SEBELUMNYA
+function showPrevImage() {
+    if (galleryImages.length === 0) return;
+    currentModalIndex = (currentModalIndex - 1 + galleryImages.length) % galleryImages.length;
+    const newSrc = `assets/image/${galleryImages[currentModalIndex]}`;
+    const modalImg = document.getElementById('modalImage');
+    if (modalImg) {
+        modalImg.src = newSrc;
+        currentZoom = 1;
+        updateZoom();
+    }
+}
+
 
 
 // ==========================================================================
