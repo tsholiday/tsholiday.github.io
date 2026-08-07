@@ -1,3 +1,57 @@
+/* ==========================================================================
+   TOMBOL SCROLL TO TOP
+   ========================================================================== */
+#scrollTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    background-color: #D4AF37; /* Warna Emas */
+    color: #0A192F;            /* Warna Navy */
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    
+    /* Keadaan Awal (Tersembunyi & Transparan) */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+/* Saat Tombol Aktif (Terlihat) */
+#scrollTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Efek Hover */
+#scrollTopBtn:hover {
+    background-color: #F3E5AB;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(212, 175, 55, 0.4);
+}
+
+/* Penyesuaian di Layar HP / Mobile */
+@media (max-width: 768px) {
+    #scrollTopBtn {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
+
 /* GALLERY GRID STYLING */
 .gallery-grid {
     display: grid;
