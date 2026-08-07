@@ -1,3 +1,28 @@
+    // ==========================================================================
+    // KONTROL TOMBOL SCROLL TO TOP
+    // ==========================================================================
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+    if (scrollTopBtn) {
+        // Tampilkan/sembunyikan tombol berdasarkan posisi scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) { // Muncul setelah scroll 300px ke bawah
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        // Aksi klik untuk kembali ke paling atas
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+
 // ==========================================
 // PWA GALLERY LOAD MORE SYSTEM (158 PHOTOS)
 // ==========================================
