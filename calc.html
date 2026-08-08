@@ -979,7 +979,7 @@
             text += `🗺️ *RANGKAIAN ITINERARY PER HARI:*${itineraryText}%0A%0A`;
             
             text += `📊 *RINCIAN ESTIMASI BIAYA*%0A`;
-            text += `• ${isEn ? 'Vehicle Rental' : 'Sewa Transport'} (${days}x): ${detailTransport}%0A`;
+            text += `• ${isEn ? 'Vehicle Rental' : 'Sewa Transport'} (${days}x${carPrice}): ${detailTransport}%0A`;
             if (pickupFee > 0) {
                 text += `• Pickup Charge: Rp ${pickupFee.toLocaleString('id-ID')}%0A`;
             }
