@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulator Sewa & Custom Itinerary Multi-Hari</title>
+    <title>Kalkulator SewadanCustom Itinerary Multi-Hari</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -23,7 +23,7 @@
     <!-- Container Utama Kalkulator -->
     <div class="w-full max-w-2xl bg-white dark:bg-navy-800 p-6 sm:p-8 rounded-3xl shadow-xl border border-amber-500/20 relative my-8">
         
-        <!-- Toggle Control (Dark Mode & Language Switcher) -->
+        <!-- Toggle Control (Dark ModedanLanguage Switcher) -->
         <div class="absolute top-4 right-4 flex items-center space-x-2">
             <!-- Selector Bahasa -->
             <button onclick="toggleLanguage()" id="langBtn" class="px-3 py-1.5 rounded-xl bg-gray-100 dark:bg-navy-900 text-xs font-bold text-amber-500 hover:scale-105 transition border border-gray-200 dark:border-gray-700">
@@ -38,16 +38,16 @@
 
         <!-- Judul -->
         <div class="text-center mb-6 mt-2">
-            <h1 class="text-2xl font-black text-navy-900 dark:text-white" data-i18n="title">🧮 Kalkulator Sewa & Custom Itinerary</h1>
-            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1" data-i18n="subtitle">Hitung estimasi biaya & susun itinerary perjalanan Anda per hari</p>
+            <h1 class="text-2xl font-black text-navy-900 dark:text-white" data-i18n="title">🧮 Kalkulator SewadanCustom Itinerary</h1>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1" data-i18n="subtitle">Hitung estimasi biayadansusun itinerary perjalanan Anda per hari</p>
         </div>
 
         <!-- Form Input Utama -->
         <div class="space-y-4">
 
-            <!-- BAGIAN PENJEMPUTAN & DROP OFF -->
+            <!-- BAGIAN PENJEMPUTANdanDROP OFF -->
             <div class="bg-gray-50 dark:bg-navy-900/50 p-3.5 rounded-2xl border border-gray-200 dark:border-gray-700 space-y-3">
-                <p class="text-xs font-extrabold text-amber-600 dark:text-amber-400" data-i18n="pickupDropTitle">📍 Pengaturan Penjemputan & Drop Off Utama:</p>
+                <p class="text-xs font-extrabold text-amber-600 dark:text-amber-400" data-i18n="pickupDropTitle">📍 Pengaturan PenjemputandanDrop Off Utama:</p>
                 
                 <!-- Opsi Kategori Penjemputan -->
                 <div>
@@ -82,7 +82,7 @@
                 </div>
             </div>
 
-            <!-- Durasi Hari & Jumlah Peserta -->
+            <!-- Durasi HaridanJumlah Peserta -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                     <label class="block text-xs font-bold mb-1.5" data-i18n="durationLabel">Durasi Sewa (Hari):</label>
@@ -109,7 +109,7 @@
                 <textarea id="customerNotes" rows="2" placeholder="Contoh: Bawa koper besar 4 unit, butuh supir ramah anak / bisa bahasa Inggris, atau minta car seat bayi..." data-i18n-ph="custNotesPh" class="w-full bg-gray-50 dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-medium focus:outline-none focus:border-amber-500"></textarea>
             </div>
 
-            <!-- Pilih Armada Kendaraan & Tarif -->
+            <!-- Pilih Armada KendaraandanTarif -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div class="sm:col-span-2">
                     <label class="block text-xs font-bold mb-1.5" data-i18n="selectFleet">Pilih Armada Kendaraan:</label>
@@ -148,7 +148,7 @@
                 <div class="pt-1">
                     <label class="block text-[11px] font-bold mb-1 text-gray-700 dark:text-gray-300"><span data-i18n="selectRegion">Pilih Wilayah Tour / Layanan untuk</span> <span id="labelWilayahHari" class="text-amber-500">-</span>:</label>
                     <select id="calcAreaDay" onchange="onAreaDayChange()" class="w-full bg-white dark:bg-navy-800 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-semibold focus:outline-none focus:border-amber-500">
-                        <option value="BandungKota" data-toll="0" selected data-i18n="areaKota">🏛️ 2. Kota Bandung (Wisata Sejarah, Kuliner & Kota)</option>
+                        <option value="BandungKota" data-toll="0" selected data-i18n="areaKota">🏛️ 2. Kota Bandung (Wisata Sejarah, KulinerdanKota)</option>
                         <option value="BandungUtara" data-toll="0" data-i18n="areaLembang">🌲 3. Lembang (Bandung Barat)</option>
                         <option value="BandungSelatan1" data-toll="0" data-i18n="areaCiwidey">🌋 1. Ciwidey (Bandung Selatan)</option>
                         <option value="BandungSelatan2" data-toll="0" data-i18n="areaPangalengan">🍃 4. Pangalengan (Bandung Selatan)</option>
@@ -172,7 +172,7 @@
                 </div>
             </div>
 
-            <!-- Breakdown Rincian Terpisah & Itinerary Summary -->
+            <!-- Breakdown Rincian TerpisahdanItinerary Summary -->
             <div class="bg-gray-100 dark:bg-navy-900/80 rounded-2xl p-4 border border-gray-200 dark:border-gray-700 space-y-2 text-xs">
                 <p class="font-bold text-gray-700 dark:text-gray-300 border-b border-gray-200 dark:border-gray-700 pb-1" data-i18n="costBreakdown">📊 Rincian Komponen Biaya:</p>
                 <div class="flex justify-between">
@@ -202,7 +202,7 @@
 
                 <!-- Informasi Ketentuan Operasional -->
                 <div class="bg-amber-500/10 border-l-4 border-amber-500 p-3 rounded-r-xl mt-3 text-[11px] leading-relaxed text-gray-700 dark:text-gray-300 space-y-0.5">
-                    <p class="font-bold text-amber-600 dark:text-amber-400 mb-0.5" data-i18n="termsTitle">ℹ️ Ketentuan Operasional & Penjemputan:</p>
+                    <p class="font-bold text-amber-600 dark:text-amber-400 mb-0.5" data-i18n="termsTitle">ℹ️ Ketentuan OperasionaldanPenjemputan:</p>
                     <p data-i18n="term1">• Durasi pelayanan maksimal <strong>12 Jam per hari</strong> (maksimal selesai pukul <strong>21.00 WIB</strong>).</p>
                     <p data-i18n="term2">• Layanan antar/jemput Bandara CGK (Jakarta/Tangerang) dikenakan <strong>Rp 600.000 / sekali jalan</strong>.</p>
                     <p data-i18n="term3">• Layanan Drop/Jemput lokal area Kota Bandung (Hotel ke Stasiun/sebaliknya) <strong>Rp 200.000</strong>.</p>
@@ -210,7 +210,7 @@
                 </div>
             </div>
 
-            <!-- Box Hasil & Tombol WA -->
+            <!-- Box HasildanTombol WA -->
             <div class="bg-amber-500/10 border border-amber-500/30 p-5 rounded-2xl flex flex-col sm:flex-row justify-between items-center gap-4 mt-4">
                 <div class="text-center sm:text-left">
                     <span class="text-xs text-gray-500 dark:text-gray-400 block" data-i18n="totalEstimate">Estimasi Biaya Paket Total:</span>
@@ -224,15 +224,15 @@
 
     </div>
 
-    <!-- Script Logika & Bahasa -->
+    <!-- Script LogikadanBahasa -->
     <script>
         let currentLang = 'id';
 
         const i18nDict = {
             id: {
-                title: "🧮 Kalkulator Sewa & Custom Itinerary",
-                subtitle: "Hitung estimasi biaya & susun itinerary perjalanan Anda per hari",
-                pickupDropTitle: "📍 Pengaturan Penjemputan & Drop Off Utama:",
+                title: "🧮 Kalkulator SewadanCustom Itinerary",
+                subtitle: "Hitung estimasi biayadansusun itinerary perjalanan Anda per hari",
+                pickupDropTitle: "📍 Pengaturan PenjemputandanDrop Off Utama:",
                 pickupCat: "Kategori Penjemputan (Pickup):",
                 pickupOpt1: "Area Kota Bandung (Hotel / Stasiun / KCIC Whoosh / Terminal Bus) - Bebas Biaya",
                 pickupOpt2: "Luar Kota Bandung Non-Airport (+ Rp 150.000)",
@@ -255,7 +255,7 @@
                 pricePerDay: "Harga / Hari (12j):",
                 itineraryTitle: "🗓️ Penyusunan Itinerary Per Hari:",
                 selectRegion: "Pilih Wilayah Tour / Layanan untuk",
-                areaKota: "🏛️ 2. Kota Bandung (Wisata Sejarah, Kuliner & Kota)",
+                areaKota: "🏛️ 2. Kota Bandung (Wisata Sejarah, KulinerdanKota)",
                 areaLembang: "🌲 3. Lembang (Bandung Barat)",
                 areaCiwidey: "🌋 1. Ciwidey (Bandung Selatan)",
                 areaPangalengan: "🍃 4. Pangalengan (Bandung Selatan)",
@@ -272,7 +272,7 @@
                 lblDropFee: "Charge Pengantaran Utama:",
                 lblOutTown: "Biaya Layanan Wilayah / Antar-Kota:",
                 draftTitle: "🗺️ Draf Akumulasi Itinerary Lengkap:",
-                termsTitle: "ℹ️ Ketentuan Operasional & Penjemputan:",
+                termsTitle: "ℹ️ Ketentuan OperasionaldanPenjemputan:",
                 term1: "• Durasi pelayanan maksimal 12 Jam per hari (maksimal selesai pukul 21.00 WIB).",
                 term2: "• Layanan antar/jemput Bandara CGK (Jakarta/Tangerang) dikenakan Rp 600.000 / sekali jalan.",
                 term3: "• Layanan Drop/Jemput lokal area Kota Bandung (Hotel ke Stasiun/sebaliknya) Rp 200.000.",
@@ -286,9 +286,9 @@
                 exceededCap: "⚠️ Peringatan Kapasitas: Jumlah peserta ({pax} Orang) melebihi kapasitas armada sebelumnya. Sistem telah otomatis menyesuaikan ke {car}."
             },
             en: {
-                title: "🧮 Rental & Custom Itinerary Calculator",
-                subtitle: "Estimate rental cost & organize your trip itinerary day by day",
-                pickupDropTitle: "📍 Main Pickup & Drop Off Settings:",
+                title: "🧮 RentaldanCustom Itinerary Calculator",
+                subtitle: "Estimate rental costdanorganize your trip itinerary day by day",
+                pickupDropTitle: "📍 Main PickupdanDrop Off Settings:",
                 pickupCat: "Pickup Category:",
                 pickupOpt1: "Bandung City Area (Hotel / Railway Station / Whoosh HSR Station / Bus Terminal) - Free Fee",
                 pickupOpt2: "Outside Bandung City (Non-Airport) (+ IDR 150,000)",
@@ -311,7 +311,7 @@
                 pricePerDay: "Price / Day (12h):",
                 itineraryTitle: "🗓️ Daily Itinerary Builder:",
                 selectRegion: "Select Region / Service for",
-                areaKota: "🏛️ 2. Bandung City (History, Culinary & City Tour)",
+                areaKota: "🏛️ 2. Bandung City (History, CulinarydanCity Tour)",
                 areaLembang: "🌲 3. Lembang (West Bandung)",
                 areaCiwidey: "🌋 1. Ciwidey (South Bandung)",
                 areaPangalengan: "🍃 4. Pangalengan (South Bandung)",
@@ -328,7 +328,7 @@
                 lblDropFee: "Main Drop Off Charge:",
                 lblOutTown: "Inter-City / Regional Surcharge:",
                 draftTitle: "🗺️ Accumulated Itinerary Draft:",
-                termsTitle: "ℹ️ Operational Terms & Conditions:",
+                termsTitle: "ℹ️ Operational TermsdanConditions:",
                 term1: "• Maximum service duration is 12 Hours per day (ends by 09:00 PM WIB).",
                 term2: "• CGK Airport (Jakarta/Tangerang) pickup/drop fee is IDR 600,000 / one way.",
                 term3: "• Local drop/pickup in Bandung City (Hotel to Station/vice versa) is IDR 200,000.",
@@ -345,68 +345,68 @@
 
         const destData = {
             BandungKota: [
-                { id: "bk_1", name: { id: "Jalan Asia Afrika & Gedung Merdeka", en: "Asia Afrika Street & Merdeka Building" }, desc: { id: "Spot bersejarah & arsitektur klasik", en: "Historic spot & classic colonial architecture" } },
-                { id: "bk_2", name: { id: "Jalan Braga", en: "Braga Street" }, desc: { id: "Kawasan jalan ikonik dengan cafe, bangunan tua, & galeri lukisan", en: "Iconic street with cafes, heritage buildings, & art galleries" } },
-                { id: "bk_3", name: { id: "Alun-Alun Bandung & Masjid Raya", en: "Bandung City Square & Grand Mosque" }, desc: { id: "Taman rumput sintetis di pusat kota", en: "Synthetic grass park in the heart of the city" } },
-                { id: "bk_4", name: { id: "Gedung Sate & Museum Gedung Sate", en: "Gedung Sate & Museum" }, desc: { id: "Ikon landmark Jawa Barat", en: "West Java's iconic landmark" } },
-                { id: "bk_5", name: { id: "Kiara Artha Park", en: "Kiara Artha Park" }, desc: { id: "Taman kota modern dengan air mancur menari & taman Korea", en: "Modern city park featuring dancing fountains & Korean park" } },
+                { id: "bk_1", name: { id: "Jalan Asia AfrikadanGedung Merdeka", en: "Asia Afrika StreetdanMerdeka Building" }, desc: { id: "Spot bersejarahdanarsitektur klasik", en: "Historic spotdanclassic colonial architecture" } },
+                { id: "bk_2", name: { id: "Jalan Braga", en: "Braga Street" }, desc: { id: "Kawasan jalan ikonik dengan cafe, bangunan tua,dangaleri lukisan", en: "Iconic street with cafes, heritage buildings,danart galleries" } },
+                { id: "bk_3", name: { id: "Alun-Alun BandungdanMasjid Raya", en: "Bandung City SquaredanGrand Mosque" }, desc: { id: "Taman rumput sintetis di pusat kota", en: "Synthetic grass park in the heart of the city" } },
+                { id: "bk_4", name: { id: "Gedung SatedanMuseum Gedung Sate", en: "Gedung SatedanMuseum" }, desc: { id: "Ikon landmark Jawa Barat", en: "West Java's iconic landmark" } },
+                { id: "bk_5", name: { id: "Kiara Artha Park", en: "Kiara Artha Park" }, desc: { id: "Taman kota modern dengan air mancur menaridantaman Korea", en: "Modern city park featuring dancing fountainsdanKorean park" } },
                 { id: "bk_6", name: { id: "Hutan Kota Babakan Siliwangi (Babsil)", en: "Babakan Siliwangi Forest Walk" }, desc: { id: "Forest walk di tengah kota", en: "Scenic urban forest walk in the city center" } },
-                { id: "bk_7", name: { id: "Pasar Baru Trade Center", en: "Pasar Baru Trade Center" }, desc: { id: "Pusat belanja tekstil & pakaian populer", en: "Famous market for textiles and local apparel" } },
-                { id: "bk_8", name: { id: "Saung Angklung Udjo", en: "Saung Angklung Udjo" }, desc: { id: "Pusat seni & pertunjukan budaya tradisional", en: "Traditional Sundanese bamboo culture & musical show" } }
+                { id: "bk_7", name: { id: "Pasar Baru Trade Center", en: "Pasar Baru Trade Center" }, desc: { id: "Pusat belanja tekstildanpakaian populer", en: "Famous market for textiles and local apparel" } },
+                { id: "bk_8", name: { id: "Saung Angklung Udjo", en: "Saung Angklung Udjo" }, desc: { id: "Pusat senidanpertunjukan budaya tradisional", en: "Traditional Sundanese bamboo culturedanmusical show" } }
             ],
             BandungUtara: [
-                { id: "bu_1", name: { id: "Orchid Forest Cikole", en: "Orchid Forest Cikole" }, desc: { id: "Hutan pinus dengan koleksi anggrek & jembatan gantung berlampu", en: "Pine forest with orchid collection & illuminated wooden bridge" } },
-                { id: "bu_2", name: { id: "Dusun Bambu", en: "Dusun Bambu Park" }, desc: { id: "Taman rekreasi alam, danau, & restoran khas Sunda", en: "Eco-tourism park with lake views & traditional Sundanese dining" } },
-                { id: "bu_3", name: { id: "The Lodge Maribaya", en: "The Lodge Maribaya" }, desc: { id: "Wisata alam dengan wahana foto ekstrem/menantang", en: "Nature park with adventure rides & scenic photo spots" } },
-                { id: "bu_4", name: { id: "Floating Market Lembang", en: "Lembang Floating Market" }, desc: { id: "Pasar terapung, taman bunga, & sewa kostum Jepang/Korea", en: "Floating food vendors, flower garden, & traditional costume rentals" } },
-                { id: "bu_5", name: { id: "Farmhouse Susu Lembang", en: "Farmhouse Lembang" }, desc: { id: "Wisata gaya Eropa dengan rumah Hobbit", en: "European-themed park featuring Hobbit houses & pet farm" } },
-                { id: "bu_6", name: { id: "The Great Asia Africa", en: "The Great Asia Africa" }, desc: { id: "Taman miniatur landmark negara-negara Asia & Afrika", en: "Miniature park showcasing iconic Asian & African landmarks" } },
+                { id: "bu_1", name: { id: "Orchid Forest Cikole", en: "Orchid Forest Cikole" }, desc: { id: "Hutan pinus dengan koleksi anggrekdanjembatan gantung berlampu", en: "Pine forest with orchid collectiondanilluminated wooden bridge" } },
+                { id: "bu_2", name: { id: "Dusun Bambu", en: "Dusun Bambu Park" }, desc: { id: "Taman rekreasi alam, danau,danrestoran khas Sunda", en: "Eco-tourism park with lake viewsdantraditional Sundanese dining" } },
+                { id: "bu_3", name: { id: "The Lodge Maribaya", en: "The Lodge Maribaya" }, desc: { id: "Wisata alam dengan wahana foto ekstrem/menantang", en: "Nature park with adventure ridesdanscenic photo spots" } },
+                { id: "bu_4", name: { id: "Floating Market Lembang", en: "Lembang Floating Market" }, desc: { id: "Pasar terapung, taman bunga,dansewa kostum Jepang/Korea", en: "Floating food vendors, flower garden,dantraditional costume rentals" } },
+                { id: "bu_5", name: { id: "Farmhouse Susu Lembang", en: "Farmhouse Lembang" }, desc: { id: "Wisata gaya Eropa dengan rumah Hobbit", en: "European-themed park featuring Hobbit housesdanpet farm" } },
+                { id: "bu_6", name: { id: "The Great Asia Africa", en: "The Great Asia Africa" }, desc: { id: "Taman miniatur landmark negara-negara AsiadanAfrika", en: "Miniature park showcasing iconic AsiandanAfrican landmarks" } },
                 { id: "bu_7", name: { id: "Tangkuban Perahu", en: "Tangkuban Perahu Crater" }, desc: { id: "Kawah gunung berapi aktif yang bisa diakses langsung dengan mobil", en: "Active volcanic crater easily accessible directly by vehicle" } },
-                { id: "bu_8", name: { id: "Taman Begonia", en: "Begonia Garden" }, desc: { id: "Taman bunga warna-warni", en: "Vibrant flower garden & flora nursery" } },
-                { id: "bu_9", name: { id: "Lembang Park & Zoo", en: "Lembang Park & Zoo" }, desc: { id: "Kebun binatang modern & resto berkonsep terbuka", en: "Modern zoo with interactive animal encounters & open-air cafes" } }
+                { id: "bu_8", name: { id: "Taman Begonia", en: "Begonia Garden" }, desc: { id: "Taman bunga warna-warni", en: "Vibrant flower gardendanflora nursery" } },
+                { id: "bu_9", name: { id: "Lembang ParkdanZoo", en: "Lembang ParkdanZoo" }, desc: { id: "Kebun binatang moderndanresto berkonsep terbuka", en: "Modern zoo with interactive animal encountersdanopen-air cafes" } }
             ],
             BandungSelatan1: [
                 { id: "bs1_1", name: { id: "Kawah Putih", en: "Kawah Putih (White Crater)" }, desc: { id: "Danau kawah vulkanik ikonik", en: "Iconic turquoise volcanic crater lake" } },
-                { id: "bs1_2", name: { id: "Ranca Upas", en: "Ranca Upas Deer Park" }, desc: { id: "Penangkaran rusa, camping ground, & pemandian air panas", en: "Deer sanctuary, camping ground, & natural hot spring pools" } },
+                { id: "bs1_2", name: { id: "Ranca Upas", en: "Ranca Upas Deer Park" }, desc: { id: "Penangkaran rusa, camping ground,danpemandian air panas", en: "Deer sanctuary, camping ground,dannatural hot spring pools" } },
                 { id: "bs1_3", name: { id: "Glamping Lakeside Rancabali", en: "Glamping Lakeside Rancabali" }, desc: { id: "Restoran bentuk kapal Phinisi di tepi Danau Situ Patenggang", en: "Pinisi ship restaurant located beside Situ Patenggang Lake" } },
                 { id: "bs1_4", name: { id: "Situ Patenggang", en: "Situ Patenggang Lake" }, desc: { id: "Danau alami di tengah kebun teh", en: "Scenic natural lake surrounded by lush tea plantations" } },
-                { id: "bs1_5", name: { id: "Kebun Teh Rancabali & Tea Cliff Bridge", en: "Rancabali Tea Plantation & Tea Cliff Bridge" }, desc: { id: "Jembatan kayu di atas hamparan kebun teh", en: "Wooden boardwalk path elevated over tea gardens" } },
-                { id: "bs1_6", name: { id: "Kawah Rengganis & Suspension Bridge", en: "Rengganis Crater & Suspension Bridge" }, desc: { id: "Jembatan gantung terpanjang & pemandian air panas alami", en: "Longest suspension bridge & natural mud hot springs" } },
-                { id: "bs1_7", name: { id: "Happy Farm Ciwidey", en: "Happy Farm Ciwidey" }, desc: { id: "Wisata edukasi & ramah anak", en: "Family-friendly educational farm & petting zoo" } }
+                { id: "bs1_5", name: { id: "Kebun Teh RancabalidanTea Cliff Bridge", en: "Rancabali Tea PlantationdanTea Cliff Bridge" }, desc: { id: "Jembatan kayu di atas hamparan kebun teh", en: "Wooden boardwalk path elevated over tea gardens" } },
+                { id: "bs1_6", name: { id: "Kawah RengganisdanSuspension Bridge", en: "Rengganis CraterdanSuspension Bridge" }, desc: { id: "Jembatan gantung terpanjangdanpemandian air panas alami", en: "Longest suspension bridgedannatural mud hot springs" } },
+                { id: "bs1_7", name: { id: "Happy Farm Ciwidey", en: "Happy Farm Ciwidey" }, desc: { id: "Wisata edukasidanramah anak", en: "Family-friendly educational farmdanpetting zoo" } }
             ],
             BandungSelatan2: [
                 { id: "bs2_1", name: { id: "Nimo Highland", en: "Nimo Highland" }, desc: { id: "Jembatan kaca melingkar di atas kebun teh dengan pemandangan 360 derajat", en: "Circular glass skywalk over tea plantations with 360-degree views" } },
                 { id: "bs2_2", name: { id: "Wayang Windu Panenjoan (WWP)", en: "Wayang Windu Panenjoan" }, desc: { id: "Jembatan kayu meliuk di tengah hamparan kebun teh", en: "Winding wooden bridge across tea hills" } },
-                { id: "bs2_3", name: { id: "Situ Cileunca", en: "Situ Cileunca Lake" }, desc: { id: "Danau luas untuk wisata rafting/arung jeram, flying fox, & boating", en: "Vast lake popular for river rafting, flying fox, & boat rides" } },
-                { id: "bs2_4", name: { id: "Taman Langit Pangalengan", en: "Taman Langit Pangalengan" }, desc: { id: "Spot camping & sunrise di atas awan", en: "Famous camping spot above the clouds for sunrise views" } },
+                { id: "bs2_3", name: { id: "Situ Cileunca", en: "Situ Cileunca Lake" }, desc: { id: "Danau luas untuk wisata rafting/arung jeram, flying fox,danboating", en: "Vast lake popular for river rafting, flying fox,danboat rides" } },
+                { id: "bs2_4", name: { id: "Taman Langit Pangalengan", en: "Taman Langit Pangalengan" }, desc: { id: "Spot campingdansunrise di atas awan", en: "Famous camping spot above the clouds for sunrise views" } },
                 { id: "bs2_5", name: { id: "Pineus Tilu Riverside Camping", en: "Pineus Tilu Riverside Camping" }, desc: { id: "Camping eksklusif di tepi aliran sungai dalam hutan pinus", en: "Exclusive riverside camping experience inside pine forest" } },
-                { id: "bs2_6", name: { id: "Kebun Teh Malabar & Rumah Kayu Bosscha", en: "Malabar Tea Estate & Bosscha Wooden House" }, desc: { id: "Nilai sejarah pengelola kebun teh zaman Belanda", en: "Historic Dutch heritage tea estate & plantation tea house" } },
-                { id: "bs2_7", name: { id: "Hutan Pinus Rahong", en: "Rahong Pine Forest" }, desc: { id: "Area outbound, paintball, dan camping", en: "Outdoor adventure park with paintball, rafting, & camping" } }
+                { id: "bs2_6", name: { id: "Kebun Teh MalabardanRumah Kayu Bosscha", en: "Malabar Tea EstatedanBosscha Wooden House" }, desc: { id: "Nilai sejarah pengelola kebun teh zaman Belanda", en: "Historic Dutch heritage tea estatedanplantation tea house" } },
+                { id: "bs2_7", name: { id: "Hutan Pinus Rahong", en: "Rahong Pine Forest" }, desc: { id: "Area outbound, paintball, dan camping", en: "Outdoor adventure park with paintball, rafting,dancamping" } }
             ],
             Jakarta: [
-                { id: "jk_1", name: { id: "Monumen Nasional (Monas)", en: "National Monument (Monas)" }, desc: { id: "Tugu ikonik Indonesia dengan museum sejarah dan gardu pandang puncak", en: "Indonesia's iconic landmark with history museum & observation deck" } },
-                { id: "jk_2", name: { id: "Kawasan Kota Tua & Museum Fatahillah", en: "Jakarta Old Town & Fatahillah Museum" }, desc: { id: "Arsitektur kolonial Belanda, sewa sepeda ontel, dan Museum Bank Indonesia", en: "Dutch colonial plaza, vintage bicycle rentals, & historical museums" } },
-                { id: "jk_3", name: { id: "Pantai Indah Kapuk (PIK) 2", en: "Pantai Indah Kapuk (PIK) 2 Promenade" }, desc: { id: "Area pantai modern, pusat kuliner hits", en: "Modern coastal area with trendy culinary hubs & waterfront walk" } },
+                { id: "jk_1", name: { id: "Monumen Nasional (Monas)", en: "National Monument (Monas)" }, desc: { id: "Tugu ikonik Indonesia dengan museum sejarah dan gardu pandang puncak", en: "Indonesia's iconic landmark with history museumdanobservation deck" } },
+                { id: "jk_2", name: { id: "Kawasan Kota TuadanMuseum Fatahillah", en: "Jakarta Old TowndanFatahillah Museum" }, desc: { id: "Arsitektur kolonial Belanda, sewa sepeda ontel, dan Museum Bank Indonesia", en: "Dutch colonial plaza, vintage bicycle rentals,danhistorical museums" } },
+                { id: "jk_3", name: { id: "Pantai Indah Kapuk (PIK) 2", en: "Pantai Indah Kapuk (PIK) 2 Promenade" }, desc: { id: "Area pantai modern, pusat kuliner hits", en: "Modern coastal area with trendy culinary hubsdanwaterfront walk" } },
                 { id: "jk_4", name: { id: "Taman Mini Indonesia Indah (TMII)", en: "Taman Mini Indonesia Indah (TMII)" }, desc: { id: "Taman rekreasi edukasi kebudayaan nusantara", en: "Cultural theme park showcasing Indonesian provinces" } },
-                { id: "jk_5", name: { id: "Taman Impian Jaya Ancol", en: "Ancol Dreamland Complex" }, desc: { id: "Kompleks hiburan pesisir (Dufan, Sea World, Samudra, Pantai Ancol)", en: "Coastal amusement park complex (Dufan theme park & Sea World)" } },
-                { id: "jk_6", name: { id: "Masjid Istiqlal & Gereja Katedral", en: "Istiqlal Mosque & Cathedral Church" }, desc: { id: "Wisata religi dan simbol toleransi berdekatan", en: "Adjacent landmark religious sites symbolizing harmony" } },
+                { id: "jk_5", name: { id: "Taman Impian Jaya Ancol", en: "Ancol Dreamland Complex" }, desc: { id: "Kompleks hiburan pesisir (Dufan, Sea World, Samudra, Pantai Ancol)", en: "Coastal amusement park complex (Dufan theme parkdanSea World)" } },
+                { id: "jk_6", name: { id: "Masjid IstiqlaldanGereja Katedral", en: "Istiqlal MosquedanCathedral Church" }, desc: { id: "Wisata religi dan simbol toleransi berdekatan", en: "Adjacent landmark religious sites symbolizing harmony" } },
                 { id: "jk_7", name: { id: "Hutan Kota GBK", en: "GBK Urban Forest Park" }, desc: { id: "Area terbuka hijau di tengah gedung pencakar langit", en: "Lush green city park amid central Jakarta skyscrapers" } }
             ],
             Bogor: [
-                { id: "bg_1", name: { id: "Kebun Raya Bogor & Istana Bogor", en: "Bogor Botanical Gardens & Palace" }, desc: { id: "Taman botani tertua di Asia Tenggara", en: "Oldest botanical garden in Southeast Asia" } },
-                { id: "bg_2", name: { id: "Kebun Teh Puncak (Gunung Mas)", en: "Gunung Mas Puncak Tea Estate" }, desc: { id: "Pemandangan kebun teh, tea bridge & flying fox", en: "Sprawling tea hill views, wooden bridge walks, & flying fox" } },
+                { id: "bg_1", name: { id: "Kebun Raya BogordanIstana Bogor", en: "Bogor Botanical GardensdanPalace" }, desc: { id: "Taman botani tertua di Asia Tenggara", en: "Oldest botanical garden in Southeast Asia" } },
+                { id: "bg_2", name: { id: "Kebun Teh Puncak (Gunung Mas)", en: "Gunung Mas Puncak Tea Estate" }, desc: { id: "Pemandangan kebun teh, tea bridgedanflying fox", en: "Sprawling tea hill views, wooden bridge walks,danflying fox" } },
                 { id: "bg_3", name: { id: "Taman Safari Indonesia (Cisarua)", en: "Taman Safari Indonesia" }, desc: { id: "Safari berkendara melihat satwa dari dekat", en: "Drive-through wildlife safari park" } },
                 { id: "bg_4", name: { id: "Telaga Saat Puncak", en: "Telaga Saat Lake Puncak" }, desc: { id: "Danau alami tersembunyi di tengah hamparan kebun teh Puncak", en: "Hidden natural lake surrounded by misty tea hills" } },
-                { id: "bg_5", name: { id: "Kuntum Farmfield", en: "Kuntum Farmfield" }, desc: { id: "Wisata edukasi peternakan dan pertanian ramah anak", en: "Kid-friendly organic farm & interactive animal feeding" } },
+                { id: "bg_5", name: { id: "Kuntum Farmfield", en: "Kuntum Farmfield" }, desc: { id: "Wisata edukasi peternakan dan pertanian ramah anak", en: "Kid-friendly organic farmdaninteractive animal feeding" } },
                 { id: "bg_6", name: { id: "Little Venice Kota Bunga", en: "Little Venice Puncak" }, desc: { id: "Taman rekreasi tematik berkonsep kota Venesia", en: "Venice-themed leisure resort with gondola rides" } }
             ],
             Jogja: [
-                { id: "jg_1", name: { id: "Jalan Malioboro & Titik Nol KM", en: "Malioboro Street & Zero Kilometer Point" }, desc: { id: "Pusat belanja oleh-oleh & suasana malam khas Jogja", en: "Famous shopping district & vibrant Yogyakarta nightlife" } },
-                { id: "jg_2", name: { id: "Kraton Yogyakarta & Taman Sari", en: "Yogyakarta Palace & Water Castle" }, desc: { id: "Istana Kesultanan Yogyakarta & kompleks pemandian sejarah", en: "Historic Royal Sultan Palace & historic water castle ruins" } },
+                { id: "jg_1", name: { id: "Jalan MalioborodanTitik Nol KM", en: "Malioboro StreetdanZero Kilometer Point" }, desc: { id: "Pusat belanja oleh-olehdansuasana malam khas Jogja", en: "Famous shopping districtdanvibrant Yogyakarta nightlife" } },
+                { id: "jg_2", name: { id: "Kraton YogyakartadanTaman Sari", en: "Yogyakarta PalacedanWater Castle" }, desc: { id: "Istana Kesultanan Yogyakartadankompleks pemandian sejarah", en: "Historic Royal Sultan Palacedanhistoric water castle ruins" } },
                 { id: "jg_3", name: { id: "Candi Prambanan", en: "Prambanan Temple" }, desc: { id: "Kompleks candi Hindu terbesar di Indonesia", en: "The largest Hindu temple complex in Indonesia" } },
                 { id: "jg_4", name: { id: "Candi Borobudur", en: "Borobudur Temple" }, desc: { id: "Candi Buddha terbesar di dunia", en: "World's largest Buddhist temple (UNESCO World Heritage Site)" } },
                 { id: "jg_5", name: { id: "Jeep Lava Tour Merapi", en: "Merapi Volcano Jeep Lava Tour" }, desc: { id: "Wisata petualangan menyusuri jejak erupsi Gunung Merapi", en: "Off-road 4x4 jeep adventure along Mt. Merapi eruption trails" } },
-                { id: "jg_6", name: { id: "HeHa Sky View & HeHa Ocean View", en: "HeHa Sky View & HeHa Ocean View" }, desc: { id: "Spot foto modern pemandangan kota/laut", en: "Popular cliffside photo spots with city skyline or ocean views" } }
+                { id: "jg_6", name: { id: "HeHa Sky ViewdanHeHa Ocean View", en: "HeHa Sky ViewdanHeHa Ocean View" }, desc: { id: "Spot foto modern pemandangan kota/laut", en: "Popular cliffside photo spots with city skyline or ocean views" } }
             ],
             DropOnlyBandung: []
         };
@@ -959,7 +959,7 @@
                 }
             }
 
-            // Konstruksi Format Pesan WhatsApp yang Lebih Rapi & Profesional
+            // Konstruksi Format Pesan WhatsApp yang Lebih RapidanProfesional
             let text = isEn 
                 ? `Hello Admin, I would like to make a reservation / inquiry with the following details:%0A%0A`
                 : `Halo Admin, saya ingin melakukan reservasi / tanya ketersediaan armada dengan detail berikut:%0A%0A`;
