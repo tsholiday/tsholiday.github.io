@@ -992,7 +992,7 @@
             text += `%0A💰 *ESTIMASI TOTAL BIAYA: ${total}*%0A%0A`;
             text += isEn ? `Please check availability and confirm my booking. Thank you!` : `Mohon cek ketersediaan armada dan konfirmasi pesanan saya. Terima kasih!`;
             
-            window.open(`https://wa.me/6282130640161?text=${text}`, '_blank');
+            window.open(`https://api.whatsapp.com/send?phone=6282130640161?text=${text}`, '_blank');
         }
         function toggleDarkMode() {
             document.documentElement.classList.toggle('dark');
