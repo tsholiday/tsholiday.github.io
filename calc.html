@@ -45,6 +45,29 @@
         <!-- Form Input Utama -->
         <div class="space-y-4">
 
+            <!-- BAGIAN TANGGAL & WAKTU SEWA -->
+            <div class="bg-gray-50 dark:bg-navy-900/50 p-3.5 rounded-2xl border border-gray-200 dark:border-gray-700 space-y-3">
+                <p class="text-xs font-extrabold text-amber-600 dark:text-amber-400" data-i18n="dateTimeTitle">📅 Jadwal & Waktu Perjalanan:</p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <!-- Tanggal Mulai -->
+                    <div>
+                        <label class="block text-[11px] font-bold mb-1" data-i18n="startDateLabel">Tanggal Mulai (Start Date):</label>
+                        <input type="date" id="startDate" onchange="calculateTotal()" class="w-full bg-white dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-semibold focus:outline-none focus:border-amber-500">
+                    </div>
+                    <!-- Jam Penjemputan -->
+                    <div>
+                        <label class="block text-[11px] font-bold mb-1" data-i18n="pickupTimeLabel">Jam Penjemputan (Pickup Time):</label>
+                        <input type="time" id="pickupTime" value="08:00" class="w-full bg-white dark:bg-navy-900 border border-gray-300 dark:border-gray-700 rounded-xl p-2.5 text-xs font-semibold focus:outline-none focus:border-amber-500">
+                    </div>
+                </div>
+                
+                <!-- Info Estimasi Tanggal Selesai -->
+                <div id="endDateInfo" class="text-[11px] text-gray-600 dark:text-gray-400 italic font-medium pt-1">
+                    <!-- Dinamis via JS -->
+                </div>
+            </div>
+
             <!-- BAGIAN PENJEMPUTAN dan DROP OFF -->
             <div class="bg-gray-50 dark:bg-navy-900/50 p-3.5 rounded-2xl border border-gray-200 dark:border-gray-700 space-y-3">
                 <p class="text-xs font-extrabold text-amber-600 dark:text-amber-400" data-i18n="pickupDropTitle">📍 Pengaturan Penjemputan dan Drop Off Utama:</p>
@@ -232,6 +255,9 @@
             id: {
                 title: "🧮 Kalkulator Sewa dan Custom Itinerary",
                 subtitle: "Hitung estimasi biaya dan susun itinerary perjalanan Anda per hari",
+                dateTimeTitle: "📅 Jadwal & Waktu Perjalanan:",
+                startDateLabel: "Tanggal Mulai (Start Date):",
+                pickupTimeLabel: "Jam Penjemputan (Pickup Time):",
                 pickupDropTitle: "📍 Pengaturan Penjemputan dan Drop Off Utama:",
                 pickupCat: "Kategori Penjemputan (Pickup):",
                 pickupOpt1: "Area Kota Bandung (Hotel / Stasiun / KCIC Whoosh / Terminal Bus) - Bebas Biaya",
@@ -288,6 +314,9 @@
             en: {
                 title: "🧮 Rental and Custom Itinerary Calculator",
                 subtitle: "Estimate rental cost and organize your trip itinerary day by day",
+                dateTimeTitle: "📅 Trip Schedule & Time:",
+                startDateLabel: "Start Date:",
+                pickupTimeLabel: "Pickup Time:",
                 pickupDropTitle: "📍 Main Pickup and Drop Off Settings:",
                 pickupCat: "Pickup Category:",
                 pickupOpt1: "Bandung City Area (Hotel / Railway Station / Whoosh HSR Station / Bus Terminal) - Free Fee",
@@ -411,7 +440,6 @@
             DropOnlyBandung: []
         };
 
-        // Diubah menjadi kosong agar saat wilayah dipilih, destinasi tidak terisi otomatis (manual)
         const defaultSelectedDestinations = {
             BandungKota: [],
             BandungUtara: [],
@@ -425,6 +453,13 @@
 
         let dayData = {};
         let currentActiveDay = 1;
+
+        // Set default tanggal hari ini saat pertama kali load
+        window.addEventListener('DOMContentLoaded', () => {
+            const todayStr = new Date().toISOString().split('T')[0];
+            const startDateEl = document.getElementById('startDate');
+            if (startDateEl) startDateEl.value = todayStr;
+        });
 
         function toggleLanguage() {
             currentLang = currentLang === 'id' ? 'en' : 'id';
@@ -449,6 +484,7 @@
             renderDayTabs(parseInt(document.getElementById('calcDays').value) || 0);
             renderDestinations();
             updateItinerarySummary();
+            updateEndDateDisplay();
         }
 
         function onPaxChange() {
@@ -540,6 +576,7 @@
                 renderDayTabs(0);
                 updateItinerarySummary();
                 calculateTotal();
+                updateEndDateDisplay();
                 return;
             } else {
                 daysWarningText.classList.add('hidden');
@@ -568,6 +605,31 @@
             loadActiveDayForm();
             updateItinerarySummary();
             calculateTotal();
+            updateEndDateDisplay();
+        }
+
+        function updateEndDateDisplay() {
+            const startDateVal = document.getElementById('startDate').value;
+            const days = parseInt(document.getElementById('calcDays').value) || 0;
+            const endDateInfo = document.getElementById('endDateInfo');
+
+            if (!startDateVal || days <= 0) {
+                endDateInfo.innerText = "";
+                return;
+            }
+
+            let startDate = new Date(startDateVal);
+            // Tambah hari sewa (-1 karena hari pertama sudah dihitung)
+            startDate.setDate(startDate.getDate() + (days - 1));
+            
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedEndDate = startDate.toLocaleDateString(currentLang === 'en' ? 'en-US' : 'id-ID', options);
+
+            if (currentLang === 'en') {
+                endDateInfo.innerText = `🏁 Estimated completion date: ${formattedEndDate}`;
+            } else {
+                endDateInfo.innerText = `🏁 Estimasi tanggal selesai sewa: ${formattedEndDate}`;
+            }
         }
 
         function renderDayTabs(totalDays) {
@@ -588,9 +650,19 @@
                     ? 'bg-amber-500 text-navy-900 font-extrabold shadow' 
                     : 'bg-gray-200 dark:bg-navy-900 text-gray-700 dark:text-gray-300 font-semibold hover:bg-gray-300';
 
+                // Hitung tanggal spesifik per hari jika startDate terisi
+                let dateStrLabel = `${dict.dayText} ${i}`;
+                const startDateVal = document.getElementById('startDate').value;
+                if (startDateVal) {
+                    let d = new Date(startDateVal);
+                    d.setDate(d.getDate() + (i - 1));
+                    const dayMonth = d.toLocaleDateString(currentLang === 'en' ? 'en-US' : 'id-ID', { month: 'short', day: 'numeric' });
+                    dateStrLabel = `${dict.dayText} ${i} (${dayMonth})`;
+                }
+
                 container.innerHTML += `
                     <button type="button" onclick="switchDay(${i})" class="px-3 py-1.5 rounded-lg text-xs transition ${btnClass}">
-                        ${dict.dayText} ${i}
+                        ${dateStrLabel}
                     </button>
                 `;
             }
@@ -750,6 +822,7 @@
 
             const days = parseInt(document.getElementById('calcDays').value) || 0;
             const areaSelectElem = document.getElementById('calcAreaDay');
+            const startDateVal = document.getElementById('startDate').value;
             const dict = i18nDict[currentLang];
 
             if (days === 0) {
@@ -768,11 +841,18 @@
                     }
                 }
 
+                let dateSubLabel = "";
+                if (startDateVal) {
+                    let d = new Date(startDateVal);
+                    d.setDate(d.getDate() + (i - 1));
+                    dateSubLabel = ` (${d.toLocaleDateString(currentLang === 'en' ? 'en-US' : 'id-ID', { month: 'short', day: 'numeric', year: 'numeric' })})`;
+                }
+
                 if (dayObj.area === 'DropOnlyBandung') {
                     hasAnySelection = true;
                     html += `
                         <div class="mb-2 pb-1 border-b border-gray-100 dark:border-gray-700/50 last:border-none">
-                            <span class="font-bold text-amber-600 dark:text-amber-400">📍 ${dict.dayText} ${i}:</span> ${currentLang === 'en' ? 'Drop / Transfer Service Only (Bandung City Area)' : 'Khusus Layanan Drop / Jemput Saja (Area Kota Bandung)'}
+                            <span class="font-bold text-amber-600 dark:text-amber-400">📍 ${dict.dayText} ${i}${dateSubLabel}:</span> ${currentLang === 'en' ? 'Drop / Transfer Service Only (Bandung City Area)' : 'Khusus Layanan Drop / Jemput Saja (Area Kota Bandung)'}
                         </div>
                     `;
                 } else {
@@ -795,7 +875,7 @@
 
                         html += `
                             <div class="mb-2 pb-1 border-b border-gray-100 dark:border-gray-700/50 last:border-none">
-                                <span class="font-bold text-amber-600 dark:text-amber-400">📍 ${dict.dayText} ${i} (${areaText}):</span>
+                                <span class="font-bold text-amber-600 dark:text-amber-400">📍 ${dict.dayText} ${i}${dateSubLabel} (${areaText}):</span>
                                 <ul class="list-disc list-inside pl-2 font-medium text-gray-700 dark:text-gray-300 space-y-0.5 mt-0.5">
                                     ${destsListHtml}
                                 </ul>
@@ -804,7 +884,7 @@
                     } else {
                         html += `
                             <div class="mb-1">
-                                <span class="font-bold text-gray-400">📍 ${dict.dayText} ${i} (${areaText}):</span> <span class="italic text-gray-400">(${currentLang === 'en' ? 'No destinations selected' : 'Belum memilih tempat'})</span>
+                                <span class="font-bold text-gray-400">📍 ${dict.dayText} ${i}${dateSubLabel} (${areaText}):</span> <span class="italic text-gray-400">(${currentLang === 'en' ? 'No destinations selected' : 'Belum memilih tempat'})</span>
                             </div>
                         `;
                     }
@@ -885,9 +965,10 @@
             }
 
             document.getElementById('calcResult').innerText = "Rp " + total.toLocaleString('id-ID');
+            updateEndDateDisplay();
         }
 
-      // Pengiriman Pesan WhatsApp Utuh
+        // Pengiriman Pesan WhatsApp Utuh
         function sendOrderWA() {
             const days = parseInt(document.getElementById('calcDays').value) || 0;
             if (days === 0) {
@@ -896,6 +977,15 @@
             }
 
             const isEn = currentLang === 'en';
+            const startDateVal = document.getElementById('startDate').value;
+            const pickupTimeVal = document.getElementById('pickupTime').value;
+
+            let formattedStartDate = startDateVal;
+            if (startDateVal) {
+                let d = new Date(startDateVal);
+                formattedStartDate = d.toLocaleDateString(isEn ? 'en-US' : 'id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            }
+
             const pickupSelect = document.getElementById('calcPickup');
             const pickupName = isEn ? pickupSelect.options[pickupSelect.selectedIndex].getAttribute('data-name-en') : pickupSelect.options[pickupSelect.selectedIndex].getAttribute('data-name-id');
             const pickupFee = parseInt(pickupSelect.value) || 0;
@@ -935,14 +1025,21 @@
                 }
                 totalOutTownToll += dayToll;
 
+                let dateSubLabel = "";
+                if (startDateVal) {
+                    let d = new Date(startDateVal);
+                    d.setDate(d.getDate() + (i - 1));
+                    dateSubLabel = ` (${d.toLocaleDateString(isEn ? 'en-US' : 'id-ID', { month: 'short', day: 'numeric', year: 'numeric' })})`;
+                }
+
                 if (dayObj.area === 'DropOnlyBandung') {
-                    itineraryText += `%0A  📌 *${isEn ? 'Day' : 'Hari'} ${i}:* ${isEn ? 'Drop / Transfer Service Only' : 'Khusus Layanan Drop / Jemput Saja'}`;
+                    itineraryText += `%0A  📌 *${isEn ? 'Day' : 'Hari'} ${i}${dateSubLabel}:* ${isEn ? 'Drop / Transfer Service Only' : 'Khusus Layanan Drop / Jemput Saja'}`;
                 } else {
                     const list = dayObj.dests || [];
                     const custom = (dayObj.customText || '').trim();
 
                     if (list.length > 0 || custom !== '') {
-                        itineraryText += `%0A  📅 *${isEn ? 'Day' : 'Hari'} ${i}* (${areaText}):`;
+                        itineraryText += `%0A  📅 *${isEn ? 'Day' : 'Hari'} ${i}${dateSubLabel}* (${areaText}):`;
                         list.forEach(id => {
                             const obj = findDestObjectById(id);
                             if (obj) {
@@ -955,19 +1052,22 @@
                             itineraryText += `%0A     ▪️ *[Request Custom]*: ${custom}`;
                         }
                     } else {
-                        itineraryText += `%0A  📅 *${isEn ? 'Day' : 'Hari'} ${i}* (${areaText}): _${isEn ? 'Flexible / Not specified' : 'Fleksibel / Belum ditentukan'}_`;
+                        itineraryText += `%0A  📅 *${isEn ? 'Day' : 'Hari'} ${i}${dateSubLabel}* (${areaText}): _${isEn ? 'Flexible / Not specified' : 'Fleksibel / Belum ditentukan'}_`;
                     }
                 }
             }
 
-            // Konstruksi Format Pesan WhatsApp yang Lebih Rapi & Profesional
+            // Konstruksi Format Pesan WhatsApp
             let text = isEn 
                 ? `Hello Admin, I would like to make a reservation / inquiry with the following details:%0A%0A`
                 : `Halo Admin, saya ingin melakukan reservasi / tanya ketersediaan armada dengan detail berikut:%0A%0A`;
                 
+            text += `📅 *JADWAL PERJALANAN*%0A`;
+            text += `• *${isEn ? 'Start Date' : 'Tanggal Mulai'}*: ${formattedStartDate || '-'}` + (pickupTimeVal ? ` (${pickupTimeVal} WIB)` : '') + `%0A`;
+            text += `• *${isEn ? 'Duration' : 'Durasi'}*: ${days} ${isEn ? 'Days' : 'Hari'}%0A%0A`;
+
             text += `🚗 *DETAIL ARMADA DAN LAYANAN*%0A`;
             text += `• *${isEn ? 'Vehicle' : 'Armada'}*: ${carName}%0A`;
-            text += `• *${isEn ? 'Duration' : 'Durasi'}*: ${days} ${isEn ? 'Days' : 'Hari'}%0A`;
             text += `• *${isEn ? 'Total Passengers' : 'Jumlah Peserta'}*: ${pax} ${isEn ? 'Pax' : 'Orang'}%0A%0A`;
 
             text += `📍 *LOKASI PENJEMPUTAN DAN TUJUAN*%0A`;
@@ -995,6 +1095,7 @@
             
             window.open(`https://api.whatsapp.com/send?phone=6282130640161&text=${text}`, '_blank');
         }
+
         function toggleDarkMode() {
             document.documentElement.classList.toggle('dark');
         }
