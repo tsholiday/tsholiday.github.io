@@ -886,7 +886,7 @@
             document.getElementById('calcResult').innerText = "Rp " + total.toLocaleString('id-ID');
         }
 
-        // Pengiriman Pesan WhatsApp Utuh
+      // Pengiriman Pesan WhatsApp Utuh
         function sendOrderWA() {
             const days = parseInt(document.getElementById('calcDays').value) || 0;
             if (days === 0) {
@@ -918,7 +918,7 @@
             let totalOutTownToll = 0;
             const areaSelectElem = document.getElementById('calcAreaDay');
 
-            // Ekstraksi Itinerary Summary secara Utuh Per Hari
+            // Ekstraksi Itinerary Summary secara Utuh Per Hari dengan Format Baru
             let itineraryText = "";
             for (let i = 1; i <= days; i++) {
                 const dayObj = dayData[i] || { area: 'BandungKota', dests: [], customText: '' };
@@ -935,61 +935,65 @@
                 totalOutTownToll += dayToll;
 
                 if (dayObj.area === 'DropOnlyBandung') {
-                    itineraryText += `%0A  *${isEn ? 'Day' : 'Hari'} ${i}:* ${isEn ? 'Drop / Transfer Service Only' : 'Khusus Layanan Drop / Jemput Saja'}`;
+                    itineraryText += `%0A  📌 *${isEn ? 'Day' : 'Hari'} ${i}:* ${isEn ? 'Drop / Transfer Service Only' : 'Khusus Layanan Drop / Jemput Saja'}`;
                 } else {
                     const list = dayObj.dests || [];
                     const custom = (dayObj.customText || '').trim();
 
                     if (list.length > 0 || custom !== '') {
-                        itineraryText += `%0A  *${isEn ? 'Day' : 'Hari'} ${i} (${areaText}):*`;
+                        itineraryText += `%0A  📅 *${isEn ? 'Day' : 'Hari'} ${i}* (${areaText}):`;
                         list.forEach(id => {
                             const obj = findDestObjectById(id);
                             if (obj) {
                                 const dName = obj.name[currentLang] || obj.name['id'];
                                 const dDesc = obj.desc[currentLang] || obj.desc['id'];
-                                itineraryText += `%0A    - ${dName} (${dDesc})`;
+                                itineraryText += `%0A     ▪️ ${dName} _(${dDesc})_`;
                             }
                         });
                         if (custom !== '') {
-                            itineraryText += `%0A    - *[Request Custom]*: ${custom}`;
+                            itineraryText += `%0A     ▪️ *[Request Custom]*: ${custom}`;
                         }
                     } else {
-                        itineraryText += `%0A  *${isEn ? 'Day' : 'Hari'} ${i} (${areaText}):* ${isEn ? 'Flexible / Not specified' : 'Fleksibel / Belum ditentukan'}`;
+                        itineraryText += `%0A  📅 *${isEn ? 'Day' : 'Hari'} ${i}* (${areaText}): _${isEn ? 'Flexible / Not specified' : 'Fleksibel / Belum ditentukan'}_`;
                     }
                 }
             }
 
-            // Konstruksi Format Pesan
+            // Konstruksi Format Pesan WhatsApp yang Lebih Rapi & Profesional
             let text = isEn 
-                ? `Hello, I would like to book / inquire about vehicle availability for ${days} days:%0A%0A`
-                : `Halo, saya ingin reservasi / tanya ketersediaan armada untuk ${days} hari:%0A%0A`;
+                ? `Hello Admin, I would like to make a reservation / inquiry with the following details:%0A%0A`
+                : `Halo Admin, saya ingin melakukan reservasi / tanya ketersediaan armada dengan detail berikut:%0A%0A`;
                 
-            text += `- *${isEn ? 'Main Pickup' : 'Penjemputan Utama'}*: ${pickupName} (${pickupDetail})%0A`;
-            text += `- *${isEn ? 'Main Drop Off' : 'Pengantaran Utama'}*: ${dropName} (${dropDetail})%0A`;
-            text += `- *${isEn ? 'Vehicle' : 'Armada'}*: ${carName}%0A`;
-            text += `- *${isEn ? 'Total Passengers' : 'Jumlah Peserta'}*: ${pax} ${isEn ? 'Pax' : 'Orang'}%0A`;
-            text += `- *${isEn ? 'Duration' : 'Durasi'}*: ${days} ${isEn ? 'Days' : 'Hari'}%0A`;
-            text += `- *${isEn ? 'Special Customer Notes' : 'Catatan Khusus Pelanggan'}*: ${custNotes}%0A%0A`;
+            text += `🚗 *DETAIL ARMADA & LAYANAN*%0A`;
+            text += `• *${isEn ? 'Vehicle' : 'Armada'}*: ${carName}%0A`;
+            text += `• *${isEn ? 'Duration' : 'Durasi'}*: ${days} ${isEn ? 'Days' : 'Hari'}%0A`;
+            text += `• *${isEn ? 'Total Passengers' : 'Jumlah Peserta'}*: ${pax} ${isEn ? 'Pax' : 'Orang'}%0A%0A`;
+
+            text += `📍 *LOKASI PENJEMPUTAN & TUJUAN*%0A`;
+            text += `• *Pickup*: ${pickupName}%0A  _(${pickupDetail})_%0A`;
+            text += `• *Drop Off*: ${dropName}%0A  _(${dropDetail})_%0A%0A`;
             
-            // Penerusan Itinerary Utama ke Pesan WA
-            text += `*🗺️ ${isEn ? 'Accumulated Itinerary Draft' : 'Draf Akumulasi Itinerary Lengkap'}:*${itineraryText}%0A%0A`;
+            text += `📝 *${isEn ? 'Special Notes' : 'Catatan Khusus'}*: ${custNotes}%0A%0A`;
             
-            text += `*📊 ${isEn ? 'Cost Breakdown' : 'Rincian Komponen Biaya'}:*%0A`;
-            text += `• ${isEn ? 'Vehicle Rental' : 'Sewa Transport Utama'} (${days} ${isEn ? 'Days' : 'Hari'}): ${detailTransport}%0A`;
+            text += `🗺️ *RANGKAIAN ITINERARY PER HARI:*${itineraryText}%0A%0A`;
+            
+            text += `📊 *RINCIAN ESTIMASI BIAYA*%0A`;
+            text += `• ${isEn ? 'Vehicle Rental' : 'Sewa Transport'} (${days}x): ${detailTransport}%0A`;
             if (pickupFee > 0) {
-                text += `• ${isEn ? 'Pickup Fee' : 'Charge Penjemputan Utama'}: Rp ${pickupFee.toLocaleString('id-ID')}%0A`;
+                text += `• Pickup Charge: Rp ${pickupFee.toLocaleString('id-ID')}%0A`;
             }
             if (dropFee > 0) {
-                text += `• ${isEn ? 'Drop Off Fee' : 'Charge Pengantaran Utama'}: Rp ${dropFee.toLocaleString('id-ID')}%0A`;
+                text += `• Drop Off Charge: Rp ${dropFee.toLocaleString('id-ID')}%0A`;
             }
             if (totalOutTownToll > 0) {
-                text += `• ${isEn ? 'Inter-City Surcharge' : 'Biaya Layanan Wilayah / Antar-Kota'}: Rp ${totalOutTownToll.toLocaleString('id-ID')}%0A`;
+                text += `• Inter-City Surcharge: Rp ${totalOutTownToll.toLocaleString('id-ID')}%0A`;
             }
-            text += `%0A*💰 ${isEn ? 'Total Package Estimated Cost' : 'Estimasi Biaya Paket Total'} (${days} ${isEn ? 'Days' : 'Hari'}): ${total}*%0A%0A${isEn ? 'Please confirm availability, thank you!' : 'Mohon konfirmasi ketersediaannya, terima kasih!'}`;
+            
+            text += `%0A💰 *ESTIMASI TOTAL BIAYA: ${total}*%0A%0A`;
+            text += isEn ? `Please check availability and confirm my booking. Thank you!` : `Mohon cek ketersediaan armada dan konfirmasi pesanan saya. Terima kasih!`;
             
             window.open(`https://wa.me/6282130640161?text=${text}`, '_blank');
         }
-
         function toggleDarkMode() {
             document.documentElement.classList.toggle('dark');
         }
