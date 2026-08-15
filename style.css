@@ -1,3 +1,27 @@
+/* --- CSS Grid & Flex Helper (Pengganti Tailwind) --- */
+.flex { display: flex; }
+.grid { display: grid; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.flex-col { flex-direction: column; }
+.gap-8 { gap: 2rem; }
+.gap-6 { gap: 1.5rem; }
+.p-20 { padding: 5rem; }
+.mt-16 { margin-top: 4rem; }
+.w-full { width: 100%; }
+.max-w-7xl { max-width: 80rem; margin-left: auto; margin-right: auto; }
+
+/* Responsive Grid (Contoh untuk Paket Wisata) */
+.tour-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+}
+@media (min-width: 768px) {
+    .tour-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
 /* ==========================================================================
    1. RESET & CUSTOM VARIABLES
    ========================================================================== */
