@@ -22,7 +22,45 @@
 }
 
 /* ==========================================================================
-   2. HERO VIDEO BACKGROUND
+   2. NAVIGASI NAVY PEKAT & ANIMASI HOVER
+   ========================================================================== */
+.nav-link {
+    position: relative;
+    color: #0a192f !important; /* Warna Navy Pekat */
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+/* Garis underline animasi saat di-hover */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #D4AF37; /* Warna Emas */
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.nav-link:hover {
+    color: #D4AF37 !important; /* Mengubah warna teks ke Emas saat hover */
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Fix warna teks pada Mobile Menu saat dibuka */
+#navLinks.flex a.nav-link {
+    color: #0a192f !important;
+}
+
+/* ==========================================================================
+   3. HERO VIDEO BACKGROUND
    ========================================================================== */
 .hero-video {
     position: absolute;
@@ -50,7 +88,7 @@
 }
 
 /* ==========================================================================
-   3. GALERI GRID & ITEMS
+   4. GALERI GRID & ITEMS
    ========================================================================== */
 .gallery-grid {
     display: grid;
@@ -82,7 +120,7 @@
 }
 
 /* ==========================================================================
-   4. LIGHTBOX MODAL & ZOOM SYSTEM
+   5. LIGHTBOX MODAL & ZOOM SYSTEM
    ========================================================================== */
 .image-modal {
     display: none;
@@ -197,7 +235,7 @@
 }
 
 /* ==========================================================================
-   5. DETAIL MODAL RINCIAN WISATA
+   6. DETAIL MODAL RINCIAN WISATA
    ========================================================================== */
 .detail-modal {
     display: none;
@@ -307,7 +345,7 @@
 }
 
 /* ==========================================================================
-   6. SCROLL TO TOP BUTTON
+   7. SCROLL TO TOP BUTTON
    ========================================================================== */
 #scrollTopBtn {
     position: fixed;
@@ -341,42 +379,4 @@
 #scrollTopBtn:hover {
     background-color: #f3e5ab;
     transform: translateY(-5px);
-}
-
-/* ==========================================================================
-   EFEK NAVIGASI NAVY PEKAT & ANIMASI HOVER
-   ========================================================================== */
-.nav-link {
-    position: relative;
-    color: #0a192f !important; /* Memaksa warna Navy pekat tanpa tertimpa warna lain */
-    padding-bottom: 4px;
-    transition: color 0.3s ease;
-    text-decoration: none;
-}
-
-/* Garis underline animasi saat di-hover */
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 50%;
-    background-color: #D4AF37; /* Warna Emas */
-    transition: all 0.3s ease-in-out;
-    transform: translateX(-50%);
-    border-radius: 2px;
-}
-
-.nav-link:hover {
-    color: #D4AF37 !important; /* Mengubah warna ke Emas saat hover */
-}
-
-.nav-link:hover::after {
-    width: 100%;
-}
-
-/* Fix warna teks pada Mobile Menu saat dibuka */
-#navLinks.flex a.nav-link {
-    color: #0a192f !important;
 }
