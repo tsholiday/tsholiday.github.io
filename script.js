@@ -1,5 +1,5 @@
 // ==========================================================================
-// 1. DAFTAR GAMBAR GALERI SPESIFIK & LOAD MORE (5 PER FETCH)
+// 1. DAFTAR GAMBAR GALERI SPESIFIK & LOAD MORE
 // ==========================================================================
 const galleryImages = [
     "bandung.jpg", "ciwidey.jpg", "gallery-1.jpg", "gallery-10.webp", "gallery-100.webp",
@@ -73,67 +73,11 @@ const destinationsData = {
             { name: "Pasar Baru Trade Center", desc: "Pusat belanja tekstil, pakaian, & oleh-oleh paling populer." },
             { name: "Saung Angklung Udjo", desc: "Pusat seni budaya tradisional & pertunjukan angklung interaktif." }
         ]
-    },
-    pangalengan: {
-        title: "🍃 Wisata Pangalengan (Nature & Adventure)",
-        subtitle: "Surga wisata alam outdoor, danau, kebun teh hijau luas & petualangan.",
-        items: [
-            { name: "Nimo Highland", desc: "Jembatan kaca melingkar di atas kebun teh dengan pemandangan 360 derajat." },
-            { name: "Way Windu Panenjoan (WWP)", desc: "Jembatan kayu membentang di tengah indahnya hamparan teh." },
-            { name: "Situ Cileunca", desc: "Danau luas favorit untuk rafting/arung jeram, flying fox, & naik perahu." },
-            { name: "Taman Langit Pangalengan (Ciseupan)", desc: "Spot camping terbaik di atas awan dengan pemandangan sunrise menakjubkan." },
-            { name: "Pineus Tilu Riverside Camping", desc: "Area kemping eksklusif persis di tepi sungai dalam hutan pinus." },
-            { name: "Kebun Teh Malabar & Rumah Kayu Bosscha", desc: "Area bersejarah peninggalan pengelola teh Belanda era kolonial." },
-            { name: "Hutan Pinus Rahong", desc: "Kawasan outbound, wahana paintball, & kemping tepi sungai." }
-        ]
-    },
-    bogor: {
-        title: "🌿 Wisata Bogor (Pegunungan & Keluarga)",
-        subtitle: "Udara sejuk khas Puncak, kebun teh membentang, dan taman edukasi.",
-        items: [
-            { name: "Kebun Raya Bogor & Istana Bogor", desc: "Taman botani tertua di Asia Tenggara dengan koleksi ribuan jenis tanaman." },
-            { name: "Agrowisata Gunung Mas Puncak", desc: "Pemandangan kebun teh, fasilitas tea bridge, & wahana flying fox." },
-            { name: "Taman Safari Indonesia Cisarua", desc: "Safari berkendara melihat satwa liar dari dekat & pertunjukan edukatif." },
-            { name: "Telaga Saat Puncak", desc: "Danau alami tersembunyi yang tenang di tengah hamparan kebun teh Puncak." },
-            { name: "Kuntum Farmfield", desc: "Wisata edukasi peternakan & pertanian interaktif ramah anak." },
-            { name: "Little Venice Kota Bunga", desc: "Taman rekreasi tematik unik berkonsep kota kanal Venesia, Italia." },
-            { name: "Curug Lawe & Curug Cilember", desc: "Wisata air terjun alami dengan suasana hutan pegunungan asri." },
-            { name: "Taman Bunga Nusantara", desc: "Taman bunga tematik internasional yang sangat luas dan indah." }
-        ]
-    },
-    jakarta: {
-        title: "🏙️ Wisata Jakarta (Kota, Sejarah & Modern)",
-        subtitle: "Metropolitan dengan ragam sejarah, wahana modern & area pesisir estetik.",
-        items: [
-            { name: "Monumen Nasional (Monas)", desc: "Tugu ikonik Indonesia dengan museum sejarah & gardu pandang puncak." },
-            { name: "Kota Tua & Museum Fatahillah", desc: "Arsitektur kolonial, sepeda ontel, & Museum Bank Indonesia." },
-            { name: "PIK 2 & San Antonio Promenade", desc: "Area pantai modern estetik & pusat kuliner hits tepi laut." },
-            { name: "Taman Mini Indonesia Indah (TMII)", desc: "Taman rekreasi edukasi kebudayaan nusantara berwajah baru." },
-            { name: "Taman Impian Jaya Ancol", desc: "Kompleks hiburan mencakup Dufan, Sea World, Samudra, & Pantai Ancol." },
-            { name: "Masjid Istiqlal & Gereja Katedral", desc: "Wisata religi simbol toleransi berdekatan di pusat kota." },
-            { name: "Hutan Kota GBK", desc: "Area terbuka hijau estetik di tengah gedung pencakar langit Jakarta." },
-            { name: "Kepulauan Seribu", desc: "Wisata bahari (Pulau Pari, Pramuka, Macan) untuk snorkeling & pantai." }
-        ]
-    },
-    jogja: {
-        title: "🏛️ Wisata Yogyakarta / Jogja (Budaya & Seni)",
-        subtitle: "Kota budaya bersejarah, pantai pasir putih, & petualangan alam.",
-        items: [
-            { name: "Jalan Malioboro & Titik Nol KM", desc: "Pusat oleh-oleh, kuliner jalanan, & suasana malam khas Jogja." },
-            { name: "Kraton Yogyakarta & Taman Sari", desc: "Istana Kesultanan Yogyakarta & kompleks pemandian sejarah kerajaan." },
-            { name: "Candi Prambanan", desc: "Kompleks candi Hindu terbesar di Indonesia & Sendratari Ramayana." },
-            { name: "Candi Borobudur", desc: "Candi Buddha terbesar di dunia destinasi super prioritas." },
-            { name: "Jeep Lava Tour Merapi", desc: "Petualangan menyusuri jejak erupsi Gunung Merapi dengan mobil jeep." },
-            { name: "HeHa Sky View & Ocean View", desc: "Spot foto modern dengan pemandangan pemandangan kota/laut dari ketinggian." },
-            { name: "Pantai Timang", desc: "Pantai ekstrem dengan gondola kayu tradisional menyeberang pulau karang." },
-            { name: "Hutan Pinus Pengger & Mangunan", desc: "Wisata alam hutan pinus dengan spot foto estetik & bukit syahdu." },
-            { name: "Tebing Breksi", desc: "Bekas tambang batu kapur berukir seni panggung pementasan." }
-        ]
     }
 };
 
 let currentIndex = 0;
-const ITEMS_PER_LOAD = 5;
+const ITEMS_PER_LOAD = 6;
 
 // FUNGSI MEMUAT GAMBAR GALERI
 function renderGalleryItems() {
@@ -148,12 +92,14 @@ function renderGalleryItems() {
         const itemDiv = document.createElement('div');
         itemDiv.className = 'gallery-item fade-in';
 
-        const imgSrc = `assets/image/${fileName}`;
+        // Menyesuaikan jalur gambar galeri sesuai struktur folder assets/image/gallery/
+        const imgSrc = `assets/image/gallery/${fileName}`;
 
         itemDiv.innerHTML = `
             <img src="${imgSrc}" 
                  alt="Dokumentasi TSHoliday" 
                  loading="lazy" 
+                 onerror="this.src='assets/image/kota-bandung/bandung.jpg'"
                  onclick="openLightbox('${imgSrc}')">
         `;
 
@@ -211,7 +157,7 @@ function closeModal() {
 function showNextImage() {
     if (galleryImages.length === 0) return;
     currentModalIndex = (currentModalIndex + 1) % galleryImages.length;
-    const newSrc = `assets/image/${galleryImages[currentModalIndex]}`;
+    const newSrc = `assets/image/gallery/${galleryImages[currentModalIndex]}`;
     const modalImg = document.getElementById('modalImage');
     if (modalImg) {
         modalImg.src = newSrc;
@@ -223,7 +169,7 @@ function showNextImage() {
 function showPrevImage() {
     if (galleryImages.length === 0) return;
     currentModalIndex = (currentModalIndex - 1 + galleryImages.length) % galleryImages.length;
-    const newSrc = `assets/image/${galleryImages[currentModalIndex]}`;
+    const newSrc = `assets/image/gallery/${galleryImages[currentModalIndex]}`;
     const modalImg = document.getElementById('modalImage');
     if (modalImg) {
         modalImg.src = newSrc;
@@ -347,8 +293,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Klik gambar legalitas & kartu paket
-    const extraClickableImages = document.querySelectorAll('.card img, .legality-img, .legality-card img');
+    // Klik gambar yang bertanda khusus untuk lightbox
+    const extraClickableImages = document.querySelectorAll('.card img, .legality-img');
     extraClickableImages.forEach(img => {
         img.style.cursor = 'pointer';
         img.addEventListener('click', (e) => {
@@ -385,18 +331,17 @@ document.addEventListener('DOMContentLoaded', () => {
             if (targetText) el.innerHTML = targetText;
         });
 
-        document.querySelectorAll('[data-id-placeholder][data-en-placeholder]').forEach(el => {
-            const targetPlaceholder = lang === 'en' ? el.getAttribute('data-en-placeholder') : el.getAttribute('data-id-placeholder');
-            if (targetPlaceholder) el.setAttribute('placeholder', targetPlaceholder);
-        });
-
         if (btnEN && btnID) {
             if (lang === 'en') {
-                btnEN.classList.add('active');
-                btnID.classList.remove('active');
+                btnEN.classList.add('bg-primary', 'text-white');
+                btnEN.classList.remove('text-gray-500');
+                btnID.classList.remove('bg-primary', 'text-white');
+                btnID.classList.add('text-gray-500');
             } else {
-                btnID.classList.add('active');
-                btnEN.classList.remove('active');
+                btnID.classList.add('bg-primary', 'text-white');
+                btnID.classList.remove('text-gray-500');
+                btnEN.classList.remove('bg-primary', 'text-white');
+                btnEN.classList.add('text-gray-500');
             }
         }
     }
@@ -411,11 +356,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.getElementById('navLinks');
     if (mobileToggle && navLinks) {
         mobileToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        document.querySelectorAll('.nav-item').forEach(item => {
-            item.addEventListener('click', () => navLinks.classList.remove('active'));
+            navLinks.classList.toggle('hidden');
+            navLinks.classList.toggle('flex');
+            navLinks.classList.toggle('flex-col');
+            navLinks.classList.toggle('absolute');
+            navLinks.classList.toggle('top-16');
+            navLinks.classList.toggle('left-0');
+            navLinks.classList.toggle('w-full');
+            navLinks.classList.toggle('bg-white');
+            navLinks.classList.toggle('p-6');
+            navLinks.classList.toggle('shadow-xl');
+            navLinks.classList.toggle('rounded-2xl');
         });
     }
 
@@ -423,12 +374,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const links = document.querySelectorAll('a[href^="#"]');
     links.forEach(link => {
         link.addEventListener('click', function (e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-
+            if (targetId === '#' || !targetId.startsWith('#')) return;
+            
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
+                e.preventDefault();
                 const headerOffset = 70;
                 const elementPosition = targetElement.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
@@ -441,58 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // G. NAVBAR SCROLL EFFECT
-    const navbar = document.getElementById('navbar');
-    if (navbar) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-    }
-
-    // H. SWIPER TESTIMONIAL SLIDER
-    if (document.querySelector('.testimoni-slider')) {
-        new Swiper('.testimoni-slider', {
-            loop: true,
-            autoplay: {
-                delay: 4500,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-        });
-    }
-
-    // I. FAQ ACCORDION TOGGLE
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        if (question) {
-            question.addEventListener('click', () => item.classList.toggle('active'));
-        }
-    });
-
-    // J. INTERSECTION OBSERVER (FADE IN)
-    const fadeInSections = document.querySelectorAll('.fade-in-section');
-    if (fadeInSections.length > 0) {
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        fadeInSections.forEach(section => observer.observe(section));
-    }
-
-    // K. FORM BOOKING DIRECT TO WHATSAPP
+    // G. FORM BOOKING DIRECT TO WHATSAPP
     const bookingForm = document.getElementById('bookingForm');
     if (bookingForm) {
         bookingForm.addEventListener('submit', (e) => {
@@ -537,13 +437,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-
 // ==========================================================================
 // 5. REGISTER PWA SERVICE WORKER
 // ==========================================================================
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
+        navigator.serviceWorker.register('sw.js')
             .then((reg) => {
                 console.log('TSHoliday PWA Registered Successfully:', reg.scope);
             })
