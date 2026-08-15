@@ -342,3 +342,34 @@
     background-color: #f3e5ab;
     transform: translateY(-5px);
 }
+/* ==========================================================================
+   EFEK NAVIGASI NAVY & HOVER ELEGAN
+   ========================================================================== */
+.nav-link {
+    position: relative;
+    color: var(--primary); /* Warna Navy (#0a192f) */
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+}
+
+/* Garis underline animasi saat di-hover */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--accent); /* Warna Emas (#D4AF37) */
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.nav-link:hover {
+    color: var(--accent); /* Mengubah warna teks ke Emas saat hover */
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
