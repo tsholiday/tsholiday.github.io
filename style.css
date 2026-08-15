@@ -1017,3 +1017,59 @@ footer {
         text-align: center;
     }
 }
+/* ==========================================================================
+   12. ACCESSIBILITY, ANCHOR OFFSET & PERFORMANCE
+   ========================================================================== */
+
+html {
+    scroll-padding-top: 90px;
+}
+
+img,
+video {
+    max-width: 100%;
+}
+
+img {
+    height: auto;
+}
+
+/* Keyboard accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid rgba(212, 175, 55, 0.75);
+    outline-offset: 3px;
+}
+
+/* Prevent fixed navbar from covering anchor targets */
+section[id],
+div[id] {
+    scroll-margin-top: 90px;
+}
+
+/* Better viewport handling on mobile */
+@media (max-width: 868px) {
+    .hero {
+        min-height: 100svh;
+        height: auto;
+    }
+}
+
+/* Respect reduced-motion accessibility preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .hero-video {
+        display: none;
+    }
+}
