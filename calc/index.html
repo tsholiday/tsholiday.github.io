@@ -3,142 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- SEO & Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0SGSHE74HB"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-0SGSHE74HB');
-    </script>
-    <meta name="google-site-verification" content="BFKb-Ff025INBVgr0C4MgJmJy3RSItO3HfliIVeDxVU" />
-    <title>Sewa Mobil & Paket Wisata Bandung | TSHoliday</title>
-    <meta name="title" content="Sewa Mobil & Paket Wisata Bandung | TSHoliday">
-    <meta name="description" content="TSHoliday menyediakan sewa mobil Bandung, Bogor, dan Jakarta serta paket wisata Bandung seperti Ciwidey, Lembang, Pangalengan, dan Bandung City Tour. Booking mudah via WhatsApp.">
-    <meta name="keywords" content="sewa mobil Bandung, rental mobil Bandung, paket wisata Bandung, tour Bandung, sewa HiAce Bandung, sewa Elf Bandung, TSHoliday">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="PT Keepgoing TSH Indonesia">
-    <link rel="canonical" href="https://tsholiday.github.io/">
-
-    <!-- Open Graph / Meta Social Media -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tsholiday.github.io/">
-    <meta property="og:title" content="Sewa Mobil & Paket Wisata Bandung | TSHoliday">
-    <meta property="og:description" content="Sewa mobil dan paket wisata Bandung, termasuk Ciwidey, Lembang, Pangalengan, dan Bandung City Tour. Booking mudah bersama TSHoliday.">
-    <meta property="og:image" content="https://tsholiday.github.io/assets/image/kota-bandung/bandung.jpg">
-    
-    <!-- PWA & Icons -->
-    <meta name="theme-color" content="#0a192f">
-    <link rel="icon" type="image/png" href="logo/logo.png">
-
-    <!-- Fonts & Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-
-    <!-- TAILWIND CSS -->
+    <title>Kalkulator Sewa dan Custom Itinerary Multi-Hari</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0a192f',
-                        gold: '#D4AF37',
-                        light: '#F4F7F6',
-                    },
-                    fontFamily: {
-                        sans: ['Montserrat', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
+                        navy: { 800: '#1e293b', 900: '#0f172a' }
                     }
                 }
             }
         }
     </script>
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "WebSite",
-          "@id": "https://tsholiday.github.io/#website",
-          "url": "https://tsholiday.github.io/",
-          "name": "TSHoliday",
-          "description": "Sewa mobil dan paket wisata Bandung, Bogor, dan Jakarta.",
-          "inLanguage": "id-ID"
-        },
-        {
-          "@type": "Organization",
-          "@id": "https://tsholiday.github.io/#organization",
-          "name": "PT Keepgoing TSH Indonesia",
-          "url": "https://tsholiday.github.io/",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://tsholiday.github.io/logo/logo.png"
-          },
-          "email": "tsholidaybandung@gmail.com",
-          "telephone": "+6282130640161"
-        }
-      ]
-    }
-    </script>
+<base target="_blank">
 </head>
-<body class="bg-light text-gray-800 antialiased font-sans">
-
-    <!-- 1. NAVBAR FLOATING GLASSMORPHISM -->
-    <header class="fixed left-0 right-0 top-4 z-50 mx-auto w-[calc(100%-2rem)] max-w-6xl glass-navbar rounded-full transition-all duration-300" id="navbar">
-        <div class="px-5 sm:px-6 flex justify-between items-center h-14">
-            <!-- Logo -->
-            <a href="#home" class="flex items-center gap-2">
-                <img src="logo/logo.png" alt="TSHoliday Logo" class="h-8 w-auto">
-                <div class="flex flex-col leading-none">
-                    <span class="font-bold text-primary text-base tracking-wider">TSHOLIDAY</span>
-                    <span class="text-[8px] text-gray-700 uppercase tracking-widest mt-0.5">Keepgoing TSH Indonesia</span>
-                </div>
-            </a>
-
-            <!-- Area Navigasi & Toggle Bahasa (Berdampingan) -->
-            <div class="hidden md:flex items-center space-x-6">
-                <!-- Desktop Menu -->
-                <nav class="flex items-center space-x-5 lg:space-x-7 font-semibold text-[11px] tracking-widest uppercase" id="navLinks">
-                    <a href="#home" class="nav-link" data-id="Beranda" data-en="Home">Home</a>
-                    <a href="#tentang" class="nav-link" data-id="Tentang" data-en="About">Tentang</a>
-                    <a href="#paket" class="nav-link" data-id="Paket" data-en="Packages">Paket</a>
-                    <a href="#armada" class="nav-link" data-id="Armada" data-en="Fleet">Armada</a>
-                    <a href="#galeri" class="nav-link" data-id="Galeri" data-en="Gallery">Galeri</a>
-                    <a href="#kontak" class="nav-link" data-id="Kontak" data-en="Contact">Kontak</a>
-                </nav>
-
-                <!-- Animated Language Toggle (Di Samping Kanan Nav) -->
-                <div class="relative flex items-center bg-white/40 p-0.5 rounded-full border border-white/60 text-[10px] font-bold select-none w-[64px] h-[26px] shadow-inner">
-                    <div id="lang-pill" class="absolute top-0.5 left-0.5 w-[28px] h-[20px] bg-primary rounded-full transition-transform duration-300 ease-in-out shadow-sm"></div>
-                    <button id="btn-id" class="relative z-10 w-1/2 h-full text-center text-white transition-colors duration-300 focus:outline-none">ID</button>
-                    <button id="btn-en" class="relative z-10 w-1/2 h-full text-center text-gray-700 hover:text-primary transition-colors duration-300 focus:outline-none">EN</button>
-                </div>
-            </div>
-
-            <!-- Actions Booking Kalkulator-->
-            <div class="flex items-center gap-3">
-                <a href="./calc/index.html" class="hidden lg:block bg-gold hover:bg-yellow-600 text-white px-4 py-1.5 text-xs rounded-full font-bold transition-transform hover:scale-105 shadow-md">Pesan langsung</a>
-                <button class="md:hidden text-lg text-primary focus:outline-none" id="mobileToggle"><i class="fas fa-bars"></i></button>
-            
-            <!-- Actions Calc-->
-            
-                <a href="#booking" class="hidden lg:block bg-gold hover:bg-yellow-600 text-white px-4 py-1.5 text-xs rounded-full font-bold transition-transform hover:scale-105 shadow-md">QnA</a>
-                <button class="md:hidden text-lg text-primary focus:outline-none" id="mobileToggle"><i class="fas fa-bars"></i></button>
-            </div>
-        </div>
-    </header>
-
 <body class="bg-gray-50 text-navy-900 dark:bg-navy-900 dark:text-gray-100 min-h-screen flex flex-col justify-center items-center p-4 transition-colors duration-300 font-sans">
 
     <!-- Container Utama Kalkulator -->
