@@ -1,13 +1,6 @@
 /* ==========================================================================
-   1. RESET, VARIABLES & BASE STYLES
+   1. RESET & CUSTOM VARIABLES
    ========================================================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
 :root {
     --primary: #0a192f;
     --accent: #d4af37;
@@ -17,19 +10,6 @@
     --text-light: #f8fafc;
 }
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    color: #333;
-    background-color: #fff;
-    line-height: 1.7;
-    overflow-x: hidden;
-}
-
-.light-bg {
-    background-color: var(--light-bg);
-}
-
-/* Base Keyframe Animation */
 @keyframes fadeIn {
     from { 
         opacity: 0; 
@@ -41,143 +21,9 @@ body {
     }
 }
 
-/* Pointer cursor untuk semua gambar yang bisa diklik */
-.card img, 
-.gallery-grid img, 
-.legality-img {
-    cursor: pointer;
-}
-
 /* ==========================================================================
-   2. NAVBAR & HEADER
+   2. HERO VIDEO BACKGROUND
    ========================================================================== */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(10, 25, 47, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 1rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.15);
-}
-
-header.scrolled {
-    padding: 0.7rem 5%;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-}
-
-.nav-logo {
-    height: 42px;
-    width: auto;
-    object-fit: contain;
-}
-
-.logo-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--accent);
-    line-height: 1.1;
-}
-
-.logo-text span {
-    color: #fff;
-    font-size: 0.65rem;
-    font-family: 'Montserrat', sans-serif;
-    display: block;
-    letter-spacing: 1.5px;
-}
-
-nav {
-    display: flex;
-    gap: 1.2rem;
-}
-
-nav a {
-    color: var(--text-light);
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-nav a:hover, nav a.active {
-    color: var(--accent);
-}
-
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-/* LANGUAGE SWITCHER */
-.lang-switcher {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 0.3rem 0.7rem;
-    border-radius: 20px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-}
-
-.lang-switcher span {
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 0.8rem;
-}
-
-.lang-btn {
-    background: none;
-    border: none;
-    color: #fff;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: color 0.3s;
-    padding: 2px 4px;
-}
-
-.lang-btn:hover, .lang-btn.active {
-    color: var(--accent);
-}
-
-.mobile-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.4rem;
-    cursor: pointer;
-}
-
-/* ==========================================================================
-   3. HERO SECTION WITH VIDEO BACKGROUND
-   ========================================================================== */
-.hero {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-    padding: 0 1rem;
-    overflow: hidden;
-}
-
 .hero-video {
     position: absolute;
     top: 50%;
@@ -186,270 +32,42 @@ nav a:hover, nav a.active {
     min-height: 100%;
     width: auto;
     height: auto;
-    z-index: 1;
+    z-index: 0;
     transform: translate(-50%, -50%);
     object-fit: cover;
 }
 
 .hero-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: rgba(10, 25, 47, 0.65);
-    z-index: 2;
+    z-index: 10;
 }
 
 .hero-content {
     position: relative;
-    z-index: 3;
-}
-
-.hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    margin-bottom: 2rem;
-    color: #fff;
-    line-height: 1.3;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-/* BUTTON STYLES */
-.btn-gold {
-    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
-    color: #fff;
-    padding: 0.8rem 1.8rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.btn-gold:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
-}
-
-.btn-outline {
-    border: 2px solid var(--accent);
-    color: #fff;
-    padding: 0.8rem 1.8rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background 0.3s, transform 0.3s;
-}
-
-.btn-outline:hover {
-    background: var(--accent);
-    transform: translateY(-3px);
-}
-
-.btn-outline-gold {
-    background: transparent;
-    color: #D4AF37;
-    border: 1.5px solid #D4AF37;
-    padding: 10px 25px;
-    border-radius: 4px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.btn-outline-gold:hover {
-    background: #D4AF37;
-    color: #0A192F;
-}
-
-.btn-sm {
-    padding: 0.5rem 1.2rem;
-    font-size: 0.8rem;
-    display: inline-block;
-}
-
-.btn-block {
-    width: 100%;
-    padding: 1rem;
-    font-size: 1rem;
+    z-index: 20;
 }
 
 /* ==========================================================================
-   4. GENERAL SECTIONS, TENTANG, & CARDS
-   ========================================================================== */
-section {
-    padding: 5rem 8%;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.section-title h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
-    color: var(--primary);
-    position: relative;
-    display: inline-block;
-}
-
-.section-title h2::after {
-    content: '';
-    display: block;
-    width: 50%;
-    height: 3px;
-    background: var(--accent);
-    margin: 8px auto 0;
-}
-
-/* TENTANG */
-.about-container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.about-card {
-    background: var(--light-bg);
-    padding: 2rem;
-    border-radius: 10px;
-    border-left: 4px solid var(--accent);
-}
-
-.about-grid-3 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-}
-
-.info-card {
-    background: #fff;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.info-card i, .about-card i {
-    color: var(--accent);
-    margin-right: 8px;
-}
-
-/* GRID CARDS & ARMADA */
-.grid-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
-
-.card {
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    transition: transform 0.3s, box-shadow 0.3s;
-    display: flex;
-    flex-direction: column;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.12);
-}
-
-.card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.card-body {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    justify-content: space-between;
-}
-
-.card-body p {
-    color: #555;
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-}
-
-.card-buttons {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: auto;
-}
-
-.card-buttons .btn-detail {
-    border: 1.5px solid var(--accent);
-    color: var(--primary);
-    background: transparent;
-    cursor: pointer;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: all 0.3s;
-}
-
-.card-buttons .btn-detail:hover {
-    background: var(--accent);
-    color: #fff;
-}
-
-.cardfleet {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    border: 1px solid #eee;
-    transition: transform 0.3s;
-}
-
-.cardfleet:hover {
-    transform: translateY(-5px);
-}
-
-.fleet-icon {
-    font-size: 2.5rem;
-    color: var(--accent);
-    margin-bottom: 1rem;
-}
-
-/* ==========================================================================
-   5. GALERI SECTION & LOAD MORE
+   3. GALERI GRID & ITEMS
    ========================================================================== */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
     margin-bottom: 30px;
 }
 
 .gallery-item {
     position: relative;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
-    height: 180px;
+    height: 200px;
     border: 1px solid rgba(212, 175, 55, 0.2);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     animation: fadeIn 0.5s ease-in-out;
+    cursor: pointer;
 }
 
 .gallery-item img {
@@ -463,13 +81,8 @@ section {
     transform: scale(1.08);
 }
 
-.gallery-actions {
-    text-align: center;
-    margin-top: 20px;
-}
-
 /* ==========================================================================
-   6. LIGHTBOX MODAL & ZOOM SYSTEM
+   4. LIGHTBOX MODAL & ZOOM SYSTEM
    ========================================================================== */
 .image-modal {
     display: none;
@@ -527,13 +140,8 @@ section {
     backdrop-filter: blur(5px);
 }
 
-.modal-nav-btn.prev-btn {
-    left: 25px;
-}
-
-.modal-nav-btn.next-btn {
-    right: 25px;
-}
+.modal-nav-btn.prev-btn { left: 25px; }
+.modal-nav-btn.next-btn { right: 25px; }
 
 .modal-nav-btn:hover {
     background: #D4AF37;
@@ -577,11 +185,6 @@ section {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    cursor: grab;
-}
-
-.modal-content-wrapper:active {
-    cursor: grabbing;
 }
 
 .modal-image {
@@ -591,11 +194,10 @@ section {
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     transition: transform 0.2s ease-out;
-    transform-origin: center center;
 }
 
 /* ==========================================================================
-   7. MODAL DETAIL RINCIAN TEMPAT WISATA
+   5. DETAIL MODAL RINCIAN WISATA
    ========================================================================== */
 .detail-modal {
     display: none;
@@ -619,7 +221,7 @@ section {
 
 .detail-modal-content {
     background: #ffffff;
-    border-radius: 12px;
+    border-radius: 16px;
     max-width: 650px;
     width: 100%;
     max-height: 85vh;
@@ -685,7 +287,8 @@ section {
 
 .destination-item h4 {
     color: var(--primary);
-    font-size: 1rem;
+    font-weight: 700;
+    font-size: 0.95rem;
     margin-bottom: 4px;
     display: flex;
     align-items: center;
@@ -699,172 +302,12 @@ section {
 
 .destination-item p {
     color: #475569;
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     line-height: 1.5;
 }
 
-.detail-modal-footer {
-    padding: 15px 25px;
-    background: #f8fafc;
-    border-top: 1px solid #e2e8f0;
-    display: flex;
-    justify-content: flex-end;
-    gap: 12px;
-}
-
 /* ==========================================================================
-   8. LEGALITAS SECTION
-   ========================================================================== */
-.legality-card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 2.5rem;
-    margin-top: 2rem;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 2rem;
-    align-items: center;
-}
-
-.legality-info h3 {
-    font-family: 'Playfair Display', serif;
-    color: var(--primary);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.legality-info h3 i {
-    color: var(--accent);
-    margin-right: 8px;
-}
-
-.legality-info p {
-    color: #555;
-    font-size: 0.95rem;
-}
-
-.legality-img-container {
-    text-align: center;
-}
-
-.legality-img {
-    max-width: 100%;
-    height: auto;
-    max-height: 220px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-    cursor: pointer;
-}
-
-.legality-img:hover {
-    transform: scale(1.03);
-}
-
-/* ==========================================================================
-   9. TESTIMONI, FAQ, & BOOKING FORM
-   ========================================================================== */
-/* TESTIMONI */
-.testimoni-slider {
-    padding-bottom: 3rem;
-}
-
-.testimoni-card {
-    background: var(--light-bg);
-    padding: 2.5rem;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.stars {
-    margin-bottom: 1rem;
-}
-
-/* FAQ */
-.faq-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.faq-item {
-    background: #fff;
-    margin-bottom: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    overflow: hidden;
-}
-
-.faq-question {
-    padding: 1.2rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--primary);
-}
-
-.faq-answer {
-    padding: 0 1.2rem 1.2rem;
-    display: none;
-    color: #555;
-    font-size: 0.95rem;
-}
-
-.faq-item.active .faq-answer {
-    display: block;
-}
-
-.faq-question i {
-    transition: transform 0.3s;
-}
-
-.faq-item.active .faq-question i {
-    transform: rotate(180deg);
-}
-
-/* BOOKING FORM */
-.booking-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background: #fff;
-    padding: 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    border: 1px solid #eee;
-}
-
-.form-group {
-    margin-bottom: 1.2rem;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-}
-
-.form-group label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 0.4rem;
-    font-size: 0.9rem;
-}
-
-.form-group input, .form-group select {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-family: inherit;
-    font-size: 0.9rem;
-}
-
-/* ==========================================================================
-   10. TOMBOL SCROLL TO TOP & FOOTER
+   6. SCROLL TO TOP BUTTON
    ========================================================================== */
 #scrollTopBtn {
     position: fixed;
@@ -872,8 +315,8 @@ section {
     right: 30px;
     width: 45px;
     height: 45px;
-    background-color: #D4AF37;
-    color: #0A192F;
+    background-color: var(--accent);
+    color: var(--primary);
     border: none;
     border-radius: 50%;
     font-size: 1.2rem;
@@ -896,180 +339,6 @@ section {
 }
 
 #scrollTopBtn:hover {
-    background-color: #F3E5AB;
+    background-color: #f3e5ab;
     transform: translateY(-5px);
-    box-shadow: 0 6px 18px rgba(212, 175, 55, 0.4);
-}
-
-/* FOOTER */
-footer {
-    background: var(--primary);
-    color: #a0aec0;
-    padding: 4rem 8% 2rem;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2.5rem;
-    margin-bottom: 2rem;
-}
-
-.footer-col h4 {
-    color: var(--accent);
-    margin-bottom: 1rem;
-    font-family: 'Playfair Display', serif;
-}
-
-.social-links a {
-    color: #fff;
-    font-size: 1.5rem;
-    margin-right: 1rem;
-    transition: color 0.3s;
-}
-
-.social-links a:hover {
-    color: var(--accent);
-}
-
-.footer-bottom {
-    text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 1.5rem;
-    font-size: 0.85rem;
-}
-
-/* FADE IN OBSERVER ANIMATION */
-.fade-in-section {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
-}
-
-.fade-in-section.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ==========================================================================
-   11. RESPONSIVE DESIGN (MOBILE & TABLET)
-   ========================================================================== */
-@media (max-width: 868px) {
-    .mobile-toggle {
-        display: block;
-    }
-
-    nav.nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(10, 25, 47, 0.98);
-        flex-direction: column;
-        padding: 1.5rem 5%;
-        gap: 1rem;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    }
-
-    nav.nav-links.active {
-        display: flex;
-    }
-
-    .hero h1 { font-size: 2.2rem; }
-    .form-row { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 768px) {
-    #scrollTopBtn {
-        bottom: 20px;
-        right: 20px;
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
-    }
-
-    .modal-nav-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1.1rem;
-    }
-    .modal-nav-btn.prev-btn {
-        left: 10px;
-    }
-    .modal-nav-btn.next-btn {
-        right: 10px;
-    }
-
-    .legality-card {
-        grid-template-columns: 1fr;
-        padding: 1.5rem;
-    }
-}
-
-@media (max-width: 600px) {
-    .card-buttons {
-        flex-direction: column;
-        gap: 8px;
-    }
-    .card-buttons button, .card-buttons a {
-        width: 100%;
-        text-align: center;
-    }
-}
-/* ==========================================================================
-   12. ACCESSIBILITY, ANCHOR OFFSET & PERFORMANCE
-   ========================================================================== */
-
-html {
-    scroll-padding-top: 90px;
-}
-
-img,
-video {
-    max-width: 100%;
-}
-
-img {
-    height: auto;
-}
-
-/* Keyboard accessibility */
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-    outline: 3px solid rgba(212, 175, 55, 0.75);
-    outline-offset: 3px;
-}
-
-/* Prevent fixed navbar from covering anchor targets */
-section[id],
-div[id] {
-    scroll-margin-top: 90px;
-}
-
-/* Better viewport handling on mobile */
-@media (max-width: 868px) {
-    .hero {
-        min-height: 100svh;
-        height: auto;
-    }
-}
-
-/* Respect reduced-motion accessibility preferences */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-
-    .hero-video {
-        display: none;
-    }
 }
