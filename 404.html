@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Halaman Tidak Ditemukan | TSHoliday</title>
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" type="image/png" href="logo/logo.png">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- TAILWIND CSS -->    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0a192f',
+                        gold: '#D4AF37',
+                        light: '#F4F7F6',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-light text-gray-800 antialiased font-sans flex flex-col min-h-screen">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+        *{
+            font-family: "Geist", sans-serif;
+        }
+    </style>
+
+    <!-- Header / Navbar Sederhana -->
+    <header class="fixed left-0 right-0 top-4 z-50 mx-auto w-[calc(100%-2rem)] max-w-6xl bg-white/70 backdrop-blur-md border border-white/40 rounded-full shadow-sm transition-all duration-300">
+        <div class="px-6 flex justify-between items-center h-14">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="logo/logo.png" alt="TSHoliday Logo" class="h-8 w-auto">
+                <div class="flex flex-col leading-none">
+                    <span class="font-bold text-primary text-base tracking-wider">TSHOLIDAY</span>
+                    <span class="text-[8px] text-gray-700 uppercase tracking-widest mt-0.5">Keepgoing TSH Indonesia</span>
+                </div>
+            </a>
+            <a href="index.html" class="bg-primary hover:bg-gold text-white px-4 py-1.5 text-xs rounded-full font-bold transition-all shadow-md">
+                Kembali ke Beranda
+            </a>
+        </div>
+    </header>
+
+    <!-- Konten Utama 404 -->
+    <main class="flex-grow flex items-center justify-center px-4 pt-24 pb-12">
+        <div class="max-w-md w-full text-center bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100">
+            <!-- Ikon / Angka 404 -->
+            <div class="relative mb-6">
+                <span class="text-7xl md:text-8xl font-serif font-bold text-primary/10 tracking-widest block">404</span>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center text-gold text-3xl">
+                        <i class="fas fa-compass-slash"></i>
+                    </div>
+                </div>
+            </div>
+
+            <h1 class="text-2xl md:text-3xl font-serif font-bold text-primary mb-3">Halaman Tidak Ditemukan</h1>
+            <p class="text-gray-600 text-sm mb-6 leading-relaxed">
+                Maaf, halaman yang Anda akses mungkin telah dihapus, berganti nama, atau tautan yang Anda tuju salah.
+            </p>
+
+            <!-- Indikator Hitung Mundur Otomatis -->
+            <div class="bg-light p-3 rounded-xl mb-6 border border-gray-200">
+                <p class="text-xs text-gray-600">
+                    Anda akan dialihkan otomatis ke Beranda dalam <span id="countdown" class="font-bold text-gold text-sm">10</span> detik.
+                </p>
+            </div>
+
+            <!-- Tombol Aksi -->
+            <div class="space-y-3">
+                <a href="index.html" class="w-full bg-gold hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 text-sm">
+                    <i class="fas fa-home"></i> Kembali ke Beranda Sekarang
+                </a>
+                <button id="cancelRedirectBtn" class="w-full bg-transparent hover:bg-gray-100 text-gray-500 font-medium py-2 px-6 rounded-xl transition-all text-xs border border-gray-200">
+                    Batalkan Pengalihan Otomatis
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Sederhana -->
+    <footer class="py-6 text-center text-gray-400 text-xs border-t border-gray-200">
+        <p>&copy; 2026 PT Keepgoing TSH Indonesia. All rights reserved.</p>
+    </footer>
+
+    <!-- Skrip Hitung Mundur & Redirect -->
+    <script>
+        let timeLeft = 10;
+        const countdownEl = document.getElementById('countdown');
+        const cancelBtn = document.getElementById('cancelRedirectBtn');
+        
+        let redirectTimer = setInterval(() => {
+            timeLeft--;
+            if (countdownEl) {
+                countdownEl.textContent = timeLeft;
+            }
+            if (timeLeft <= 0) {
+                clearInterval(redirectTimer);
+                window.location.href = 'index.html';
+            }
+        }, 1000);
+
+        // Fitur tombol untuk membatalkan pengalihan otomatis jika pengguna ingin diam di halaman 404
+        if (cancelBtn) {
+            cancelBtn.addEventListener('click', () => {
+                clearInterval(redirectTimer);
+                cancelBtn.parentElement.parentElement.querySelector('.bg-light').innerHTML = `
+                    <p class="text-xs text-green-600 font-medium"><i class="fas fa-check-circle"></i> Pengalihan otomatis dibatalkan.</p>
+                `;
+                cancelBtn.style.display = 'none';
+            });
+        }
+    </script>
+</body>
+</html>
