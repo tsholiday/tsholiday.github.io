@@ -1,34 +1,156 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <!-- Halaman Utama (Beranda) -->
+    <!-- Halaman Utama -->
     <url>
         <loc>https://tsholiday.github.io/</loc>
-        <lastmod>2026-08-17</lastmod>
-        <changefreq>weekly</changefreq>
+        <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
-
-    <!-- Halaman Tentang Kami -->
     <url>
         <loc>https://tsholiday.github.io/about.html</loc>
-        <lastmod>2026-08-17</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.5</priority>
     </url>
-
-    <!-- Halaman Kontak -->
     <url>
         <loc>https://tsholiday.github.io/contact.html</loc>
-        <lastmod>2026-08-17</lastmod>
         <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://tsholiday.github.io/privacy.html</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <!-- Paket Wisata Bandung -->
+    <url>
+        <loc>https://tsholiday.github.io/paket-wisata-bandung/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tsholiday.github.io/paket-wisata-bandung/bandung-city-tour/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tsholiday.github.io/paket-wisata-bandung/ciwidey-tour/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tsholiday.github.io/paket-wisata-bandung/lembang-tour/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tsholiday.github.io/paket-wisata-bandung/pangalengan/</loc>
+        <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
-    <!-- Halaman Kebijakan Privasi -->
+    <!-- Paket Wisata Bogor -->
     <url>
-        <loc>https://tsholiday.github.io/privacy.html</loc>
-        <lastmod>2026-08-17</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.5</priority>
+        <loc>https://tsholiday.github.io/paket-wisata-bogor/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Paket Wisata Jakarta -->
+    <url>
+        <loc>https://tsholiday.github.io/paket-wisata-jakarta/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tsholiday.github.io/paket-wisata-jakarta/jakarta-city-tour/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tsholiday.github.io/paket-wisata-jakarta/pik-tour/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Sewa Mobil Bandung -->
+    <url>
+        <loc>https://tsholiday.github.io/sewa-mobil-bandung/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tsholiday.github.io/sewa-mobil-bandung/sewa-bus-bandung/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tsholiday.github.io/sewa-mobil-bandung/sewa-elf-bandung/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tsholiday.github.io/sewa-mobil-bandung/sewa-hiace-bandung/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tsholiday.github.io/sewa-mobil-bandung/sewa-mvp-bandung/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Sewa Mobil Bogor -->
+    <url>
+        <loc>https://tsholiday.github.io/sewa-mobil-bogor/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tsholiday.github.io/sewa-mobil-bogor/sewa-bus-bogor/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tsholiday.github.io/sewa-mobil-bogor/sewa-elf-bogor/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tsholiday.github.io/sewa-mobil-bogor/sewa-hiace-bogor/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tsholiday.github.io/sewa-mobil-bogor/sewa-mvp-bogor/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Sewa Mobil Jakarta -->
+    <url>
+        <loc>https://tsholiday.github.io/sewa-mobil-jakarta/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tsholiday.github.io/sewa-mobil-jakarta/sewa-bus-jakarta/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tsholiday.github.io/sewa-mobil-jakarta/sewa-elf-jakarta/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tsholiday.github.io/sewa-mobil-jakarta/sewa-hiace-jakarta/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://tsholiday.github.io/sewa-mobil-jakarta/sewa-mvp-jakarta/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
     </url>
 </urlset>
