@@ -136,47 +136,64 @@
 
 
             <!-- FOOTER -->
+<footer class="bg-primary text-white pt-20 pb-10 border-t border-white/10 mt-20">
+    <div class="max-w-7xl mx-auto px-6">
+        <!-- Main Footer Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            
+            <!-- Branding Section -->
+            <div class="space-y-4">
+                <div class="flex items-center gap-2">
+                    <img src="/logo/logo.png" alt="TSHoliday" class="h-10 w-auto">
+                    <span class="font-bold text-lg tracking-widest text-white">TSHOLIDAY</span>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed max-w-xs">
+                    Mitra perjalanan terpercaya untuk eksplorasi Bandung, Bogor, dan Jakarta dengan kenyamanan premium.
+                </p>
+                <div class="flex gap-4 pt-2">
+                    <a href="#" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-gold transition"><i class="fab fa-instagram text-sm"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-gold transition"><i class="fab fa-whatsapp text-sm"></i></a>
+                </div>
+            </div>
 
-<footer class="bg-primary text-white pt-16 pb-8 mt-20 border-t border-white/10">
-    <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 mb-12 text-[11px]">
-        <!-- Paket Wisata -->
-        <div>
-            <h4 class="font-bold text-gold mb-4 uppercase tracking-widest">PAKET WISATA</h4>
-            <ul class="space-y-3 text-gray-400">
-                <li><a href="/paket-wisata-bandung/" class="hover:text-white">Wisata Bandung</a></li>
-                <li><a href="/paket-wisata-bogor/" class="hover:text-white">Wisata Bogor</a></li>
-                <li><a href="/paket-wisata-jakarta/" class="hover:text-white">Wisata Jakarta</a></li>
-            </ul>
+            <!-- Links Group 1 -->
+            <div>
+                <h4 class="font-bold text-gold mb-6 uppercase tracking-widest text-xs">Paket Wisata</h4>
+                <ul class="space-y-3 text-sm text-gray-300">
+                    <li><a href="/paket-wisata-bandung/" class="hover:text-gold transition">Bandung City Tour</a></li>
+                    <li><a href="/paket-wisata-bogor/" class="hover:text-gold transition">Wisata Puncak & Sentul</a></li>
+                    <li><a href="/paket-wisata-jakarta/" class="hover:text-gold transition">Eksplorasi Jakarta</a></li>
+                </ul>
+            </div>
+
+            <!-- Links Group 2 -->
+            <div>
+                <h4 class="font-bold text-gold mb-6 uppercase tracking-widest text-xs">Rental Mobil</h4>
+                <ul class="space-y-3 text-sm text-gray-300">
+                    <li><a href="/sewa-mobil-bandung/" class="hover:text-gold transition">Sewa Mobil Bandung</a></li>
+                    <li><a href="/sewa-mobil-bogor/" class="hover:text-gold transition">Sewa Mobil Bogor</a></li>
+                    <li><a href="/sewa-mobil-jakarta/" class="hover:text-gold transition">Sewa Mobil Jakarta</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Box -->
+            <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
+                <h4 class="font-bold text-gold mb-4 uppercase tracking-widest text-xs">Layanan Admin</h4>
+                <p class="text-gray-400 text-xs mb-4">Butuh bantuan cepat atau custom itinerary?</p>
+                <a href="/contact.html" class="inline-block w-full text-center bg-gold hover:bg-white text-primary font-bold text-xs py-3 rounded-xl transition">Hubungi Kami</a>
+            </div>
         </div>
-        <!-- Sewa Mobil -->
-        <div>
-            <h4 class="font-bold text-gold mb-4 uppercase tracking-widest">SEWA MOBIL</h4>
-            <ul class="space-y-3 text-gray-400">
-                <li><a href="/sewa-mobil-bandung/" class="hover:text-white">Sewa Mobil Bandung</a></li>
-                <li><a href="/sewa-mobil-bogor/" class="hover:text-white">Sewa Mobil Bogor</a></li>
-                <li><a href="/sewa-mobil-jakarta/" class="hover:text-white">Sewa Mobil Jakarta</a></li>
-            </ul>
-        </div>
-        <!-- Sub Kategori Populer -->
-        <div>
-            <h4 class="font-bold text-gold mb-4 uppercase tracking-widest">LAYANAN LAIN</h4>
-            <ul class="space-y-3 text-gray-400">
-                <li><a href="/about.html" class="hover:text-white">Tentang Kami</a></li>
-                <li><a href="/privacy.html" class="hover:text-white">Privasi</a></li>
-                <li><a href="/contact.html" class="hover:text-white">Kontak</a></li>
-            </ul>
-        </div>
-        <!-- Contact -->
-        <div>
-            <h4 class="font-bold text-gold mb-4 uppercase tracking-widest">HUBUNGI KAMI</h4>
-            <a href="https://wa.me/6282130640161" class="text-gray-400 hover:text-white">WhatsApp Admin</a>
+
+        <!-- Bottom Bar -->
+        <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10 text-xs text-gray-500">
+            <p>&copy; 2026 PT Keepgoing TSH Indonesia. All rights reserved.</p>
+            <div class="flex gap-6 mt-4 md:mt-0">
+                <a href="/privacy.html" class="hover:text-white">Kebijakan Privasi</a>
+                <a href="/about.html" class="hover:text-white">Tentang Kami</a>
+            </div>
         </div>
     </div>
-    <div class="text-center text-[10px] text-gray-500 border-t border-white/5 pt-8">
-        &copy; 2026 PT Keepgoing TSH Indonesia. All rights reserved.
-    </div>
-</footer>
-    
+</footer>    
     <!-- Script Pendukung Navbar Mobile -->
     <script src="script.js"></script>
 </body>
