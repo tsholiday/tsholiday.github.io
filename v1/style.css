@@ -1,4 +1,20 @@
 /* ==========================================================================
+   NAVBAR TEXT SHADOW EFFECT
+   ========================================================================== */
+.nav-link,
+.brand-title,
+.brand-subtitle,
+.lang-btn,
+.lang-divider {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7); /* Memberikan efek bayangan gelap yang tegas */
+}
+
+/* Mempertegas bayangan pada tombol mobile toggle (hamburger) */
+.mobile-toggle-btn {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.7));
+}
+
+/* ==========================================================================
    LANGUAGE SWITCHER STYLING
    ========================================================================== */
 .lang-switcher {
