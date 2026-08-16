@@ -1,5 +1,3 @@
-
-
 /* ==========================================================================
    TSHOLIDAY GLOBAL SCRIPT
    ========================================================================== */
@@ -18,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
             e.stopPropagation();
             navContainer.classList.toggle('active');
             
-            // Mengubah ikon garis tiga (bars) menjadi tanda silang (times)
             if (navContainer.classList.contains('active')) {
                 toggleIcon.classList.remove('fa-bars');
                 toggleIcon.classList.add('fa-times');
@@ -28,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Menutup menu otomatis ketika salah satu tautan di dalam mobile menu diklik
         navContainer.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navContainer.classList.remove('active');
@@ -39,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Menutup menu ketika pengguna mengklik di luar area navbar
         document.addEventListener('click', (e) => {
             if (!navContainer.contains(e.target) && !mobileToggle.contains(e.target)) {
                 navContainer.classList.remove('active');
@@ -83,7 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Ubah elemen yang memiliki atribut data-id dan data-en
         document.querySelectorAll('[data-id]').forEach(el => {
             const translation = el.getAttribute(`data-${lang}`);
             if (translation) {
@@ -145,14 +139,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-/* ==========================================================
-       5. GALERI DINAMIS & LIGHTBOX MODAL (125 Foto)
+    /* ==========================================================
+       5. GALERI DINAMIS & LIGHTBOX MODAL
        ========================================================== */
-   document.addEventListener("DOMContentLoaded", function() {
-   const galleryGrid = document.getElementById('galleryGrid');
+    const galleryGrid = document.getElementById('galleryGrid');
     const loadMoreBtn = document.getElementById('loadMoreBtn');
-    
-    // Daftar lengkap semua file gambar dari folder assets/image/
+    let itemsToShow = 5; // Tampil 5 gambar di awal sesuai permintaan[cite: 1]
+
     const galleryImages = [
         { src: 'assets/image/bandung.jpg', title: 'Bandung City View' },
         { src: 'assets/image/ciwidey.jpg', title: 'Kawah Putih Ciwidey' },
@@ -286,10 +279,6 @@ document.addEventListener('DOMContentLoaded', () => {
         { src: 'assets/image/gallery-158.webp', title: 'Dokumentasi Wisata 126' }
     ];
 
-    let itemsToShow = 5; // Tampil 5 gambar di awal sesuai permintaan
-    
-   });
-   
     function renderGallery() {
         if (!galleryGrid) return;
         galleryGrid.innerHTML = '';
@@ -297,7 +286,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         currentItems.forEach((item, index) => {
             const div = document.createElement('div');
-            // Desain kartu (card) dengan sudut melengkung, bayangan halus, dan efek zoom saat kursor mendekat
             div.className = 'bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer group border border-gray-100 flex flex-col';
             div.innerHTML = `
                 <div class="relative h-56 overflow-hidden bg-gray-100">
@@ -311,11 +299,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="text-[10px] bg-light text-gray-500 px-2 py-0.5 rounded-full font-medium">TSHoliday</span>
                 </div>
             `;
-            div.addEventListener('click', () => openImageModal(index));
+            div.addEventListener('click', () => {
+                if (typeof window.openImageModal === 'function') {
+                    window.openImageModal(index);
+                }
+            });
             galleryGrid.appendChild(div);
         });
 
-        // Kontrol tombol tampilkan lebih banyak (menambah 10 setiap klik)
         if (loadMoreBtn) {
             if (itemsToShow >= galleryImages.length) {
                 loadMoreBtn.style.display = 'none';
@@ -327,70 +318,71 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (loadMoreBtn) {
         loadMoreBtn.addEventListener('click', () => {
-            itemsToShow += 10; // Menambah 10 gambar per klik
+            itemsToShow += 10;
             renderGallery();
         });
     }
 
     renderGallery();
 
-      
-   /* ==========================================================
-   6. MODAL DETAIL DESTINASI (Global Scope)
-   ========================================================== */
-const detailModal = document.getElementById('detailModal');
-const modalTitle = document.getElementById('modalTitle');
-const modalSubtitle = document.getElementById('modalSubtitle');
-const modalBodyList = document.getElementById('modalBodyList');
+    /* ==========================================================
+       6. MODAL DETAIL DESTINASI & LIGHTBOX (Global Scope)
+       ========================================================== */
+    const detailModal = document.getElementById('detailModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalSubtitle = document.getElementById('modalSubtitle');
+    const modalBodyList = document.getElementById('modalBodyList');
 
-const destinationDetails = {
-    ciwidey: {
-        title: "Ciwidey Tour Package",
-        subtitle: "Eksplorasi Keindahan Alam Dataran Tinggi Selatan Bandung",
-        items: [
-            "Kawah Putih (Danau vulkanik eksotis berwarna putih kehijauan)",
-            "Perkebunan Teh Rancabali (Hamparan hijau menyejukkan mata)",
-            "Glamping Lakeside / Situ Patenggang (Makan siang tepi danau ikonik)"
-        ]
-    },
-    lembang: {
-        title: "Lembang Escape Package",
-        subtitle: "Wisata Keluarga & Spot Instagramable Populer",
-        items: [
-            "Gunung Tangkuban Perahu (Kawah aktif legendaris)",
-            "Farmhouse Susu Lembang (Nuansa perkampungan Eropa klasik)",
-            "The Lodge Maribaya (Outbound & spot foto udara pegunungan)"
-        ]
-    },
-    bandung: {
-        title: "Bandung City Tour",
-        subtitle: "Menelusuri Jejak Sejarah & Pusat Perbelanjaan Kota",
-        items: [
-            "Gedung Sate (Ikon arsitektur kolonial Belanda)",
-            "Kawasan Jalan Asia Afrika & Museum Konferensi Asia Afrika",
-            "Pusat Belanja / Factory Outlet Jalan Riau & Dago"
-        ]
-    }
-};
+    const destinationDetails = {
+        ciwidey: {
+            title: "Ciwidey Tour Package",
+            subtitle: "Eksplorasi Keindahan Alam Dataran Tinggi Selatan Bandung",
+            items: [
+                "Kawah Putih (Danau vulkanik eksotis berwarna putih kehijauan)",
+                "Perkebunan Teh Rancabali (Hamparan hijau menyejukkan mata)",
+                "Glamping Lakeside / Situ Patenggang (Makan siang tepi danau ikonik)"
+            ]
+        },
+        lembang: {
+            title: "Lembang Escape Package",
+            subtitle: "Wisata Keluarga & Spot Instagramable Populer",
+            items: [
+                "Gunung Tangkuban Perahu (Kawah aktif legendaris)",
+                "Farmhouse Susu Lembang (Nuansa perkampungan Eropa klasik)",
+                "The Lodge Maribaya (Outbound & spot foto udara pegunungan)"
+            ]
+        },
+        bandung: {
+            title: "Bandung City Tour",
+            subtitle: "Menelusuri Jejak Sejarah & Pusat Perbelanjaan Kota",
+            items: [
+                "Gedung Sate (Ikon arsitektur kolonial Belanda)",
+                "Kawasan Jalan Asia Afrika & Museum Konferensi Asia Afrika",
+                "Pusat Belanja / Factory Outlet Jalan Riau & Dago"
+            ]
+        }
+    };
 
-window.openDetailModal = function(key) {
-    const data = destinationDetails[key];
-    if (data && detailModal) {
-        modalTitle.textContent = data.title;
-        modalSubtitle.textContent = data.subtitle;
-        modalBodyList.innerHTML = data.items.map(item => `<div class="p-3 bg-light rounded-xl mb-2 text-sm text-gray-700 flex items-center gap-2"><i class="fas fa-check-circle text-gold"></i> ${item}</div>`).join('');
-        detailModal.style.display = 'block';
-    }
-}
+    window.openDetailModal = function(key) {
+        const data = destinationDetails[key];
+        if (data && detailModal) {
+            modalTitle.textContent = data.title;
+            modalSubtitle.textContent = data.subtitle;
+            modalBodyList.innerHTML = data.items.map(item => `<div class="p-3 bg-light rounded-xl mb-2 text-sm text-gray-700 flex items-center gap-2"><i class="fas fa-check-circle text-gold"></i> ${item}</div>`).join('');
+            detailModal.style.display = 'block';
+        }
+    };
 
-window.closeDetailModal = function() {
-    if (detailModal) {
-        detailModal.style.display = 'none';
-    }
-}
+    window.closeDetailModal = function() {
+        if (detailModal) {
+            detailModal.style.display = 'none';
+        }
+    };
 
-window.addEventListener('click', (e) => {
-    if (e.target === detailModal) {
-        detailModal.style.display = 'none';
-    }
+    window.addEventListener('click', (e) => {
+        if (e.target === detailModal) {
+            detailModal.style.display = 'none';
+        }
+    });
+
 });
