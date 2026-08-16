@@ -1,5 +1,6 @@
 <header class="site-header" id="navbar">
     <div class="header-container">
+        <!-- Logo Brand -->
         <a href="index.html" class="brand-logo">
             <img src="logo/logo.png" alt="TSHoliday Logo">
             <div class="brand-text-wrapper">
@@ -8,21 +9,28 @@
             </div>
         </a>
 
+        <!-- Menu Navigasi -->
         <nav class="nav-menu" id="navLinks">
-            <a href="index.html#home" class="nav-link">Home</a>
-            <a href="index.html#tentang" class="nav-link">Tentang</a>
-            <a href="index.html#paket" class="nav-link">Paket</a>
-            <a href="index.html#armada" class="nav-link">Armada</a>
-            <a href="index.html#kontak" class="nav-link">Kontak</a>
+            <a href="index.html#home" class="nav-link" data-i18n="nav_home">Home</a>
+            <a href="index.html#tentang" class="nav-link" data-i18n="nav_about">Tentang</a>
+            <a href="index.html#paket" class="nav-link" data-i18n="nav_packages">Paket</a>
+            <a href="index.html#armada" class="nav-link" data-i18n="nav_fleet">Armada</a>
+            <a href="index.html#kontak" class="nav-link" data-i18n="nav_contact">Kontak</a>
         </nav>
 
+        <!-- Aksi Navigasi (Bahasa & Tombol Pesan) -->
         <div class="nav-actions">
-            <!-- Pilihan Bahasa -->
-<div class="language-switcher">
-    <button id="lang-btn" onclick="toggleLanguage()">EN / ID</button>
-</div>
+            <!-- Toggle Bahasa -->
+            <div class="lang-switcher">
+                <button class="lang-btn active" onclick="switchLanguage('id')" id="btn-id">ID</button>
+                <span class="lang-divider">|</span>
+                <button class="lang-btn" onclick="switchLanguage('en')" id="btn-en">EN</button>
+            </div>
 
-            <a href="./calc/index.html" class="btn-gold-action">Pesan Langsung</a>
+            <!-- Tombol Pesan -->
+            <a href="./calc/index.html" class="btn-gold-action" data-i18n="nav_cta">Pesan Langsung</a>
+            
+            <!-- Tombol Hamburger Mobile -->
             <button class="mobile-toggle-btn" id="mobileToggle"><i class="fas fa-bars"></i></button>
         </div>
     </div>
