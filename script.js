@@ -148,7 +148,8 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ==========================================================
        5. GALERI DINAMIS & LIGHTBOX MODAL (125 Foto)
        ========================================================== */
-    const galleryGrid = document.getElementById('galleryGrid');
+   document.addEventListener("DOMContentLoaded", function() {
+   const galleryGrid = document.getElementById('galleryGrid');
     const loadMoreBtn = document.getElementById('loadMoreBtn');
     
     // Daftar lengkap semua file gambar dari folder assets/image/
@@ -330,7 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     renderGallery();
-   
+   });
    
    /* ==========================================================
    6. MODAL DETAIL DESTINASI (Global Scope)
