@@ -732,3 +732,72 @@ section:not(.hero-section) {
 .btn-package:hover {
     background-color: var(--accent);
 }
+/* ==========================================================================
+   PAKET WISATA (PACKAGES SECTION - 4 COLUMNS)
+   ========================================================================== */
+.packages-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem; /* Jarak antar kartu dibuat lebih rapat */
+}
+
+@media (min-width: 640px) {
+    .packages-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .packages-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1280px) {
+    .packages-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 Kolom di layar besar */
+    }
+}
+
+.package-img-wrapper {
+    position: relative;
+    height: 160px; /* Tinggi gambar diperkecil agar kartu lebih compact */
+    overflow: hidden;
+}
+
+.package-content {
+    padding: 1.25rem; /* Padding dalam kartu dikurangi */
+}
+
+.package-title {
+    font-size: 1.1rem; /* Ukuran font judul sedikit disesuaikan */
+    margin-bottom: 0.35rem;
+}
+
+.package-desc {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.package-features-list {
+    margin: 0 0 1rem 0;
+    padding-top: 0.75rem;
+}
+
+.package-features-list li {
+    font-size: 0.8rem;
+    margin-bottom: 0.35rem;
+}
+
+.package-footer {
+    padding-top: 0.75rem;
+}
+
+.package-price h4 {
+    font-size: 1rem;
+}
+
+.btn-package {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+}
