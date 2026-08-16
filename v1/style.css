@@ -398,3 +398,152 @@ section:not(.hero-section) {
     font-size: 0.8rem;
     color: #64748b;
 }
+
+
+/* ==========================================================================
+   TENTANG KAMI (ABOUT SECTION)
+   ========================================================================== */
+.about-section {
+    padding: 6rem 1.5rem;
+    background-color: #ffffff;
+    position: relative;
+    z-index: 2;
+}
+
+.about-container {
+    max-width: 72rem;
+    margin: 0 auto;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+@media (min-width: 992px) {
+    .about-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+}
+
+/* Sisi Gambar */
+.about-image-wrapper {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.about-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    min-height: 400px;
+    transition: transform 0.5s ease;
+}
+
+.about-image-wrapper:hover .about-img {
+    transform: scale(1.03);
+}
+
+.about-badge {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background: var(--primary);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+    border-left: 4px solid var(--accent);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.badge-number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent);
+    font-family: 'Playfair Display', serif;
+}
+
+.badge-text {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Sisi Teks */
+.section-subtitle {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.75rem;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--primary);
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+}
+
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 2.5rem;
+    }
+}
+
+.about-desc {
+    color: #475569;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+/* Fitur Keunggulan */
+.about-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.feature-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.feature-icon {
+    flex-shrink: 0;
+    width: 45px;
+    height: 45px;
+    background-color: rgba(212, 175, 55, 0.1);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.1rem;
+}
+
+.feature-item h4 {
+    font-size: 1rem;
+    color: var(--primary);
+    margin: 0 0 0.25rem 0;
+    font-weight: 600;
+}
+
+.feature-item p {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.5;
+}
