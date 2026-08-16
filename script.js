@@ -288,6 +288,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let itemsToShow = 5; // Tampil 5 gambar di awal sesuai permintaan
     
+   });
+   
     function renderGallery() {
         if (!galleryGrid) return;
         galleryGrid.innerHTML = '';
@@ -331,8 +333,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     renderGallery();
-   });
-   
+
+      
    /* ==========================================================
    6. MODAL DETAIL DESTINASI (Global Scope)
    ========================================================== */
