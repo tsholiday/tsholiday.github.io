@@ -3,14 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paket Wisata Bandung Terbaik | TSHoliday</title>
-    <meta name="description" content="Pilihan paket wisata Bandung terlengkap, murah, dan terpercaya bersama PT Keepgoing TSH Indonesia (TSHoliday). Nikmati liburan seru ke Lembang, Ciwidey, dan City Tour Bandung.">
+    <title>Paket Wisata Bandung Eksklusif & Terlengkap 2026 - TSHoliday</title>
+    <meta name="description" content="Temukan pengalaman wisata terbaik di Bandung bersama TSHoliday. Paket wisata Bandung lengkap untuk keluarga, gathering kantor, dan perjalanan rombongan dengan layanan premium.">
+    <meta name="keywords" content="paket wisata bandung, travel bandung, wisata lembang, paket gathering bandung, tsholiday">
     <meta name="robots" content="index, follow">
-    <link rel="icon" type="../image/png" href="../logo/logo.png">
+    <link rel="icon" type="image/png" href="../logo/logo.png">
+
+    <!-- SEO Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tsholiday.github.io/paket-wisata-bandung/">
+    <meta property="og:title" content="Paket Wisata Bandung Terbaik - TSHoliday">
+    <meta property="og:description" content="Rencanakan liburan impian ke Bandung bersama TSHoliday.">
+    <link rel="canonical" href="https://tsholiday.github.io/paket-wisata-bandung/">
 
     <!-- Fonts & Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -38,165 +44,73 @@
 <body class="bg-light text-gray-800 antialiased font-sans">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
-        *{
-            font-family: "Geist", sans-serif;
+        *{ font-family: "Geist", sans-serif; }
+        #navContainer.active {
+            display: flex !important;
+            flex-direction: column;
+            position: absolute;
+            top: 4.5rem; left: 1rem; right: 1rem;
+            background-color: white; padding: 1.5rem;
+            border-radius: 1rem; box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
         }
     </style>
 
-    <!-- HEADER / NAVBAR -->
-    <header class="fixed left-0 right-0 top-4 z-50 mx-auto w-[calc(100%-2rem)] max-w-6xl glass-navbar rounded-full transition-all duration-300" id="navbar">
+    <!-- HEADER (Path mundur 1 tingkat) -->
+    <header class="fixed left-0 right-0 top-4 z-50 mx-auto w-[calc(100%-2rem)] max-w-6xl glass-navbar rounded-full transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm border border-gray-100" id="navbar">
         <div class="px-5 sm:px-6 flex justify-between items-center h-14">
-            <!-- Logo -->
             <a href="../index.html" class="flex items-center gap-2">
-                <img src="../logo/logo.png" alt="TSHoliday Logo" class="h-8 w-auto">
+                <img src="../logo/logo.png" alt="Logo" class="h-8 w-auto">
                 <div class="flex flex-col leading-none">
                     <span class="font-bold text-primary text-base tracking-wider">TSHOLIDAY</span>
-                    <span class="text-[8px] text-gray-700 uppercase tracking-widest mt-0.5">Keepgoing TSH Indonesia</span>
                 </div>
             </a>
 
-            <!-- Navigasi Utama -->
-            <div class="hidden md:flex items-center space-x-6" id="navContainer">
-                <nav class="flex items-center space-x-5 lg:space-x-7 font-semibold text-[11px] tracking-widest uppercase">
-                    <a href="../index.html" class="nav-link">Beranda</a>
-                    <a href="../about.html" class="nav-link">Tentang</a>
-                    <a href="../paket-wisata-bandung/" class="text-gold font-bold">Paket Wisata</a>
-                    <a href="../index.html#armada" class="nav-link">Armada</a>
-                    <a href="../index.html#galeri" class="nav-link">Galeri</a>
-                    <a href="../contact.html" class="nav-link">Kontak</a>
+            <div class="hidden md:flex items-center space-x-6">
+                <nav class="flex items-center space-x-7 font-semibold text-[11px] tracking-widest uppercase">
+                    <a href="../index.html" class="hover:text-gold transition-colors">Beranda</a>
+                    <a href="../about.html" class="hover:text-gold transition-colors">Tentang</a>
+                    <a href="./index.html" class="text-gold font-bold">Paket Wisata</a>
+                    <a href="../custom-tour.html" class="hover:text-gold transition-colors">Custom Tour</a>
+                    <a href="../contact.html" class="hover:text-gold transition-colors">Kontak</a>
                 </nav>
             </div>
 
-            <!-- Actions Booking & Mobile Toggle -->
-            <div class="flex items-center gap-3">
-                <a href="../contact.html" class="hidden lg:block bg-gold hover:bg-yellow-600 text-white px-4 py-1.5 text-xs rounded-full font-bold transition-transform hover:scale-105 shadow-md">Hubungi Kami</a>
-                <button class="md:hidden text-lg text-primary focus:outline-none p-2" id="mobileToggle">
-                    <i class="fas fa-bars" id="toggleIcon"></i>
-                </button>
-            </div>
+            <button class="md:hidden text-lg text-primary p-2" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="relative pt-36 pb-20 bg-primary text-white overflow-hidden">
-        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <h2 class="text-sm font-bold text-gold tracking-widest uppercase mb-3">Eksplorasi Tanah Pasundan</h2>
-            <h1 class="text-4xl md:text-5xl font-serif font-bold mb-6">Paket Wisata Bandung Pilihan</h1>
-            <p class="text-gray-300 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-                Nikmati perjalanan wisata yang berkesan bersama TSHoliday. Layanan profesional, armada nyaman, dan destinasi terbaik menanti Anda.
-            </p>
+    <!-- HERO -->
+    <section class="relative pt-36 pb-20 bg-primary text-white overflow-hidden text-center">
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <span class="bg-gold/20 text-gold text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Destinasi Favorit</span>
+            <h1 class="text-4xl md:text-5xl font-serif font-bold mt-4 mb-6">Paket Wisata Bandung</h1>
+            <p class="text-gray-300 max-w-2xl mx-auto text-base">Jelajahi keindahan Lembang, Ciwidey, hingga pusat kota Bandung dengan layanan terbaik dari TSHoliday.</p>
         </div>
     </section>
 
-    <!-- DAFTAR PAKET WISATA -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Paket 1: Lembang Tour -->
-                <div class="bg-light rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col">
-                    <div class="relative h-60 overflow-hidden">
-                        <img src="../assets/image/lembang.jpg" alt="Wisata Lembang" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
-                        <div class="absolute top-4 right-4 bg-gold text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
-                            Best Seller
-                        </div>
-                    </div>
-                    <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-2xl font-serif font-bold text-primary mb-3">Wonderful Lembang Tour</h3>
-                            <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                                Jelajahi keindahan dataran tinggi Lembang mulai dari Floating Market, Farm House, The Lodge, hingga Orchid Forest.
-                            </p>
-                            <ul class="text-xs text-gray-500 space-y-2 mb-6">
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-gold"></i> Durasi: 1 Hari (Full Day)</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-gold"></i> Termasuk Transport & Driver</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-gold"></i> Fleksibel & Menyesuaikan Request</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <a href="https://wa.me/6282130640161?text=Halo%20TSHoliday,%20saya%20tertarik%20dengan%20Paket%20Wonderful%20Lembang%20Tour." target="_blank" class="w-full block text-center bg-primary hover:bg-gold text-white font-bold py-3 rounded-xl transition-colors text-sm shadow-md">
-                                <i class="fab fa-whatsapp mr-1.5"></i> Pesan Paket Ini
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Paket 2: Ciwidey Tour -->
-                <div class="bg-light rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col">
-                    <div class="relative h-60 overflow-hidden">
-                        <img src="../assets/image/ciwidey.jpg" alt="Wisata Ciwidey" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
-                        <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
-                            Favorit
-                        </div>
-                    </div>
-                    <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-2xl font-serif font-bold text-primary mb-3">Eksotis Ciwidey Tour</h3>
-                            <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                                Nikmati pesona alam Kawah Putih yang memukau, hamparan Kebun Teh Ranca Upas, dan pemandian air panas alami.
-                            </p>
-                            <ul class="text-xs text-gray-500 space-y-2 mb-6">
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-gold"></i> Durasi: 1 Hari (Full Day)</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-gold"></i> Termasuk Transport & Driver</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-gold"></i> Spot Foto Instagramable</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <a href="https://wa.me/6282130640161?text=Halo%20TSHoliday,%20saya%20tertarik%20dengan%20Paket%20Eksotis%20Ciwidey%20Tour." target="_blank" class="w-full block text-center bg-primary hover:bg-gold text-white font-bold py-3 rounded-xl transition-colors text-sm shadow-md">
-                                <i class="fab fa-whatsapp mr-1.5"></i> Pesan Paket Ini
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Paket 3: Bandung City Tour -->
-                <div class="bg-light rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col">
-                    <div class="relative h-60 overflow-hidden">
-                        <img src="../assets/image/bandung.jpg" alt="Bandung City Tour" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
-                        <div class="absolute top-4 right-4 bg-gold text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
-                            Populer
-                        </div>
-                    </div>
-                    <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-2xl font-serif font-bold text-primary mb-3">Bandung City Tour & Kuliner</h3>
-                            <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                                Mengunjungi ikon-ikon bersejarah kota Bandung seperti Gedung Sate, Braga, Alun-Alun, serta wisata belanja & kuliner legendaris.
-                            </p>
-                            <ul class="text-xs text-gray-500 space-y-2 mb-6">
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-gold"></i> Durasi: 1 Hari / Custom</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-gold"></i> City Guide & Transport Nyaman</li>
-                                <li class="flex items-center gap-2"><i class="fas fa-check text-gold"></i> Rekomendasi Kuliner Terbaik</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <a href="https://wa.me/6282130640161?text=Halo%20TSHoliday,%20saya%20tertarik%20dengan%20Paket%20Bandung%20City%20Tour%20%26%20Kuliner." target="_blank" class="w-full block text-center bg-primary hover:bg-gold text-white font-bold py-3 rounded-xl transition-colors text-sm shadow-md">
-                                <i class="fab fa-whatsapp mr-1.5"></i> Pesan Paket Ini
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
+    <!-- CONTENT -->
+    <main class="max-w-7xl mx-auto px-4 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Card -->
+            <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                <h3 class="text-xl font-serif font-bold text-primary mb-3">Bandung City Tour (1 Hari)</h3>
+                <p class="text-gray-600 text-sm mb-6">Nikmati pesona Bandung dalam satu hari penuh. Cocok untuk liburan singkat keluarga atau teman.</p>
+                <a href="../contact.html" class="inline-block bg-primary hover:bg-gold text-white font-semibold py-3 px-6 rounded-xl text-sm transition-colors">Pesan Sekarang</a>
+            </div>
+            <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                <h3 class="text-xl font-serif font-bold text-primary mb-3">Paket Outing & Gathering</h3>
+                <p class="text-gray-600 text-sm mb-6">Solusi lengkap untuk agenda kantor atau sekolah di Bandung. Kami urus dari akomodasi hingga jadwal kegiatan.</p>
+                <a href="../contact.html" class="inline-block bg-primary hover:bg-gold text-white font-semibold py-3 px-6 rounded-xl text-sm transition-colors">Konsultasi Paket</a>
             </div>
         </div>
-    </section>
+    </main>
 
-    <!-- FOOTER -->
-    <footer class="bg-primary text-white py-12 border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 text-sm">
-            <nav aria-label="Footer Navigation" class="mb-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-300">
-                <a href="../index.html" class="hover:text-gold transition-colors">Beranda</a>
-                <a href="../about.html" class="hover:text-gold transition-colors">Tentang Kami</a>
-                <a href="../paket-wisata-bandung.html" class="text-gold font-bold">Paket Wisata</a>
-                <a href="../privacy.html" class="hover:text-gold transition-colors">Kebijakan Privasi</a>
-                <a href="../contact.html" class="hover:text-gold transition-colors">Kontak</a>
-            </nav>
-            <p>&copy; 2026 PT Keepgoing TSH Indonesia. All rights reserved.</p>
-        </div>
+    <footer class="bg-primary text-white py-12 border-t border-white/10 mt-20 text-center">
+        <p>&copy; 2026 PT Keepgoing TSH Indonesia. All rights reserved.</p>
     </footer>
 
-    <!-- Script Pendukung Global -->
     <script src="../script.js"></script>
 </body>
 </html>
