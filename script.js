@@ -167,48 +167,18 @@ document.addEventListener('DOMContentLoaded', () => {
         btnEN.addEventListener('click', () => switchLanguage('en'));
     }
 
+/* 4. MOBILE MENU */
+const mobileToggle = document.getElementById('mobileToggle');
+const navLinks = document.getElementById('navLinks');
 
-    /* ==========================================================================
-       4. MOBILE MENU & SCROLL TO TOP
-       ========================================================================== */
-    const mobileToggle = document.getElementById('mobileToggle');
-    const navLinks = document.getElementById('navLinks');
-    const scrollTopBtn = document.getElementById('scrollTopBtn');
-
-    if (mobileToggle && navLinks) {
-        mobileToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('hidden');
-            navLinks.classList.toggle('flex');
-            navLinks.classList.toggle('flex-col');
-            navLinks.classList.toggle('absolute');
-            navLinks.classList.toggle('top-16');
-            navLinks.classList.toggle('left-0');
-            navLinks.classList.toggle('w-full');
-            navLinks.classList.toggle('bg-white');
-            navLinks.classList.toggle('p-5');
-            navLinks.classList.toggle('shadow-lg');
-            navLinks.classList.toggle('rounded-2xl');
-        });
-    }
-
-    window.addEventListener('scroll', () => {
-        if (scrollTopBtn) {
-            if (window.scrollY > 300) {
-                scrollTopBtn.classList.add('show');
-            } else {
-                scrollTopBtn.classList.remove('show');
-            }
-        }
+if (mobileToggle && navLinks) {
+    mobileToggle.addEventListener('click', () => {
+        // Cukup toggle kelas 'active'
+        navLinks.classList.toggle('active');
     });
-
-    if (scrollTopBtn) {
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
-
-
-    /* ==========================================================================
+}
+    
+        /* ==========================================================================
        5. FORM BOOKING WHATSAPP
        ========================================================================== */
     const bookingForm = document.getElementById('bookingForm');
