@@ -17,7 +17,9 @@
     <section id="home" class="hero-section">
         <!-- ... konten hero ... -->
     </section>
-
+    <!-- ... konten footer ... -->
+    <?php include 'footer.php'; ?> 
+    <!-- ... konten script js ... -->
     <script src="script.js"></script>
 </body>
 </html>
