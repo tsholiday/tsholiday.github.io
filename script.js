@@ -1,3 +1,22 @@
+// Fungsi untuk memuat header & footer secara dinamis
+document.addEventListener("DOMContentLoaded", function() {
+    const header = `
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur shadow-sm">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center">
+            <a href="/index.html" class="font-bold text-lg">TSHOLIDAY</a>
+            <nav class="hidden md:flex space-x-6 text-[11px] uppercase tracking-widest font-bold">
+                <a href="/paket-wisata-bandung/">Bandung</a>
+                <a href="/paket-wisata-bogor/">Bogor</a>
+                <a href="/paket-wisata-jakarta/">Jakarta</a>
+                <a href="/contact.html">Kontak</a>
+            </nav>
+        </div>
+    </header>`;
+    
+    // Cari elemen di HTML, misal <div id="header-placeholder"></div>
+    // Masukkan kode di atas ke placeholder tersebut
+});
+
 /* ==========================================================================
    TSHOLIDAY GLOBAL SCRIPT (SUBFOLDER VERSION)
    ========================================================================== */
