@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Tour Bandung | TSHoliday - PT Keepgoing TSH Indonesia</title>
+    <meta name="description" content="Rancang sendiri rute liburan impian Anda di Bandung bersama TSHoliday. Pilih destinasi, durasi, dan armada sesuai kebutuhan Anda.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/png" href="logo/logo.png">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- TAILWIND CSS -->    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0a192f',
+                        gold: '#D4AF37',
+                        light: '#F4F7F6',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light text-gray-800 antialiased font-sans">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+        *{
+            font-family: "Geist", sans-serif;
+        }
+    </style>
+
+    <!-- HEADER / NAVBAR -->
+    <header class="fixed left-0 right-0 top-4 z-50 mx-auto w-[calc(100%-2rem)] max-w-6xl glass-navbar rounded-full transition-all duration-300" id="navbar">
+        <div class="px-5 sm:px-6 flex justify-between items-center h-14">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="logo/logo.png" alt="TSHoliday Logo" class="h-8 w-auto">
+                <div class="flex flex-col leading-none">
+                    <span class="font-bold text-primary text-base tracking-wider">TSHOLIDAY</span>
+                    <span class="text-[8px] text-gray-700 uppercase tracking-widest mt-0.5">Keepgoing TSH Indonesia</span>
+                </div>
+            </a>
+
+            <!-- Navigasi Utama -->
+            <div class="hidden md:flex items-center space-x-6" id="navContainer">
+                <nav class="flex items-center space-x-5 lg:space-x-7 font-semibold text-[11px] tracking-widest uppercase">
+                    <a href="index.html" class="nav-link">Beranda</a>
+                    <a href="about.html" class="nav-link">Tentang</a>
+                    <a href="paket-wisata-bandung.html" class="nav-link">Paket Wisata</a>
+                    <a href="custom-tour.html" class="text-gold font-bold">Custom Tour</a>
+                    <a href="index.html#armada" class="nav-link">Armada</a>
+                    <a href="contact.html" class="nav-link">Kontak</a>
+                </nav>
+            </div>
+
+            <!-- Actions Booking & Mobile Toggle -->
+            <div class="flex items-center gap-3">
+                <a href="contact.html" class="hidden lg:block bg-gold hover:bg-yellow-600 text-white px-4 py-1.5 text-xs rounded-full font-bold transition-transform hover:scale-105 shadow-md">Hubungi Kami</a>
+                <button class="md:hidden text-lg text-primary focus:outline-none p-2" id="mobileToggle">
+                    <i class="fas fa-bars" id="toggleIcon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-36 pb-20 bg-primary text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h2 class="text-sm font-bold text-gold tracking-widest uppercase mb-3">Atur Sesuai Keinginan Anda</h2>
+            <h1 class="text-4xl md:text-5xl font-serif font-bold mb-6">Custom Tour Bandung</h1>
+            <p class="text-gray-300 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+                Punya destinasi impian sendiri di Bandung? Rencanakan jadwal, tujuan, dan pilihan armada Anda bersama TSHoliday. Kami siap mewujudkannya.
+            </p>
+        </div>
+    </section>
+
+    <!-- FORMULIR CUSTOM TOUR -->
+    <section class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-light p-8 md:p-12 rounded-3xl border border-gray-100 shadow-sm">
+                <h3 class="text-2xl font-serif font-bold text-primary mb-2 text-center">Formulir Rencana Perjalanan</h3>
+                <p class="text-gray-500 text-sm text-center mb-8">Isi detail di bawah ini, dan data akan langsung terhubung ke WhatsApp Admin TSHoliday.</p>
+
+                <form id="customTourForm" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-primary mb-2">Nama Lengkap</label>
+                            <input type="text" id="custName" required placeholder="Masukkan nama Anda" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-primary mb-2">Nomor WhatsApp / Telepon</label>
+                            <input type="tel" id="custPhone" required placeholder="Contoh: 081234567890" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold transition-colors">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-primary mb-2">Estimasi Tanggal Berangkat</label>
+                            <input type="date" id="custDate" required class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-primary mb-2">Jumlah Peserta</label>
+                            <input type="number" id="custPax" min="1" required placeholder="Contoh: 5 orang" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold transition-colors">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-primary mb-2">Pilihan Kendaraan / Armada</label>
+                        <select id="custCar" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold transition-colors">
+                            <option value="Avanza / Xenia (Standar)">Avanza / Xenia (Standar)</option>
+                            <option value="Innova Reborn (Nyaman & Luas)">Innova Reborn (Nyaman & Luas)</option>
+                            <option value="Hiace Commuter / Premio (Grup)">Hiace Commuter / Premio (Grup)</option>
+                            <option value="Bus Pariwisata">Bus Pariwisata</option>
+                            <option value="Lainnya / Menyesuaikan">Lainnya / Menyesuaikan</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-primary mb-2">Destinasi & Catatan Khusus Perjalanan</label>
+                        <textarea id="custNotes" rows="4" required placeholder="Sebutkan tempat wisata yang ingin dikunjungi di Bandung (misal: Kawah Putih, Farmhouse Lembang, kuliner Braga, dll) atau permintaan khusus lainnya..." class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold transition-colors"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-primary hover:bg-gold text-white font-bold py-3.5 rounded-xl transition-all shadow-md text-sm flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp text-lg"></i> Kirim Custom Tour via WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-primary text-white py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 text-sm">
+            <nav aria-label="Footer Navigation" class="mb-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-300">
+                <a href="index.html" class="hover:text-gold transition-colors">Beranda</a>
+                <a href="about.html" class="hover:text-gold transition-colors">Tentang Kami</a>
+                <a href="paket-wisata-bandung.html" class="hover:text-gold transition-colors">Paket Wisata</a>
+                <a href="custom-tour.html" class="text-gold font-bold">Custom Tour</a>
+                <a href="privacy.html" class="hover:text-gold transition-colors">Kebijakan Privasi</a>
+                <a href="contact.html" class="hover:text-gold transition-colors">Kontak</a>
+            </nav>
+            <p>&copy; 2026 PT Keepgoing TSH Indonesia. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Skrip Interaktif Form WhatsApp -->
+    <script>
+        document.getElementById('customTourForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('custName').value;
+            const phone = document.getElementById('custPhone').value;
+            const date = document.getElementById('custDate').value;
+            const pax = document.getElementById('custPax').value;
+            const car = document.getElementById('custCar').value;
+            const notes = document.getElementById('custNotes').value;
+
+            const adminPhone = '6282130640161';
+            const message = `Halo TSHoliday, saya ingin memesan *Custom Tour Bandung* dengan detail berikut:%0A%0A` +
+                            `- *Nama:* ${encodeURIComponent(name)}%0A` +
+                            `- *No Telepon:* ${encodeURIComponent(phone)}%0A` +
+                            `- *Tanggal:* ${encodeURIComponent(date)}%0A` +
+                            `- *Jumlah Peserta:* ${encodeURIComponent(pax)} Orang%0A` +
+                            `- *Armada:* ${encodeURIComponent(car)}%0A` +
+                            `- *Destinasi/Catatan:* ${encodeURIComponent(notes)}`;
+
+            window.open(`https://wa.me/${adminPhone}?text=${message}`, '_blank');
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
