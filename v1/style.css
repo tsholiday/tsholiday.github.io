@@ -26,3 +26,10 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; color: var(
 .hero-title { font-family: 'Playfair Display', serif; color: white; font-size: 2.5rem; }
 .hero-title span { color: var(--accent); }
 .btn-hero-primary { background: var(--accent); color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; }
+
+/* Sesuaikan ukuran logo */
+.brand-logo img {
+    height: 35px;       /* Sesuaikan angka ini sesuai keinginan (misal: 30px, 35px, atau 40px) */
+    width: auto;        /* Menjaga proporsi gambar agar tidak gepeng */
+    display: block;     /* Mencegah spasi ekstra di bawah gambar */
+}
