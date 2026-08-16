@@ -570,15 +570,3 @@
         animation: fadeIn 0.3s ease-in-out;
     }
 }
-
-@media (min-width: 768px) {
-    .nav-menu-mobile {
-        display: flex; /* Selalu tampil di desktop */
-        flex-direction: row;
-        position: static;
-        background: transparent;
-        box-shadow: none;
-        padding: 0;
-        width: auto;
-    }
-}
