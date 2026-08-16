@@ -172,17 +172,20 @@ document.addEventListener('DOMContentLoaded', () => {
         btnID.addEventListener('click', () => switchLanguage('id'));
         btnEN.addEventListener('click', () => switchLanguage('en'));
     }
-/* 4. MOBILE MENU */
+  
+  /* ==========================================================================
+   4. MOBILE MENU TOGGLE FIX
+   ========================================================================== */
 const mobileToggle = document.getElementById('mobileToggle');
-const navLinks = document.getElementById('navLinks');
+const navContainer = document.getElementById('navContainer');
 const toggleIcon = document.getElementById('toggleIcon');
 
-if (mobileToggle && navLinks) {
+if (mobileToggle && navContainer) {
     mobileToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
+        navContainer.classList.toggle('active');
         
         // Mengubah ikon hamburger menjadi Close (X) dan sebaliknya
-        if (navLinks.classList.contains('active')) {
+        if (navContainer.classList.contains('active')) {
             toggleIcon.classList.remove('fa-bars');
             toggleIcon.classList.add('fa-times');
         } else {
@@ -192,9 +195,9 @@ if (mobileToggle && navLinks) {
     });
 
     // Menutup menu otomatis ketika salah satu link menu diklik di mobile
-    navLinks.querySelectorAll('a').forEach(link => {
+    navContainer.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
+            navContainer.classList.remove('active');
             if (toggleIcon) {
                 toggleIcon.classList.remove('fa-times');
                 toggleIcon.classList.add('fa-bars');
@@ -202,7 +205,6 @@ if (mobileToggle && navLinks) {
         });
     });
 }
-    
         /* ==========================================================================
        5. FORM BOOKING WHATSAPP
        ========================================================================== */
