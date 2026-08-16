@@ -1,3 +1,21 @@
+// fungsi ID EN
+let currentLang = 'en';
+
+function toggleLanguage() {
+    currentLang = currentLang === 'en' ? 'id' : 'en';
+    updateContent();
+}
+
+function updateContent() {
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[currentLang][key]) {
+            el.innerText = translations[currentLang][key];
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // Fungsi untuk memuat komponen eksternal (Header & Footer)
     function loadComponent(id, file, callback) {
