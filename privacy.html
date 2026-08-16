@@ -1,1 +1,177 @@
 
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kebijakan Privasi | TSHoliday - PT Keepgoing TSH Indonesia</title>
+    <meta name="description" content="Kebijakan Privasi PT Keepgoing TSH Indonesia (TSHoliday) mengenai perlindungan data pribadi dan kerahasiaan informasi pelanggan.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/png" href="logo/logo.png">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- TAILWIND CSS -->    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0a192f',
+                        gold: '#D4AF37',
+                        light: '#F4F7F6',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light text-gray-800 antialiased font-sans">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+        *{
+            font-family: "Geist", sans-serif;
+        }
+    </style>
+
+    <!-- HEADER / NAVBAR -->
+    <header class="fixed left-0 right-0 top-4 z-50 mx-auto w-[calc(100%-2rem)] max-w-6xl glass-navbar rounded-full transition-all duration-300" id="navbar">
+        <div class="px-5 sm:px-6 flex justify-between items-center h-14">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="logo/logo.png" alt="TSHoliday Logo" class="h-8 w-auto">
+                <div class="flex flex-col leading-none">
+                    <span class="font-bold text-primary text-base tracking-wider">TSHOLIDAY</span>
+                    <span class="text-[8px] text-gray-700 uppercase tracking-widest mt-0.5">Keepgoing TSH Indonesia</span>
+                </div>
+            </a>
+
+            <!-- Area Navigasi & Toggle Bahasa -->
+            <div class="hidden md:flex items-center space-x-6" id="navContainer">
+                <nav class="flex items-center space-x-5 lg:space-x-7 font-semibold text-[11px] tracking-widest uppercase" id="navLinks">
+                    <a href="index.html" class="nav-link">Beranda</a>
+                    <a href="about.html" class="nav-link">Tentang</a>
+                    <a href="index.html#paket" class="nav-link">Paket</a>
+                    <a href="index.html#armada" class="nav-link">Armada</a>
+                    <a href="index.html#galeri" class="nav-link">Galeri</a>
+                    <a href="contact.html" class="nav-link">Kontak</a>
+                </nav>
+
+                <!-- Animated Language Toggle -->
+                <div class="relative flex items-center bg-white/40 p-0.5 rounded-full border border-white/60 text-[10px] font-bold select-none w-[64px] h-[26px] shadow-inner">
+                    <div id="lang-pill" class="absolute top-0.5 left-0.5 w-[28px] h-[20px] bg-primary rounded-full transition-transform duration-300 ease-in-out shadow-sm"></div>
+                    <button id="btn-id" class="relative z-10 w-1/2 h-full text-center text-white transition-colors duration-300 focus:outline-none">ID</button>
+                    <button id="btn-en" class="relative z-10 w-1/2 h-full text-center text-gray-700 hover:text-primary transition-colors duration-300 focus:outline-none">EN</button>
+                </div>
+            </div>
+
+            <!-- Actions Booking & Mobile Hamburger Button -->
+            <div class="flex items-center gap-3">
+                <a href="calc/index.html" class="hidden lg:block bg-gold hover:bg-yellow-600 text-white px-4 py-1.5 text-xs rounded-full font-bold transition-transform hover:scale-105 shadow-md">Pesan langsung</a>
+                <button class="md:hidden text-lg text-primary focus:outline-none p-2" id="mobileToggle">
+                    <i class="fas fa-bars" id="toggleIcon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION PRIVACY -->
+    <section class="relative pt-36 pb-20 bg-primary text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h2 class="text-sm font-bold text-gold tracking-widest uppercase mb-3">Legalitas & Keamanan</h2>
+            <h1 class="text-4xl md:text-5xl font-serif font-bold mb-6">Kebijakan Privasi</h1>
+            <p class="text-gray-300 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+                Komitmen PT Keepgoing TSH Indonesia dalam melindungi kerahasiaan dan keamanan data pribadi Anda.
+            </p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT PRIVACY POLICY -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-light p-8 md:p-12 rounded-3xl border border-gray-100 shadow-sm space-y-8 text-gray-700 leading-relaxed">
+                
+                <div>
+                    <p class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-2">Terakhir diperbarui: Agustus 2026</p>
+                    <h2 class="text-2xl font-serif font-bold text-primary mb-4">1. Pendahuluan</h2>
+                    <p>
+                        Selamat datang di situs web <strong>PT Keepgoing TSH Indonesia (TSHoliday)</strong>. Kami sangat menghargai privasi Anda dan berkomitmen untuk melindungi informasi pribadi yang Anda bagikan kepada kami saat menggunakan layanan sewa mobil, pemesanan paket wisata, maupun saat mengakses situs web kami.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-serif font-bold text-primary mb-4">2. Informasi yang Kami Kumpulkan</h2>
+                    <p class="mb-3">Kami dapat mengumpulkan informasi pribadi ketika Anda melakukan interaksi dengan layanan kami, meliputi:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Nama lengkap dan identitas diri dasar.</li>
+                        <li>Informasi kontak seperti nomor telepon/WhatsApp dan alamat email.</li>
+                        <li>Detail preferensi perjalanan (tanggal pemesanan, jumlah peserta, dan tujuan wisata).</li>
+                        <li>Data komunikasi saat Anda menghubungi layanan pelanggan kami.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-serif font-bold text-primary mb-4">3. Penggunaan Informasi</h2>
+                    <p class="mb-3">Informasi yang kami kumpulkan digunakan secara eksklusif untuk kepentingan layanan, antara lain:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Memproses pemesanan sewa kendaraan dan paket wisata Anda.</li>
+                        <li>Menghubungi Anda melalui WhatsApp atau telepon terkait konfirmasi jadwal dan detail perjalanan.</li>
+                        <li>Meningkatkan kualitas pelayanan, keamanan operasional, serta kenyamanan situs web.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-serif font-bold text-primary mb-4">4. Keamanan Data</h2>
+                    <p>
+                        Kami menerapkan langkah-langkah pengamanan administratif, teknis, dan fisik yang wajar untuk melindungi data pribadi Anda dari akses, penggunaan, atau pengungkapan yang tidak sah. Kami tidak akan pernah memperjualbelikan data pribadi Anda kepada pihak ketiga mana pun.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-serif font-bold text-primary mb-4">5. Perubahan Kebijakan Privasi</h2>
+                    <p>
+                        Kebijakan Privasi ini dapat diperbarui dari waktu ke waktu guna menyesuaikan dengan perkembangan operasional perusahaan atau ketentuan hukum yang berlaku. Setiap perubahan akan diumumkan langsung melalui halaman ini.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-serif font-bold text-primary mb-4">6. Hubungi Kami</h2>
+                    <p>
+                        Jika Anda memiliki pertanyaan, keberatan, atau permintaan lebih lanjut terkait Kebijakan Privasi ini, silakan hubungi tim kami melalui halaman <a href="contact.html" class="text-gold font-bold underline">Kontak</a> atau melalui WhatsApp resmi kami di <strong>+62 821-3064-0161</strong>.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-primary text-white py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 text-sm">
+            <nav aria-label="Footer Navigation" class="mb-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-300">
+                <a href="index.html" class="hover:text-gold transition-colors">Beranda</a>
+                <a href="about.html" class="hover:text-gold transition-colors">Tentang Kami</a>
+                <a href="privacy.html" class="text-gold font-bold">Kebijakan Privasi</a>
+                <a href="contact.html" class="hover:text-gold transition-colors">Kontak</a>
+            </nav>
+            <p>&copy; 2026 PT Keepgoing TSH Indonesia. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Script Pendukung Navbar Mobile -->
+    <script src="script.js"></script>
+</body>
+</html>
