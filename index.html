@@ -309,26 +309,24 @@
         </div>
     </section>
 
-    <!-- 6. GALERI -->
-    <section id="galeri" class="py-20 bg-light">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-sm font-bold text-gold tracking-widest uppercase mb-2">Dokumentasi</h2>
-                <h3 class="text-3xl md:text-4xl font-serif font-bold text-primary" data-id="Galeri Perjalanan" data-en="Trip Gallery">Galeri Perjalanan TSHoliday</h3>
-                <div class="w-20 h-1 bg-gold mx-auto mt-4 rounded"></div>
-            </div>
+<!-- SECTION GALERI -->
+<section id="galeri" class="py-20 bg-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-sm font-bold text-gold tracking-widest uppercase mb-2">Dokumentasi Perjalanan</h2>
+        <h3 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-12">Galeri Momen TSHoliday</h3>
 
-            <!-- Grid Galeri Dinamis -->
-            <div id="galleryGrid" class="gallery-grid"></div>
-
-            <div class="gallery-actions text-center mt-8">
-                <button id="loadMoreBtn" class="bg-primary hover:bg-gold text-white font-bold px-8 py-3 rounded-full transition-colors shadow-md">
-                    Muat Lebih Banyak
-                </button>
-            </div>
+        <!-- Grid Kartu Galeri -->
+        <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left mb-10">
+            <!-- JavaScript akan merender kartu gambar secara dinamis di sini -->
         </div>
-    </section>
 
+        <!-- Tombol Tampilkan Lebih Banyak -->
+        <button id="loadMoreBtn" class="bg-primary hover:bg-gold text-white font-bold px-8 py-3.5 rounded-xl transition-all shadow-md items-center gap-2 text-sm">
+            <i class="fas fa-plus-circle"></i> Tampilkan Lebih Banyak (10+)
+        </button>
+    </div>
+</section>
+    
     <!-- 7. BOOKING FORM & FOOTER -->
     <section id="kontak" class="relative py-20 bg-primary">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
