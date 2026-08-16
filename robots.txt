@@ -1,4 +1,11 @@
+
+# Mengizinkan semua bot mesin pencari merayapi seluruh halaman situs
 User-agent: *
 Allow: /
 
+# Pengecualian jika ada folder privat atau halaman yang tidak ingin diindeks (opsional)
+# Disallowed: /admin/
+# Disallowed: /private/
+
+# Tautan lokasi sitemap utama situs web TSHoliday
 Sitemap: https://tsholiday.github.io/sitemap.xml
