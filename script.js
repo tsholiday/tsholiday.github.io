@@ -166,15 +166,34 @@ document.addEventListener('DOMContentLoaded', () => {
         btnID.addEventListener('click', () => switchLanguage('id'));
         btnEN.addEventListener('click', () => switchLanguage('en'));
     }
-
 /* 4. MOBILE MENU */
 const mobileToggle = document.getElementById('mobileToggle');
 const navLinks = document.getElementById('navLinks');
+const toggleIcon = document.getElementById('toggleIcon');
 
 if (mobileToggle && navLinks) {
     mobileToggle.addEventListener('click', () => {
-        // Cukup toggle kelas 'active'
         navLinks.classList.toggle('active');
+        
+        // Mengubah ikon hamburger menjadi Close (X) dan sebaliknya
+        if (navLinks.classList.contains('active')) {
+            toggleIcon.classList.remove('fa-bars');
+            toggleIcon.classList.add('fa-times');
+        } else {
+            toggleIcon.classList.remove('fa-times');
+            toggleIcon.classList.add('fa-bars');
+        }
+    });
+
+    // Menutup menu otomatis ketika salah satu link menu diklik di mobile
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            if (toggleIcon) {
+                toggleIcon.classList.remove('fa-times');
+                toggleIcon.classList.add('fa-bars');
+            }
+        });
     });
 }
     
