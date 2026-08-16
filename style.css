@@ -672,3 +672,49 @@
         width: auto;
     }
 }
+
+   /* ==========================================================================
+   MOBILE MENU DROPDOWN FIX
+   ========================================================================== */
+@media (max-width: 767px) {
+    .nav-menu-mobile {
+        display: none; /* Sembunyikan secara default di mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 70px; /* Jarak dari bawah navbar floating */
+        left: 0;
+        right: 0;
+        width: 90%;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        padding: 20px;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        text-align: center;
+        gap: 16px;
+        z-index: 100;
+    }
+
+    /* Munculkan menu ketika class .active ditambahkan oleh JavaScript */
+    .nav-menu-mobile.active {
+        display: flex !important;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+}
+
+/* Pastikan di layar Desktop (md ke atas) posisinya kembali normal horizontal */
+@media (min-width: 768px) {
+    .nav-menu-mobile {
+        display: flex !important;
+        flex-direction: row;
+        position: static;
+        background: transparent;
+        box-shadow: none;
+        padding: 0;
+        width: auto;
+        border: none;
+    }
+}
