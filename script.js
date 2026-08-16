@@ -1,49 +1,183 @@
-  /* ==========================================================================
-       0. NAVBAR
-       ========================================================================== */
-feather.replace()
-//https://twitter.com/One_div
+/* ==========================================================================
+   TSHOLIDAY GLOBAL SCRIPT
+   ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* ==========================================================================
-       1. DATA & RENDER GALERI DOKUMENTASI
-       ========================================================================== */
-    const galleryData = [
-        { src: 'assets/image/ciwidey/ciwidey.jpg', alt: 'Wisata Ciwidey Kawah Putih' },
-        { src: 'assets/image/lembang/lembang.jpg', alt: 'Wisata Lembang Bandung' },
-        { src: 'assets/image/kota-bandung/bandung.jpg', alt: 'Bandung City Tour' },
-        { src: 'assets/image/legalitas.jpg', alt: 'Armada & Tim TSHoliday' },
-        { src: 'assets/image/ciwidey/ciwidey.jpg', alt: 'Perkebunan Teh Rancabali' },
-        { src: 'assets/image/lembang/lembang.jpg', alt: 'Farmhouse Lembang' },
-        { src: 'assets/image/kota-bandung/bandung.jpg', alt: 'Gedung Sate Bandung' },
-        { src: 'assets/image/legalitas.jpg', alt: 'Dokumentasi Peserta Tour' }
-    ];
+    /* ==========================================================
+       1. MOBILE MENU & GLASSMORPHISM TOGGLE
+       ========================================================== */
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navContainer = document.getElementById('navContainer');
+    const toggleIcon = document.getElementById('toggleIcon');
 
+    if (mobileToggle && navContainer) {
+        mobileToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navContainer.classList.toggle('active');
+            
+            // Mengubah ikon garis tiga (bars) menjadi tanda silang (times)
+            if (navContainer.classList.contains('active')) {
+                toggleIcon.classList.remove('fa-bars');
+                toggleIcon.classList.add('fa-times');
+            } else {
+                toggleIcon.classList.remove('fa-times');
+                toggleIcon.classList.add('fa-bars');
+            }
+        });
+
+        // Menutup menu otomatis ketika salah satu tautan di dalam mobile menu diklik
+        navContainer.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navContainer.classList.remove('active');
+                if (toggleIcon) {
+                    toggleIcon.classList.remove('fa-times');
+                    toggleIcon.classList.add('fa-bars');
+                }
+            });
+        });
+
+        // Menutup menu ketika pengguna mengklik di luar area navbar
+        document.addEventListener('click', (e) => {
+            if (!navContainer.contains(e.target) && !mobileToggle.contains(e.target)) {
+                navContainer.classList.remove('active');
+                if (toggleIcon) {
+                    toggleIcon.classList.remove('fa-times');
+                    toggleIcon.classList.add('fa-bars');
+                }
+            }
+        });
+    }
+
+    /* ==========================================================
+       2. BAHASA (ID / EN) TOGGLE ANIMASI & KONTEN
+       ========================================================== */
+    const btnId = document.getElementById('btn-id');
+    const btnEn = document.getElementById('btn-en');
+    const langPill = document.getElementById('lang-pill');
+    let currentLang = 'id';
+
+    function setLanguage(lang) {
+        currentLang = lang;
+        if (lang === 'en') {
+            if (langPill) langPill.style.transform = 'translateX(32px)';
+            if (btnEn) {
+                btnEn.classList.remove('text-gray-700');
+                btnEn.classList.add('text-white');
+            }
+            if (btnId) {
+                btnId.classList.remove('text-white');
+                btnId.classList.add('text-gray-700');
+            }
+        } else {
+            if (langPill) langPill.style.transform = 'translateX(0px)';
+            if (btnId) {
+                btnId.classList.remove('text-gray-700');
+                btnId.classList.add('text-white');
+            }
+            if (btnEn) {
+                btnEn.classList.remove('text-white');
+                btnEn.classList.add('text-gray-700');
+            }
+        }
+
+        // Ubah elemen yang memiliki atribut data-id dan data-en
+        document.querySelectorAll('[data-id]').forEach(el => {
+            const translation = el.getAttribute(`data-${lang}`);
+            if (translation) {
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = translation;
+                } else {
+                    el.textContent = translation;
+                }
+            }
+        });
+    }
+
+    if (btnId && btnEn) {
+        btnId.addEventListener('click', () => setLanguage('id'));
+        btnEn.addEventListener('click', () => setLanguage('en'));
+    }
+
+    /* ==========================================================
+       3. SCROLL TO TOP BUTTON
+       ========================================================== */
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    if (scrollTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.style.display = 'flex';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    /* ==========================================================
+       4. WHATSAPP BOOKING FORM SUBMISSION
+       ========================================================== */
+    const bookingForm = document.getElementById('bookingForm');
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const nama = document.getElementById('nama').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const tanggal = document.getElementById('tanggal').value;
+            const peserta = document.getElementById('peserta').value;
+            const tujuan = document.getElementById('tujuan').value;
+
+            const adminPhone = '6282130640161';
+            const message = `Halo TSHoliday, saya ingin melakukan pemesanan:%0A` +
+                            `- Nama: ${nama}%0A` +
+                            `- No WhatsApp: ${whatsapp}%0A` +
+                            `- Tanggal: ${tanggal}%0A` +
+                            `- Jumlah Peserta: ${peserta} Orang%0A` +
+                            `- Paket/Kendaraan: ${tujuan}%0A%0A` +
+                            `Mohon informasinya lebih lanjut. Terima kasih!`;
+
+            window.open(`https://wa.me/${adminPhone}?text=${message}`, '_blank');
+        });
+    }
+
+    /* ==========================================================
+       5. GALERI DINAMIS & LIGHTBOX MODAL
+       ========================================================== */
     const galleryGrid = document.getElementById('galleryGrid');
     const loadMoreBtn = document.getElementById('loadMoreBtn');
     
-    let itemsShown = 4;
-    const itemsPerLoad = 4;
+    // Contoh data galeri gambar
+    const galleryImages = [
+        { src: 'assets/image/ciwidey/ciwidey.jpg', title: 'Kawah Putih Ciwidey' },
+        { src: 'assets/image/lembang/lembang.jpg', title: 'The Lodge Lembang' },
+        { src: 'assets/image/kota-bandung/bandung.jpg', title: 'Gedung Sate Bandung' },
+        { src: 'assets/image/legalitas.jpg', title: 'Armada TSHoliday' }
+    ];
 
+    let itemsToShow = 4;
     function renderGallery() {
         if (!galleryGrid) return;
         galleryGrid.innerHTML = '';
-
-        const visibleItems = galleryData.slice(0, itemsShown);
-
-        visibleItems.forEach((item, index) => {
-            const galleryItem = document.createElement('div');
-            galleryItem.className = 'gallery-item';
-            galleryItem.innerHTML = `
-                <img src="${item.src}" alt="${item.alt}" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300?text=Gambar+Tidak+Ditemukan';">
+        const currentItems = galleryImages.slice(0, itemsToShow);
+        
+        currentItems.forEach((item, index) => {
+            const div = document.createElement('div');
+            div.className = 'overflow-hidden rounded-2xl shadow-md cursor-pointer group relative h-48';
+            div.innerHTML = `
+                <img src="${item.src}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-bold text-sm">
+                    ${item.title}
+                </div>
             `;
-            galleryItem.addEventListener('click', () => openImageModal(index));
-            galleryGrid.appendChild(galleryItem);
+            div.addEventListener('click', () => openImageModal(index));
+            galleryGrid.appendChild(div);
         });
 
         if (loadMoreBtn) {
-            if (itemsShown >= galleryData.length) {
+            if (itemsToShow >= galleryImages.length) {
                 loadMoreBtn.style.display = 'none';
             } else {
                 loadMoreBtn.style.display = 'inline-block';
@@ -53,241 +187,141 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (loadMoreBtn) {
         loadMoreBtn.addEventListener('click', () => {
-            itemsShown += itemsPerLoad;
+            itemsToShow += 4;
             renderGallery();
         });
     }
 
     renderGallery();
 
-
-    /* ==========================================================================
-       2. LIGHTBOX & ZOOM SYSTEM FOR GALLERY
-       ========================================================================== */
+    // Lightbox Image Modal Logic
     const imageModal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
     const modalClose = document.querySelector('.modal-close');
-    const prevImgBtn = document.getElementById('prevImgBtn');
-    const nextImgBtn = document.getElementById('nextImgBtn');
+    let currentImageIndex = 0;
+    let currentZoom = 1;
+
+    window.openImageModal = function(index) {
+        currentImageIndex = index;
+        currentZoom = 1;
+        if (modalImage && imageModal) {
+            modalImage.src = galleryImages[index].src;
+            modalImage.style.transform = `scale(${currentZoom})`;
+            imageModal.style.display = 'flex';
+        }
+    }
+
+    if (modalClose && imageModal) {
+        modalClose.addEventListener('click', () => {
+            imageModal.style.display = 'none';
+        });
+        imageModal.addEventListener('click', (e) => {
+            if (e.target === imageModal) {
+                imageModal.style.display = 'none';
+            }
+        });
+    }
+
+    // Zoom & Navigation Controls di Modal
     const zoomInBtn = document.getElementById('zoomInBtn');
     const zoomOutBtn = document.getElementById('zoomOutBtn');
     const resetZoomBtn = document.getElementById('resetZoomBtn');
-
-    let currentImgIndex = 0;
-    let currentZoom = 1;
-
-    function openImageModal(index) {
-        currentImgIndex = index;
-        currentZoom = 1;
-        updateModalImage();
-        if (imageModal) imageModal.classList.add('show');
-    }
-
-    function updateModalImage() {
-        if (!modalImage) return;
-        modalImage.src = galleryData[currentImgIndex].src;
-        modalImage.alt = galleryData[currentImgIndex].alt;
-        modalImage.style.transform = `scale(${currentZoom})`;
-    }
-
-    if (modalClose) {
-        modalClose.addEventListener('click', () => {
-            imageModal.classList.remove('show');
-        });
-    }
-
-    if (prevImgBtn) {
-        prevImgBtn.addEventListener('click', () => {
-            currentImgIndex = (currentImgIndex - 1 + galleryData.length) % galleryData.length;
-            currentZoom = 1;
-            updateModalImage();
-        });
-    }
-
-    if (nextImgBtn) {
-        nextImgBtn.addEventListener('click', () => {
-            currentImgIndex = (currentImgIndex + 1) % galleryData.length;
-            currentZoom = 1;
-            updateModalImage();
-        });
-    }
+    const prevImgBtn = document.getElementById('prevImgBtn');
+    const nextImgBtn = document.getElementById('nextImgBtn');
 
     if (zoomInBtn) {
         zoomInBtn.addEventListener('click', () => {
-            if (currentZoom < 2.5) {
-                currentZoom += 0.25;
-                modalImage.style.transform = `scale(${currentZoom})`;
-            }
+            currentZoom = Math.min(currentZoom + 0.25, 2.5);
+            modalImage.style.transform = `scale(${currentZoom})`;
         });
     }
-
     if (zoomOutBtn) {
         zoomOutBtn.addEventListener('click', () => {
-            if (currentZoom > 0.75) {
-                currentZoom -= 0.25;
-                modalImage.style.transform = `scale(${currentZoom})`;
-            }
+            currentZoom = Math.max(currentZoom - 0.25, 1);
+            modalImage.style.transform = `scale(${currentZoom})`;
         });
     }
-
     if (resetZoomBtn) {
         resetZoomBtn.addEventListener('click', () => {
             currentZoom = 1;
             modalImage.style.transform = `scale(${currentZoom})`;
         });
     }
-
-
-    /* ==========================================================================
-       3. LANGUAGE SWITCHER SLIDING ANIMATION
-       ========================================================================== */
-    const btnID = document.getElementById('btn-id');
-    const btnEN = document.getElementById('btn-en');
-    const langPill = document.getElementById('lang-pill');
-
-    function switchLanguage(lang) {
-        document.querySelectorAll('[data-id][data-en]').forEach(el => {
-            const targetText = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-id');
-            if (targetText) el.innerHTML = targetText;
-        });
-
-        if (langPill && btnID && btnEN) {
-            if (lang === 'en') {
-                langPill.style.transform = 'translateX(30px)';
-                btnEN.classList.add('text-white');
-                btnEN.classList.remove('text-gray-700');
-                btnID.classList.remove('text-white');
-                btnID.classList.add('text-gray-700');
-            } else {
-                langPill.style.transform = 'translateX(0px)';
-                btnID.classList.add('text-white');
-                btnID.classList.remove('text-gray-700');
-                btnEN.classList.remove('text-white');
-                btnEN.classList.add('text-gray-700');
-            }
-        }
-    }
-
-    if (btnID && btnEN) {
-        btnID.addEventListener('click', () => switchLanguage('id'));
-        btnEN.addEventListener('click', () => switchLanguage('en'));
-    }
-  
-  /* ==========================================================================
-   4. MOBILE MENU TOGGLE FIX
-   ========================================================================== */
-const mobileToggle = document.getElementById('mobileToggle');
-const navContainer = document.getElementById('navContainer');
-const toggleIcon = document.getElementById('toggleIcon');
-
-if (mobileToggle && navContainer) {
-    mobileToggle.addEventListener('click', () => {
-        navContainer.classList.toggle('active');
-        
-        // Mengubah ikon hamburger menjadi Close (X) dan sebaliknya
-        if (navContainer.classList.contains('active')) {
-            toggleIcon.classList.remove('fa-bars');
-            toggleIcon.classList.add('fa-times');
-        } else {
-            toggleIcon.classList.remove('fa-times');
-            toggleIcon.classList.add('fa-bars');
-        }
-    });
-
-    // Menutup menu otomatis ketika salah satu link menu diklik di mobile
-    navContainer.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navContainer.classList.remove('active');
-            if (toggleIcon) {
-                toggleIcon.classList.remove('fa-times');
-                toggleIcon.classList.add('fa-bars');
-            }
-        });
-    });
-}
-        /* ==========================================================================
-       5. FORM BOOKING WHATSAPP
-       ========================================================================== */
-    const bookingForm = document.getElementById('bookingForm');
-    if (bookingForm) {
-        bookingForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const nama = document.getElementById('nama').value;
-            const wa = document.getElementById('whatsapp').value;
-            const tanggal = document.getElementById('tanggal').value;
-            const peserta = document.getElementById('peserta').value;
-            const tujuan = document.getElementById('tujuan').value;
-
-            const message = `Halo TSHoliday, saya ingin memesan layanan:%0A%0A` +
-                `*Nama:* ${nama}%0A` +
-                `*WhatsApp:* ${wa}%0A` +
-                `*Tanggal Perjalanan:* ${tanggal}%0A` +
-                `*Jumlah Peserta:* ${peserta} Orang%0A` +
-                `*Paket/Kendaraan:* ${tujuan}%0A%0A` +
-                `Mohon ketersediaan armada dan rincian harganya. Terima kasih!`;
-
-            window.open(`https://wa.me/6282130640161?text=${message}`, '_blank');
+    if (prevImgBtn) {
+        prevImgBtn.addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            modalImage.src = galleryImages[currentImageIndex].src;
+            currentZoom = 1;
+            modalImage.style.transform = `scale(${currentZoom})`;
         });
     }
+    if (nextImgBtn) {
+        nextImgBtn.addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            modalImage.src = galleryImages[currentImageIndex].src;
+            currentZoom = 1;
+            modalImage.style.transform = `scale(${currentZoom})`;
+        });
+    }
+
 });
 
+/* ==========================================================
+   6. MODAL DETAIL DESTINASI (Global Scope)
+   ========================================================== */
+const detailModal = document.getElementById('detailModal');
+const modalTitle = document.getElementById('modalTitle');
+const modalSubtitle = document.getElementById('modalSubtitle');
+const modalBodyList = document.getElementById('modalBodyList');
 
-/* ==========================================================================
-   6. MODAL DETAIL RINCIAN DESTINASI (GLOBAL FUNCTION)
-   ========================================================================== */
-const packageDetails = {
+const destinationDetails = {
     ciwidey: {
-        title: "Paket Wisata Ciwidey",
-        subtitle: "Eksplorasi Keindahan Alam Bandung Selatan",
-        list: [
-            { name: "Kawah Putih", desc: "Danau kawah vulkanik eksotis dengan tanah putih dan air danau bernuansa kehijauan yang berubah warna." },
-            { name: "Perkebunan Teh Rancabali", desc: "Hamparan kebun teh hijau yang sejuk dan sangat cocok untuk foto estetik." },
-            { name: "Glamping Lakeside & Pinisi Resto", desc: "Restoran megah berbentuk kapal Pinisi di tepi Danau Situ Patenggang." }
+        title: "Ciwidey Tour Package",
+        subtitle: "Eksplorasi Keindahan Alam Dataran Tinggi Selatan Bandung",
+        items: [
+            "Kawah Putih (Danau vulkanik eksotis berwarna putih kehijauan)",
+            "Perkebunan Teh Rancabali (Hamparan hijau menyejukkan mata)",
+            "Glamping Lakeside / Situ Patenggang (Makan siang tepi danau ikonik)"
         ]
     },
     lembang: {
-        title: "Paket Wisata Lembang",
-        subtitle: "Pesona Sejuk & Wahana Populer Bandung Utara",
-        list: [
-            { name: "Gunung Tangkuban Perahu", desc: "Kawah aktif legendaris yang memukau dan udara pegunungan yang sangat segar." },
-            { name: "Farmhouse Lembang", desc: "Taman bergaya Eropa lengkap dengan Rumah Hobbit dan penyewaan kostum ala Belanda." },
-            { name: "The Lodge Maribaya", desc: "Destinasi wisata alam berkonsep *extreme selfie* dengan latar belakang hutan pinus rindang." }
+        title: "Lembang Escape Package",
+        subtitle: "Wisata Keluarga & Spot Instagramable Populer",
+        items: [
+            "Gunung Tangkuban Perahu (Kawah aktif legendaris)",
+            "Farmhouse Susu Lembang (Nuansa perkampungan Eropa klasik)",
+            "The Lodge Maribaya (Outbound & spot foto udara pegunungan)"
         ]
     },
     bandung: {
         title: "Bandung City Tour",
-        subtitle: "Keliling Tempat Bersejarah & Kuliner Ikonik",
-        list: [
-            { name: "Gedung Sate & Museum", desc: "Ikon bangunan bersejarah Bandung dengan arsitektur klasik nan megah." },
-            { name: "Jalan Asia Afrika & Braga", desc: "Pusat kenangan bersejarah tempat KTT Asia-Afrika dan jalanan romantis ala tempo dulu." },
-            { name: "Pusat Oleh-Oleh & Kuliner", desc: "Berbelanja Kartika Sari, Primasa, atau Factory Outlet terkemuka di Bandung." }
+        subtitle: "Menelusuri Jejak Sejarah & Pusat Perbelanjaan Kota",
+        items: [
+            "Gedung Sate (Ikon arsitektur kolonial Belanda)",
+            "Kawasan Jalan Asia Afrika & Museum Konferensi Asia Afrika",
+            "Pusat Belanja / Factory Outlet Jalan Riau & Dago"
         ]
     }
 };
 
-function openDetailModal(type) {
-    const detailModal = document.getElementById('detailModal');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalSubtitle = document.getElementById('modalSubtitle');
-    const modalBodyList = document.getElementById('modalBodyList');
-
-    if (!packageDetails[type]) return;
-
-    modalTitle.textContent = packageDetails[type].title;
-    modalSubtitle.textContent = packageDetails[type].subtitle;
-
-    modalBodyList.innerHTML = packageDetails[type].list.map(item => `
-        <div class="destination-item">
-            <h4><i class="fas fa-map-marker-alt"></i> ${item.name}</h4>
-            <p>${item.desc}</p>
-        </div>
-    `).join('');
-
-    detailModal.classList.add('show');
+window.openDetailModal = function(key) {
+    const data = destinationDetails[key];
+    if (data && detailModal) {
+        modalTitle.textContent = data.title;
+        modalSubtitle.textContent = data.subtitle;
+        modalBodyList.innerHTML = data.items.map(item => `<div class="p-3 bg-light rounded-xl mb-2 text-sm text-gray-700 flex items-center gap-2"><i class="fas fa-check-circle text-gold"></i> ${item}</div>`).join('');
+        detailModal.style.display = 'block';
+    }
 }
 
-function closeDetailModal() {
-    const detailModal = document.getElementById('detailModal');
-    if (detailModal) detailModal.classList.remove('show');
+window.closeDetailModal = function() {
+    if (detailModal) {
+        detailModal.style.display = 'none';
+    }
 }
 
+window.addEventListener('click', (e) => {
+    if (e.target === detailModal) {
+        detailModal.style.display = 'none';
+    }
+});
