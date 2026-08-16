@@ -1,4 +1,21 @@
 // fungsi ID EN
+// Simpan pilihan bahasa
+function toggleLanguage() {
+    currentLang = currentLang === 'en' ? 'id' : 'en';
+    localStorage.setItem('lang', currentLang);
+    updateContent();
+}
+
+// Jalankan saat halaman dibuka
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('lang');
+    if (savedLang) {
+        currentLang = savedLang;
+        updateContent();
+    }
+});
+
+
 let currentLang = 'en';
 
 function toggleLanguage() {
