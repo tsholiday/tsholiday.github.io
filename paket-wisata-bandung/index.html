@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO & Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0SGSHE74HB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0SGSHE74HB');
+    </script>
+    <meta name="google-site-verification" content="BFKb-Ff025INBVgr0C4MgJmJy3RSItO3HfliIVeDxVU" />
+    <title>Sewa Mobil & Paket Wisata Bandung | TSHoliday</title>
+    <meta name="title" content="Sewa Mobil & Paket Wisata Bandung | TSHoliday">
+    <meta name="description" content="TSHoliday menyediakan sewa mobil Bandung, Bogor, dan Jakarta serta paket wisata Bandung seperti Ciwidey, Lembang, Pangalengan, dan Bandung City Tour. Booking mudah via WhatsApp.">
+    <meta name="keywords" content="sewa mobil Bandung, rental mobil Bandung, paket wisata Bandung, tour Bandung, sewa HiAce Bandung, sewa Elf Bandung, TSHoliday">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="PT Keepgoing TSH Indonesia">
+    <link rel="canonical" href="https://tsholiday.github.io/">
+
+    <!-- Open Graph / Meta Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tsholiday.github.io/">
+    <meta property="og:title" content="Sewa Mobil & Paket Wisata Bandung | TSHoliday">
+    <meta property="og:description" content="Sewa mobil dan paket wisata Bandung, termasuk Ciwidey, Lembang, Pangalengan, dan Bandung City Tour. Booking mudah bersama TSHoliday.">
+    <meta property="og:image" content="https://tsholiday.github.io/assets/image/kota-bandung/bandung.jpg">
+    
+    <!-- PWA & Icons -->
+    <meta name="theme-color" content="#0a192f">
+    <link rel="icon" type="image/png" href="logo/logo.png">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <!-- TAILWIND CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0a192f',
+                        gold: '#D4AF37',
+                        light: '#F4F7F6',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://tsholiday.github.io/#website",
+          "url": "https://tsholiday.github.io/",
+          "name": "TSHoliday",
+          "description": "Sewa mobil dan paket wisata Bandung, Bogor, dan Jakarta.",
+          "inLanguage": "id-ID"
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://tsholiday.github.io/#organization",
+          "name": "PT Keepgoing TSH Indonesia",
+          "url": "https://tsholiday.github.io/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://tsholiday.github.io/logo/logo.png"
+          },
+          "email": "tsholidaybandung@gmail.com",
+          "telephone": "+6282130640161"
+        }
+      ]
+    }
+    </script>
+</head>
+
+<body class="bg-light text-gray-800 antialiased font-sans">
+
+    <!-- 1. NAVBAR FLOATING GLASSMORPHISM -->
+    <header class="fixed left-0 right-0 top-4 z-50 mx-auto w-[calc(100%-2rem)] max-w-6xl glass-navbar rounded-full transition-all duration-300" id="navbar">
+        <div class="px-5 sm:px-6 flex justify-between items-center h-14">
+            <!-- Logo -->
+            <a href="#home" class="flex items-center gap-2">
+                <img src="logo/logo.png" alt="TSHoliday Logo" class="h-8 w-auto">
+                <div class="flex flex-col leading-none">
+                    <span class="font-bold text-primary text-base tracking-wider">TSHOLIDAY</span>
+                    <span class="text-[8px] text-gray-700 uppercase tracking-widest mt-0.5">Keepgoing TSH Indonesia</span>
+                </div>
+            </a>
+
+            <!-- Area Navigasi & Toggle Bahasa (Berdampingan) -->
+            <div class="hidden md:flex items-center space-x-6">
+                <!-- Desktop Menu -->
+                <nav class="flex items-center space-x-5 lg:space-x-7 font-semibold text-[11px] tracking-widest uppercase" id="navLinks">
+                    <a href="#home" class="nav-link" data-id="Beranda" data-en="Home">Home</a>
+                    <a href="#tentang" class="nav-link" data-id="Tentang" data-en="About">Tentang</a>
+                    <a href="#paket" class="nav-link" data-id="Paket" data-en="Packages">Paket</a>
+                    <a href="#armada" class="nav-link" data-id="Armada" data-en="Fleet">Armada</a>
+                    <a href="#galeri" class="nav-link" data-id="Galeri" data-en="Gallery">Galeri</a>
+                    <a href="#kontak" class="nav-link" data-id="Kontak" data-en="Contact">Kontak</a>
+                </nav>
+
+                <!-- Animated Language Toggle (Di Samping Kanan Nav) -->
+                <div class="relative flex items-center bg-white/40 p-0.5 rounded-full border border-white/60 text-[10px] font-bold select-none w-[64px] h-[26px] shadow-inner">
+                    <div id="lang-pill" class="absolute top-0.5 left-0.5 w-[28px] h-[20px] bg-primary rounded-full transition-transform duration-300 ease-in-out shadow-sm"></div>
+                    <button id="btn-id" class="relative z-10 w-1/2 h-full text-center text-white transition-colors duration-300 focus:outline-none">ID</button>
+                    <button id="btn-en" class="relative z-10 w-1/2 h-full text-center text-gray-700 hover:text-primary transition-colors duration-300 focus:outline-none">EN</button>
+                </div>
+            </div>
+
+            <!-- Actions Booking Kalkulator-->
+            <div class="flex items-center gap-3">
+                <a href="./calc/index.html" class="hidden lg:block bg-gold hover:bg-yellow-600 text-white px-4 py-1.5 text-xs rounded-full font-bold transition-transform hover:scale-105 shadow-md">Pesan langsung</a>
+                <button class="md:hidden text-lg text-primary focus:outline-none" id="mobileToggle"><i class="fas fa-bars"></i></button>
+            
+            <!-- Actions Calc-->
+            
+                <a href="#booking" class="hidden lg:block bg-gold hover:bg-yellow-600 text-white px-4 py-1.5 text-xs rounded-full font-bold transition-transform hover:scale-105 shadow-md">QnA</a>
+                <button class="md:hidden text-lg text-primary focus:outline-none" id="mobileToggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden p-0">
+        <video id="heroVideo" autoplay loop muted playsinline class="hero-video">
+            <source src="assets/video/hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content text-center px-4 max-w-4xl mx-auto mt-16">
+            <h1 class="text-4xl md:text-6xl font-serif font-bold text-white mb-6 leading-tight drop-shadow-lg">
+                "Don't Just Travel,<br><span class="text-gold">Keepgoing</span> to the Extraordinary"
+            </h1>
+            <p class="text-gray-200 text-lg md:text-xl mb-10 font-light drop-shadow-md" data-id="Sewa mobil dan paket wisata Bandung untuk perjalanan nyaman, aman, dan fleksibel." data-en="Trusted car rental & tour curator in Bandung.">Sewa mobil dan paket wisata Bandung untuk perjalanan nyaman, aman, dan fleksibel.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#booking" class="bg-gold text-white px-8 py-3 rounded-full font-bold uppercase tracking-wider hover:bg-yellow-600 transition-all shadow-md hover:-translate-y-1" data-id="Pesan Sekarang" data-en="Book Now">Pesan Sekarang</a>
+                <a href="#paket" class="border-2 border-white text-white px-8 py-3 rounded-full font-bold uppercase tracking-wider hover:bg-white hover:text-primary transition-all hover:-translate-y-1" data-id="Lihat Paket" data-en="View Packages">Lihat Paket</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. ABOUT SECTION -->
+    <section id="tentang" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-sm font-bold text-gold tracking-widest uppercase mb-2" data-id="Tentang Kami" data-en="About Us">Tentang Kami</h2>
+                    <h3 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-6" data-id="Mitra Perjalanan Eksklusif Anda" data-en="Your Exclusive Travel Partner">Mitra Perjalanan Eksklusif Anda</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed text-justify" data-id="PT Keepgoing TSH Indonesia (TSHoliday) adalah penyedia layanan travel, tour, & transportasi resmi yang menghadirkan pengalaman perjalanan eksklusif, aman, dan berkesan." data-en="PT Keepgoing TSH Indonesia (TSHoliday) is an official travel, tour, & transportation provider delivering exclusive, safe, and memorable experiences.">
+                        PT Keepgoing TSH Indonesia (TSHoliday) adalah penyedia layanan travel, tour, & transportasi resmi yang menghadirkan pengalaman perjalanan eksklusif, aman, dan berkesan. Kami terdaftar dan berizin di Republik Indonesia dengan Nomor Induk Berusaha (NIB) yang sah.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mt-8">
+                        <div class="p-4 bg-light rounded-xl border border-gray-100 shadow-sm">
+                            <i class="fas fa-shield-alt text-3xl text-gold mb-3"></i>
+                            <h4 class="font-bold text-primary">Legal & Aman</h4>
+                        </div>
+                        <div class="p-4 bg-light rounded-xl border border-gray-100 shadow-sm">
+                            <i class="fas fa-star text-3xl text-gold mb-3"></i>
+                            <h4 class="font-bold text-primary">Layanan Premium</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="assets/image/legalitas.jpg" alt="Legalitas TSHoliday" class="rounded-2xl shadow-2xl object-cover w-full h-[400px] legality-img">
+                    <div class="absolute -bottom-6 -left-6 bg-primary text-white p-6 rounded-2xl shadow-xl hidden sm:block border-b-4 border-gold">
+                        <p class="text-4xl font-bold text-gold mb-1">24/7</p>
+                        <p class="text-sm font-medium uppercase tracking-wider">Customer Service</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. PAKET WISATA -->
+    <section id="paket" class="py-20 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-gold tracking-widest uppercase mb-2">Destinasi Favorit</h2>
+                <h3 class="text-3xl md:text-4xl font-serif font-bold text-primary" data-id="Paket Wisata Pilihan" data-en="Popular Tour Packages">Paket Wisata Pilihan</h3>
+                <div class="w-20 h-1 bg-gold mx-auto mt-4 rounded"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group cursor-pointer border border-gray-100">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="assets/image/ciwidey/ciwidey.jpg" alt="Ciwidey" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow">Best Seller</div>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold text-primary mb-2">Ciwidey Tour</h4>
+                            <p class="text-gray-600 text-sm mb-6 line-clamp-2">Kawah Putih, Perkebunan Teh Rancabali, dan Glamping Lakeside.</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="openDetailModal('ciwidey')" class="w-1/2 border border-gold text-primary py-2 rounded-xl hover:bg-gold hover:text-white transition-colors text-xs font-bold">Rincian</button>
+                            <a href="paket-wisata-bandung/ciwidey-tour/" class="w-1/2 text-center bg-primary text-white py-2 rounded-xl hover:bg-gold transition-colors text-xs font-bold flex items-center justify-center">Lihat Paket</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group cursor-pointer border border-gray-100">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="assets/image/lembang/lembang.jpg" alt="Lembang" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold text-primary mb-2">Lembang Escape</h4>
+                            <p class="text-gray-600 text-sm mb-6 line-clamp-2">Tangkuban Perahu, Farmhouse, dan The Lodge Maribaya.</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="openDetailModal('lembang')" class="w-1/2 border border-gold text-primary py-2 rounded-xl hover:bg-gold hover:text-white transition-colors text-xs font-bold">Rincian</button>
+                            <a href="paket-wisata-bandung/lembang-tour/" class="w-1/2 text-center bg-primary text-white py-2 rounded-xl hover:bg-gold transition-colors text-xs font-bold flex items-center justify-center">Lihat Paket</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group cursor-pointer border border-gray-100">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="assets/image/kota-bandung/bandung.jpg" alt="City Tour" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold text-primary mb-2">Bandung City Tour</h4>
+                            <p class="text-gray-600 text-sm mb-6 line-clamp-2">Gedung Sate, Asia Afrika, dan wisata belanja modern.</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="openDetailModal('bandung')" class="w-1/2 border border-gold text-primary py-2 rounded-xl hover:bg-gold hover:text-white transition-colors text-xs font-bold">Rincian</button>
+                            <a href="paket-wisata-bandung/bandung-city-tour/" class="w-1/2 text-center bg-primary text-white py-2 rounded-xl hover:bg-gold transition-colors text-xs font-bold flex items-center justify-center">Lihat Paket</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="custom-tour/" class="inline-block border-2 border-primary text-primary px-8 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-colors">Custom Tour Sendiri</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. ARMADA -->
+    <section id="armada" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-gold tracking-widest uppercase mb-2">Kenyamanan Perjalanan</h2>
+                <h3 class="text-3xl md:text-4xl font-serif font-bold text-primary" data-id="Pilihan Armada" data-en="Our Fleet">Pilihan Armada Premium</h3>
+                <div class="w-20 h-1 bg-gold mx-auto mt-4 rounded"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-6 border border-gray-200 rounded-2xl hover:border-gold hover:shadow-xl transition-all text-center group">
+                    <div class="w-16 h-16 bg-light rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gold transition-colors">
+                        <i class="fas fa-car text-2xl text-primary group-hover:text-white"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-primary mb-2">Toyota Avanza</h4>
+                    <p class="text-sm text-gray-500">5-6 Seat. Hemat & Lincah.</p>
+                </div>
+                
+                <div class="p-6 border border-gray-200 rounded-2xl hover:border-gold hover:shadow-xl transition-all text-center group">
+                    <div class="w-16 h-16 bg-light rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gold transition-colors">
+                        <i class="fas fa-car-side text-2xl text-primary group-hover:text-white"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-primary mb-2">Innova / Zenix</h4>
+                    <p class="text-sm text-gray-500">6-7 Seat. Mewah & Eksklusif.</p>
+                </div>
+
+                <div class="p-6 border border-gray-200 rounded-2xl hover:border-gold hover:shadow-xl transition-all text-center group">
+                    <div class="w-16 h-16 bg-light rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gold transition-colors">
+                        <i class="fas fa-van-shuttle text-2xl text-primary group-hover:text-white"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-primary mb-2">Toyota HiAce</h4>
+                    <p class="text-sm text-gray-500">12-15 Seat. Eksekutif Grup.</p>
+                </div>
+
+                <div class="p-6 border border-gray-200 rounded-2xl hover:border-gold hover:shadow-xl transition-all text-center group">
+                    <div class="w-16 h-16 bg-light rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gold transition-colors">
+                        <i class="fas fa-bus text-2xl text-primary group-hover:text-white"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-primary mb-2">Big Bus</h4>
+                    <p class="text-sm text-gray-500">45-59 Seat. Toilet & Karaoke.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. GALERI -->
+    <section id="galeri" class="py-20 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-gold tracking-widest uppercase mb-2">Dokumentasi</h2>
+                <h3 class="text-3xl md:text-4xl font-serif font-bold text-primary" data-id="Galeri Perjalanan" data-en="Trip Gallery">Galeri Perjalanan TSHoliday</h3>
+                <div class="w-20 h-1 bg-gold mx-auto mt-4 rounded"></div>
+            </div>
+
+            <!-- Grid Galeri Dinamis -->
+            <div id="galleryGrid" class="gallery-grid"></div>
+
+            <div class="gallery-actions text-center mt-8">
+                <button id="loadMoreBtn" class="bg-primary hover:bg-gold text-white font-bold px-8 py-3 rounded-full transition-colors shadow-md">
+                    Muat Lebih Banyak
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. BOOKING FORM & FOOTER -->
+    <section id="kontak" class="relative py-20 bg-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                
+                <div class="text-white">
+                    <h2 class="text-4xl font-serif font-bold mb-6 text-gold">Hubungi Kami</h2>
+                    <p class="text-gray-300 mb-10 leading-relaxed">Punya pertanyaan atau ingin merencanakan perjalanan custom? Tim layanan pelanggan kami siap membantu Anda 24 jam penuh.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-gold text-xl"><i class="fab fa-whatsapp"></i></div>
+                            <div>
+                                <p class="text-sm text-gray-400">WhatsApp / Telp</p>
+                                <p class="font-bold text-lg">+62 821-3064-0161</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-gold text-xl"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <p class="text-sm text-gray-400">Email</p>
+                                <p class="font-bold">tsholidaybandung@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-gold text-xl"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <p class="text-sm text-gray-400">Lokasi</p>
+                                <p class="font-bold">Bandung, Jawa Barat, Indonesia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="booking" class="bg-white rounded-3xl p-8 shadow-2xl relative lg:mt-[-50px]">
+                    <h3 class="text-2xl font-bold text-primary mb-6 border-b pb-4">Mulai Perjalanan Anda</h3>
+                    <form id="bookingForm" class="space-y-5">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
+                            <input type="text" id="nama" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold focus:border-transparent outline-none bg-light" required placeholder="Masukkan nama Anda">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">WhatsApp</label>
+                            <input type="tel" id="whatsapp" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold outline-none bg-light" required placeholder="Contoh: 082130640161">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Tanggal</label>
+                                <input type="date" id="tanggal" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold outline-none bg-light" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Peserta</label>
+                                <input type="number" id="peserta" min="1" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold outline-none bg-light" required placeholder="Jml Orang">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Paket / Kendaraan</label>
+                            <select id="tujuan" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold outline-none bg-light" required>
+                                <option value="">-- Pilih Paket --</option>
+                                <option value="Sewa Toyota Avanza">Sewa Toyota Avanza</option>
+                                <option value="Paket Ciwidey">Paket Ciwidey</option>
+                                <option value="Bandung City Tour">Bandung City Tour</option>
+                                <option value="Custom Tour">Custom Tour / Lainnya</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full bg-gold hover:bg-yellow-600 text-white font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-2 mt-4 shadow-lg">
+                            <i class="fab fa-whatsapp text-xl"></i> Kirim Pesanan via WA
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-20 pt-8 border-t border-white/20 text-center text-gray-400 text-sm relative z-10">
+            <nav aria-label="Layanan utama" class="mb-8 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-gray-300">
+                <a href="paket-wisata-bandung/" class="hover:text-gold transition-colors">Paket Wisata Bandung</a>
+                <a href="sewa-mobil-bandung/" class="hover:text-gold transition-colors">Sewa Mobil Bandung</a>
+                <a href="sewa-mobil-bogor/" class="hover:text-gold transition-colors">Sewa Mobil Bogor</a>
+                <a href="sewa-mobil-jakarta/" class="hover:text-gold transition-colors">Sewa Mobil Jakarta</a>
+                <a href="about.html" class="hover:text-gold transition-colors">Tentang Kami</a>
+                <a href="contact.html" class="hover:text-gold transition-colors">Kontak</a>
+                <a href="privacy.html" class="hover:text-gold transition-colors">Privacy</a>
+            </nav>
+            <p>&copy; 2026 PT Keepgoing TSH Indonesia. All rights reserved.</p>
+        </footer>
+    </section>
+
+    <!-- 8. MODAL LIGHTBOX (ZOOM & NAVIGASI) -->
+    <div id="imageModal" class="image-modal">
+        <span class="modal-close">&times;</span>
+        <button id="prevImgBtn" class="modal-nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+        <button id="nextImgBtn" class="modal-nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+        <div class="modal-content-wrapper">
+            <img id="modalImage" class="modal-image" src="" alt="Preview Gambar">
+        </div>
+        <div class="modal-controls">
+            <button id="zoomInBtn" title="Zoom In"><i class="fas fa-search-plus"></i></button>
+            <button id="resetZoomBtn" title="Reset Zoom"><i class="fas fa-sync-alt"></i></button>
+            <button id="zoomOutBtn" title="Zoom Out"><i class="fas fa-search-minus"></i></button>
+        </div>
+    </div>
+
+    <!-- 9. MODAL DETAIL RINCIAN DESTINASI -->
+    <div id="detailModal" class="detail-modal">
+        <div class="detail-modal-content">
+            <span class="detail-modal-close" onclick="closeDetailModal()">&times;</span>
+            <div class="detail-modal-header">
+                <h3 id="modalTitle">Judul Destinasi</h3>
+                <p id="modalSubtitle">Subjudul deskripsi destinasi</p>
+            </div>
+            <div id="modalBodyList" class="detail-modal-body">
+                <!-- Rincian tempat dimasukkan oleh script.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 10. TOMBOL SCROLL TO TOP -->
+    <button id="scrollTopBtn" title="Kembali ke atas">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- External Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
