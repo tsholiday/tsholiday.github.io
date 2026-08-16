@@ -1,4 +1,36 @@
 /* ==========================================================================
+   LANGUAGE SWITCHER STYLING
+   ========================================================================== */
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 8px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.lang-btn {
+    color: white;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.lang-btn.active, .lang-btn:hover {
+    background-color: var(--accent);
+    color: white;
+}
+
+.lang-divider {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.75rem;
+}
+/* ==========================================================================
    VARIABLES & GLOBAL STYLING
    ========================================================================== */
 :root {
