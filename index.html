@@ -292,162 +292,2222 @@
     </div>
 </section>
 
-    <!-- SECTION ULASAN / TESTIMONIALS -->
-<section class="py-20 bg-gray-50 overflow-hidden relative">
-    <!-- Header Section -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
-        <span class="bg-gold/20 text-gold text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Testimoni Pelanggan</span>
-        <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mt-3 mb-3">Apa Kata Mereka yang Sudah Berlibur?</h2>
-        <p class="text-gray-600 text-sm md:text-base max-w-xl mx-auto">Pengalaman nyata dari pelancong lintas negara bersama layanan eksklusif TSHoliday.</p>
-    </div>
 
-    <!-- Infinite Scroll Wrapper (Row 1 - Bergerak ke Kiri) -->
-    <div class="relative w-full overflow-hidden mb-6 flex">
-        <div class="flex animate-marquee space-x-6 min-w-max py-2" id="testimonialRow1">
-            <!-- Data akan di-generate otomatis via JavaScript -->
+<!-- SECTION TESTIMONIAL -->
+
+    <!-- =========================================
+     TSHOLIDAY - 40 CUSTOMER TESTIMONIALS
+     SMOOTH TESTIMONIAL SLIDER
+========================================= -->
+
+<section class="py-20 md:py-24 bg-light overflow-hidden" id="testimonials">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- HEADER -->
+        <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+
+            <span class="inline-block text-sm font-bold text-gold tracking-[0.25em] uppercase mb-3">
+                Customer Stories
+            </span>
+
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-primary mb-5">
+                Mereka yang Telah
+                <span class="text-gold">Bepergian Bersama Kami</span>
+            </h2>
+
+            <p class="text-gray-500 leading-relaxed max-w-2xl mx-auto">
+                Pengalaman perjalanan dari berbagai kota di Indonesia,
+                Singapore, Malaysia, hingga Brunei.
+            </p>
+
         </div>
-    </div>
 
-    <!-- Infinite Scroll Wrapper (Row 2 - Bergerak ke Kanan) -->
-    <div class="relative w-full overflow-hidden flex">
-        <div class="flex animate-marquee-rev space-x-6 min-w-max py-2" id="testimonialRow2">
-            <!-- Data akan di-generate otomatis via JavaScript -->
-        </div>
-    </div>
-</section>
 
-    <!-- SECTION ULASAN -->
+        <!-- SLIDER WRAPPER -->
+        <div class="testimonial-slider-wrapper relative">
 
-<!-- SECTION ULASAN / TESTIMONIALS -->
-<section class="py-20 bg-gray-50 overflow-hidden relative">
-    <!-- Header Section -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
-        <span class="bg-gold/20 text-gold text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Testimoni Pelanggan</span>
-        <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mt-3 mb-3">Apa Kata Mereka yang Sudah Berlibur?</h2>
-        <p class="text-gray-600 text-sm md:text-base max-w-xl mx-auto">Pengalaman nyata dari pelancong lintas negara bersama layanan eksklusif TSHoliday.</p>
-    </div>
+            <!-- LEFT BUTTON -->
+            <button
+                type="button"
+                id="testimonialPrev"
+                aria-label="Previous testimonial"
+                class="testimonial-nav testimonial-prev">
 
-    <!-- Slider Wrapper (Row 1 - Bergeser ke Kiri per 3 Detik) -->
-    <div class="relative w-full overflow-hidden mb-6">
-        <div class="flex space-x-6 transition-transform duration-700 ease-in-out" id="testimonialRow1">
-            <!-- Data akan di-generate otomatis via JavaScript -->
-        </div>
-    </div>
+                <i class="fas fa-chevron-left"></i>
 
-   
-</section>
+            </button>
 
-<!-- JAVASCRIPT GENERATOR 150 ULASAN & AUTO SLIDE PER 3 DETIK -->
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        // Data Mentah Ulasan Lintas Negara
-        const sources = [
-            // SINGAPURA
-            { name: "Wei Ling", country: "Singapura", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80", text: "Wah, Shiok ar! Driver TSHoliday very punctual and polite. Lembang tour was breathtaking, confirm will intro to my kakis!" },
-            { name: "Muhammad Farhan", country: "Singapura", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80", text: "Very steady service! Booked Hiace for family trip in Bandung. Clean car, power aircon. Best experience ever lah!" },
-            { name: "Chloe Tan", country: "Singapura", avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80", text: "Super good customer service. The driver brought us to hidden local food spots in Jakarta. Sedap gila!" },
 
-            // BRUNEI DARUSSALAM
-            { name: "Dayang Nurul", country: "Brunei Darussalam", avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80", text: "Alhamdulillah, berbaloi sangat ambil pakej dengan TSHoliday ni. Servis tip-top, pemandu pun sangat pemedulian dan berhemah." },
-            { name: "Awangku Iskandar", country: "Brunei Darussalam", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80", text: "Kitani berasa selesa sepanjang tour di Bandung. Van Hiace luas dan bersih. Indah benar pemandangan di Ciwidey!" },
-            { name: "Siti Hajar", country: "Brunei Darussalam", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80", text: "Sangat berpuas hati! Urusan booking mudah dan mesra pelanggan. Next time nak repeat lagi bawak family." },
+            <!-- VIEWPORT -->
+            <div
+                id="testimonialViewport"
+                class="overflow-hidden">
 
-            // MALAYSIA
-            { name: "Aiman Hakim", country: "Malaysia", avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=150&auto=format&fit=crop&q=80", text: "Terbaik lah TSHoliday! Driver memang sporting habis, bawa jalan-jalan kat Bandung & Lembang. Recommended sangat!" },
-            { name: "Zulaikha binti Rosli", country: "Malaysia", avatar: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=150&auto=format&fit=crop&q=80", text: "Uish, memang best gila! Makanan sedap, tempat lawatan mantap. Tak penat sebab van sewa selesa dan aircond sejuk beku." },
-            { name: "Faizal bin Rahman", country: "Malaysia", avatar: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=150&auto=format&fit=crop&q=80", text: "Servis cemerlang! Senang berurusan dengan admin. Sampai je airport Jakarta dah ada driver tunggu pegang nama." },
+                <!-- TRACK -->
+                <div
+                    id="testimonialTrack"
+                    class="flex will-change-transform">
 
-            // INDONESIA
-            { name: "Rian Pratama", country: "Indonesia", avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&auto=format&fit=crop&q=80", text: "Euy, mantap pisan euy! Sumpah driver-na ramah pisan, apal jalan pintet janten teu macet. Hatur nuhun TSHoliday!" },
-            { name: "Dewi Lestari", country: "Indonesia", avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80", text: "Asli keren banget pelayanannya! Sewa Hiace buat rombongan kantor di Jakarta on-time dan unit mobilnya mewah bersih." },
-            { name: "Budi Santoso", country: "Indonesia", avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&auto=format&fit=crop&q=80", text: "Alhamdulillah liburan keluarga ke Puncak & Bogor jadi lancar jaya. Pokoknya TSHoliday recommended tour & travel!" }
-        ];
+                    <!-- =================================
+                         01 - SINGAPORE
+                    ================================== -->
 
-        // Generator 150 Ulasan Unik
-        const generatedReviews = [];
-        const firstNamesAli = ["Ahmad", "Siti", "John", "Tan", "Nurul", "Kevin", "Fatimah", "David", "Rizky", "Putri", "Lim", "Hassan"];
-        const lastNamesAli = ["Ali", "Wong", "Smith", "Rahman", "Ibrahim", "Chen", "Kusuma", "Liyana", "Zulkarnain", "Hidayat"];
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
 
-        for (let i = 1; i <= 150; i++) {
-            const base = sources[i % sources.length];
-            const randName = `${firstNamesAli[i % firstNamesAli.length]} ${lastNamesAli[(i * 3) % lastNamesAli.length]}`;
-            
-            generatedReviews.push({
-                name: randName,
-                country: base.country,
-                avatar: `https://i.pravatar.cc/150?img=${(i % 70) + 1}`,
-                text: base.text
-            });
-        }
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">
+                                    ★★★★★
+                                </div>
 
-        const half = Math.floor(generatedReviews.length / 2);
-        const row1Data = generatedReviews.slice(0, half);
-        const row2Data = generatedReviews.slice(half);
+                                <span>🇸🇬 Singapore</span>
+                            </div>
 
-        const createCardHTML = (item) => `
-            <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 w-80 sm:w-96 flex-shrink-0 flex flex-col justify-between">
-                <div>
-                    <div class="flex items-center gap-1 text-gold text-xs mb-3">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Very smooth experience from booking until the end
+                                of our trip. The driver was friendly, punctual,
+                                and really knew the Bandung area.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">JL</div>
+
+                                <div>
+                                    <h4>Jason Lim</h4>
+                                    <small>Singapore · Family Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
-                    <p class="text-gray-700 text-xs sm:text-sm leading-relaxed italic mb-4">"${item.text}"</p>
-                </div>
-                <div class="flex items-center gap-3 pt-3 border-t border-gray-100">
-                    <img src="${item.avatar}" alt="${item.name}" class="w-10 h-10 rounded-full object-cover border-2 border-gold/45">
-                    <div>
-                        <h4 class="font-bold text-primary text-xs sm:text-sm">${item.name}</h4>
-                        <span class="text-[10px] text-gray-500 uppercase tracking-wider">${item.country}</span>
+
+
+                    <!-- 02 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇲🇾 Malaysia</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Kami sekeluarga sangat puas hati dengan service
+                                TSHoliday. Driver sangat mesra dan banyak membantu
+                                cadangkan tempat menarik di Bandung.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">NH</div>
+
+                                <div>
+                                    <h4>Nur Hidayah</h4>
+                                    <small>Kuala Lumpur · Family Holiday</small>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
+
+
+                    <!-- 03 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇧🇳 Brunei</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Alhamdulillah, everything was arranged very well.
+                                We travelled with elderly parents and the driver
+                                was patient and very helpful.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">AF</div>
+
+                                <div>
+                                    <h4>Ahmad Firdaus</h4>
+                                    <small>Bandar Seri Begawan · Family Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 04 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇮🇩 Indonesia</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Awalnya cari rental mobil yang bisa sekalian bantu
+                                itinerary Bandung. Ternyata TSHoliday cukup lengkap,
+                                komunikasinya juga cepat.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">RA</div>
+
+                                <div>
+                                    <h4>Raka Aditya</h4>
+                                    <small>Jakarta · Leisure Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 05 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇸🇬 Singapore</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                We had a short 3-day trip in Bandung and everything
+                                went according to plan. Communication via WhatsApp
+                                was easy and convenient.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">SW</div>
+
+                                <div>
+                                    <h4>Sarah Wong</h4>
+                                    <small>Singapore · Couple Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 06 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇲🇾 Malaysia</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Servis sangat baik dari awal sampai habis perjalanan.
+                                Kereta selesa dan bersih. Driver pun punctual dan
+                                tahu jalan-jalan menarik sekitar Bandung.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">FA</div>
+
+                                <div>
+                                    <h4>Farhan Azmi</h4>
+                                    <small>Johor Bahru · Friends Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 07 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇮🇩 Indonesia</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Recommended buat yang mau liburan ke Bandung tanpa
+                                ribet. Dari penjemputan sampai drop-off semuanya jelas.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">DN</div>
+
+                                <div>
+                                    <h4>Dinda Nabila</h4>
+                                    <small>Surabaya · Girls Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 08 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇧🇳 Brunei</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                First time visiting Bandung and we were very happy
+                                with the service. The vehicle was comfortable and
+                                the whole journey felt safe.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">RM</div>
+
+                                <div>
+                                    <h4>Rizwan Hakim</h4>
+                                    <small>Kuala Belait · Holiday Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 09 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇮🇩 Indonesia</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Booking gampang banget dan respon admin cepat.
+                                Mobilnya nyaman untuk perjalanan seharian bersama
+                                keluarga.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">BS</div>
+
+                                <div>
+                                    <h4>Bagus Santoso</h4>
+                                    <small>Tangerang · Family Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 10 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇸🇬 Singapore</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Driver was very professional and the car was clean.
+                                We visited several places around Bandung without
+                                feeling rushed.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">MT</div>
+
+                                <div>
+                                    <h4>Melissa Tan</h4>
+                                    <small>Singapore · Couple Holiday</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 11 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇲🇾 Malaysia</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Sangat berpuas hati dengan layanan TSHoliday.
+                                Driver ramah dan sangat membantu sepanjang perjalanan
+                                kami di Bandung.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">AZ</div>
+
+                                <div>
+                                    <h4>Amir Zulkifli</h4>
+                                    <small>Shah Alam · Family Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 12 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇮🇩 Indonesia</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Pelayanannya oke banget. Admin responsif, driver
+                                ramah, dan mobil datang sesuai jadwal. Recommended
+                                untuk family trip.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">AP</div>
+
+                                <div>
+                                    <h4>Andika Pratama</h4>
+                                    <small>Bekasi · Family Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 13 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇧🇳 Brunei</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Very comfortable service for our family. The driver
+                                was polite and always ready to assist us whenever
+                                we needed help.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">NA</div>
+
+                                <div>
+                                    <h4>Nur Aisyah</h4>
+                                    <small>Seria · Family Holiday</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 14 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇮🇩 Indonesia</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Enak banget kalau jalan-jalan dibantu driver yang
+                                sudah tahu lokasi wisata. Jadi waktunya lebih efektif
+                                dan nggak perlu bingung cari parkir.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">FM</div>
+
+                                <div>
+                                    <h4>Fajar Maulana</h4>
+                                    <small>Depok · Friends Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 15 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇲🇾 Malaysia</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Tempahan sangat mudah dan cepat. Kami cuma bagi
+                                senarai tempat yang nak pergi, selebihnya dibantu
+                                oleh team TSHoliday.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">SR</div>
+
+                                <div>
+                                    <h4>Siti Rahmah</h4>
+                                    <small>Penang · Family Holiday</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 16 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇸🇬 Singapore</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                The booking process was straightforward and the
+                                response was fast. We really enjoyed our Bandung
+                                trip with TSHoliday.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">DW</div>
+
+                                <div>
+                                    <h4>Daniel Wong</h4>
+                                    <small>Singapore · Friends Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 17 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇮🇩 Indonesia</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Mobil bersih dan driver datang tepat waktu.
+                                Perjalanan Bandung jadi jauh lebih santai karena
+                                semua kebutuhan transportasi sudah diatur.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">YS</div>
+
+                                <div>
+                                    <h4>Yoga Saputra</h4>
+                                    <small>Semarang · Leisure Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 18 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇲🇾 Malaysia</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Driver sangat baik dan peramah. Banyak juga tempat
+                                makan yang dicadangkan dan semuanya memang sedap.
+                                Akan repeat lagi.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">HK</div>
+
+                                <div>
+                                    <h4>Hakim Khalid</h4>
+                                    <small>Ipoh · Culinary Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 19 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇧🇳 Brunei</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                The service was reliable from airport pickup until
+                                our final day. We felt very comfortable travelling
+                                with the TSHoliday team.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">HM</div>
+
+                                <div>
+                                    <h4>Hafiz Mahmud</h4>
+                                    <small>Bandar Seri Begawan · Family Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 20 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇮🇩 Indonesia</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Overall puas banget. Dari awal booking sampai
+                                selesai perjalanan komunikasinya jelas. Cocok
+                                untuk yang bawa anak-anak.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">IR</div>
+
+                                <div>
+                                    <h4>Indah Ramadhani</h4>
+                                    <small>Bandung · Family Staycation</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 21 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇸🇬 Singapore</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Excellent service. The driver was on time,
+                                courteous and knew the best routes around the
+                                city. Highly recommended.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">KC</div>
+
+                                <div>
+                                    <h4>Kevin Chua</h4>
+                                    <small>Singapore · Business Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 22 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇲🇾 Malaysia</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Sangat recommended. Kereta selesa, driver
+                                professional dan mudah berkomunikasi. Kami
+                                sekeluarga sangat menikmati trip Bandung.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">MA</div>
+
+                                <div>
+                                    <h4>Mohd Arif</h4>
+                                    <small>Malacca · Family Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 23 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇮🇩 Indonesia</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Adminnya fast response dan informasinya detail.
+                                Driver juga nggak kaku, jadi perjalanan terasa
+                                lebih nyaman.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">AN</div>
+
+                                <div>
+                                    <h4>Arief Nugraha</h4>
+                                    <small>Bogor · Weekend Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 24 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇧🇳 Brunei</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Kami sangat berpuas hati. Driver datang awal dan
+                                membantu membawa barang kami. Service memang
+                                bagus dan mesra.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">SR</div>
+
+                                <div>
+                                    <h4>Siti Rahimah</h4>
+                                    <small>Tutong · Family Holiday</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 25 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇮🇩 Indonesia</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Bandung trip jadi lebih praktis. Tinggal duduk,
+                                driver yang atur rute dan bantu rekomendasi tempat
+                                yang cocok untuk keluarga.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">RW</div>
+
+                                <div>
+                                    <h4>Rizky Wijaya</h4>
+                                    <small>Jakarta · Family Holiday</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 26 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇸🇬 Singapore</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Really enjoyed the service. Everything was
+                                organised well and the driver was very helpful
+                                throughout our stay.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">EL</div>
+
+                                <div>
+                                    <h4>Emily Lee</h4>
+                                    <small>Singapore · Couple Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 27 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇲🇾 Malaysia</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Trip pertama kami ke Bandung dan pengalaman
+                                sangat menyenangkan. Driver tahu tempat-tempat
+                                menarik dan sangat friendly.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">RA</div>
+
+                                <div>
+                                    <h4>Rina Azhar</h4>
+                                    <small>Kota Bharu · Family Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 28 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇮🇩 Indonesia</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Sangat membantu untuk perjalanan rombongan.
+                                Koordinasi gampang dan kendaraan nyaman untuk
+                                perjalanan seharian.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">MR</div>
+
+                                <div>
+                                    <h4>Maya Rosita</h4>
+                                    <small>Yogyakarta · Group Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 29 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇧🇳 Brunei</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Comfortable car and friendly driver. We had a
+                                wonderful time exploring Bandung with our family.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">YA</div>
+
+                                <div>
+                                    <h4>Yusof Ali</h4>
+                                    <small>Muara · Family Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 30 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇲🇾 Malaysia</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Semua sangat teratur. Driver pun punctual dan
+                                banyak membantu kami cari lokasi yang sesuai
+                                dengan anak-anak.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">FN</div>
+
+                                <div>
+                                    <h4>Fatin Nadia</h4>
+                                    <small>Putrajaya · Family Holiday</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 31 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇮🇩 Indonesia</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Salah satu rental yang pelayanannya paling enak
+                                selama saya traveling. Cepat, jelas, dan nggak
+                                ribet dari awal sampai akhir.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">GP</div>
+
+                                <div>
+                                    <h4>Galih Prakoso</h4>
+                                    <small>Medan · Leisure Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 32 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇸🇬 Singapore</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Our family had a great experience. The driver was
+                                patient with our children and helped us adjust
+                                the itinerary when needed.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">AT</div>
+
+                                <div>
+                                    <h4>Andrew Tan</h4>
+                                    <small>Singapore · Family Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 33 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇲🇾 Malaysia</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Driver memang sporting dan sangat membantu.
+                                Trip kami jadi lebih santai sebab tak perlu
+                                fikir tentang parking dan jalan.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">IR</div>
+
+                                <div>
+                                    <h4>Irwan Razak</h4>
+                                    <small>Petaling Jaya · Friends Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 34 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇮🇩 Indonesia</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Cocok banget buat yang pertama kali ke Bandung.
+                                Driver bisa kasih rekomendasi dan komunikasinya
+                                juga enak.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">TS</div>
+
+                                <div>
+                                    <h4>Tania Salsabila</h4>
+                                    <small>Palembang · Couple Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 35 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇧🇳 Brunei</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Very good experience. The team was responsive
+                                and the driver made our family holiday much
+                                easier and more enjoyable.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">FA</div>
+
+                                <div>
+                                    <h4>Faisal Ahmad</h4>
+                                    <small>Bandar Seri Begawan · Family Holiday</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 36 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇮🇩 Indonesia</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Pelayanan profesional dan mobilnya nyaman.
+                                Sangat membantu untuk perjalanan keluarga besar
+                                selama di Bandung.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">HN</div>
+
+                                <div>
+                                    <h4>Hendra Nugroho</h4>
+                                    <small>Makassar · Family Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 37 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇸🇬 Singapore</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Great experience overall. Fast replies, clean car,
+                                and a friendly driver. Bandung was much easier to
+                                explore this way.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">SH</div>
+
+                                <div>
+                                    <h4>Stephanie Ho</h4>
+                                    <small>Singapore · Girls Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 38 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇲🇾 Malaysia</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Service tip top. Dari booking sampai balik hotel
+                                semuanya berjalan lancar. InsyaAllah kalau datang
+                                Bandung lagi kami booking sini.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">ZA</div>
+
+                                <div>
+                                    <h4>Zainal Abidin</h4>
+                                    <small>Kuching · Family Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 39 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇮🇩 Indonesia</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Overall pengalaman sangat menyenangkan. Driver
+                                profesional dan itinerary kami jadi lebih fleksibel
+                                selama perjalanan.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">NS</div>
+
+                                <div>
+                                    <h4>Nadia Safitri</h4>
+                                    <small>Bandar Lampung · Couple Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 40 -->
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+
+                            <div class="testimonial-top">
+                                <div class="testimonial-stars">★★★★★</div>
+                                <span>🇧🇳 Brunei</span>
+                            </div>
+
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+
+                            <p>
+                                Thank you TSHoliday for making our Bandung trip
+                                comfortable and memorable. Everything was handled
+                                professionally from start to finish.
+                            </p>
+
+                            <div class="testimonial-person">
+                                <div class="testimonial-avatar">AH</div>
+
+                                <div>
+                                    <h4>Adam Hakim</h4>
+                                    <small>Brunei · Holiday Trip</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        `;
 
-        const row1Container = document.getElementById('testimonialRow1');
-        const row2Container = document.getElementById('testimonialRow2');
 
-        // Render card (didobel agar loop tidak kosong saat bergeser jauh)
-        row1Container.innerHTML = row1Data.map(createCardHTML).join('') + row1Data.map(createCardHTML).join('');
-        row2Container.innerHTML = row2Data.map(createCardHTML).join('') + row2Data.map(createCardHTML).join('');
+            <!-- RIGHT BUTTON -->
+            <button
+                type="button"
+                id="testimonialNext"
+                aria-label="Next testimonial"
+                class="testimonial-nav testimonial-next">
 
-        // Logika Otomatis Slide Geser Per 3 Detik
-        let index1 = 0;
-        let index2 = 0;
-        const cardWidth = 340; // Perkiraan lebar kartu + gap (dalam pixel)
+                <i class="fas fa-chevron-right"></i>
 
-        setInterval(() => {
-            // Baris 1 geser ke kiri
-            index1++;
-            if (index1 >= row1Data.length) {
-                index1 = 0;
-                row1Container.style.transition = 'none'; // Reset tanpa animasi agar instan kembali ke awal
-                row1Container.style.transform = `translateX(0px)`;
-                setTimeout(() => {
-                    row1Container.style.transition = 'transform 0.7s ease-in-out';
-                }, 50);
-            } else {
-                row1Container.style.transform = `translateX(-${index1 * cardWidth}px)`;
-            }
+            </button>
 
-            // Baris 2 geser dengan pola sebaliknya/maju
-            index2++;
-            if (index2 >= row2Data.length) {
-                index2 = 0;
-                row2Container.style.transition = 'none';
-                row2Container.style.transform = `translateX(0px)`;
-                setTimeout(() => {
-                    row2Container.style.transition = 'transform 0.7s ease-in-out';
-                }, 50);
-            } else {
-                row2Container.style.transform = `translateX(-${index2 * cardWidth}px)`;
-            }
-        }, 3000); // Eksekusi setiap 3 detik
-    });
+        </div>
+
+
+        <!-- DOTS -->
+        <div
+            id="testimonialDots"
+            class="flex justify-center items-center gap-2 mt-9">
+        </div>
+
+
+        <!-- TRUST FOOTER -->
+        <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-8 text-center">
+
+            <div class="flex items-center gap-3">
+
+                <div class="w-11 h-11 rounded-full bg-primary text-gold flex items-center justify-center">
+                    <i class="fas fa-globe-asia"></i>
+                </div>
+
+                <div class="text-left">
+                    <p class="font-bold text-primary text-sm">
+                        International Guests
+                    </p>
+
+                    <p class="text-xs text-gray-400">
+                        Indonesia · Singapore · Malaysia · Brunei
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="hidden sm:block w-px h-10 bg-gray-200"></div>
+
+
+            <div class="flex items-center gap-3">
+
+                <div class="w-11 h-11 rounded-full bg-primary text-gold flex items-center justify-center">
+                    <i class="fas fa-car"></i>
+                </div>
+
+                <div class="text-left">
+                    <p class="font-bold text-primary text-sm">
+                        Comfortable Journey
+                    </p>
+
+                    <p class="text-xs text-gray-400">
+                        Clean · Safe · Professional
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     TESTIMONIAL CSS
+========================================= -->
+
+<style>
+
+    .testimonial-slider-wrapper {
+        position: relative;
+        padding: 0 10px;
+    }
+
+
+    /* TRACK */
+
+    #testimonialTrack {
+        transition:
+            transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+
+    /* SLIDE */
+
+    .testimonial-slide {
+        flex: 0 0 33.333333%;
+        width: 33.333333%;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+
+
+    /* CARD */
+
+    .testimonial-card {
+        position: relative;
+        height: 100%;
+        min-height: 315px;
+
+        padding: 28px;
+
+        background: #ffffff;
+
+        border: 1px solid rgba(10, 25, 47, 0.07);
+
+        border-radius: 26px;
+
+        box-shadow:
+            0 8px 30px rgba(10, 25, 47, 0.045);
+
+        transition:
+            transform 0.45s ease,
+            box-shadow 0.45s ease,
+            border-color 0.45s ease;
+    }
+
+
+    .testimonial-card:hover {
+        transform: translateY(-7px);
+
+        border-color: rgba(212, 175, 55, 0.35);
+
+        box-shadow:
+            0 20px 50px rgba(10, 25, 47, 0.10);
+    }
+
+
+    /* TOP */
+
+    .testimonial-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        margin-bottom: 17px;
+    }
+
+
+    .testimonial-top > span {
+        font-size: 11px;
+        color: #9ca3af;
+        white-space: nowrap;
+    }
+
+
+    /* STARS */
+
+    .testimonial-stars {
+        color: #D4AF37;
+        font-size: 13px;
+        letter-spacing: 2px;
+    }
+
+
+    /* QUOTE */
+
+    .testimonial-quote {
+        width: 38px;
+        height: 38px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin-bottom: 14px;
+
+        border-radius: 12px;
+
+        color: #D4AF37;
+        background: rgba(212, 175, 55, 0.09);
+
+        font-size: 14px;
+    }
+
+
+    /* TEXT */
+
+    .testimonial-card > p {
+        color: #5f6773;
+
+        font-size: 14px;
+        line-height: 1.85;
+
+        margin-bottom: 24px;
+    }
+
+
+    /* PERSON */
+
+    .testimonial-person {
+        display: flex;
+        align-items: center;
+
+        gap: 12px;
+
+        margin-top: auto;
+    }
+
+
+    .testimonial-avatar {
+        width: 45px;
+        height: 45px;
+
+        min-width: 45px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 50%;
+
+        background:
+            linear-gradient(
+                135deg,
+                #0a192f 0%,
+                #183558 55%,
+                #D4AF37 100%
+            );
+
+        color: white;
+
+        font-size: 12px;
+        font-weight: 700;
+
+        box-shadow:
+            0 7px 18px rgba(10, 25, 47, 0.15);
+    }
+
+
+    .testimonial-person h4 {
+        color: #0a192f;
+
+        font-size: 13px;
+        font-weight: 700;
+
+        margin: 0 0 4px;
+    }
+
+
+    .testimonial-person small {
+        display: block;
+
+        color: #9ca3af;
+
+        font-size: 10px;
+
+        line-height: 1.4;
+    }
+
+
+    /* NAVIGATION */
+
+    .testimonial-nav {
+        position: absolute;
+
+        top: 50%;
+
+        z-index: 10;
+
+        width: 46px;
+        height: 46px;
+
+        border-radius: 50%;
+
+        border: 1px solid rgba(10, 25, 47, 0.08);
+
+        background: white;
+
+        color: #0a192f;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        cursor: pointer;
+
+        box-shadow:
+            0 8px 25px rgba(10, 25, 47, 0.10);
+
+        transition:
+            all 0.3s ease;
+
+        transform: translateY(-50%);
+    }
+
+
+    .testimonial-nav:hover {
+        background: #0a192f;
+        color: #D4AF37;
+
+        transform:
+            translateY(-50%)
+            scale(1.08);
+    }
+
+
+    .testimonial-prev {
+        left: -18px;
+    }
+
+
+    .testimonial-next {
+        right: -18px;
+    }
+
+
+    /* DOTS */
+
+    .testimonial-dot {
+        width: 7px;
+        height: 7px;
+
+        border-radius: 999px;
+
+        border: none;
+
+        padding: 0;
+
+        background: #d5d9df;
+
+        cursor: pointer;
+
+        transition:
+            width 0.35s ease,
+            background 0.35s ease,
+            transform 0.35s ease;
+    }
+
+
+    .testimonial-dot:hover {
+        transform: scale(1.2);
+    }
+
+
+    .testimonial-dot.active {
+        width: 25px;
+
+        background: #D4AF37;
+    }
+
+
+    /* TABLET */
+
+    @media (max-width: 1024px) {
+
+        .testimonial-slide {
+            flex: 0 0 50%;
+            width: 50%;
+        }
+
+        .testimonial-prev {
+            left: -8px;
+        }
+
+        .testimonial-next {
+            right: -8px;
+        }
+
+    }
+
+
+    /* MOBILE */
+
+    @media (max-width: 640px) {
+
+        .testimonial-slider-wrapper {
+            padding: 0;
+        }
+
+        .testimonial-slide {
+            flex: 0 0 100%;
+            width: 100%;
+            padding: 0 3px;
+        }
+
+        .testimonial-card {
+            min-height: 305px;
+            padding: 25px;
+            border-radius: 23px;
+        }
+
+        .testimonial-nav {
+            width: 40px;
+            height: 40px;
+
+            top: auto;
+            bottom: -62px;
+
+            transform: none;
+        }
+
+        .testimonial-nav:hover {
+            transform: scale(1.05);
+        }
+
+        .testimonial-prev {
+            left: calc(50% - 52px);
+        }
+
+        .testimonial-next {
+            right: calc(50% - 52px);
+        }
+
+        #testimonialDots {
+            margin-top: 85px;
+        }
+
+    }
+
+
+    /* ACCESSIBILITY */
+
+    @media (prefers-reduced-motion: reduce) {
+
+        #testimonialTrack {
+            transition: none;
+        }
+
+        .testimonial-card {
+            transition: none;
+        }
+
+    }
+
+</style>
+
+
+<!-- =========================================
+     TESTIMONIAL JAVASCRIPT
+========================================= -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const track = document.getElementById("testimonialTrack");
+    const viewport = document.getElementById("testimonialViewport");
+
+    const prevButton = document.getElementById("testimonialPrev");
+    const nextButton = document.getElementById("testimonialNext");
+
+    const dotsContainer = document.getElementById("testimonialDots");
+
+    const slides = Array.from(
+        track.querySelectorAll(".testimonial-slide")
+    );
+
+    let currentIndex = 0;
+
+    let autoplayTimer = null;
+
+    let isPaused = false;
+
+
+    /* ==============================
+       DETECT SLIDES PER VIEW
+    ============================== */
+
+    function getSlidesPerView() {
+
+        if (window.innerWidth <= 640) {
+            return 1;
+        }
+
+        if (window.innerWidth <= 1024) {
+            return 2;
+        }
+
+        return 3;
+
+    }
+
+
+    /* ==============================
+       TOTAL PAGES
+    ============================== */
+
+    function getTotalPages() {
+
+        const perView = getSlidesPerView();
+
+        return Math.ceil(slides.length / perView);
+
+    }
+
+
+    /* ==============================
+       CREATE DOTS
+    ============================== */
+
+    function createDots() {
+
+        dotsContainer.innerHTML = "";
+
+        const totalPages = getTotalPages();
+
+        for (let i = 0; i < totalPages; i++) {
+
+            const dot = document.createElement("button");
+
+            dot.type = "button";
+
+            dot.className = "testimonial-dot";
+
+            dot.setAttribute(
+                "aria-label",
+                "Go to testimonial page " + (i + 1)
+            );
+
+            dot.addEventListener("click", function () {
+
+                goToPage(i);
+
+                restartAutoplay();
+
+            });
+
+            dotsContainer.appendChild(dot);
+
+        }
+
+        updateDots();
+
+    }
+
+
+    /* ==============================
+       UPDATE DOTS
+    ============================== */
+
+    function updateDots() {
+
+        const dots =
+            dotsContainer.querySelectorAll(".testimonial-dot");
+
+        dots.forEach((dot, index) => {
+
+            dot.classList.toggle(
+                "active",
+                index === currentIndex
+            );
+
+        });
+
+    }
+
+
+    /* ==============================
+       GO TO PAGE
+    ============================== */
+
+    function goToPage(page) {
+
+        const perView = getSlidesPerView();
+
+        const totalPages = getTotalPages();
+
+        currentIndex = Math.max(
+            0,
+            Math.min(page, totalPages - 1)
+        );
+
+        const slideWidth =
+            100 / perView;
+
+        const translateX =
+            currentIndex * slideWidth;
+
+        track.style.transform =
+            `translateX(-${translateX}%)`;
+
+        updateDots();
+
+    }
+
+
+    /* ==============================
+       NEXT
+    ============================== */
+
+    function nextSlide() {
+
+        const totalPages = getTotalPages();
+
+        if (currentIndex >= totalPages - 1) {
+
+            goToPage(0);
+
+        } else {
+
+            goToPage(currentIndex + 1);
+
+        }
+
+    }
+
+
+    /* ==============================
+       PREVIOUS
+    ============================== */
+
+    function previousSlide() {
+
+        const totalPages = getTotalPages();
+
+        if (currentIndex <= 0) {
+
+            goToPage(totalPages - 1);
+
+        } else {
+
+            goToPage(currentIndex - 1);
+
+        }
+
+    }
+
+
+    /* ==============================
+       BUTTON EVENTS
+    ============================== */
+
+    nextButton.addEventListener(
+        "click",
+        function () {
+
+            nextSlide();
+
+            restartAutoplay();
+
+        }
+    );
+
+
+    prevButton.addEventListener(
+        "click",
+        function () {
+
+            previousSlide();
+
+            restartAutoplay();
+
+        }
+    );
+
+
+    /* ==============================
+       AUTOPLAY
+    ============================== */
+
+    function startAutoplay() {
+
+        stopAutoplay();
+
+        autoplayTimer = setInterval(
+            function () {
+
+                if (!isPaused) {
+                    nextSlide();
+                }
+
+            },
+            5000
+        );
+
+    }
+
+
+    function stopAutoplay() {
+
+        if (autoplayTimer) {
+
+            clearInterval(autoplayTimer);
+
+            autoplayTimer = null;
+
+        }
+
+    }
+
+
+    function restartAutoplay() {
+
+        stopAutoplay();
+
+        startAutoplay();
+
+    }
+
+
+    /* ==============================
+       PAUSE WHEN HOVER
+    ============================== */
+
+    viewport.addEventListener(
+        "mouseenter",
+        function () {
+
+            isPaused = true;
+
+        }
+    );
+
+
+    viewport.addEventListener(
+        "mouseleave",
+        function () {
+
+            isPaused = false;
+
+        }
+    );
+
+
+    /* ==============================
+       TOUCH / SWIPE
+    ============================== */
+
+    let touchStartX = 0;
+
+    let touchEndX = 0;
+
+
+    viewport.addEventListener(
+        "touchstart",
+        function (event) {
+
+            touchStartX =
+                event.changedTouches[0].screenX;
+
+            isPaused = true;
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    viewport.addEventListener(
+        "touchend",
+        function (event) {
+
+            touchEndX =
+                event.changedTouches[0].screenX;
+
+            handleSwipe();
+
+            isPaused = false;
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    function handleSwipe() {
+
+        const distance =
+            touchStartX - touchEndX;
+
+        if (Math.abs(distance) < 50) {
+            return;
+        }
+
+        if (distance > 0) {
+
+            nextSlide();
+
+        } else {
+
+            previousSlide();
+
+        }
+
+        restartAutoplay();
+
+    }
+
+
+    /* ==============================
+       RESIZE
+    ============================== */
+
+    let resizeTimer;
+
+    window.addEventListener(
+        "resize",
+        function () {
+
+            clearTimeout(resizeTimer);
+
+            resizeTimer = setTimeout(
+                function () {
+
+                    currentIndex = 0;
+
+                    createDots();
+
+                    goToPage(0);
+
+                },
+                200
+            );
+
+        }
+    );
+
+
+    /* ==============================
+       INITIALIZE
+    ============================== */
+
+    createDots();
+
+    goToPage(0);
+
+    startAutoplay();
+
+});
+
 </script>
-
+    
 
 
     
