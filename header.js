@@ -1,33 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Deteksi path otomatis yang aman untuk sub-folder maupun root
-    const currentPath = window.location.pathname;
-    const isSubFolder = currentPath.includes('/paket-wisata-bandung') || 
-                        currentPath.includes('/paket-wisata-bandung/bandung-city-tour') ||
-                        currentPath.includes('/paket-wisata-bandung/ciwidey-tour') ||
-                        currentPath.includes('/paket-wisata-bandung/lembang-tour') ||
-                        currentPath.includes('/paket-wisata-bandung/pangalengan') ||
-                        currentPath.includes('/paket-wisata-bogor') ||
-                        currentPath.includes('/paket-wisata-jakarta') ||
-                        currentPath.includes('/paket-wisata-jakarta/jakarta-city-tour') ||
-                        currentPath.includes('/paket-wisata-jakarta/pik-tour') ||
-                        currentPath.includes('/sewa-mobil-bandung') ||
-                        currentPath.includes('/sewa-mobil-bandung/sewa-bus-bandung') ||
-                        currentPath.includes('/sewa-mobil-bandung/sewa-elf-bandung') ||
-                        currentPath.includes('/sewa-mobil-bandung/sewa-hiace-bandung') ||
-                        currentPath.includes('/sewa-mobil-bandung/sewa-mvp-bandung') ||
-                        currentPath.includes('/sewa-mobil-bogor') ||
-                        currentPath.includes('/sewa-mobil-bogor/sewa-bus-bogor') ||
-                        currentPath.includes('/sewa-mobil-bogor/sewa-elf-bogor') ||
-                        currentPath.includes('/sewa-mobil-bogor/sewa-hiace-bogor') ||
-                        currentPath.includes('/sewa-mobil-bogor/sewa-mvp-bogor') ||
-                        currentPath.includes('/sewa-mobil-jakarta') ||
-                        currentPath.includes('/sewa-mobil-jakarta/sewa-bus-jakarta') ||
-                        currentPath.includes('/sewa-mobil-jakarta/sewa-elf-jakarta') ||
-                        currentPath.includes('/sewa-mobil-jakarta/sewa-hiace-jakarta') ||
-                        currentPath.includes('/sewa-mobil-jakarta/sewa-mvp-jakarta') ||
-                        currentPath.includes('/calc/');
+    // Deteksi kedalaman folder secara otomatis berdasarkan URL browser
+    const pathSegments = window.location.pathname.split('/').filter(Boolean);
     
-    const pathPrefix = isSubFolder ? '../' : '';
+    let pathPrefix = '';
+    if (pathSegments.length > 1) {
+        const depth = window.location.pathname.endsWith('index.html') ? pathSegments.length - 1 : pathSegments.length;
+        pathPrefix = '../'.repeat(depth);
+    }
 
     const headerHTML = `
     <header class="fixed left-0 right-0 top-4 z-50 mx-auto w-[calc(100%-2rem)] max-w-7xl glass-navbar rounded-full transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm border border-gray-100" id="navbar">
