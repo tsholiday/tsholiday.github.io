@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </a>
 
-            <!-- Area Navigasi & Dropdown (Desktop) -->
+            <!-- Area Navigasi & Dropdown -->
             <div class="hidden md:flex items-center space-x-5" id="navContainer">
                 <nav class="flex items-center space-x-5 font-semibold text-[11px] tracking-widest uppercase text-gray-700">
                     <a href="${pathPrefix}index.html#home" class="hover:text-gold transition">Home</a>
@@ -53,12 +53,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         </button>
                         <div class="absolute top-full left-0 w-56 bg-white rounded-2xl shadow-xl border border-gray-100 py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0">
                             <a href="${pathPrefix}paket-wisata-bandung/" class="block px-4 py-2 hover:bg-gray-50 hover:text-gold text-gray-600 font-medium">Paket Wisata Bandung</a>
+                            <a href="${pathPrefix}paket-wisata-bandung/bandung-city-tour/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Bandung Kota Tour</a>
                             <a href="${pathPrefix}paket-wisata-bandung/lembang-tour/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Lembang Tour</a>
                             <a href="${pathPrefix}paket-wisata-bandung/ciwidey-tour/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Ciwidey Tour</a>
-                            <a href="${pathPrefix}paket-wisata-bandung/pangalengan/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Pangalengan</a>
+                            <a href="${pathPrefix}paket-wisata-bandung/pangalengan-tour/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Pangalengan</a>
                             <div class="border-t border-gray-100 my-1"></div>
                             <a href="${pathPrefix}paket-wisata-jakarta/" class="block px-4 py-2 hover:bg-gray-50 hover:text-gold text-gray-600 font-medium">Wisata Jakarta</a>
                             <a href="${pathPrefix}paket-wisata-jakarta/pik-tour/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• PIK Tour</a>
+                            <a href="${pathPrefix}paket-wisata-jakarta/jakarta-city-tour/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Jakarta Tour</a>
                             <a href="${pathPrefix}paket-wisata-bogor/" class="block px-4 py-2 hover:bg-gray-50 hover:text-gold text-gray-600 font-medium">Wisata Bogor</a>
                         </div>
                     </div>
@@ -69,14 +71,23 @@ document.addEventListener('DOMContentLoaded', () => {
                             Rental <i class="fas fa-chevron-down text-[9px]"></i>
                         </button>
                         <div class="absolute top-full left-0 w-56 bg-white rounded-2xl shadow-xl border border-gray-100 py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0">
-                            <a href="${pathPrefix}sewa-mobil-bandung/" class="block px-4 py-2 hover:bg-gray-50 hover:text-gold text-gray-600 font-medium">Rental Bandung</a>
-                            <a href="${pathPrefix}sewa-mobil-bandung/sewa-hiace-bandung/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Hiace Bandung</a>
+                            <a href="${pathPrefix}sewa-mobil-bandung/" class="block px-4 py-2 hover:bg-gray-50 hover:text-gold text-gray-600 font-medium">Rental Armada Bandung</a>
                             <a href="${pathPrefix}sewa-mobil-bandung/sewa-bus-bandung/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Bus Bandung</a>
+                            <a href="${pathPrefix}sewa-mobil-bandung/sewa-elf-bandung/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Elf Bandung</a>
+                            <a href="${pathPrefix}sewa-mobil-bandung/sewa-hiace-bandung/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Hiace Bandung</a>
+                            <a href="${pathPrefix}sewa-mobil-bandung/sewa-mvp-bandung/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Mvp Bandung</a>
                             <div class="border-t border-gray-100 my-1"></div>
-                            <a href="${pathPrefix}sewa-mobil-jakarta/" class="block px-4 py-2 hover:bg-gray-50 hover:text-gold text-gray-600 font-medium">Rental Jakarta</a>
+                            <a href="${pathPrefix}sewa-mobil-jakarta/" class="block px-4 py-2 hover:bg-gray-50 hover:text-gold text-gray-600 font-medium">Rental Armada Jakarta</a>
+                            <a href="${pathPrefix}sewa-mobil-jakarta/sewa-bus-jakarta/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Bus Jakarta</a>
+                            <a href="${pathPrefix}sewa-mobil-jakarta/sewa-elf-jakarta/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Elf Jakarta</a>
                             <a href="${pathPrefix}sewa-mobil-jakarta/sewa-hiace-jakarta/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Hiace Jakarta</a>
+                            <a href="${pathPrefix}sewa-mobil-jakarta/sewa-mvp-jakarta/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Mvp Jakarta</a>                            
                             <div class="border-t border-gray-100 my-1"></div>
-                            <a href="${pathPrefix}sewa-mobil-bogor/" class="block px-4 py-2 hover:bg-gray-50 hover:text-gold text-gray-600 font-medium">Rental Bogor</a>
+                            <a href="${pathPrefix}sewa-mobil-bogor/" class="block px-4 py-2 hover:bg-gray-50 hover:text-gold text-gray-600 font-medium">Rental Armada Bogor</a>
+                            <a href="${pathPrefix}sewa-mobil-bogor/sewa-bus-bogor/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Bus Bogor</a>                            
+                            <a href="${pathPrefix}sewa-mobil-bogor/sewa-elf-bogor/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Elf Bogor</a>                            
+                            <a href="${pathPrefix}sewa-mobil-bogor/sewa-hiace-bogor/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Hiace Bogor</a>                            
+                            <a href="${pathPrefix}sewa-mobil-bogor/sewa-mvp-bogor/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Mvp Bogor</a>                            
                         </div>
                     </div>
 
