@@ -316,7 +316,9 @@
     </div>
 </section>
 
-    <!-- SECTION ULASAN --><!-- SECTION ULASAN / TESTIMONIALS -->
+    <!-- SECTION ULASAN -->
+
+<!-- SECTION ULASAN / TESTIMONIALS -->
 <section class="py-20 bg-gray-50 overflow-hidden relative">
     <!-- Header Section -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
@@ -325,102 +327,65 @@
         <p class="text-gray-600 text-sm md:text-base max-w-xl mx-auto">Pengalaman nyata dari pelancong lintas negara bersama layanan eksklusif TSHoliday.</p>
     </div>
 
-    <!-- Infinite Scroll Wrapper (Row 1 - Bergerak ke Kiri) -->
-    <div class="relative w-full overflow-hidden mb-6 flex">
-        <div class="flex animate-marquee space-x-6 min-w-max py-2" id="testimonialRow1">
+    <!-- Slider Wrapper (Row 1 - Bergeser ke Kiri per 3 Detik) -->
+    <div class="relative w-full overflow-hidden mb-6">
+        <div class="flex space-x-6 transition-transform duration-700 ease-in-out" id="testimonialRow1">
             <!-- Data akan di-generate otomatis via JavaScript -->
         </div>
     </div>
 
-    <!-- Infinite Scroll Wrapper (Row 2 - Bergerak ke Kanan) -->
-    <div class="relative w-full overflow-hidden flex">
-        <div class="flex animate-marquee-rev space-x-6 min-w-max py-2" id="testimonialRow2">
-            <!-- Data akan di-generate otomatis via JavaScript -->
-        </div>
-    </div>
+   
 </section>
 
-<!-- CSS TAMBAHAN UNTUK ANIMASI INFINITE SLIDER (Diperlambat) -->
-<style>
-    @keyframes marquee {
-        0% { transform: translateX(0%); }
-        100% { transform: translateX(-50%); }
-    }
-    @keyframes marqueeRev {
-        0% { transform: translateX(-50%); }
-        100% { transform: translateX(0%); }
-    }
-    .animate-marquee {
-        display: flex;
-        width: max-content;
-        /* Kecepatan diperlambat: 75 kartu x 1 detik = 75 detik per putaran penuh */
-        animation: marquee 75s linear infinite;
-    }
-    .animate-marquee-rev {
-        display: flex;
-        width: max-content;
-        /* Kecepatan diperlambat: 75 kartu x 1 detik = 75 detik per putaran penuh */
-        animation: marqueeRev 75s linear infinite;
-    }
-    .animate-marquee:hover, .animate-marquee-rev:hover {
-        animation-play-state: paused; /* Berhenti saat kursor diarahkan */
-    }
-</style>
-
-<!-- JAVASCRIPT GENERATOR 150 ULASAN UNIK -->
+<!-- JAVASCRIPT GENERATOR 150 ULASAN & AUTO SLIDE PER 3 DETIK -->
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        // Data Mentah untuk Generasi 150 Ulasan Unik Lintas Negara (Kota disesuaikan persis dengan negaranya)
+        // Data Mentah Ulasan Lintas Negara
         const sources = [
             // SINGAPURA
-            { name: "Wei Ling", city: "Singapura", country: "Singapura", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80", text: "Wah, Shiok ar! Driver TSHoliday very punctual and polite. Lembang tour was breathtaking, confirm will intro to my kakis!" },
-            { name: "Muhammad Farhan", city: "Singapura", country: "Singapura", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80", text: "Very steady service! Booked Hiace for family trip in Bandung. Clean car, power aircon. Best experience ever lah!" },
-            { name: "Chloe Tan", city: "Singapura", country: "Singapura", avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80", text: "Super good customer service. The driver brought us to hidden local food spots in Jakarta. Sedap gila!" },
+            { name: "Wei Ling", country: "Singapura", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80", text: "Wah, Shiok ar! Driver TSHoliday very punctual and polite. Lembang tour was breathtaking, confirm will intro to my kakis!" },
+            { name: "Muhammad Farhan", country: "Singapura", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80", text: "Very steady service! Booked Hiace for family trip in Bandung. Clean car, power aircon. Best experience ever lah!" },
+            { name: "Chloe Tan", country: "Singapura", avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80", text: "Super good customer service. The driver brought us to hidden local food spots in Jakarta. Sedap gila!" },
 
             // BRUNEI DARUSSALAM
-            { name: "Dayang Nurul", city: "Brunei Darussalam", country: "Brunei Darussalam", avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80", text: "Alhamdulillah, berbaloi sangat ambil pakej dengan TSHoliday ni. Servis tip-top, pemandu pun sangat pemedulian dan berhemah." },
-            { name: "Awangku Iskandar", city: "Brunei Darussalam", country: "Brunei Darussalam", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80", text: "Kitani berasa selesa sepanjang tour di Bandung. Van Hiace luas dan bersih. Indah benar pemandangan di Ciwidey!" },
-            { name: "Siti Hajar", city: "Brunei Darussalam", country: "Brunei Darussalam", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80", text: "Sangat berpuas hati! Urusan booking mudah dan mesra pelanggan. Next time nak repeat lagi bawak family." },
+            { name: "Dayang Nurul", country: "Brunei Darussalam", avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80", text: "Alhamdulillah, berbaloi sangat ambil pakej dengan TSHoliday ni. Servis tip-top, pemandu pun sangat pemedulian dan berhemah." },
+            { name: "Awangku Iskandar", country: "Brunei Darussalam", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80", text: "Kitani berasa selesa sepanjang tour di Bandung. Van Hiace luas dan bersih. Indah benar pemandangan di Ciwidey!" },
+            { name: "Siti Hajar", country: "Brunei Darussalam", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80", text: "Sangat berpuas hati! Urusan booking mudah dan mesra pelanggan. Next time nak repeat lagi bawak family." },
 
             // MALAYSIA
-            { name: "Aiman Hakim", city: "Malaysia", country: "Malaysia", avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=150&auto=format&fit=crop&q=80", text: "Terbaik lah TSHoliday! Driver memang sporting habis, bawa jalan-jalan kat Bandung & Lembang. Recommended sangat!" },
-            { name: "Zulaikha binti Rosli", city: "Malaysia", country: "Malaysia", avatar: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=150&auto=format&fit=crop&q=80", text: "Uish, memang best gila! Makanan sedap, tempat lawatan mantap. Tak penat sebab van sewa selesa dan aircond sejuk beku." },
-            { name: "Faizal bin Rahman", city: "Malaysia", country: "Malaysia", avatar: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=150&auto=format&fit=crop&q=80", text: "Servis cemerlang! Senang berurusan dengan admin. Sampai je airport Jakarta dah ada driver tunggu pegang nama." },
+            { name: "Aiman Hakim", country: "Malaysia", avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=150&auto=format&fit=crop&q=80", text: "Terbaik lah TSHoliday! Driver memang sporting habis, bawa jalan-jalan kat Bandung & Lembang. Recommended sangat!" },
+            { name: "Zulaikha binti Rosli", country: "Malaysia", avatar: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=150&auto=format&fit=crop&q=80", text: "Uish, memang best gila! Makanan sedap, tempat lawatan mantap. Tak penat sebab van sewa selesa dan aircond sejuk beku." },
+            { name: "Faizal bin Rahman", country: "Malaysia", avatar: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=150&auto=format&fit=crop&q=80", text: "Servis cemerlang! Senang berurusan dengan admin. Sampai je airport Jakarta dah ada driver tunggu pegang nama." },
 
             // INDONESIA
-            { name: "Rian Pratama", city: "Indonesia", country: "Indonesia", avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&auto=format&fit=crop&q=80", text: "Euy, mantap pisan euy! Sumpah driver-na ramah pisan, apal jalan pintet janten teu macet. Hatur nuhun TSHoliday!" },
-            { name: "Dewi Lestari", city: "Indonesia", country: "Indonesia", avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80", text: "Asli keren banget pelayanannya! Sewa Hiace buat rombongan kantor di Jakarta on-time dan unit mobilnya mewah bersih." },
-            { name: "Budi Santoso", city: "Indonesia", country: "Indonesia", avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&auto=format&fit=crop&q=80", text: "Alhamdulillah liburan keluarga ke Puncak & Bogor jadi lancar jaya. Pokoknya TSHoliday recommended tour & travel!" }
+            { name: "Rian Pratama", country: "Indonesia", avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&auto=format&fit=crop&q=80", text: "Euy, mantap pisan euy! Sumpah driver-na ramah pisan, apal jalan pintet janten teu macet. Hatur nuhun TSHoliday!" },
+            { name: "Dewi Lestari", country: "Indonesia", avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80", text: "Asli keren banget pelayanannya! Sewa Hiace buat rombongan kantor di Jakarta on-time dan unit mobilnya mewah bersih." },
+            { name: "Budi Santoso", country: "Indonesia", avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&auto=format&fit=crop&q=80", text: "Alhamdulillah liburan keluarga ke Puncak & Bogor jadi lancar jaya. Pokoknya TSHoliday recommended tour & travel!" }
         ];
 
-        // Generator untuk mencapai total 150 ulasan unik secara acak
+        // Generator 150 Ulasan Unik
         const generatedReviews = [];
         const firstNamesAli = ["Ahmad", "Siti", "John", "Tan", "Nurul", "Kevin", "Fatimah", "David", "Rizky", "Putri", "Lim", "Hassan"];
         const lastNamesAli = ["Ali", "Wong", "Smith", "Rahman", "Ibrahim", "Chen", "Kusuma", "Liyana", "Zulkarnain", "Hidayat"];
 
         for (let i = 1; i <= 150; i++) {
-            // Ambil sampel data dasar secara berputar/acak
             const base = sources[i % sources.length];
-            
-            // Variasi nama agar terlihat sangat kaya dan natural
             const randName = `${firstNamesAli[i % firstNamesAli.length]} ${lastNamesAli[(i * 3) % lastNamesAli.length]}`;
             
             generatedReviews.push({
                 name: randName,
-                city: base.city,       // Kota sama persis dengan negara
                 country: base.country,
-                avatar: `https://i.pravatar.cc/150?img=${(i % 70) + 1}`, // Variasi foto mini unik
-                text: base.text        // Tanpa ada embel-embel nomor ulasan
+                avatar: `https://i.pravatar.cc/150?img=${(i % 70) + 1}`,
+                text: base.text
             });
         }
 
-        // Bagi 150 data menjadi 2 bagian untuk Row 1 dan Row 2 agar putarannya mulus
         const half = Math.floor(generatedReviews.length / 2);
         const row1Data = generatedReviews.slice(0, half);
         const row2Data = generatedReviews.slice(half);
 
         const createCardHTML = (item) => `
-            <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 w-80 sm:w-96 flex-shrink-0 flex flex-col justify-between hover:shadow-md transition-all">
+            <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 w-80 sm:w-96 flex-shrink-0 flex flex-col justify-between">
                 <div>
                     <div class="flex items-center gap-1 text-gold text-xs mb-3">
                         <i class="fas fa-star"></i>
@@ -432,27 +397,60 @@
                     <p class="text-gray-700 text-xs sm:text-sm leading-relaxed italic mb-4">"${item.text}"</p>
                 </div>
                 <div class="flex items-center gap-3 pt-3 border-t border-gray-100">
-                    <img src="${item.avatar}" alt="${item.name}" class="w-10 h-10 rounded-full object-cover border-2 border-gold/40">
+                    <img src="${item.avatar}" alt="${item.name}" class="w-10 h-10 rounded-full object-cover border-2 border-gold/45">
                     <div>
                         <h4 class="font-bold text-primary text-xs sm:text-sm">${item.name}</h4>
-                        <span class="text-[10px] text-gray-500 uppercase tracking-wider">${item.city}</span>
+                        <span class="text-[10px] text-gray-500 uppercase tracking-wider">${item.country}</span>
                     </div>
                 </div>
             </div>
         `;
 
-        // Render ke DOM (Diduplikasi agar efek infinite loop berjalan mulus tanpa jeda)
         const row1Container = document.getElementById('testimonialRow1');
         const row2Container = document.getElementById('testimonialRow2');
 
-        const htmlRow1 = row1Data.map(createCardHTML).join('');
-        const htmlRow2 = row2Data.map(createCardHTML).join('');
+        // Render card (didobel agar loop tidak kosong saat bergeser jauh)
+        row1Container.innerHTML = row1Data.map(createCardHTML).join('') + row1Data.map(createCardHTML).join('');
+        row2Container.innerHTML = row2Data.map(createCardHTML).join('') + row2Data.map(createCardHTML).join('');
 
-        row1Container.innerHTML = htmlRow1 + htmlRow1;
-        row2Container.innerHTML = htmlRow2 + htmlRow2;
+        // Logika Otomatis Slide Geser Per 3 Detik
+        let index1 = 0;
+        let index2 = 0;
+        const cardWidth = 340; // Perkiraan lebar kartu + gap (dalam pixel)
+
+        setInterval(() => {
+            // Baris 1 geser ke kiri
+            index1++;
+            if (index1 >= row1Data.length) {
+                index1 = 0;
+                row1Container.style.transition = 'none'; // Reset tanpa animasi agar instan kembali ke awal
+                row1Container.style.transform = `translateX(0px)`;
+                setTimeout(() => {
+                    row1Container.style.transition = 'transform 0.7s ease-in-out';
+                }, 50);
+            } else {
+                row1Container.style.transform = `translateX(-${index1 * cardWidth}px)`;
+            }
+
+            // Baris 2 geser dengan pola sebaliknya/maju
+            index2++;
+            if (index2 >= row2Data.length) {
+                index2 = 0;
+                row2Container.style.transition = 'none';
+                row2Container.style.transform = `translateX(0px)`;
+                setTimeout(() => {
+                    row2Container.style.transition = 'transform 0.7s ease-in-out';
+                }, 50);
+            } else {
+                row2Container.style.transform = `translateX(-${index2 * cardWidth}px)`;
+            }
+        }, 3000); // Eksekusi setiap 3 detik
     });
 </script>
-        
+
+
+
+    
 <!-- Footer akan muncul di sini otomatis -->
 <div id="footer-container"></div>
 
