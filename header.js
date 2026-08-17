@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <a href="${pathPrefix}paket-wisata-bandung/bandung-city-tour/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Bandung Kota Tour</a>
                             <a href="${pathPrefix}paket-wisata-bandung/lembang-tour/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Lembang Tour</a>
                             <a href="${pathPrefix}paket-wisata-bandung/ciwidey-tour/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Ciwidey Tour</a>
-                            <a href="${pathPrefix}paket-wisata-bandung/pangalengan/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Pangalengan</a>
+                            <a href="${pathPrefix}paket-wisata-bandung/pangalengan-tour/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Pangalengan</a>
                             <div class="border-t border-gray-100 my-1"></div>
                             <a href="${pathPrefix}paket-wisata-jakarta/" class="block px-4 py-2 hover:bg-gray-50 hover:text-gold text-gray-600 font-medium">Wisata Jakarta</a>
                             <a href="${pathPrefix}paket-wisata-jakarta/pik-tour/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• PIK Tour</a>
