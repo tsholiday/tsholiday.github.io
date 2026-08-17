@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Deteksi kedalaman folder secara otomatis berdasarkan URL browser
-    const pathSegments = window.location.pathname.split('./').filter(Boolean);
+    const pathSegments = window.location.pathname.split('').filter(Boolean);
     
     let pathPrefix = '';
     if (pathSegments.length > 1) {
         const depth = window.location.pathname.endsWith('index.html') ? pathSegments.length - 1 : pathSegments.length;
-        pathPrefix = '././'.repeat(depth);
+        pathPrefix = './'.repeat(depth);
     }
 
     const headerHTML = `
