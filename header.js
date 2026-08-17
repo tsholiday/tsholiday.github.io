@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="px-5 sm:px-6 flex justify-between items-center h-14">
             <!-- Logo -->
             <a href="${pathPrefix}index.html" class="flex items-center gap-2">
-                <img src="${pathPrefix}logo/logo.png" alt="TSHoliday Logo" class="h-8 w-auto">
+                <img src="https://tsholiday.github.io/logo/logo.png" alt="TSHoliday Logo" class="h-8 w-auto">
                 <div class="flex flex-col leading-none">
                     <span class="font-bold text-primary text-base tracking-wider">TSHOLIDAY</span>
                     <span class="text-[8px] text-gray-700 uppercase tracking-widest mt-0.5">Keepgoing TSH Indonesia</span>
