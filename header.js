@@ -1,11 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Deteksi apakah halaman berada di sub-folder atau root
-    // Jika berada di sub-folder, path akan menyesuaikan dengan menambah '../'
     const isSubFolder = window.location.pathname.split('/').filter(Boolean).length > 1;
     const pathPrefix = isSubFolder ? '../' : '';
 
     const headerHTML = `
-    <header class="fixed left-0 right-0 top-4 z-50 mx-auto w-[calc(100%-2rem)] max-w-6xl glass-navbar rounded-full transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm border border-gray-100" id="navbar">
+    <header class="fixed left-0 right-0 top-4 z-50 mx-auto w-[calc(100%-2rem)] max-w-7xl glass-navbar rounded-full transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm border border-gray-100" id="navbar">
         <div class="px-5 sm:px-6 flex justify-between items-center h-14">
             <!-- Logo -->
             <a href="${pathPrefix}index.html" class="flex items-center gap-2">
@@ -16,15 +15,47 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </a>
 
-            <!-- Area Navigasi & Toggle Bahasa -->
-            <div class="hidden md:flex items-center space-x-6" id="navContainer">
-                <nav class="flex items-center space-x-5 lg:space-x-7 font-semibold text-[11px] tracking-widest uppercase" id="navLinks">
-                    <a href="${pathPrefix}index.html#home" class="nav-link" data-id="Beranda" data-en="Home">Home</a>
-                    <a href="${pathPrefix}index.html#tentang" class="nav-link" data-id="Tentang" data-en="About">Tentang</a>
-                    <a href="${pathPrefix}index.html#paket" class="nav-link" data-id="Paket" data-en="Packages">Paket</a>
-                    <a href="${pathPrefix}index.html#armada" class="nav-link" data-id="Armada" data-en="Fleet">Armada</a>
-                    <a href="${pathPrefix}index.html#galeri" class="nav-link" data-id="Galeri" data-en="Gallery">Galeri</a>
-                    <a href="${pathPrefix}index.html#kontak" class="nav-link" data-id="Kontak" data-en="Contact">Kontak</a>
+            <!-- Area Navigasi & Dropdown -->
+            <div class="hidden md:flex items-center space-x-5" id="navContainer">
+                <nav class="flex items-center space-x-5 font-semibold text-[11px] tracking-widest uppercase text-gray-700">
+                    <a href="${pathPrefix}index.html#home" class="hover:text-gold transition">Home</a>
+                    
+                    <!-- DROPDOWN WISATA -->
+                    <div class="relative group py-2">
+                        <button class="flex items-center gap-1 hover:text-gold transition focus:outline-none">
+                            Wisata <i class="fas fa-chevron-down text-[9px]"></i>
+                        </button>
+                        <div class="absolute top-full left-0 w-56 bg-white rounded-2xl shadow-xl border border-gray-100 py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0">
+                            <a href="${pathPrefix}paket-wisata-bandung/" class="block px-4 py-2 hover:bg-gray-50 hover:text-gold text-gray-600 font-medium">Paket Wisata Bandung</a>
+                            <a href="${pathPrefix}paket-wisata-bandung/lembang-tour/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Lembang Tour</a>
+                            <a href="${pathPrefix}paket-wisata-bandung/ciwidey-tour/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Ciwidey Tour</a>
+                            <a href="${pathPrefix}paket-wisata-bandung/pangalengan/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Pangalengan</a>
+                            <div class="border-t border-gray-100 my-1"></div>
+                            <a href="${pathPrefix}paket-wisata-jakarta/" class="block px-4 py-2 hover:bg-gray-50 hover:text-gold text-gray-600 font-medium">Wisata Jakarta</a>
+                            <a href="${pathPrefix}paket-wisata-jakarta/pik-tour/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• PIK Tour</a>
+                            <a href="${pathPrefix}paket-wisata-bogor/" class="block px-4 py-2 hover:bg-gray-50 hover:text-gold text-gray-600 font-medium">Wisata Bogor</a>
+                        </div>
+                    </div>
+
+                    <!-- DROPDOWN RENTAL MOBIL -->
+                    <div class="relative group py-2">
+                        <button class="flex items-center gap-1 hover:text-gold transition focus:outline-none">
+                            Rental <i class="fas fa-chevron-down text-[9px]"></i>
+                        </button>
+                        <div class="absolute top-full left-0 w-56 bg-white rounded-2xl shadow-xl border border-gray-100 py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0">
+                            <a href="${pathPrefix}sewa-mobil-bandung/" class="block px-4 py-2 hover:bg-gray-50 hover:text-gold text-gray-600 font-medium">Rental Bandung</a>
+                            <a href="${pathPrefix}sewa-mobil-bandung/sewa-hiace-bandung/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Hiace Bandung</a>
+                            <a href="${pathPrefix}sewa-mobil-bandung/sewa-bus-bandung/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Bus Bandung</a>
+                            <div class="border-t border-gray-100 my-1"></div>
+                            <a href="${pathPrefix}sewa-mobil-jakarta/" class="block px-4 py-2 hover:bg-gray-50 hover:text-gold text-gray-600 font-medium">Rental Jakarta</a>
+                            <a href="${pathPrefix}sewa-mobil-jakarta/sewa-hiace-jakarta/" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Hiace Jakarta</a>
+                            <div class="border-t border-gray-100 my-1"></div>
+                            <a href="${pathPrefix}sewa-mobil-bogor/" class="block px-4 py-2 hover:bg-gray-50 hover:text-gold text-gray-600 font-medium">Rental Bogor</a>
+                        </div>
+                    </div>
+
+                    <a href="${pathPrefix}index.html#armada" class="hover:text-gold transition">Armada</a>
+                    <a href="${pathPrefix}contact.html" class="hover:text-gold transition">Kontak</a>
                 </nav>
 
                 <!-- Animated Language Toggle -->
@@ -35,10 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
 
-            <!-- Actions Booking Kalkulator -->
+            <!-- Actions Booking -->
             <div class="flex items-center gap-3">
-                <a href="${pathPrefix}calc/index.html" class="hidden lg:block bg-gold hover:bg-yellow-600 text-white px-4 py-1.5 text-xs rounded-full font-bold transition-transform hover:scale-105 shadow-md">Pesan langsung</a>
-                <a href="${pathPrefix}index.html#booking" class="hidden lg:block bg-gold hover:bg-yellow-600 text-white px-4 py-1.5 text-xs rounded-full font-bold transition-transform hover:scale-105 shadow-md">QnA</a>
+                <a href="${pathPrefix}calc/index.html" class="hidden lg:block bg-gold hover:bg-yellow-600 text-white px-4 py-1.5 text-xs rounded-full font-bold transition-transform hover:scale-105 shadow-md">Pesan</a>
                 
                 <!-- Tombol Toggle Mobile -->
                 <button class="md:hidden text-lg text-primary focus:outline-none p-2" id="mobileToggle">
@@ -49,7 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
     </header>
     `;
 
-    // Menyuntikkan header ke elemen dengan id 'header-container'
     const headerContainer = document.getElementById('header-container');
     if (headerContainer) {
         headerContainer.innerHTML = headerHTML;
