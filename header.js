@@ -2,7 +2,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // Deteksi path otomatis yang aman untuk sub-folder maupun root
     const currentPath = window.location.pathname;
     const isSubFolder = currentPath.includes('/paket-wisata-bandung') || 
-                        currentPath.includes('/sewa-mobil-bandung') || 
+                        currentPath.includes('/paket-wisata-bandung/bandung-city-tour') ||
+                        currentPath.includes('/paket-wisata-bandung/ciwidey-tour') ||
+                        currentPath.includes('/paket-wisata-bandung/lembang-tour') ||
+                        currentPath.includes('/paket-wisata-bandung/pangalengan') ||
+                        currentPath.includes('/paket-wisata-bogor') ||
+                        currentPath.includes('/paket-wisata-jakarta') ||
+                        currentPath.includes('/paket-wisata-jakarta/jakarta-city-tour') ||
+                        currentPath.includes('/paket-wisata-jakarta/pik-tour') ||
+                        currentPath.includes('/sewa-mobil-bandung') ||
+                        currentPath.includes('/sewa-mobil-bandung/sewa-bus-bandung') ||
+                        currentPath.includes('/sewa-mobil-bandung/sewa-elf-bandung') ||
+                        currentPath.includes('/sewa-mobil-bandung/sewa-hiace-bandung') ||
+                        currentPath.includes('/sewa-mobil-bandung/sewa-mvp-bandung') ||
+                        currentPath.includes('/sewa-mobil-bogor') ||
+                        currentPath.includes('/sewa-mobil-bogor/sewa-bus-bogor') ||
+                        currentPath.includes('/sewa-mobil-bogor/sewa-elf-bogor') ||
+                        currentPath.includes('/sewa-mobil-bogor/sewa-hiace-bogor') ||
+                        currentPath.includes('/sewa-mobil-bogor/sewa-mvp-bogor') ||
+                        currentPath.includes('/sewa-mobil-jakarta') ||
+                        currentPath.includes('/sewa-mobil-jakarta/sewa-bus-jakarta') ||
+                        currentPath.includes('/sewa-mobil-jakarta/sewa-elf-jakarta') ||
+                        currentPath.includes('/sewa-mobil-jakarta/sewa-hiace-jakarta') ||
+                        currentPath.includes('/sewa-mobil-jakarta/sewa-mvp-jakarta') ||
                         currentPath.includes('/calc/');
     
     const pathPrefix = isSubFolder ? '../' : '';
