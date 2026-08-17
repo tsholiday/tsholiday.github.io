@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             <!-- Actions Booking -->
             <div class="flex items-center gap-3">
-                <a href="${pathPrefix}calc/index.html" class="hidden lg:block bg-gold hover:bg-yellow-600 text-white px-4 py-1.5 text-xs rounded-full font-bold transition-transform hover:scale-105 shadow-md">Pesan</a>
+                <a href="${pathPrefix}calc/index.html" class="hidden lg:block bg-gold hover:bg-yellow-600 text-white px-4 py-1.5 text-xs rounded-full font-bold transition-transform hover:scale-105 shadow-md">Pesan Sekarang</a>
                 
                 <!-- Tombol Toggle Mobile -->
                 <button class="md:hidden text-lg text-primary focus:outline-none p-2" id="mobileToggle">
