@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         <span class="font-bold text-lg tracking-widest text-white">TSHOLIDAY</span>
                     </div>
                     <div class="text-gray-400 text-sm leading-relaxed space-y-2">
-                        <p><i class="fas fa-map-marker-alt text-gold mr-2"></i> TS Holiday, Jawa Barat, Indonesia</p>
-                        <p><i class="fas fa-clock text-gold mr-2"></i> Buka: 08:00 - 20:00 WIB</p>
+                        <p><i class="fas fa-map-marker-alt text-gold mr-2"></i> TS Holiday, Bandung - Jawa Barat, Indonesia</p>
+                        <p><i class="fas fa-clock text-gold mr-2"></i> Buka: 24 JAM</p>
                     </div>
                     <div class="pt-2">
                         <p class="text-xs font-bold text-gold uppercase tracking-wider mb-3">Ikuti Kami</p>
