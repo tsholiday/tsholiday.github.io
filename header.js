@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let pathPrefix = '';
     if (pathSegments.length > 1) {
         const depth = window.location.pathname.endsWith('index.html') ? pathSegments.length - 1 : pathSegments.length;
-        pathPrefix = '../'.repeat(depth);
+        pathPrefix = './'.repeat(depth);
     }
 
     const headerHTML = `
