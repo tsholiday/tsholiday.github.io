@@ -2,7 +2,7 @@
 
 Selamat datang di repositori resmi **TS Holiday**. Website ini menyediakan informasi lengkap mengenai paket wisata dan layanan sewa kendaraan di wilayah Bandung, Bogor, dan Jakarta.
 
-## Struktur Proyek
+## Struktur Proyek 
 
 Berikut adalah daftar halaman dan kategori layanan yang tersedia:
 
