@@ -1,14 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // 1. Dapatkan path halaman saat ini
     const path = window.location.pathname;
     
-    // Perhitungan kedalaman folder berdasarkan segmen path
-    const pathSegments = path.split('/').filter(segment => segment.length > 0);
-    let pathPrefix = '';
+    // 2. Pisahkan path berdasarkan slash dan buang string kosong atau nama file (.html)
+    const segments = path.split('/').filter(s => s.length > 0 && !s.includes('.html'));
     
-    // Jika berada di sub-folder (lebih dari 1 segmen termasuk nama file)
-    if (pathSegments.length > 1 && !path.endsWith('/')) {
-        pathPrefix = '../'.repeat(pathSegments.length - 1);
-    }
+    // 3. Hitung berapa level kedalaman folder dari root
+    // Jika berada di /paket-wisata-bandung/bandung-city-tour/gedung-sate/ -> depth = 3
+    const depth = segments.length;
+    
+    // 4. Buat string '../' sesuai jumlah kedalaman folder
+    const pathPrefix = depth > 0 ? '../'.repeat(depth) : '';
 
     const headerHTML = `
     <header class="fixed left-0 right-0 top-4 z-50 mx-auto w-[calc(100%-2rem)] max-w-7xl glass-navbar rounded-full transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm border border-gray-100" id="navbar">
@@ -62,13 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <a href="${pathPrefix}sewa-mobil-jakarta/sewa-bus-jakarta/index.html" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Bus Jakarta</a>
                             <a href="${pathPrefix}sewa-mobil-jakarta/sewa-elf-jakarta/index.html" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Elf Jakarta</a>
                             <a href="${pathPrefix}sewa-mobil-jakarta/sewa-hiace-jakarta/index.html" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Hiace Jakarta</a>
-                            <a href="${pathPrefix}sewa-mobil-jakarta/sewa-mvp-jakarta/index.html" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Mvp Jakarta</a>
-                            <div class="border-t border-gray-100 my-1"></div>
-                            <a href="${pathPrefix}sewa-mobil-bogor/index.html" class="block px-4 py-2 hover:bg-gray-50 hover:text-gold text-gray-600 font-medium">Rental Armada Bogor</a>
-                            <a href="${pathPrefix}sewa-mobil-bogor/sewa-bus-bogor/index.html" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Bus Bogor</a>
-                            <a href="${pathPrefix}sewa-mobil-bogor/sewa-elf-bogor/index.html" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Elf Bogor</a>
-                            <a href="${pathPrefix}sewa-mobil-bogor/sewa-hiace-bogor/index.html" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Hiace Bogor</a>
-                            <a href="${pathPrefix}sewa-mobil-bogor/sewa-mvp-bogor/index.html" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Mvp Bogor</a>
+                            <a href="${pathPrefix}sewa-mobil-jakarta/sewa-mvp-jakarta/index.html" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-600 font-medium">Rental Armada Bogor</a>
                         </div>
                     </div>
 
@@ -76,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     <a href="${pathPrefix}contact.html" class="hover:text-gold transition">Kontak</a>
                 </nav>
 
-                <!-- Animated Language Toggle -->
                 <div class="relative flex items-center bg-white/40 p-0.5 rounded-full border border-white/60 text-[10px] font-bold select-none w-[64px] h-[26px] shadow-inner">
                     <div id="lang-pill" class="absolute top-0.5 left-0.5 w-[28px] h-[20px] bg-primary rounded-full transition-transform duration-300 ease-in-out shadow-sm"></div>
                     <button id="btn-id" class="relative z-10 w-1/2 h-full text-center text-white transition-colors duration-300 focus:outline-none">ID</button>
@@ -84,11 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
 
-            <!-- Actions Booking & Mobile Toggle -->
             <div class="flex items-center gap-3">
                 <a href="${pathPrefix}calc/index.html" class="hidden lg:block bg-gold hover:bg-yellow-600 text-white px-4 py-1.5 text-xs rounded-full font-bold transition-transform hover:scale-105 shadow-md">Pesan</a>
-                
-                <!-- Tombol Toggle Mobile -->
                 <button class="md:hidden text-lg text-primary focus:outline-none p-2" id="mobileToggle">
                     <i class="fas fa-bars" id="toggleIcon"></i>
                 </button>
