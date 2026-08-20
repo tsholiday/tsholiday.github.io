@@ -1,17 +1,13 @@
-Document.addEventListener('DOMContentLoaded', () => {
-    // 1. Ambil path URL saat ini
+document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname;
     
-    // 2. Hitung jumlah garis miring (/) untuk menentukan kedalaman folder
-    // Jika path adalah /paket-wisata-bandung/index.html, maka ada 2 slash
-    const slashCount = (path.match(/\//g) || []).length; 
-    
-    // 3. Tentukan pathPrefix:
-    // Jika slashCount > 1, maka kita berada di dalam sub-folder.
-    // Kita buat string '../' sebanyak jumlah folder.
+    // Perhitungan kedalaman folder berdasarkan segmen path
+    const pathSegments = path.split('/').filter(segment => segment.length > 0);
     let pathPrefix = '';
-    if (slashCount > 1) {
-        pathPrefix = '../'.repeat(slashCount - 1);
+    
+    // Jika berada di sub-folder (lebih dari 1 segmen termasuk nama file)
+    if (pathSegments.length > 1 && !path.endsWith('/')) {
+        pathPrefix = '../'.repeat(pathSegments.length - 1);
     }
 
     const headerHTML = `
@@ -28,7 +24,7 @@ Document.addEventListener('DOMContentLoaded', () => {
 
             <!-- Area Navigasi & Dropdown -->
             <div class="hidden md:flex items-center space-x-5" id="navContainer">
-                <nav class="flex items-center space-x-5 font-semibold text-[11px] tracking-widest uppercase text-gray-700">
+                <nav id="navLinks" class="flex items-center space-x-5 font-semibold text-[11px] tracking-widest uppercase text-gray-700">
                     <a href="${pathPrefix}index.html#home" class="hover:text-gold transition">Home</a>
                     
                     <!-- DROPDOWN WISATA -->
@@ -97,10 +93,7 @@ Document.addEventListener('DOMContentLoaded', () => {
                     <i class="fas fa-bars" id="toggleIcon"></i>
                 </button>
             </div>
-            </div>
-
-</div>
-
+        </div>
     </header>
     `;
 
@@ -109,4 +102,3 @@ Document.addEventListener('DOMContentLoaded', () => {
         headerContainer.innerHTML = headerHTML;
     }
 });
-
