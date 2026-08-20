@@ -4,7 +4,7 @@ Document.addEventListener('DOMContentLoaded', () => {
     
     // 2. Hitung jumlah garis miring (/) untuk menentukan kedalaman folder
     // Jika path adalah /paket-wisata-bandung/index.html, maka ada 2 slash
-    const slashCount = (path.match(/\//g) || []).length;
+    const slashCount = (path.match(/\//g) || []).length; 
     
     // 3. Tentukan pathPrefix:
     // Jika slashCount > 1, maka kita berada di dalam sub-folder.
