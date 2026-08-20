@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <i class="fas fa-bars" id="toggleIcon"></i>
                 </button>
             </div>
-            
+            </div>
 
 <!-- Tambahan: Bar Pencarian di bawah Navbar -->
 <div class="navbar-search-bar">
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
 </div>
 
-        </div>
+        
     </header>
     `;
 
