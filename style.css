@@ -3,56 +3,6 @@
    ========================================================================== */
 
 
-/* SERACH PENCARIAN Styling untuk pembungkus bar pencarian di bawah navbar */
-/* Container pembungkus - ubah justify-content jadi flex-end */
-.navbar-hanging-search {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end; /* Memindahkan ke sisi kanan */
-    z-index: 98;
-    padding-right: 20px; /* Memberi jarak dari pinggir kanan layar */
-    box-sizing: border-box;
-}
-
-/* Kotak pencarian - ubah lebar (max-width) menjadi lebih kecil */
-.hanging-search-box {
-    position: absolute;
-    top: -22px; 
-    width: 100%;
-    max-width: 250px; /* Ukuran diperkecil dari 550px ke 250px */
-    background: #ffffff;
-    padding: 6px 12px; /* Padding lebih tipis */
-    border-radius: 50px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    pointer-events: auto;
-    transition: all 0.3s ease;
-}
-
-/* Input agar lebih ringkas */
-.hanging-search-box input {
-    width: 100%; /* Mengisi sisa ruang */
-    border: none;
-    background: transparent;
-    outline: none;
-    font-size: 13px; /* Font sedikit lebih kecil */
-    color: #374151;
-}
-
-/* Tombol Cari - bisa disembunyikan jika ingin sangat minimalis, 
-   atau diperkecil padding-nya */
-.hanging-search-box button {
-    background-color: #2563eb;
-    color: #ffffff;
-    border: none;
-    padding: 4px 12px; /* Padding diperkecil */
-    border-radius: 20px;
-    font-size: 12px;
-    cursor: pointer;
-}
-
-
 
 
 
