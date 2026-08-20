@@ -100,10 +100,6 @@ Document.addEventListener('DOMContentLoaded', () => {
             </div>
 
 </div>
-<!-- Navbar Utama -->
-<nav class="navbar">
-    <!-- Isi menu & logo -->
-</nav>
 
 <!-- Kotak Pencarian yang Menggantung di Bawah Navbar -->
 <div class="navbar-hanging-search">
