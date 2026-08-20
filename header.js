@@ -3,16 +3,19 @@ Document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname;
     
     // 2. Hitung jumlah garis miring (/) untuk menentukan kedalaman folder
+    // Jika path adalah /paket-wisata-bandung/index.html, maka ada 2 slash
     const slashCount = (path.match(/\//g) || []).length;
     
-    // 3. Tentukan pathPrefix
+    // 3. Tentukan pathPrefix:
+    // Jika slashCount > 1, maka kita berada di dalam sub-folder.
+    // Kita buat string '../' sebanyak jumlah folder.
     let pathPrefix = '';
     if (slashCount > 1) {
         pathPrefix = '../'.repeat(slashCount - 1);
     }
 
     const headerHTML = `
-    <header class="fixed left-0 right-0 top-4 z-50 mx-auto w-[calc(100%-2rem)] max-w-7xl glass-navbar rounded-2xl transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm border border-gray-100" id="navbar">
+    <header class="fixed left-0 right-0 top-4 z-50 mx-auto w-[calc(100%-2rem)] max-w-7xl glass-navbar rounded-full transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm border border-gray-100" id="navbar">
         <div class="px-5 sm:px-6 flex justify-between items-center h-14">
             <!-- Logo -->
             <a href="${pathPrefix}index.html" class="flex items-center gap-2">
@@ -69,7 +72,7 @@ Document.addEventListener('DOMContentLoaded', () => {
                             <a href="${pathPrefix}sewa-mobil-bogor/sewa-bus-bogor/index.html" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Bus Bogor</a>
                             <a href="${pathPrefix}sewa-mobil-bogor/sewa-elf-bogor/index.html" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Elf Bogor</a>
                             <a href="${pathPrefix}sewa-mobil-bogor/sewa-hiace-bogor/index.html" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Hiace Bogor</a>
-                            <a href="${pathPrefix}sewa-mobil-bogor/sewa-mvp-bogor/index.html" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• MVP Bogor</a>
+                            <a href="${pathPrefix}sewa-mobil-bogor/sewa-mvp-bogor/index.html" class="block px-6 py-1.5 hover:bg-gray-50 hover:text-gold text-gray-500 text-[10px]">• Mvp Bogor</a>
                         </div>
                     </div>
 
@@ -94,23 +97,31 @@ Document.addEventListener('DOMContentLoaded', () => {
                     <i class="fas fa-bars" id="toggleIcon"></i>
                 </button>
             </div>
-        </div>
-
-        <!-- Kolom Pencarian Menggantung di Kanan Bawah Navbar -->
-        <div class="relative w-full flex justify-end pr-6 pointer-events-none">
-            <div class="absolute -bottom-3 w-full max-w-[220px] bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-full shadow-md border border-gray-200 pointer-events-auto transition-all duration-300">
-                <form id="searchForm" onsubmit="handleSearch(event)" class="flex items-center gap-1.5">
-                    <svg class="w-3.5 h-3.5 text-gray-400 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                    <input 
-                        type="text" 
-                        id="searchInput" 
-                        placeholder="Cari..." 
-                        autocomplete="off"
-                        class="w-full bg-transparent border-none outline-none text-xs text-gray-700 placeholder-gray-400"
-                    >
-                </form>
             </div>
-        </div>
+
+</div>
+<!-- Navbar Utama -->
+<nav class="navbar">
+    <!-- Isi menu & logo -->
+</nav>
+
+<!-- Kotak Pencarian yang Menggantung di Bawah Navbar -->
+<div class="navbar-hanging-search">
+    <div class="hanging-search-box">
+        <form id="searchForm" onsubmit="handleSearch(event)">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="Cari artikel, destinasi, atau paket wisata..." 
+                autocomplete="off"
+            >
+            <button type="submit">Cari</button>
+        </form>
+    </div>
+</div>
+
+        
     </header>
     `;
 
@@ -120,12 +131,3 @@ Document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Fungsi penanganan pencarian
-function handleSearch(event) {
-    event.preventDefault();
-    const query = document.getElementById('searchInput').value.trim();
-    if (query !== "") {
-        // Sesuaikan aksi pencarian / redirect ke halaman tujuan
-        alert("Mencari: " + query);
-    }
-}
