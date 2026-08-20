@@ -4,76 +4,52 @@
 
 
 /* SERACH PENCARIAN Styling untuk pembungkus bar pencarian di bawah navbar */
-/* Container pembungkus area bawah navbar */
+/* Container pembungkus - ubah justify-content jadi flex-end */
 .navbar-hanging-search {
     position: relative;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end; /* Memindahkan ke sisi kanan */
     z-index: 98;
-    pointer-events: none; /* Supaya area kosong di sampingnya tetap bisa diklik tembus ke bawah */
+    padding-right: 20px; /* Memberi jarak dari pinggir kanan layar */
+    box-sizing: border-box;
 }
 
-/* Kotak pencarian yang 'menggantung' */
+/* Kotak pencarian - ubah lebar (max-width) menjadi lebih kecil */
 .hanging-search-box {
     position: absolute;
-    top: -22px; /* Nilai minus ini yang bikin kotak posisinya naik dan 'menggantung' di garis bawah navbar */
-    width: 90%;
-    max-width: 550px;
+    top: -22px; 
+    width: 100%;
+    max-width: 250px; /* Ukuran diperkecil dari 550px ke 250px */
     background: #ffffff;
-    padding: 8px 12px;
+    padding: 6px 12px; /* Padding lebih tipis */
     border-radius: 50px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Bayangan lembut agar terlihat melayang */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
     border: 1px solid rgba(0, 0, 0, 0.05);
-    pointer-events: auto; /* Mengaktifkan kembali fungsi klik khusus di dalam kotak ini */
+    pointer-events: auto;
     transition: all 0.3s ease;
 }
 
-.hanging-search-box:hover {
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-}
-
-/* Form di dalam kotak menggantung */
-.hanging-search-box form {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.search-icon {
-    color: #9ca3af;
-    margin-left: 8px;
-    flex-shrink: 0;
-}
-
+/* Input agar lebih ringkas */
 .hanging-search-box input {
-    flex: 1;
+    width: 100%; /* Mengisi sisa ruang */
     border: none;
     background: transparent;
     outline: none;
-    font-size: 14px;
+    font-size: 13px; /* Font sedikit lebih kecil */
     color: #374151;
-    padding: 6px 0;
 }
 
-.hanging-search-box input::placeholder {
-    color: #9ca3af;
-}
-
+/* Tombol Cari - bisa disembunyikan jika ingin sangat minimalis, 
+   atau diperkecil padding-nya */
 .hanging-search-box button {
-    background-color: #2563eb; /* Sesuaikan warna tema TSHoliday */
+    background-color: #2563eb;
     color: #ffffff;
     border: none;
-    padding: 8px 18px;
-    border-radius: 30px;
-    font-size: 14px;
-    font-weight: 500;
+    padding: 4px 12px; /* Padding diperkecil */
+    border-radius: 20px;
+    font-size: 12px;
     cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.hanging-search-box button:hover {
-    background-color: #1d4ed8;
 }
 
 
