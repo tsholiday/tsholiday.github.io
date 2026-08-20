@@ -4,64 +4,79 @@
 
 
 /* SERACH PENCARIAN Styling untuk pembungkus bar pencarian di bawah navbar */
-.navbar-search-bar {
-    background-color: #ffffff; /* Sesuaikan dengan warna background header kamu */
-    padding: 10px 20px;
-    border-bottom: 1px solid #eaeaea;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    position: sticky;
-    top: 60px; /* Sesuaikan dengan tinggi navbar utamamu jika bernavigasi sticky */
-    z-index: 99;
-}
-
-.search-container {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.search-container form {
+/* Container pembungkus area bawah navbar */
+.navbar-hanging-search {
+    position: relative;
+    width: 100%;
     display: flex;
-    align-items: center;
-    background-color: #f3f4f6;
-    border-radius: 9999px; /* Membuat bentuknya lonjong/pill */
-    padding: 6px 16px;
-    border: 1px solid transparent;
+    justify-content: center;
+    z-index: 98;
+    pointer-events: none; /* Supaya area kosong di sampingnya tetap bisa diklik tembus ke bawah */
+}
+
+/* Kotak pencarian yang 'menggantung' */
+.hanging-search-box {
+    position: absolute;
+    top: -22px; /* Nilai minus ini yang bikin kotak posisinya naik dan 'menggantung' di garis bawah navbar */
+    width: 90%;
+    max-width: 550px;
+    background: #ffffff;
+    padding: 8px 12px;
+    border-radius: 50px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Bayangan lembut agar terlihat melayang */
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    pointer-events: auto; /* Mengaktifkan kembali fungsi klik khusus di dalam kotak ini */
     transition: all 0.3s ease;
 }
 
-.search-container form:focus-within {
-    background-color: #ffffff;
-    border-color: #2563eb; /* Warna aksen (bisa disesuaikan dengan warna tema TSHoliday) */
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+.hanging-search-box:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
-.search-container input {
+/* Form di dalam kotak menggantung */
+.hanging-search-box form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-icon {
+    color: #9ca3af;
+    margin-left: 8px;
+    flex-shrink: 0;
+}
+
+.hanging-search-box input {
     flex: 1;
     border: none;
     background: transparent;
     outline: none;
     font-size: 14px;
     color: #374151;
+    padding: 6px 0;
 }
 
-.search-container input::placeholder {
+.hanging-search-box input::placeholder {
     color: #9ca3af;
 }
 
-.search-container button {
-    background: transparent;
+.hanging-search-box button {
+    background-color: #2563eb; /* Sesuaikan warna tema TSHoliday */
+    color: #ffffff;
     border: none;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 500;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #4b5563;
-    transition: color 0.2s;
+    transition: background-color 0.2s;
 }
 
-.search-container button:hover {
-    color: #2563eb;
+.hanging-search-box button:hover {
+    background-color: #1d4ed8;
 }
+
+
 
 
 
