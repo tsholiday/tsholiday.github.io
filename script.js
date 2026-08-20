@@ -4,15 +4,9 @@
 function handleSearch(event) {
     event.preventDefault();
     const query = document.getElementById('searchInput').value.trim();
-    
     if (query !== "") {
-        // Contoh: Mengarahkan ke halaman pencarian atau memfilter elemen
-        // Kamu bisa sesuaikan URL tujuan sesuai struktur website GitHub Pages kamu
-        console.log("Mencari:", query);
-        alert("Fitur pencarian untuk: " + query);
-        
-        // Contoh jika ingin diarahkan ke halaman pencarian khusus:
-        // window.location.href = `/search.html?q=${encodeURIComponent(query)}`;
+        // Sesuaikan aksi pencarian di sini (misal filter atau redirect)
+        alert("Mencari: " + query);
     }
 }
 
