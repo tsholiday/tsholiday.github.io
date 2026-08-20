@@ -18,7 +18,7 @@
     if (mobileToggle && navContainer) {
         mobileToggle.addEventListener('click', (e) => {
             e.stopPropagation();
-            navContainer.classList.toggle('active');
+            navContainer.classList.toggle('active'); 
             
             if (navContainer.classList.contains('active')) {
                 toggleIcon.classList.remove('fa-bars');
