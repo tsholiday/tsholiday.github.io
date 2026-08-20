@@ -2,6 +2,71 @@
    TSHOLIDAY GLOBAL STYLES
    ========================================================================== */
 
+
+/* SERACH PENCARIAN Styling untuk pembungkus bar pencarian di bawah navbar */
+.navbar-search-bar {
+    background-color: #ffffff; /* Sesuaikan dengan warna background header kamu */
+    padding: 10px 20px;
+    border-bottom: 1px solid #eaeaea;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 60px; /* Sesuaikan dengan tinggi navbar utamamu jika bernavigasi sticky */
+    z-index: 99;
+}
+
+.search-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-container form {
+    display: flex;
+    align-items: center;
+    background-color: #f3f4f6;
+    border-radius: 9999px; /* Membuat bentuknya lonjong/pill */
+    padding: 6px 16px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.search-container form:focus-within {
+    background-color: #ffffff;
+    border-color: #2563eb; /* Warna aksen (bisa disesuaikan dengan warna tema TSHoliday) */
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.search-container input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 14px;
+    color: #374151;
+}
+
+.search-container input::placeholder {
+    color: #9ca3af;
+}
+
+.search-container button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4b5563;
+    transition: color 0.2s;
+}
+
+.search-container button:hover {
+    color: #2563eb;
+}
+
+
+
+
+
 /* 1. Glassmorphism Navbar (Desktop & Mobile) */
 .glass-navbar {
     background: rgba(255, 255, 255, 0.25) !important;
