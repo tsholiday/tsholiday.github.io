@@ -99,19 +99,24 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             </div>
 
-<!-- Tambahan: Bar Pencarian di bawah Navbar -->
-<div class="navbar-search-bar">
-    <div class="search-container">
+</div>
+<!-- Navbar Utama -->
+<nav class="navbar">
+    <!-- Isi menu & logo -->
+</nav>
+
+<!-- Kotak Pencarian yang Menggantung di Bawah Navbar -->
+<div class="navbar-hanging-search">
+    <div class="hanging-search-box">
         <form id="searchForm" onsubmit="handleSearch(event)">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
             <input 
                 type="text" 
                 id="searchInput" 
-                placeholder="Cari paket wisata, armada, atau artikel..." 
+                placeholder="Cari artikel, destinasi, atau paket wisata..." 
                 autocomplete="off"
             >
-            <button type="submit">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            </button>
+            <button type="submit">Cari</button>
         </form>
     </div>
 </div>
