@@ -7,7 +7,6 @@
    TSHOLIDAY GLOBAL SCRIPT (SUBFOLDER VERSION)
    ========================================================================== */
 
-document.addEventListener('DOMContentLoaded', () => {
 
     /* ==========================================================
        1. MOBILE MENU & GLASSMORPHISM TOGGLE
